@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/74504d8101.js" crossorigin="anonymous"></script>
-<script src="https://cdn.usefathom.com/script.js" data-site="KLVIAPIB" defer></script>
+
 <style>
 * {
   box-sizing: border-box;
@@ -59,7 +59,7 @@ body, html {
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
     float: right;
@@ -67,7 +67,7 @@ body, html {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -84,13 +84,19 @@ body, html {
 
 .header {
   text-align: center;
-  padding: 120px;
+  padding-top: 120px;
 }
 
-p.intro {
+p.courses {
   display:block;
-  margin: 75px 300px 0px 300px ;
-  text-align: justify;
+  margin: 30px 300px 10px 300px ;
+  text-align: left;
+}
+
+p.courses2 {
+  display:block;
+  margin: 30px 300px 230px 300px ;
+  text-align: left;
 }
 
 h2 {
@@ -103,9 +109,35 @@ h2 {
   min-width: auto;
 }
 
-@media screen and (max-width: 1300px) {
-  p.intro, h2 {
-    margin: 50px 10px 100px 10px;
+h3 {
+  display: block;
+  font-weight: normal;
+  text-align: left;
+  margin: 75px 300px 0px 300px ;
+  min-width: auto;
+}
+
+h4 {
+  display: block;
+  font-weight: normal;
+  text-align: left;
+  margin: 50px 300px 0px 300px ;
+  min-width: auto;
+}
+
+@media screen and (max-width: 1000px) {
+  p.courses {
+    margin: 30px 10px 10px 10px;
+  }
+  p.courses2 {
+    margin: 30px 10px 230px 10px
+  }
+  h2 {
+    margin: 30px 10px 30px 10px;
+  }
+  h3, h4 {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 
@@ -153,8 +185,15 @@ footer {text-align: center;
 <div class="header" id="myHeader">
   <h1 style="font-weight: normal">Teaching</h1>
   <h2></h2>
-  <p class="intro">This page is currently under construction. An update to this
-                    page can be expected by the end of 2022.</p>
+</div>
+
+<div>
+  <h3 style="font-size: 21px; color: black">Teaching Assistant</h3>
+    <p style="font-size: 18px" class="courses">Environmental Challenges
+  (Undergraduate) [<a href = "https://www.dropbox.com/s/5jcapuea6xt503m/51942-20223_POSC-265%20Environmental%20Challenges%20%2851942%29_Alcocer_ac995ec4-a74f-435d-8db7-d79b6a37f5e5en-US.pdf?dl=0">Teaching Evaluations</a>]</p>
+  <h4 style="font-size: 21px; color: black">Workshops and Summer Schools</h4>
+    <p style="font-size: 18px" class="courses2">Introduction to Data Science: Statistical programming
+  in R [<a href = "https://github.com/alcocer-jj/Intro-to-Programming-with-R">Website</a>]</p>
 </div>
 
 <a onclick="topFunction()" id="to-top">
