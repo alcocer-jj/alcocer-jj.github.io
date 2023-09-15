@@ -40,6 +40,6 @@ p.intro {
 
 @media screen and (max-width: 1000px) {
   p.intro, h3 {
-    margin: 0px 10px 50px 10px;
+    margin: 0px 15px 50px 15px;
   }
 }
