@@ -39,7 +39,7 @@ p.intro {
 }
 
 @media screen and (max-width: 1000px) {
-  p.intro, h3 {
+  p.intro, h2, h3 {
     margin: 0px 15px 50px 15px;
   }
 }
