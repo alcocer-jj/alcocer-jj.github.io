@@ -2,206 +2,62 @@
 
 <html>
 <head>
+
 <title>Alcocerjj | Home</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://kit.fontawesome.com/74504d8101.js" crossorigin="anonymous"></script>
-<script src="https://cdn.usefathom.com/script.js" data-site="KLVIAPIB" defer></script>
-<style>
+<link rel="stylesheet" href="css/academicons.min.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/style.css">
 
-html {
-  scroll-behavior: smooth;
-}
-
-a {
-  color: coral;
-  text-decoration: none
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-body, html {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color:  #FAF9F6;
-  height: 100%
-}
-
-/* background-color for page and footer when in darkmode: #080808 */
-
-.topnav {
-  overflow: hidden;
-  background-color: #333333;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.topnav a {
-  float: left;
-  display: block;
-  color: gray;
-  text-align: center;
-  padding: 16px 16px;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-.topnav a:hover {
-  background-color: #333333;
-  color: white;
-}
-
-.topnav a.active {
-  background-color: #1a1a1a;
-  color: white;
-}
-
-.topnav .icon {
-  display: none;
-}
-
-@media screen and (max-width: 900px) {
-  .topnav a:not(:first-child) {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-.topnav.responsive a {
-  float: none;
-  display: block;
-  text-align: center;
-  }
-}
-
-.background-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("imgs/Enlight151.png");
-  height: 60%;
-  background-position: 100% 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: -1;
-}
-
-.icons {padding: 8px;
-    font-size: 30px;
-     width: 45px;
-     text-align: center;
-     text-decoration: none;
-     color: white;}
-
-.icons:hover {
-  transform: scale(1.3);
-  text-decoration: none;
-}
-
-h2 {
-  display: block;
-  font-weight: normal;
-  text-align: center;
-  padding-top: 100px}
-
-h3 {
-  display: block;
-  font-weight: normal;
-  text-align: center;
-  padding-top: 100px;
-  border-bottom: 1px solid black;
-  margin: 30px 260px;
-  min-width: auto;
-}
-
-p.indent-quote{
-  text-align: center
-}
-
-p.intro {
-  display:block;
-  margin: 0px 300px 50px 300px ;
-  text-align: justify;
-}
-
-@media screen and (max-width: 1000px) {
-  p.intro, h3 {
-    margin: 0px 10px 50px 10px;
-  }
-}
-
-#to-top {
-  background: transparent;
-  position: fixed;
-  bottom: 16px;
-  right: 32px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 32px;
-  text-decoration: none;
-  opacity: 1;
-  pointer-events: auto;
-  transition: all .4s;
-}
-
-#to-top:hover {
-  color: black;
-}
-
-footer {text-align: center;
-        padding: 2px;
-        background-color: #FAF9F6;
-        color: black;
-        font-size: 13px}
-</style>
 </head>
 
-<body>
+<body class="">
 
 <div class="topnav" id="myTopnav">
-  <a style="color: white; font-size: 17px">Jose J Alcocer</a>
+  <a href="index.html" href="index.html" style="color: white; font-size: 17px">Jose J Alcocer</a>
   <a href="index.html" class="active">Home</a>
   <a href="research.html">Research</a>
   <a href="teaching.html">Teaching</a>
   <a href="photography.html">Photography</a>
   <a href="pdfs/alcocerjj_cv.pdf">CV</a>
+
+  <a id="themeToggle" class="dark icon" style="display: block;"><i class="fa-solid fa-moon"></i></a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
 </div>
 
-<div class="background-image"
-  <div style="background-size:cover; height:450px; padding-top:200px;
-              text-align:center;">
-    <img src="https://pbs.twimg.com/profile_images/1686956681442549760/Aq5aoWZz_400x400.jpg"
+<div class="background-image">
+  <div style="background-size:cover; height:400px; padding-top:150px; text-align:center;">
+    <img src="imgs/headshot.jpg"
          alt="Avatar" class="avatar-image" style="height:200px; border-radius: 50%;
-         border: 2px solid #333;">
-    <h1 style="font-size:25px; font-weight: normal;color:white; margin:10px;">José Javier Alcocer, MPP</h1>
-      <p style="font-size:15px; color: white;">Doctoral Candidate of American
+         border: 2px solid #000;">
+    <h1 style="font-size:25px; font-weight: normal; margin:10px;">José Javier Alcocer, MPP</h1>
+      <p style="font-size:15px; color: grey">Doctoral Candidate of American
           Politics and Computational Social Science</p>
-      <p style="font-size:15px; color: white;"><em>University of Southern California </em></p>
+      <p style="font-size:15px;"> <a href="https://www.usc.edu/"> <em>University of Southern California </em> </a></p>
       <a href="mailto:alcocer@usc.edu" class="fa fa-envelope fa-2x icons"></a>
       <a href="https://twitter.com/alcocerjj_" class="fa-brands fa-x-twitter fa-2x icons"></a>
       <a href="https://github.com/alcocer-jj" class="fa fa-github fa-2x icons"></a>
-      <a href="https://scholar.google.es/citations?hl=en&user=C7AY6mUAAAAJ" class="fa fa-solid fa-graduation-cap icons"></a>
+      <a href="https://scholar.google.es/citations?hl=en&user=C7AY6mUAAAAJ" class="ai ai-google-scholar-square icons"></a>
+      <a href="https://alcocerjj.youcanbook.me/" class="fa-solid fa-calendar-plus icons"></a>
   </div>
 </div>
 
 <div>
+  <h3></h3>
+
   <h2><i>"It is our choices...that show what we truly are, far more than
           our abilities."</i></h2>
       <p class="indent-quote">- Albus Percival Wulfric Brian Dumbledore</p>
-</div>
-<div>
+
+<div style="display: flex; flex-direction: column;">
   <h3></h3>
-  <p style="font-size: 18px; color: black; padding-top: 25px" class="intro">
+  <p style="font-size: 18px; padding-top: 25px" class="intro">
         Hi and welcome! I am
         currently a fourth-year doctoral candidate at the University of Southern
         California’s <a href="https://dornsife-poir.usc.edu/">Department
@@ -231,37 +87,9 @@ footer {text-align: center;
   <p> © Jose Alcocer 2022-2023 | Shoutout to <a href ="https://www.w3schools.com/">W3Schools</a>, and Youtube tutorials</p>
 </footer>
 
-<script>
-// sandwich topnav
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-
-// Get the button
-let mybutton = document.getElementById("to-top");
-
-// When the user scrolls down 500 pixels from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-</script>
+<script src="main.js"></script>
+<script src="https://kit.fontawesome.com/74504d8101.js" crossorigin="anonymous"></script>
+<script src="https://cdn.usefathom.com/script.js" data-site="KLVIAPIB" defer></script>
 
 </body>
 </html>

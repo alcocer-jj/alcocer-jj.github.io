@@ -1,188 +1,29 @@
 <!DOCTYPE html>
+
 <html>
 <head>
+
 <title>Alcocerjj | Teaching</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://kit.fontawesome.com/74504d8101.js" crossorigin="anonymous"></script>
-<script src="https://cdn.usefathom.com/script.js" data-site="KLVIAPIB" defer></script>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/teaching.css">
+<link rel="stylesheet" href="css/style.css">
 
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-a {
-  color: coral;
-  text-decoration: none
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-body, html {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color:  #FAF9F6;
-  height: 100%
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.topnav a {
-  float: left;
-  display: block;
-  color: gray;
-  text-align: center;
-  padding: 16px 16px;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-.topnav a:hover {
-  background-color: #333;
-  color: white;
-}
-
-.topnav a.active {
-  background-color: #1a1a1a;
-  color: white;
-}
-
-.topnav .icon {
-  display: none;
-}
-
-@media screen and (max-width: 900px) {
-  .topnav a:not(:first-child) {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-
-.topnav.responsive a {
-  float: none;
-  display: block;
-  text-align: center;
-  }
-}
-
-.header {
-  text-align: center;
-  padding-top: 120px;
-}
-
-p.courses {
-  display:block;
-  margin: 30px 300px 10px 300px ;
-  text-align: left;
-}
-
-p.courses2 {
-  display:block;
-  margin: 30px 300px 230px 300px ;
-  text-align: left;
-}
-
-h2 {
-  display: block;
-  font-weight: normal;
-  text-align: center;
-  padding-top: 25px;
-  border-bottom: 1px solid black;
-  margin: 30px 260px;
-  min-width: auto;
-}
-
-h3 {
-  display: block;
-  font-weight: normal;
-  text-align: left;
-  margin: 75px 300px 0px 300px ;
-  min-width: auto;
-}
-
-h4 {
-  display: block;
-  font-weight: normal;
-  text-align: left;
-  margin: 50px 300px 0px 300px ;
-  min-width: auto;
-}
-
-@media screen and (max-width: 1000px) {
-  p.courses {
-    margin: 30px 10px 10px 10px;
-  }
-  p.courses2 {
-    margin: 30px 10px 230px 10px
-  }
-  h2 {
-    margin: 30px 10px 30px 10px;
-  }
-  h3, h4 {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
-
-#to-top {
-  background: transparent;
-  position: fixed;
-  bottom: 16px;
-  right: 32px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 32px;
-  text-decoration: none;
-  opacity: 0;
-  pointer-events: auto;
-  transition: all .4s;
-}
-
-#to-top:hover {
-  color: black;
-}
-
-footer {text-align: center;
-        padding: 2px;
-        background-color: #FAF9F6;
-        color: black;
-        font-size: 13px}
-</style>
 </head>
 
 <body>
 
 <div class="topnav" id="myTopnav">
-  <a style="color: white; font-size: 17px">Jose J Alcocer</a>
+  <a href="index.html" style="color: white; font-size: 17px">Jose J Alcocer</a>
   <a href="index.html">Home</a>
   <a href="research.html">Research</a>
   <a href="teaching.html" class="active">Teaching</a>
   <a href="photography.html">Photography</a>
   <a href="pdfs/alcocerjj_cv.pdf">CV</a>
+  <a id="themeToggle" class="dark icon" style="display: block;"><i class="fa-solid fa-moon"></i></a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
@@ -193,16 +34,17 @@ footer {text-align: center;
   <h2></h2>
 </div>
 
+
+
 <div>
-  <h3 style="font-size: 21px; color: black">Teaching Assistant</h3>
+  <h3 style="font-size: 21px;">Teaching Assistant</h3>
     <p style="font-size: 18px" class="courses">Environmental Challenges
   (Undergraduate) </p>
     <p style="font-size: 18px" class="courses">Ideology and Conflict
       (Undergraduate) </p>
-  <h4 style="font-size: 21px; color: black">Workshops and Summer Schools</h4>
+  <h4 style="font-size: 21px; ">Workshops and Summer Schools</h4>
     <p style="font-size: 18px" class="courses">Python for Social Science [<a href = "PythonWorkshop.html">Website</a>]</p>
-      <p style="font-size: 18px" class="courses2">Introduction to Data Science: Statistical programming
-  in R [<a href = "https://github.com/alcocer-jj/Intro-to-Programming-with-R">Website</a>]</p>
+      <p style="font-size: 18px" class="courses2">Introduction to Statistical programming in R [<a href = "https://github.com/alcocer-jj/Intro-to-Programming-with-R">Website</a>]</p>
 </div>
 
 <a onclick="topFunction()" id="to-top">
@@ -213,36 +55,9 @@ footer {text-align: center;
   <p> © Jose Alcocer 2022-2023 | Shoutout to <a href ="https://www.w3schools.com/">W3Schools</a>, and Youtube tutorials</p>
 </footer>
 
-<script>
+<script src="main.js"></script>
+<script src="https://kit.fontawesome.com/74504d8101.js" crossorigin="anonymous"></script>
+<script src="https://cdn.usefathom.com/script.js" data-site="KLVIAPIB" defer></script>
 
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-
-// Get the button
-let mybutton = document.getElementById("to-top");
-
-// When the user scrolls down 500 pixels from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-</script>
 </body>
 </html>

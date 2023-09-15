@@ -1,0 +1,39 @@
+
+/* Dark mode */
+body.dark-mode,
+body.dark-mode div,
+body.dark-mode footer{
+    background-color: #121212 ;
+    color: #ffffff ;
+}
+body.dark-mode button{
+    color: #ffffff;
+}
+body.dark-mode .courses2{
+    background:#121212 !important;
+    color: #ffffff;
+    flex-direction: column;
+    margin: auto;
+}
+body.dark-mode .topnav{
+    background-color: #333333;
+}
+@media(min-width:900px) {
+.topnav{
+    display: flex;
+    justify-content: space-between;
+}}
+.dark.icon{
+    margin: 0px !important;
+    margin-left: auto !important;
+    cursor: pointer;
+    user-select: none;
+    color: #ffffff;
+    background-color: #1c1d1f;
+}
+.dark.icon:hover{
+    background-color: #1c1d1f;
+}
+.icon{
+    background-color: #333333;
+}

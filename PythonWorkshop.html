@@ -7,9 +7,16 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/style.css">
+
+<script src="main.js"></script>
 <script src="https://kit.fontawesome.com/74504d8101.js" crossorigin="anonymous"></script>
 <script src="https://cdn.usefathom.com/script.js" data-site="KLVIAPIB" defer></script>
+
+
 <title>Python for Social Science Workshop Materials</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
@@ -343,7 +350,7 @@ html {
 }
 
 a {
-  color: coral;
+  color: #77BFC7;
   text-decoration: none
 }
 
@@ -354,7 +361,7 @@ a:hover {
 body, html {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color:  #FAF9F6;
+  background-color:  #fffefc;
   height: 100%
 }
 
@@ -418,31 +425,6 @@ body, html {
   padding-top: 120px;
 }
 
-#to-top {
-  background: transparent;
-  position: fixed;
-  bottom: 16px;
-  right: 32px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 32px;
-  text-decoration: none;
-  opacity: 0;
-  pointer-events: auto;
-  transition: all .4s;
-}
-
-#to-top:hover {
-  color: black;
-}
-
-footer {text-align: center;
-        padding-top: 50px;
-        padding-bottom: 2px;
-        background-color: #FAF9F6;
-        color: black;
-        font-size: 13px}
 </style>
 
 <!-- code folding -->
@@ -454,12 +436,13 @@ footer {text-align: center;
 
 
   <div class="topnav" id="myTopnav">
-    <a style="color: white; font-size: 17px">Jose J Alcocer</a>
-    <a href="index.html">Home</a>
+    <a href="index.html" href="index.html" style="color: white; font-size: 17px">Jose J Alcocer</a>
+    <a href="index.html" class="active">Home</a>
     <a href="research.html">Research</a>
-    <a href="teaching.html" class="active">Teaching</a>
+    <a href="teaching.html">Teaching</a>
     <a href="photography.html">Photography</a>
     <a href="pdfs/alcocerjj_cv.pdf">CV</a>
+  
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars"></i>
     </a>
@@ -606,40 +589,6 @@ Edition.</li>
 <footer>
   <p> © Jose Alcocer 2022-2023 | Shoutout to <a href ="https://www.w3schools.com/">W3Schools</a>, and Youtube tutorials</p>
 </footer>
-
-<script>
-
-  function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
-  }
-  
-  // Get the button
-  let mybutton = document.getElementById("to-top");
-  
-  // When the user scrolls down 500 pixels from the top of the document, show the button
-  window.onscroll = function() {scrollFunction()};
-  
-  function scrollFunction() {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-      mybutton.style.display = "block";
-    } else {
-      mybutton.style.display = "none";
-    }
-  }
-  
-  // When the user clicks on the button, scroll to the top of the document
-  function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
-  </script>
-
-
 
 
 <script>

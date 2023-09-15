@@ -1,0 +1,57 @@
+
+* {
+    box-sizing: border-box;
+  }
+  
+  .header {
+    text-align: center;
+    padding-top: 120px;
+  }
+  
+  p.intro {
+    display:block;
+    margin: 75px 300px 50px 300px ;
+    text-align: justify;
+  }
+  
+  p.courses2 {
+    display:block;
+    margin: 30px 300px 80px 300px ;
+    text-align: left;
+  }
+  
+  h2 {
+    display: block;
+    font-weight: normal;
+    text-align: center;
+    padding-top: 25px;
+    border-bottom: 1px solid ;
+    margin: 30px 260px;
+    min-width: auto;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    p.intro, h2 {
+      margin: 25px 10px 100px 10px;
+    }
+  }
+  
+  .row {
+    display: -ms-flexbox; /* for IE 10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* for IE 10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Creating two equal columns that sits next to each other */
+  .column {
+    -ms-flex: 25%; /* IE 10 */
+    flex: 25%;
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+  }
