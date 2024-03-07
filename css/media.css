@@ -1,0 +1,74 @@
+
+.header {
+    text-align: center;
+    padding-top: 120px;
+  }
+  
+  .video-container {
+    display: flex; /* Use flexbox to align children */
+    justify-content: center; /* Center children horizontally in the container */
+    margin: 10px 0; /* Add some margin above and below the container */
+  }
+
+  .video-container:first-of-type {
+  margin-bottom: 55px; 
+  }
+
+  .video-container:last-of-type {
+  margin-top: 5px; 
+  padding-bottom: 26%; 
+  }
+
+  p.courses {
+    display:block;
+    padding: 30px 300px 10px 300px ;
+    text-align: center;
+  }
+  
+  p.courses2 {
+    display:block;
+    padding: 30px 300px 230px 300px ;
+    text-align: left;
+  }
+  
+  h2 {
+    display: block;
+    font-weight: normal;
+    text-align: center;
+    padding-top: 25px;
+    border-bottom: 1px solid ;
+    margin: 30px 260px;
+    min-width: auto;
+  }
+  
+  h3 {
+    display: block;
+    font-weight: normal;
+    text-align: center;
+    margin: 75px 300px 10px 300px ;
+    min-width: auto;
+  }
+  
+  h4 {
+    display: block;
+    font-weight: normal;
+    text-align: left;
+    margin: 50px 300px 0px 300px ;
+    min-width: auto;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    p.courses {
+      padding: 30px 10px 10px 10px;
+    }
+    p.courses2 {
+      padding: 30px 10px 230px 10px
+    }
+    h2 {
+      margin: 30px 10px 30px 10px;
+    }
+    h3, h4 {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
