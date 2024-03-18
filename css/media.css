@@ -10,14 +10,20 @@
     margin: 10px 0; /* Add some margin above and below the container */
   }
 
-  .video-container:first-of-type {
-  margin-bottom: 55px; 
+  .video-container1 {
+    display: flex; /* Use flexbox to align children */
+    justify-content: center; /* Center children horizontally in the container */
+    margin: 10px 0; /* Add some margin above and below the container */
+    margin-bottom: 5%;    
+    width: 100%;   
   }
-
-  .video-container:last-of-type {
-  margin-top: 5px; 
-  padding-bottom: 26%; 
-  }
+  .video-container2 {
+    display: flex; /* Use flexbox to align children */
+    justify-content: center; /* Center children horizontally in the container */
+    margin: 10px 0; /* Add some margin above and below the container */
+    margin-bottom: 35%;   
+    width: 100%;
+  }  
 
   p.courses {
     display:block;
@@ -57,7 +63,7 @@
     min-width: auto;
   }
   
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1100px) {
     p.courses {
       padding: 30px 10px 10px 10px;
     }
@@ -70,5 +76,25 @@
     h3, h4 {
       margin-left: 10px;
       margin-right: 10px;
+    }
+    .video-container1 {
+      display: flex; /* Use flexbox to align children */
+      justify-content: center; /* Center children horizontally in the container */
+      margin: 10px 0; /* Add some margin above and below the container */
+      margin-bottom: 15%;   
+      width: 100%;    
+    }
+    .video-container2 {
+      display: flex; /* Use flexbox to align children */
+      justify-content: center; /* Center children horizontally in the container */
+      margin: 10px 0; /* Add some margin above and below the container */
+      margin-bottom: 95%;  
+      width: 100%;     
+    }
+    .video-container3 {
+      display: flex; /* Use flexbox to align children */
+      justify-content: center; /* Center children horizontally in the container */
+      margin: 10px 0; /* Add some margin above and below the container */
+      margin-bottom: 95%;       
     }
   }
