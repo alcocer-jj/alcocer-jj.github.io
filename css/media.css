@@ -3,28 +3,39 @@
     text-align: center;
     padding-top: 120px;
   }
-  
-  .video-container {
-    display: flex; /* Use flexbox to align children */
-    justify-content: center; /* Center children horizontally in the container */
-    margin: 10px 0; /* Add some margin above and below the container */
-  }
+  .responsive-video {
+    position: relative;
+    padding-top: 40%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    margin: auto; /* Centers the video container */
+    max-width: 71%; /* Adjust this to set the maximum width of the video container */
+    margin-top: 3%; /* Adds space above the video */
+    margin-bottom: 5%; /* Adds space below the video */
 
-  .video-container1 {
-    display: flex; /* Use flexbox to align children */
-    justify-content: center; /* Center children horizontally in the container */
-    margin: 10px 0; /* Add some margin above and below the container */
-    margin-bottom: 5%;    
-    width: 100%;   
   }
-  .video-container2 {
-    display: flex; /* Use flexbox to align children */
-    justify-content: center; /* Center children horizontally in the container */
-    margin: 10px 0; /* Add some margin above and below the container */
-    margin-bottom: 35%;   
+  .responsive-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-  }  
-
+    height: 100%;
+  }
+  .responsive-video2 {
+    position: relative;
+    padding-top: 40%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    margin: auto; /* Centers the video container */
+    max-width: 80%; /* Adjust this to set the maximum width of the video container */
+    margin-top: 3%; /* Adds space above the video */
+    margin-bottom: 15%; /* Adds space below the video */
+  }
+  .responsive-video2 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
   p.courses {
     display:block;
     padding: 30px 300px 10px 300px ;
@@ -77,24 +88,22 @@
       margin-left: 10px;
       margin-right: 10px;
     }
-    .video-container1 {
-      display: flex; /* Use flexbox to align children */
-      justify-content: center; /* Center children horizontally in the container */
-      margin: 10px 0; /* Add some margin above and below the container */
-      margin-bottom: 15%;   
-      width: 100%;    
-    }
-    .video-container2 {
-      display: flex; /* Use flexbox to align children */
-      justify-content: center; /* Center children horizontally in the container */
-      margin: 10px 0; /* Add some margin above and below the container */
-      margin-bottom: 95%;  
-      width: 100%;     
-    }
     .video-container3 {
       display: flex; /* Use flexbox to align children */
       justify-content: center; /* Center children horizontally in the container */
       margin: 10px 0; /* Add some margin above and below the container */
       margin-bottom: 95%;       
     }
+    .responsive-video {
+      max-width: 75%; /* Adjust this to set the maximum width on larger screens */
+      margin-top: 20px; /* Adds space above the video */
+      margin-bottom: 15%; /* Adds space below the video */
+    }
+    .responsive-video2 {
+      max-width: 80%; /* Adjust this to set the maximum width on larger screens */
+      margin-top: 20px; /* Adds space above the video */
+      margin-bottom: 35%; /* Adds space below the video */
+    }
   }
+
+  
