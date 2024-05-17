@@ -38,55 +38,700 @@
 
 <p style="font-size: 18px; padding-top: 25px; padding-bottom: 30px" class="intro">All of these photos, with the
   exception of two were taken with a range of iPhones (the oldest being
-  a 11 Pro Max and the newest a 13 Pro Max). I also color graded them
+  a 11 Pro Max and the newest a 15 Pro). I color graded them
   with the <a href="https://www.photoleapapp.com/"> Photoleap App</a>
-  for the iPhone. The two outliers were taken with a NIKON D5200, which
-  is my old DSLR. I decided not to watermark them or place a copyright
-  label because I feel it would ruin the quality and aesthetic I was going
-  for. Feel free to use the photos as wallpaper or whatever else your
-  hearts desire to. I hope y'all enjoy them!</p>
+  for the iPhone.</p>
 
-<div class="row">
-  <div class="column">
-    <img src="imgs/paris7.PNG" style="width:100%">
-    <img src="imgs/paris6.PNG" style="width:100%">
-    <img src="imgs/Knightsbridge1.PNG" style="width:100%">
-    <img src="imgs/paris5.PNG" style="width:100%">
-    <img src="imgs/paris4.PNG" style="width:100%">
-    <img src="imgs/paris3.PNG" style="width:100%">
-    <img src="imgs/niagara3.PNG" style="width:100%">
-    <img src="imgs/niagara.PNG" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="imgs/sign.PNG" style="width:100%">
-    <img src="imgs/syracuse.PNG" style="width:100%">
-    <img src="imgs/syracuse1.PNG" style="width:100%">
-    <img src="imgs/Athens.PNG" style="width:100%">
-    <img src="imgs/paris2.PNG" style="width:100%">
-    <img src="imgs/paris1.PNG" style="width:100%">
-    <img src="imgs/tour.PNG" style="width:100%">
-    <img src="imgs/montmarte2.PNG" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="imgs/paris-street.PNG" style="width:100%">
-    <img src="imgs/IMG_6272.JPG" style="width:100%">
-    <img src="imgs/kensington-xmas.PNG" style="width:100%">
-    <img src="imgs/london-wall.PNG" style="width:100%">
-    <img src="imgs/london-pizza.PNG" style="width:100%">
-    <img src="imgs/usc.jpg" style="width:100%">
-    <img src="imgs/south-bay.PNG" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="imgs/montmarte1.PNG" style="width:100%">
-    <img src="imgs/oc.PNG" style="width:100%">
-    <img src="imgs/Enlight151.png" style="width:100%">
-    <img src="imgs/Enlight150.JPG" style="width:100%">
-    <img src="imgs/Enlight156.jpg" style="width:100%">
-    <img src="imgs/hawaii1.PNG" style="width:100%">
-    <img src="imgs/paris-louvre-starbx.PNG" style="width:100%">
-    <img src="imgs/London-tower.PNG" style="width:100%">
-  </div>
+  <div class="year-buttons">
+    <button id="btnAustria" onclick="filterImages('Austria')">Austria</button>
+    <button id="btnCanada" onclick="filterImages('Canada')">Canada</button>
+    <button id="btnCroatia" onclick="filterImages('Croatia')">Croatia</button>
+    <button id="btnEngland" onclick="filterImages('England')">England</button>
+    <button id="btnFrance" onclick="filterImages('France')">France</button>
+    <button id="btnHungary" onclick="filterImages('Hungary')">Hungary</button>
+    <button id="btnItaly" onclick="filterImages('Italy')">Italy</button>
+    <button id="btnMexico" onclick="filterImages('Mexico')">México</button>
+    <button id="btnNetherlands" onclick="filterImages('Netherlands')">Netherlands</button>
+    <button id="btnNorway" onclick="filterImages('Norway')">Norway</button>
+    <button id="btnPoland" onclick="filterImages('Poland')">Poland</button>
+    <button id="btnSlovakia" onclick="filterImages('Slovakia')">Slovakia</button>
+    <button id="btnUS" onclick="filterImages('US')">U.S.</button>
 </div>
+
+  <div class="row">
+    <div class="gallery">
+      <div class="image-container">
+        <img src="imgs/pv.JPG" style="width:100%" data-site="US">
+        <div class="caption">Palos Verdes (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/chicago3.JPG" style="width:100%" data-site="US">
+        <div class="caption">Chicago (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/chicago2.JPG" style="width:100%" data-site="US">
+        <div class="caption">Chicago (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vancouver8.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Vancouver (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vancouver7.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Vancouver (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vancouver6.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Vancouver (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/victoria3.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Victoria (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/victoria2.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Victoria (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vancouver5.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Vancouver (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vancouver4.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Vancouver (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vancouver3.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Vancouver (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vancouver2.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Vancouver (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vancouver9.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Vancouver (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vancouver.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Vancouver (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/la2.JPG" style="width:100%" data-site="US">
+        <div class="caption">Los Angeles (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/la.JPG" style="width:100%" data-site="US">
+        <div class="caption">Los Angeles (2024)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/cdmx5.JPG" style="width:100%" data-site="Mexico">
+        <div class="caption">CDMX (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/cdmx4.JPG" style="width:100%" data-site="Mexico">
+        <div class="caption">CDMX (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/cdmx3.JPG" style="width:100%" data-site="Mexico">
+        <div class="caption">CDMX (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris12.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris11.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris10.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris9.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris8.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris7.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris6.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris5.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/warsaw12.JPG" style="width:100%" data-site="Poland">
+        <div class="caption">Warsaw (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/warsaw11.JPG" style="width:100%" data-site="Poland">
+        <div class="caption">Warsaw (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/warsaw10.JPG" style="width:100%" data-site="Poland">
+        <div class="caption">Warsaw (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/warsaw9.JPG" style="width:100%" data-site="Poland">
+        <div class="caption">Warsaw (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/warsaw8.JPG" style="width:100%" data-site="Poland">
+        <div class="caption">Warsaw (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/warsaw7.JPG" style="width:100%" data-site="Poland">
+        <div class="caption">Warsaw (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/warsaw6.JPG" style="width:100%" data-site="Poland">
+        <div class="caption">Warsaw (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/warsaw5.JPG" style="width:100%" data-site="Poland">
+        <div class="caption">Warsaw (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/warsaw4.JPG" style="width:100%" data-site="Poland">
+        <div class="caption">Warsaw (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/warsaw3.JPG" style="width:100%" data-site="Poland">
+        <div class="caption">Warsaw (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/warsaw2.JPG" style="width:100%" data-site="Poland">
+        <div class="caption">Warsaw (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/warsaw.JPG" style="width:100%" data-site="Poland">
+        <div class="caption">Warsaw (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/tatra2.JPG" style="width:100%" data-site="Slovakia">
+        <div class="caption">Tatranská Lomnica (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/tatra.JPG" style="width:100%" data-site="Slovakia">
+        <div class="caption">Tatranská Lomnica (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/spis.JPG" style="width:100%" data-site="Slovakia">
+        <div class="caption">Spišské Podhradie (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/bdp11.JPG" style="width:100%" data-site="Hungary">
+        <div class="caption">Budapest (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/bdp10.JPG" style="width:100%" data-site="Hungary">
+        <div class="caption">Budapest (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/bdp9.JPG" style="width:100%" data-site="Hungary">
+        <div class="caption">Budapest (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/bdp8.JPG" style="width:100%" data-site="Hungary">
+        <div class="caption">Budapest (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/bdp7.JPG" style="width:100%" data-site="Hungary">
+        <div class="caption">Budapest (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/bdp6.JPG" style="width:100%" data-site="Hungary">
+        <div class="caption">Budapest (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/bdp5.JPG" style="width:100%" data-site="Hungary">
+        <div class="caption">Budapest (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/bdp4.JPG" style="width:100%" data-site="Hungary">
+        <div class="caption">Budapest (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/bdp3.JPG" style="width:100%" data-site="Hungary">
+        <div class="caption">Budapest (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/bdp2.JPG" style="width:100%" data-site="Hungary">
+        <div class="caption">Budapest (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/bdp.JPG" style="width:100%" data-site="Hungary">
+        <div class="caption">Budapest (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vienna9.JPG" style="width:100%" data-site="Austria">
+        <div class="caption">Vienna (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vienna8.JPG" style="width:100%" data-site="Austria">
+        <div class="caption">Vienna (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vienna7.JPG" style="width:100%" data-site="Austria">
+        <div class="caption">Vienna (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vienna6.JPG" style="width:100%" data-site="Austria">
+        <div class="caption">Vienna (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vienna5.JPG" style="width:100%" data-site="Austria">
+        <div class="caption">Vienna (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vienna4.JPG" style="width:100%" data-site="Austria">
+        <div class="caption">Vienna (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vienna3.JPG" style="width:100%" data-site="Austria">
+        <div class="caption">Vienna (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vienna2.JPG" style="width:100%" data-site="Austria">
+        <div class="caption">Vienna (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/vienna.JPG" style="width:100%" data-site="Austria">
+        <div class="caption">Vienna (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/dubr11.JPG" style="width:100%" data-site="Croatia">
+        <div class="caption">Dubrovnik (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/dubr10.JPG" style="width:100%" data-site="Croatia">
+        <div class="caption">Dubrovnik (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/dubr9.JPG" style="width:100%" data-site="Croatia">
+        <div class="caption">Dubrovnik (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/dubr8.JPG" style="width:100%" data-site="Croatia">
+        <div class="caption">Dubrovnik (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/dubr7.JPG" style="width:100%" data-site="Croatia">
+        <div class="caption">Dubrovnik (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/dubr6.JPG" style="width:100%" data-site="Croatia">
+        <div class="caption">Dubrovnik (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/dubr5.JPG" style="width:100%" data-site="Croatia">
+        <div class="caption">Dubrovnik (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/dubr4.JPG" style="width:100%" data-site="Croatia">
+        <div class="caption">Dubrovnik (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/dubr3.JPG" style="width:100%" data-site="Croatia">
+        <div class="caption">Dubrovnik (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/dubr2.JPG" style="width:100%" data-site="Croatia">
+        <div class="caption">Dubrovnik (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/dubr.JPG" style="width:100%" data-site="Croatia">
+        <div class="caption">Dubrovnik (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/positano8.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Positano (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/positano7.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Positano (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/positano6.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Positano (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/positano5.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Positano (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/positano4.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Positano (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/positano3.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Positano (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/positano2.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Positano (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/positano.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Positano (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/sa.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Sant'Angelo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/rome6.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Rome (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/rome5.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Rome (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/rome4.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Rome (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/rome3.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Rome (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/rome2.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Rome (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/rome.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Rome (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/cagliari4.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Cagliari (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/cagliari3.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Cagliari (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/cagliari2.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Cagliari (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/cagliari.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Cagliari (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/medit2.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Mediterranean Sea (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/medit.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Mediterranean Sea (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/palermo6.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Palermo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/palermo5.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Palermo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/palermo4.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Palermo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/palermo3.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Palermo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/palermo2.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Palermo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/palermo.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Palermo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/milan5.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Milan (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/milan4.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Milan (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/milan3.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Milan (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/milan2.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Milan (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/milan.JPG" style="width:100%" data-site="Italy">
+        <div class="caption">Milan (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/amsterdam4.JPG" style="width:100%" data-site="Netherlands">
+        <div class="caption">Amsterdam (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/amsterdam3.JPG" style="width:100%" data-site="Netherlands">
+        <div class="caption">Amsterdam (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/amsterdam2.JPG" style="width:100%" data-site="Netherlands">
+        <div class="caption">Amsterdam (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/leiden4.JPG" style="width:100%" data-site="Netherlands">
+        <div class="caption">Leiden (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/leiden3.JPG" style="width:100%" data-site="Netherlands">
+        <div class="caption">Leiden (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/leiden2.JPG" style="width:100%" data-site="Netherlands">
+        <div class="caption">Leiden (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/leiden.JPG" style="width:100%" data-site="Netherlands">
+        <div class="caption">Leiden (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/amsterdam.JPG" style="width:100%" data-site="Netherlands">
+        <div class="caption">Amsterdam (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/oslo8.JPG" style="width:100%" data-site="Norway">
+        <div class="caption">Oslo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/oslo7.JPG" style="width:100%" data-site="Norway">
+        <div class="caption">Oslo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/oslo6.JPG" style="width:100%" data-site="Norway">
+        <div class="caption">Oslo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/oslo5.JPG" style="width:100%" data-site="Norway">
+        <div class="caption">Oslo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/oslo4.JPG" style="width:100%" data-site="Norway">
+        <div class="caption">Oslo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/oslo3.JPG" style="width:100%" data-site="Norway">
+        <div class="caption">Oslo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/oslo2.JPG" style="width:100%" data-site="Norway">
+        <div class="caption">Oslo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/oslo.JPG" style="width:100%" data-site="Norway">
+        <div class="caption">Oslo (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/cdmx2.JPG" style="width:100%" data-site="Mexico">
+        <div class="caption">CDMX (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/sd2.PNG" style="width:100%" data-site="US">
+        <div class="caption">San Diego (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/sd.PNG" style="width:100%" data-site="US">
+        <div class="caption">San Diego (2023)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris14.PNG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris15.PNG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris16.PNG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris27.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris28.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris29.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris30.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris31.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris32.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris33.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris34.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris35.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris36.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/toronto3.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Toronto (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/toronto2.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Toronto (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/toronto.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Toronto (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/niagara5.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Niagara Falls (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/niagara4.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Niagara Falls (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/niagara3.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Niagara Falls (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/niagara2.JPG" style="width:100%" data-site="Canada">
+        <div class="caption">Niagara Falls (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/niagara.PNG" style="width:100%" data-site="Canada">
+        <div class="caption">Niagara Falls (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/syracuse2.PNG" style="width:100%" data-site="US">
+        <div class="caption">Syracuse (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/syracuse.PNG" style="width:100%" data-site="US">
+        <div class="caption">Syracuse (2022)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris24.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris23.PNG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris22.PNG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris21.PNG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris20.PNG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris19.PNG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris18.PNG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris17.PNG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris13.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/london9.JPG" style="width:100%" data-site="England">
+        <div class="caption">London (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/london8.JPG" style="width:100%" data-site="England">
+        <div class="caption">London (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/london7.JPG" style="width:100%" data-site="England">
+        <div class="caption">London (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/london6.JPG" style="width:100%" data-site="England">
+        <div class="caption">London (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/london5.JPG" style="width:100%" data-site="England">
+        <div class="caption">London (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/london4.JPG" style="width:100%" data-site="England">
+        <div class="caption">London (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/london3.PNG" style="width:100%" data-site="England">
+        <div class="caption">London (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/london2.PNG" style="width:100%" data-site="England">
+        <div class="caption">London (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/london.PNG" style="width:100%" data-site="England">
+        <div class="caption">London (2021)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris26.JPG" style="width:100%" data-site="France">
+        <div class="caption">Paris (2020)</div>
+      </div>
+      <div class="image-container">
+        <img src="imgs/paris25.jpg" style="width:100%" data-site="France">
+        <div class="caption">Paris (2020)</div>
+      </div>
+
+
+    </div>
+  </div>
 
 <a onclick="topFunction()" id="to-top">
   <i class="fa-solid fa-angle-up"></i>

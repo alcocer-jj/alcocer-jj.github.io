@@ -73,3 +73,44 @@ if (localStorage.getItem('theme') === 'dark') {
   icon.classList.add('fa-sun');
   icon.classList.remove('fa-moon');
 }
+
+// Collapse toggle
+document.querySelectorAll('.collapse-toggle').forEach(item => {
+  item.addEventListener('click', function(e) {
+      e.preventDefault();
+      const collapseElement = document.getElementById(this.href.split("#")[1]);
+      if (collapseElement.classList.contains('collapsed')) {
+          collapseElement.style.height = `${collapseElement.scrollHeight}px`; // Set to its natural height
+          collapseElement.classList.remove('collapsed');
+      } else {
+          collapseElement.style.height = '0px'; // Set height to 0 to collapse
+          collapseElement.classList.add('collapsed');
+      }
+  });
+});
+
+function filterImages(site) {
+  const images = document.querySelectorAll('.gallery .image-container');
+  const currentButton = document.getElementById('btn' + site);
+  const isActive = currentButton.classList.contains('active');
+
+  document.querySelectorAll('.year-buttons button').forEach(btn => {
+      btn.classList.remove('active'); // Remove active class from all buttons
+  });
+
+  if (isActive) {
+      // If the button was already active, show all images
+      images.forEach(container => {
+          container.style.display = 'inline-block'; // Make sure to reset to the default display style
+      });
+      currentButton.classList.remove('active');
+  } else {
+      // Filter images by the selected year
+      currentButton.classList.add('active');
+      images.forEach(container => {
+          const img = container.querySelector('img');
+          container.style.display = img.getAttribute('data-site') === site ? 'inline-block' : 'none';
+      });
+  }
+}
+

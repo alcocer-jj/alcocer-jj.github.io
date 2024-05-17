@@ -1,0 +1,95 @@
+
+  .header {
+    text-align: center;
+    padding-top: 120px;
+  }
+  
+  .header2 {
+    text-align: center;
+    padding-top: 40px;
+  }
+
+  p.courses {
+    display:block;
+    padding: 30px 300px 10px 300px ;
+    text-align: left;
+  }
+  
+  ul.courses {
+    display:block;
+    padding: 20px 300px 100px 300px ;
+    text-align: left;
+  }
+
+  h2 {
+    display: block;
+    font-weight: normal;
+    text-align: center;
+    padding-top: 25px;
+    border-bottom: 1px solid ;
+    margin: 30px 260px;
+    min-width: auto;
+  }
+
+  .panel-group {
+    margin: 20px 300px 20px 300px;
+}
+
+  .panel {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+  .panel-heading {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+  .panel-title a {
+    display: block;
+    color: black;
+    text-decoration: underline;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+  .panel-collapse {
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+    padding: 12px; /* Always include padding */
+    height: auto; /* Start as expanded */
+}
+
+  .panel-collapse.collapsed {
+    height: 0; /* Height when collapsed */
+    padding: 0 12px; /* Remove padding when collapsed */
+}
+
+@media screen and (max-width: 1100px) {
+  p.courses {
+      padding: 30px 10px 10px 10px;
+  }
+  p.courses2 {
+      padding: 30px 10px 230px 10px;
+  }
+  h2 {
+      margin: 30px 10px;
+  }
+  h3, h4 {
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+  ul.courses {
+      padding: 0px 10px 100px 40px; /* Adjusted for consistency */
+  }
+  .panel-group {
+      margin: 20px 10px;
+  }
+  .panel {
+      margin-bottom: 10px;
+  }
+}

@@ -93,7 +93,6 @@ h4 {
 
 .collapsible:after {
   content: '\002B' ;
-  color: white;
   font-weight: bold;
   float: right;
   margin-left: 5px;
@@ -125,4 +124,8 @@ display: block;
 margin-left: auto;
 margin-right: auto;
 width: 90%;
+}
+
+button {
+  color: #77BFC7;
 }
