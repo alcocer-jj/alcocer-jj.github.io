@@ -1,85 +1,331 @@
-
+/* ================= GLOBAL STYLES ================ */
 html {
     scroll-behavior: smooth;
-  }
-  
-  a {
-    color: #77BFC7;
-    text-decoration: none
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  html, body {
+}
+
+body {
+    scroll-behavior: smooth;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+    background-color: #faf9f9;
+    color: #1a1a1a;
+    padding-top: 0.1px;
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: none;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+body.page-loaded {
+    opacity: 1;
+}
+
+a {
+    color: #966e6d;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* ================= NAVBAR STYLES ================ */
+.mobile-only {
+    display: none !important;
+}
+
+.mobile-menu {
+    display: none !important;
+}
+
+.desktop-only {
+    display: flex !important;
+}
+
+.topnav {
+    background-color: #faf9f9;
+    outline-color: none !important;
+    padding-top: 7px;
+    padding-bottom: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.7s ease-in, transform 0.7s ease;
+}
+
+body.page-loaded .topnav {
+    opacity: 1;
+}
+
+.left-nav {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: 41px;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 58px;
+}
+
+.right-nav > .desktop-only {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.topnav-name {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 26px;
+    font-weight: normal;
+    margin-top: 4px;
+    text-decoration: none !important;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.topnav-name:hover {
+    text-decoration: none !important;
+}
+
+.topnav.hidden {
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    color: #1a1a1a;
+    background-color: none !important;
+    height: 0;
+    width: auto;
+    text-transform: uppercase;
+    padding: 20px 18px;
+    margin-top: 8px;
+    font-size: 14px;
+    border: none !important;
+    outline: none !important;
+    background-color: none !important;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.nav-btn.active {
+    color: #1a1a1a;
+    border: none;
+    text-decoration: none;
+}
+
+.toggle-btn {
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: sans-serif;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.icon-button {
+    font-size: 1.4rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ================= THEME TOGGLE STYLES ================ */
+.st-sunMoonThemeToggleBtn {
+    position: relative;
+    cursor: pointer;
+    width: 1.7em;
+    height: 1.7em;
+    color: black;
+    font-size: 14px;
+}
+
+.st-sunMoonThemeToggleBtn:hover {
+    position: relative;
+    cursor: pointer;
+    width: 1.7em;
+    height: 1.7em;
+    color: black;
+}
+
+.themeToggleInput {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
-    width: 100%;
-    box-sizing: border-box;
+    opacity: 0;
+    cursor: pointer;
 }
-  
 
-  .topnav {
-    overflow: hidden;
-    background-color: #1a1a1a; /* Ensure the background color fills the whole navbar */
-    position: fixed;           /* Fix the position at the top */
+.st-sunMoonThemeToggleBtn svg {
+    position: absolute;
     top: 0;
-    left: 0;                    /* Align the navbar to the left edge */
-    right: 0;
-    width: 100%;                /* Set width to full screen */
-    z-index: 1000;
-    margin: 0;                  /* Ensure there's no external margin */
-    padding: 0;                 /* Remove padding to align the edges */
-    box-sizing: border-box;     /* Ensure padding doesn’t affect the width */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease;
+    transform: rotate(40deg);
 }
 
-  
-  .topnav a {
-    float: left;
-    display: block;
-    color: grey;
-    text-align: center;
-    padding: 16px 16px;
-    text-decoration: none;
-    font-size: 15px;
-    margin: 0;
-  }
-  
-  .topnav a:hover {
-    color: white;
-  }
-  
-  .topnav a.active {
-    background-color: #1a1a1a;
-    color: white;
-  }
-  
-  .topnav .icon {
-    display: none;
-  }
-  
-  @media screen and (max-width: 850px) {
-    .topnav a:not(:first-child) {display: none;}
-    .topnav a.icon {
-      float: right;
-      display: block;
+.st-sunMoonThemeToggleBtn svg .sunMoon {
+    transform-origin: center center;
+    transition: inherit;
+    transform: scale(1);
+}
+
+.st-sunMoonThemeToggleBtn svg .sunRay {
+    transform-origin: center center;
+    transform: scale(0);
+}
+
+.st-sunMoonThemeToggleBtn svg mask > circle {
+    transition: transform 0.64s cubic-bezier(0.41, 0.64, 0.32, 1.575);
+    transform: translate(0, 0);
+}
+
+.sunRay2 {
+    animation-delay: 0.05s !important;
+}
+
+.sunRay3 {
+    animation-delay: 0.1s !important;
+}
+
+.sunRay4 {
+    animation-delay: 0.17s !important;
+}
+
+.sunRay5 {
+    animation-delay: 0.25s !important;
+}
+
+.sunRay6 {
+    animation-delay: 0.29s !important;
+}
+
+.themeToggleInput:checked + svg {
+    transform: rotate(90deg);
+}
+
+.themeToggleInput:checked + svg mask > circle {
+    transform: translate(16px, -3px);
+}
+
+.themeToggleInput:checked + svg .sunMoon {
+    transform: scale(0.55);
+}
+
+.themeToggleInput:checked + svg .sunRay {
+    animation: showRay1832 0.4s ease forwards;
+}
+
+@keyframes showRay1832 {
+    from {
+        transform: scale(0);
     }
-    .topnav.responsive {position: relative;}
-    .topnav.responsive .icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-  }
-  
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: center;
+    to {
+        transform: scale(1);
     }
 }
-  
-  #to-top {
+
+.mobile-menu {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: max-height 0.6s ease, opacity 0.6s ease, transform 0.6s ease;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: #faf9f9;
+    padding: 1rem 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    display: flex;
+}
+
+.mobile-menu.open {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding-bottom: 0;
+    gap: 10px;
+    transition: max-height 0.6s ease, opacity 0.6s ease;
+}
+
+.mobile-menu.closing {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.mobile-menu a.nav-btn {
+    width: fit-content;
+}
+
+/* ================= FOOTER ================ */
+.footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem 2rem;
+    background-color: #faf9f9;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: #1a1a1a;
+    border-top: none;
+}
+
+.footer-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 10px;
+}
+
+/* ================= SCROLL‐TO‐TOP BUTTON ================ */
+#to-top {
     background: transparent;
     position: fixed;
     bottom: 16px;
@@ -91,14 +337,203 @@ html {
     text-decoration: none;
     opacity: 1;
     pointer-events: auto;
-    transition: all .4s;
-  }
-  
-  #to-top:hover {
-    color: grey;
-  }
-  
-  footer {text-align: center;
-          padding: 2px;
-          color: black;
-          font-size: 13px}
+    transition: all 0.4s;
+    color: #966E6D;
+    z-index: 1000;
+}
+
+#to-top:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+/* ================= FILM GRAIN EFFECT ================ */
+#noise-bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 400%;
+    height: 400vh;
+    background: transparent url("/Users/josealcocer/Documents/alcocer-jj.github.io/imgs/noise.png") repeat 0 0;
+    background-repeat: repeat;
+    animation: 1s steps(2) infinite noise;
+    pointer-events: none;
+    opacity: 0.26;
+    z-index: 9999;
+}
+
+@keyframes noise {
+    0%,
+    100% {
+        background-position: 0 0;
+    }
+    10% {
+        background-position: -5% -10%;
+    }
+    20% {
+        background-position: -15% 5%;
+    }
+    30% {
+        background-position: 7% -25%;
+    }
+    40% {
+        background-position: 20% 25%;
+    }
+    50% {
+        background-position: -25% 10%;
+    }
+    60% {
+        background-position: 15% 5%;
+    }
+    70% {
+        background-position: 0 15%;
+    }
+    80% {
+        background-position: 25% 35%;
+    }
+    90% {
+        background-position: -10% 10%;
+    }
+}
+
+/* ================= DARK MODE STYLES ================ */
+body.dark-mode,
+body.dark-mode html {
+    background-color: #1a1a1a !important;
+    color: #faf9f9 !important;
+}
+
+body.dark-mode .topnav,
+body.dark-mode .left-nav,
+body.dark-mode .right-nav,
+body.dark-mode .nav-btn,
+body.dark-mode .topnav-name {
+    background-color: #1a1a1a !important;
+    color: #faf9f9 !important;
+}
+
+body.dark-mode .st-sunMoonThemeToggleBtn {
+    color: white;
+}
+
+body.dark-mode .mobile-menu {
+    background: #1a1a1a;
+    outline-color: none !important;
+}
+
+body.dark-mode .footer,
+body.dark-mode .footer-center {
+    background-color: #1a1a1a !important;
+    color: #faf9f9 !important;
+    position: relative;
+}
+
+/* ================= RESPONSIVE STYLES ================ */
+/* TABLET DEVICES */
+@media (max-width: 999px) {
+
+    .desktop-only { display: none !important; }
+    .mobile-only { display: inline-flex !important; }
+    .mobile-menu { display: none; }
+    .mobile-menu.open {
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        flex-direction: column;
+        align-items: center;
+        text-align: center !important;
+        gap: 10px;
+        padding-bottom: 15px;
+    }
+
+    .left-nav {
+        display: none;
+    }
+
+    .right-nav > .desktop-only {
+        display: none;
+    }
+
+    .right-nav {
+        display: flex;
+        align-items: center;
+        margin-right: 37px;
+    }
+
+    .topnav-name {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin-top: 7px;
+        margin-left: 10px;
+        text-align: left;
+    }
+
+    .topnav {        
+        padding: 0px 0px 0px 41px; 
+        transition: opacity 0.45s ease, transform 0.45s ease-in-out;
+        background-color: #faf9f9;        
+        text-align: center;
+    }
+
+    .icon-button {
+        position: relative;
+        margin-top: 7px;
+        width: 50px;
+        height: 50px;
+        padding: 0;
+    }
+        
+    .icon-button i {
+        position: absolute;        
+        top: 50%; left: 50%;        
+        transform: translate(-50%, -50%);        
+        font-size: 25px;         
+        transition: opacity 0.3s ease;
+    }
+
+    .icon-button i.fa-xmark {        
+        opacity: 0;        
+    }
+ 
+    .icon-button.open i.fa-bars {
+        opacity: 0;        
+    }
+        
+    .icon-button.open i.fa-xmark {
+        opacity: 1;        
+    }
+        
+    .st-sunMoonThemeToggleBtn {
+        font-size: 14px;        
+        margin-top: 7px;
+    }
+}   
+
+/* MOBILE DEVICES */
+@media (max-width: 680px) {
+    
+    .topnav {
+        padding: 0px 0px 0px 30px; 
+    }
+
+    .right-nav {
+        display: flex;
+        align-items: center;
+        margin-right: 17px;
+    }
+
+    .topnav-name {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin-top: 7px;
+        margin-left: 0px;
+        text-align: left;
+    }        
+}
+
+

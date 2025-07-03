@@ -1,0 +1,277 @@
+* {
+  box-sizing: border-box;
+}
+
+body.dark-mode .hero,
+body.dark-mode .section-title,
+body.dark-mode .intro-section {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .text_hide {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .text {
+  color: #966E6D !important;
+}
+
+body.dark-mode .text_cursor {
+  background-color: #faf9f9 !important;
+}
+
+body.dark-mode .subtitle {
+  color: #faf9f9 !important;
+}
+
+body.dark-mode .intro-paragraph {
+  color: #faf9f9 !important;
+}
+
+/* ================= HERO SECTION STYLES ================ */
+.hero {
+  opacity: 0;
+  transform: translateY(40px) scaleY(0.95);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  margin: 70px 60px;
+  border-radius: 25px;
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 2rem 6rem;
+  position: relative;
+  min-height: 720px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+body.page-loaded .hero {
+  opacity: 1;
+  transform: translateY(0) scaleY(1);
+}
+
+.hero-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s;
+  transform-origin: top;
+}
+
+body.page-loaded .hero-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero .name {
+  font-size: 90px;
+  font-weight: normal;
+  color: #1a1a1a;
+  margin: 0.3rem 0;
+  z-index: 2;
+}
+
+.hero .position,
+.hero .institution {
+  font-size: 40px;
+  color: #1a1a1a;
+  text-align: center;
+  margin: 0.2rem 0;
+  z-index: 2;
+  font-family:'Times New Roman', Times, serif !important;
+}
+
+/* ================= HEADER TEXT ================ */
+.text_wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.text {
+  font-size: 90px;
+  position: relative;
+  z-index: 1;
+  color: #966E6D;
+}
+
+.text_hide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #faf9f9;
+  z-index: 2;
+}
+
+.text_cursor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #1a1a1a;
+  z-index: 3;
+}
+
+.subtitle {
+  color: #1a1a1a;
+  font-size: 40px;
+}
+
+.section-title {
+  margin: 18px 60px 0;
+  font-size: 50px;
+  color: #966E6D;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* ================= BODY OF TEXT ================ */
+
+.subtitle-header {
+  text-align: left; 
+  font-size: 20px; 
+  padding: 16px 0px;
+  margin-left: 0px;
+}
+
+.intro-section {
+  padding: 16px 80px;
+  background-color: #faf9f9;
+}
+
+.intro-paragraph{
+  font-size: 20px;
+  text-align: left;
+  padding: 16px 0px;
+  color: #1a1a1a;
+  margin-bottom: 60px;
+}
+
+/* ================= ABSTRACT TEXT ================ */
+.fancy-abstract-button {
+  margin-top: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+.fancy-abstract-button svg {
+  width: 25px;
+  height: 25px;
+  stroke: #966E6D;
+  fill: none;
+  transition: fill 0.3s ease, stroke 0.3s ease, transform 0.3s ease;
+}
+
+.fancy-abstract-button:hover svg {
+  fill: none
+;
+}
+
+.fancy-abstract-button:active svg {
+  stroke: #966E6D;
+  fill: none;
+  transition-duration: 0s;
+}
+
+.fancy-abstract-button.active svg {
+  transform: rotate(45deg);
+}
+
+.dropdown-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.dropdown-menu.open {
+  max-height: 400px; /* large enough to fit content */
+}
+
+.pub-info {
+  font-size: 20px; 
+  color: #966E6D;
+}
+
+
+/* ================= RESPONSIVE STYLES ================ */
+@media (max-width: 999px) {
+          
+  .hero {  
+    margin-top: 70px;     
+    margin-left: 50px;        
+    margin-right: 50px;      
+  }
+            
+  .hero .text {    
+    font-size: 75px;      
+  }
+
+  .hero .subtitle {        
+    font-size: 30px;      
+  }
+              
+  .intro-section {
+    padding: 16px 80px;      
+  }
+            
+  .intro-paragraph{
+    font-size: 20px;    
+    padding: 16px 0px;      
+  }
+}   
+
+@media (max-width: 680px) {
+              
+  .hero {
+    margin-top: 70px;     
+    margin-left: 30px;        
+    margin-right: 30px;        
+    min-height: 450px;              
+  }
+              
+  .hero .text {    
+    font-size: 75px;     
+  }
+
+  .hero .subtitle {        
+    font-size: 30px;      
+  }
+      
+  .section-title {
+    font-size: 35px;        
+    text-align: center;  
+  }
+      
+  .intro-section {
+    padding: 16px 40px;      
+  }
+      
+  .intro-paragraph{
+    font-size: 20px;    
+    padding: 16px 0px;      
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,751 +2,852 @@
 
 <html>
 <head>
-
-<title>Alcocerjj | Photos</title>
+<title>Alcocerjj | Photography</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/photography.css">
-<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
+<!-- ========= NAVBAR ========= -->
 <div class="topnav" id="myTopnav">
-  <a href="index.html" style="color: white; font-size: 17px">José Javier</a>
-  <a href="index.html">Home</a>
-  <a href="research.html">Research</a>
-  <a href="https://textvizstudio.streamlit.app/">TextViz Studio</a>
-  <a href="teaching.html">Teaching and Code</a>
-  <a href="media.html">Media</a>
-  <a href="photography.html" class="active">Photography</a>
-  <a href="pdfs/alcocerjj_cv.pdf">CV</a>
-  <a id="themeToggle" class="dark icon" style="display: block;"><i class="fa-solid fa-moon"></i></a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
+  <!-- Left nav -->
+  <div class="left-nav desktop-only">
+    <a href="research.html" class="nav-btn">Research</a>
+    <a href="software.html" class="nav-btn">Software</a>
+  </div>
+
+  <!-- Center brand -->
+  <a href="index.html" class="topnav-name">José Javier</a>
+
+  <!-- Right nav -->
+  <div class="right-nav">
+    <div class="desktop-only">
+      <a href="pdfs/alcocerjj_cv.pdf" class="nav-btn">CV</a>
+      <a href="photography.html" class="nav-btn">Photography</a>
+    </div>
+
+    <!-- sun/moon SVG toggle: visible on all screen sizes -->
+    <label
+      for="themeToggle"
+      class="st-sunMoonThemeToggleBtn"
+      aria-label="Toggle light/dark"
+    >
+      <input
+        type="checkbox"
+        id="themeToggle"
+        class="themeToggleInput"
+      />
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        stroke="none"
+      >
+        <mask id="moon-mask">
+          <rect x="0" y="0" width="20" height="20" fill="white"/>
+          <circle cx="11" cy="3" r="8" fill="black"/>
+        </mask>
+        <circle
+          class="sunMoon"
+          cx="10" cy="10"
+          r="8"
+          mask="url(#moon-mask)"
+        />
+        <g>
+          <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"/>
+          <circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"/>
+          <circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"/>
+          <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"/>
+          <circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"/>
+          <circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"/>
+        </g>
+      </svg>
+    </label>
+
+    <!-- Hamburger menu icon: mobile only -->
+    <button id="menuIcon" class="nav-btn toggle-btn mobile-only icon-button">
+      <i class="fa fa-bars"></i>
+      <i class="fa fa-xmark"></i>
+    </button>
+  </div>
 </div>
 
-<div class="header" id="myHeader">
-  <h1 style="font-weight: normal">Photo Gallery</h1>
-  <h2></h2>
+<!-- ========= MOBILE DROPDOWN MENU ========= -->
+<div id="mobileMenu" class="mobile-only mobile-menu">
+  <a href="research.html" class="nav-btn">Research</a>
+  <a href="software.html" class="nav-btn">Software</a>
+  <a href="pdfs/alcocerjj_cv.pdf" class="nav-btn">CV</a>
+  <a href="photography.html" class="nav-btn">Photography</a>
 </div>
 
+<!-- ========= HERO ========= -->
+<section class="hero">
+  <div class="hero-wrapper">
+    <div class="hero-inner">
+      <div class="container">
+        <div class="text_wrapper">
+          <div class="text_hide"></div>
+          <div class="text">Photos</div>
+          <div class="text_cursor"></div>
+        </div>
+        <div class="subtitle">Every image is a self-portrait, even when the photographer is nowhere in frame.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p style="font-size: 18px; padding-top: 25px; padding-bottom: 30px" class="intro">All of these photos, with the
-  exception of two were taken with a range of iPhones (the oldest being
-  a 11 Pro Max and the newest a 15 Pro). I color graded them
-  with the <a href="https://www.photoleapapp.com/"> Photoleap App</a>
-  for the iPhone.</p>
+<h2 class="section-title" style="font-family:'Times New Roman', Times, serif;">
+  Overview
+</h2>
+  <section class="intro-section">
+      <div>
+          <div class="intro-paragraph">
+              <p>
+                I’ve been taking photos for years, but only began sharing them publicly 
+                in 2022. I’m not a professional photographer—just someone who loves the 
+                process. I hope you enjoy viewing these images as much as I enjoyed 
+                capturing them.
+              </p>
+              <p>
+                With the exception of two, all of these stills were taken with 
+                a range of iPhones (the oldest being a 11 Pro Max and the newest 
+                a 15 Pro). I color graded them with the <a href="https://www.photoleapapp.com/"> Photoleap App</a>
+                for the iPhone.
+              </p>
+            </div>
+        </div>
+    </section>
 
-  <div class="year-buttons">
-    <button id="btnAustria" onclick="filterImages('Austria')">Austria</button>
-    <button id="btnCanada" onclick="filterImages('Canada')">Canada</button>
-    <button id="btnCroatia" onclick="filterImages('Croatia')">Croatia</button>
-    <button id="btnEngland" onclick="filterImages('England')">England</button>
-    <button id="btnFrance" onclick="filterImages('France')">France</button>
-    <button id="btnHungary" onclick="filterImages('Hungary')">Hungary</button>
-    <button id="btnItaly" onclick="filterImages('Italy')">Italy</button>
-    <button id="btnMexico" onclick="filterImages('Mexico')">México</button>
-    <button id="btnNetherlands" onclick="filterImages('Netherlands')">Netherlands</button>
-    <button id="btnNorway" onclick="filterImages('Norway')">Norway</button>
-    <button id="btnPoland" onclick="filterImages('Poland')">Poland</button>
-    <button id="btnSlovakia" onclick="filterImages('Slovakia')">Slovakia</button>
-    <button id="btnUS" onclick="filterImages('US')">U.S.</button>
+  <section class="intro-section">
+    <div>
+<div class="filters-wrapper">
+  <!-- Country Filter -->
+  <select id="filter-keywords" multiple data-placeholder="Filter by Country">
+    <option>Austria</option>
+    <option>Canada</option>
+    <option>Croatia</option>
+    <option>England</option>
+    <option>France</option>
+    <option>Greece</option>
+    <option>Hungary</option>
+    <option>Italy</option>
+    <option>Japan</option>
+    <option>Mexico</option>    
+    <option>Netherlands</option>    
+    <option>Norway</option>    
+    <option>Poland</option>
+    <option>Slovakia</option>
+    <option>South Korea</option>    
+    <option>United States</option>
+  </select>
 </div>
 
-  <div class="row">
+<div class="row">
     <div class="gallery">
       <div class="image-container">
-        <img src="imgs/pv.JPG" style="width:100%" data-site="US">
+        <img src="imgs/pv.JPG" style="width:100%" data-keywords="united states">
         <div class="caption">Palos Verdes (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/chicago3.JPG" style="width:100%" data-site="US">
+        <img src="imgs/chicago3.JPG" style="width:100%" data-keywords="united states">
         <div class="caption">Chicago (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/chicago2.JPG" style="width:100%" data-site="US">
+        <img src="imgs/chicago2.JPG" style="width:100%" data-keywords="united states">
         <div class="caption">Chicago (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vancouver8.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/vancouver8.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Vancouver (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vancouver7.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/vancouver7.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Vancouver (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vancouver6.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/vancouver6.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Vancouver (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/victoria3.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/victoria3.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Victoria (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/victoria2.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/victoria2.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Victoria (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vancouver5.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/vancouver5.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Vancouver (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vancouver4.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/vancouver4.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Vancouver (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vancouver3.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/vancouver3.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Vancouver (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vancouver2.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/vancouver2.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Vancouver (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vancouver9.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/vancouver9.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Vancouver (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vancouver.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/vancouver.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Vancouver (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/la2.JPG" style="width:100%" data-site="US">
+        <img src="imgs/la2.JPG" style="width:100%" data-keywords="united states">
         <div class="caption">Los Angeles (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/la.JPG" style="width:100%" data-site="US">
+        <img src="imgs/la.JPG" style="width:100%" data-keywords="united states">
         <div class="caption">Los Angeles (2024)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/cdmx5.JPG" style="width:100%" data-site="Mexico">
+        <img src="imgs/cdmx5.JPG" style="width:100%" data-keywords="mexico">
         <div class="caption">CDMX (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/cdmx4.JPG" style="width:100%" data-site="Mexico">
+        <img src="imgs/cdmx4.JPG" style="width:100%" data-keywords="mexico">
         <div class="caption">CDMX (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/cdmx3.JPG" style="width:100%" data-site="Mexico">
+        <img src="imgs/cdmx3.JPG" style="width:100%" data-keywords="mexico">
         <div class="caption">CDMX (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris12.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris12.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris11.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris11.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris10.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris10.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris9.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris9.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris8.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris8.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris7.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris7.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris6.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris6.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris5.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris5.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/warsaw12.JPG" style="width:100%" data-site="Poland">
+        <img src="imgs/warsaw12.JPG" style="width:100%" data-keywords="poland">
         <div class="caption">Warsaw (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/warsaw11.JPG" style="width:100%" data-site="Poland">
+        <img src="imgs/warsaw11.JPG" style="width:100%" data-keywords="poland">
         <div class="caption">Warsaw (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/warsaw10.JPG" style="width:100%" data-site="Poland">
+        <img src="imgs/warsaw10.JPG" style="width:100%" data-keywords="poland">
         <div class="caption">Warsaw (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/warsaw9.JPG" style="width:100%" data-site="Poland">
+        <img src="imgs/warsaw9.JPG" style="width:100%" data-keywords="poland">
         <div class="caption">Warsaw (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/warsaw8.JPG" style="width:100%" data-site="Poland">
+        <img src="imgs/warsaw8.JPG" style="width:100%" data-keywords="poland">
         <div class="caption">Warsaw (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/warsaw7.JPG" style="width:100%" data-site="Poland">
+        <img src="imgs/warsaw7.JPG" style="width:100%" data-keywords="poland">
         <div class="caption">Warsaw (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/warsaw6.JPG" style="width:100%" data-site="Poland">
+        <img src="imgs/warsaw6.JPG" style="width:100%" data-keywords="poland">
         <div class="caption">Warsaw (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/warsaw5.JPG" style="width:100%" data-site="Poland">
+        <img src="imgs/warsaw5.JPG" style="width:100%" data-keywords="poland">
         <div class="caption">Warsaw (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/warsaw4.JPG" style="width:100%" data-site="Poland">
+        <img src="imgs/warsaw4.JPG" style="width:100%" data-keywords="poland">
         <div class="caption">Warsaw (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/warsaw3.JPG" style="width:100%" data-site="Poland">
+        <img src="imgs/warsaw3.JPG" style="width:100%" data-keywords="poland">
         <div class="caption">Warsaw (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/warsaw2.JPG" style="width:100%" data-site="Poland">
+        <img src="imgs/warsaw2.JPG" style="width:100%" data-keywords="poland">
         <div class="caption">Warsaw (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/warsaw.JPG" style="width:100%" data-site="Poland">
+        <img src="imgs/warsaw.JPG" style="width:100%" data-keywords="poland">
         <div class="caption">Warsaw (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/tatra2.JPG" style="width:100%" data-site="Slovakia">
+        <img src="imgs/tatra2.JPG" style="width:100%" data-keywords="slovakia">
         <div class="caption">Tatranská Lomnica (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/tatra.JPG" style="width:100%" data-site="Slovakia">
+        <img src="imgs/tatra.JPG" style="width:100%" data-keywords="slovakia">
         <div class="caption">Tatranská Lomnica (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/spis.JPG" style="width:100%" data-site="Slovakia">
+        <img src="imgs/spis.JPG" style="width:100%" data-keywords="slovakia">
         <div class="caption">Spišské Podhradie (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/bdp11.JPG" style="width:100%" data-site="Hungary">
+        <img src="imgs/bdp11.JPG" style="width:100%" data-keywords="hungary">
         <div class="caption">Budapest (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/bdp10.JPG" style="width:100%" data-site="Hungary">
+        <img src="imgs/bdp10.JPG" style="width:100%" data-keywords="hungary">
         <div class="caption">Budapest (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/bdp9.JPG" style="width:100%" data-site="Hungary">
+        <img src="imgs/bdp9.JPG" style="width:100%" data-keywords="hungary">
         <div class="caption">Budapest (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/bdp8.JPG" style="width:100%" data-site="Hungary">
+        <img src="imgs/bdp8.JPG" style="width:100%" data-keywords="hungary">
         <div class="caption">Budapest (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/bdp7.JPG" style="width:100%" data-site="Hungary">
+        <img src="imgs/bdp7.JPG" style="width:100%" data-keywords="hungary">
         <div class="caption">Budapest (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/bdp6.JPG" style="width:100%" data-site="Hungary">
+        <img src="imgs/bdp6.JPG" style="width:100%" data-keywords="hungary">
         <div class="caption">Budapest (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/bdp5.JPG" style="width:100%" data-site="Hungary">
+        <img src="imgs/bdp5.JPG" style="width:100%" data-keywords="hungary">
         <div class="caption">Budapest (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/bdp4.JPG" style="width:100%" data-site="Hungary">
+        <img src="imgs/bdp4.JPG" style="width:100%" data-keywords="hungary">
         <div class="caption">Budapest (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/bdp3.JPG" style="width:100%" data-site="Hungary">
+        <img src="imgs/bdp3.JPG" style="width:100%" data-keywords="hungary">
         <div class="caption">Budapest (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/bdp2.JPG" style="width:100%" data-site="Hungary">
+        <img src="imgs/bdp2.JPG" style="width:100%" data-keywords="hungary">
         <div class="caption">Budapest (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/bdp.JPG" style="width:100%" data-site="Hungary">
+        <img src="imgs/bdp.JPG" style="width:100%" data-keywords="hungary">
         <div class="caption">Budapest (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vienna9.JPG" style="width:100%" data-site="Austria">
+        <img src="imgs/vienna9.JPG" style="width:100%" data-keywords="austria">
         <div class="caption">Vienna (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vienna8.JPG" style="width:100%" data-site="Austria">
+        <img src="imgs/vienna8.JPG" style="width:100%" data-keywords="austria">
         <div class="caption">Vienna (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vienna7.JPG" style="width:100%" data-site="Austria">
+        <img src="imgs/vienna7.JPG" style="width:100%" data-keywords="austria">
         <div class="caption">Vienna (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vienna6.JPG" style="width:100%" data-site="Austria">
+        <img src="imgs/vienna6.JPG" style="width:100%" data-keywords="austria">
         <div class="caption">Vienna (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vienna5.JPG" style="width:100%" data-site="Austria">
+        <img src="imgs/vienna5.JPG" style="width:100%" data-keywords="austria">
         <div class="caption">Vienna (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vienna4.JPG" style="width:100%" data-site="Austria">
+        <img src="imgs/vienna4.JPG" style="width:100%" data-keywords="austria">
         <div class="caption">Vienna (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vienna3.JPG" style="width:100%" data-site="Austria">
+        <img src="imgs/vienna3.JPG" style="width:100%" data-keywords="austria">
         <div class="caption">Vienna (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vienna2.JPG" style="width:100%" data-site="Austria">
+        <img src="imgs/vienna2.JPG" style="width:100%" data-keywords="austria">
         <div class="caption">Vienna (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/vienna.JPG" style="width:100%" data-site="Austria">
+        <img src="imgs/vienna.JPG" style="width:100%" data-keywords="austria">
         <div class="caption">Vienna (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/dubr11.JPG" style="width:100%" data-site="Croatia">
+        <img src="imgs/dubr11.JPG" style="width:100%" data-keywords="croatia">
         <div class="caption">Dubrovnik (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/dubr10.JPG" style="width:100%" data-site="Croatia">
+        <img src="imgs/dubr10.JPG" style="width:100%" data-keywords="croatia">
         <div class="caption">Dubrovnik (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/dubr9.JPG" style="width:100%" data-site="Croatia">
+        <img src="imgs/dubr9.JPG" style="width:100%" data-keywords="croatia">
         <div class="caption">Dubrovnik (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/dubr8.JPG" style="width:100%" data-site="Croatia">
+        <img src="imgs/dubr8.JPG" style="width:100%" data-keywords="croatia">
         <div class="caption">Dubrovnik (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/dubr7.JPG" style="width:100%" data-site="Croatia">
+        <img src="imgs/dubr7.JPG" style="width:100%" data-keywords="croatia">
         <div class="caption">Dubrovnik (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/dubr6.JPG" style="width:100%" data-site="Croatia">
+        <img src="imgs/dubr6.JPG" style="width:100%" data-keywords="croatia">
         <div class="caption">Dubrovnik (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/dubr5.JPG" style="width:100%" data-site="Croatia">
+        <img src="imgs/dubr5.JPG" style="width:100%" data-keywords="croatia">
         <div class="caption">Dubrovnik (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/dubr4.JPG" style="width:100%" data-site="Croatia">
+        <img src="imgs/dubr4.JPG" style="width:100%" data-keywords="croatia">
         <div class="caption">Dubrovnik (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/dubr3.JPG" style="width:100%" data-site="Croatia">
+        <img src="imgs/dubr3.JPG" style="width:100%" data-keywords="croatia">
         <div class="caption">Dubrovnik (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/dubr2.JPG" style="width:100%" data-site="Croatia">
+        <img src="imgs/dubr2.JPG" style="width:100%" data-keywords="croatia">
         <div class="caption">Dubrovnik (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/dubr.JPG" style="width:100%" data-site="Croatia">
+        <img src="imgs/dubr.JPG" style="width:100%" data-keywords="croatia">
         <div class="caption">Dubrovnik (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/positano8.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/positano8.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Positano (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/positano7.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/positano7.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Positano (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/positano6.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/positano6.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Positano (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/positano5.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/positano5.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Positano (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/positano4.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/positano4.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Positano (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/positano3.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/positano3.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Positano (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/positano2.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/positano2.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Positano (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/positano.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/positano.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Positano (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/sa.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/sa.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Sant'Angelo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/rome6.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/rome6.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Rome (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/rome5.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/rome5.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Rome (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/rome4.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/rome4.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Rome (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/rome3.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/rome3.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Rome (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/rome2.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/rome2.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Rome (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/rome.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/rome.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Rome (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/cagliari4.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/cagliari4.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Cagliari (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/cagliari3.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/cagliari3.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Cagliari (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/cagliari2.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/cagliari2.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Cagliari (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/cagliari.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/cagliari.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Cagliari (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/medit2.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/medit2.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Mediterranean Sea (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/medit.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/medit.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Mediterranean Sea (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/palermo6.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/palermo6.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Palermo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/palermo5.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/palermo5.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Palermo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/palermo4.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/palermo4.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Palermo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/palermo3.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/palermo3.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Palermo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/palermo2.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/palermo2.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Palermo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/palermo.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/palermo.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Palermo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/milan5.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/milan5.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Milan (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/milan4.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/milan4.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Milan (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/milan3.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/milan3.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Milan (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/milan2.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/milan2.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Milan (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/milan.JPG" style="width:100%" data-site="Italy">
+        <img src="imgs/milan.JPG" style="width:100%" data-keywords="italy">
         <div class="caption">Milan (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/amsterdam4.JPG" style="width:100%" data-site="Netherlands">
+        <img src="imgs/amsterdam4.JPG" style="width:100%" data-keywords="netherlands">
         <div class="caption">Amsterdam (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/amsterdam3.JPG" style="width:100%" data-site="Netherlands">
+        <img src="imgs/amsterdam3.JPG" style="width:100%" data-keywords="netherlands">
         <div class="caption">Amsterdam (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/amsterdam2.JPG" style="width:100%" data-site="Netherlands">
+        <img src="imgs/amsterdam2.JPG" style="width:100%" data-keywords="netherlands">
         <div class="caption">Amsterdam (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/leiden4.JPG" style="width:100%" data-site="Netherlands">
+        <img src="imgs/leiden4.JPG" style="width:100%" data-keywords="netherlands">
         <div class="caption">Leiden (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/leiden3.JPG" style="width:100%" data-site="Netherlands">
+        <img src="imgs/leiden3.JPG" style="width:100%" data-keywords="netherlands">
         <div class="caption">Leiden (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/leiden2.JPG" style="width:100%" data-site="Netherlands">
+        <img src="imgs/leiden2.JPG" style="width:100%" data-keywords="netherlands">
         <div class="caption">Leiden (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/leiden.JPG" style="width:100%" data-site="Netherlands">
+        <img src="imgs/leiden.JPG" style="width:100%" data-keywords="netherlands">
         <div class="caption">Leiden (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/amsterdam.JPG" style="width:100%" data-site="Netherlands">
+        <img src="imgs/amsterdam.JPG" style="width:100%" data-keywords="netherlands">
         <div class="caption">Amsterdam (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/oslo8.JPG" style="width:100%" data-site="Norway">
+        <img src="imgs/oslo8.JPG" style="width:100%" data-keywords="norway">
         <div class="caption">Oslo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/oslo7.JPG" style="width:100%" data-site="Norway">
+        <img src="imgs/oslo7.JPG" style="width:100%" data-keywords="norway">
         <div class="caption">Oslo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/oslo6.JPG" style="width:100%" data-site="Norway">
+        <img src="imgs/oslo6.JPG" style="width:100%" data-keywords="norway">
         <div class="caption">Oslo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/oslo5.JPG" style="width:100%" data-site="Norway">
+        <img src="imgs/oslo5.JPG" style="width:100%" data-keywords="norway">
         <div class="caption">Oslo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/oslo4.JPG" style="width:100%" data-site="Norway">
+        <img src="imgs/oslo4.JPG" style="width:100%" data-keywords="norway">
         <div class="caption">Oslo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/oslo3.JPG" style="width:100%" data-site="Norway">
+        <img src="imgs/oslo3.JPG" style="width:100%" data-keywords="norway">
         <div class="caption">Oslo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/oslo2.JPG" style="width:100%" data-site="Norway">
+        <img src="imgs/oslo2.JPG" style="width:100%" data-keywords="norway">
         <div class="caption">Oslo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/oslo.JPG" style="width:100%" data-site="Norway">
+        <img src="imgs/oslo.JPG" style="width:100%" data-keywords="norway">
         <div class="caption">Oslo (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/cdmx2.JPG" style="width:100%" data-site="Mexico">
+        <img src="imgs/cdmx2.JPG" style="width:100%" data-keywords="mexico">
         <div class="caption">CDMX (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/sd2.PNG" style="width:100%" data-site="US">
+        <img src="imgs/sd2.PNG" style="width:100%" data-keywords="united states">
         <div class="caption">San Diego (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/sd.PNG" style="width:100%" data-site="US">
+        <img src="imgs/sd.PNG" style="width:100%" data-keywords="united states">
         <div class="caption">San Diego (2023)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris14.PNG" style="width:100%" data-site="France">
+        <img src="imgs/paris14.PNG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris15.PNG" style="width:100%" data-site="France">
+        <img src="imgs/paris15.PNG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris16.PNG" style="width:100%" data-site="France">
+        <img src="imgs/paris16.PNG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris27.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris27.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris28.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris28.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris29.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris29.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris30.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris30.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris31.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris31.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris32.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris32.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris33.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris33.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris34.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris34.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris35.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris35.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris36.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris36.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/toronto3.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/toronto3.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Toronto (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/toronto2.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/toronto2.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Toronto (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/toronto.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/toronto.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Toronto (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/niagara5.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/niagara5.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Niagara Falls (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/niagara4.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/niagara4.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Niagara Falls (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/niagara3.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/niagara3.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Niagara Falls (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/niagara2.JPG" style="width:100%" data-site="Canada">
+        <img src="imgs/niagara2.JPG" style="width:100%" data-keywords="canada">
         <div class="caption">Niagara Falls (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/niagara.PNG" style="width:100%" data-site="Canada">
+        <img src="imgs/niagara.PNG" style="width:100%" data-keywords="canada">
         <div class="caption">Niagara Falls (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/syracuse2.PNG" style="width:100%" data-site="US">
+        <img src="imgs/syracuse2.PNG" style="width:100%" data-keywords="united states">
         <div class="caption">Syracuse (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/syracuse.PNG" style="width:100%" data-site="US">
+        <img src="imgs/syracuse.PNG" style="width:100%" data-keywords="united states">
         <div class="caption">Syracuse (2022)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris24.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris24.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris23.PNG" style="width:100%" data-site="France">
+        <img src="imgs/paris23.PNG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris22.PNG" style="width:100%" data-site="France">
+        <img src="imgs/paris22.PNG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris21.PNG" style="width:100%" data-site="France">
+        <img src="imgs/paris21.PNG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris20.PNG" style="width:100%" data-site="France">
+        <img src="imgs/paris20.PNG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris19.PNG" style="width:100%" data-site="France">
+        <img src="imgs/paris19.PNG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris18.PNG" style="width:100%" data-site="France">
+        <img src="imgs/paris18.PNG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris17.PNG" style="width:100%" data-site="France">
+        <img src="imgs/paris17.PNG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris13.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris13.JPG" style="width:100%" data-keywords="france">
         <div class="caption">Paris (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/london9.JPG" style="width:100%" data-site="England">
+        <img src="imgs/london9.JPG" style="width:100%" data-keywords="england">
         <div class="caption">London (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/london8.JPG" style="width:100%" data-site="England">
+        <img src="imgs/london8.JPG" style="width:100%" data-keywords="england">
         <div class="caption">London (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/london7.JPG" style="width:100%" data-site="England">
+        <img src="imgs/london7.JPG" style="width:100%" data-keywords="england">
         <div class="caption">London (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/london6.JPG" style="width:100%" data-site="England">
+        <img src="imgs/london6.JPG" style="width:100%" data-keywords="england">
         <div class="caption">London (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/london5.JPG" style="width:100%" data-site="England">
+        <img src="imgs/london5.JPG" style="width:100%" data-keyword="england">
         <div class="caption">London (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/london4.JPG" style="width:100%" data-site="England">
+        <img src="imgs/london4.JPG" style="width:100%" data-keyword="england">
         <div class="caption">London (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/london3.PNG" style="width:100%" data-site="England">
+        <img src="imgs/london3.PNG" style="width:100%" data-keyword="england">
         <div class="caption">London (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/london2.PNG" style="width:100%" data-site="England">
+        <img src="imgs/london2.PNG" style="width:100%" data-keyword="england">
         <div class="caption">London (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/london.PNG" style="width:100%" data-site="England">
+        <img src="imgs/london.PNG" style="width:100%" data-keyword="england">
         <div class="caption">London (2021)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris26.JPG" style="width:100%" data-site="France">
+        <img src="imgs/paris26.JPG" style="width:100%" data-keyword="france">
         <div class="caption">Paris (2020)</div>
       </div>
       <div class="image-container">
-        <img src="imgs/paris25.jpg" style="width:100%" data-site="France">
+        <img src="imgs/paris25.jpg" style="width:100%" data-keyword="france">
         <div class="caption">Paris (2020)</div>
       </div>
-
-
     </div>
   </div>
+      </section>
 
-<a onclick="topFunction()" id="to-top">
-  <i class="fa-solid fa-angle-up"></i>
-</a>
+    <a onclick="topFunction()" id="to-top">
+        <i class="fa-solid fa-angle-up"></i>
+    </a>
 
-<p class="courses2"></p>
+    <footer class="footer">
+        <div class="footer-section footer-center">
+            <div><a data-link="email">jalcocer@law.harvard.edu</a></div>
+            <div> 
+                <a data-link="googleScholar">Google Scholar</a> | 
+                <a data-link="linkedin">LinkedIn</a> | 
+                <a data-link="github">GitHub</a> | 
+                <a data-link="orcid">ORCID</a>
+            </div>
+            <div>&copy; 2022-2025 Jose J. Alcocer. All rights reserved.</div>
+        </div>
+    </footer>
 
-<footer>
-  <p> © Jose Alcocer 2022-2025</p>
-</footer>
-
+  <div id="noise-bg"></div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="module">
+    import { initApp } from '/Users/josealcocer/Documents/alcocer-jj.github.io/js/main.js';
+    document.addEventListener('DOMContentLoaded', initApp);
+  </script>
+  <script src="/Users/josealcocer/Documents/alcocer-jj.github.io/js/photography.js"></script>
+  
 <script src="https://kit.fontawesome.com/74504d8101.js" crossorigin="anonymous"></script>
-<script src="https://cdn.usefathom.com/script.js" data-site="KLVIAPIB" defer></script>
-<script src="main.js"></script>
-
 </body>
 </html>

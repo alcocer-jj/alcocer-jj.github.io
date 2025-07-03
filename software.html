@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Alcocerjj | Software</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/software.css">
+
+</head>
+
+<body>
+
+<!-- ========= NAVBAR ========= -->
+<div class="topnav" id="myTopnav">
+  <!-- Left nav -->
+  <div class="left-nav desktop-only">
+    <a href="research.html" class="nav-btn">Research</a>
+    <a href="software.html" class="nav-btn">Software</a>
+  </div>
+
+  <!-- Center brand -->
+  <a href="index.html" class="topnav-name">José Javier</a>
+
+  <!-- Right nav -->
+  <div class="right-nav">
+    <div class="desktop-only">
+      <a href="pdfs/alcocerjj_cv.pdf" class="nav-btn">CV</a>
+      <a href="photography.html" class="nav-btn">Photography</a>
+    </div>
+
+    <!-- sun/moon SVG toggle: visible on all screen sizes -->
+    <label
+      for="themeToggle"
+      class="st-sunMoonThemeToggleBtn"
+      aria-label="Toggle light/dark"
+    >
+      <input
+        type="checkbox"
+        id="themeToggle"
+        class="themeToggleInput"
+      />
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        stroke="none"
+      >
+        <mask id="moon-mask">
+          <rect x="0" y="0" width="20" height="20" fill="white"/>
+          <circle cx="11" cy="3" r="8" fill="black"/>
+        </mask>
+        <circle
+          class="sunMoon"
+          cx="10" cy="10"
+          r="8"
+          mask="url(#moon-mask)"
+        />
+        <g>
+          <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"/>
+          <circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"/>
+          <circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"/>
+          <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"/>
+          <circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"/>
+          <circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"/>
+        </g>
+      </svg>
+    </label>
+
+    <!-- Hamburger menu icon: mobile only -->
+    <button id="menuIcon" class="nav-btn toggle-btn mobile-only icon-button">
+      <i class="fa fa-bars"></i>
+      <i class="fa fa-xmark"></i>
+    </button>
+  </div>
+</div>
+
+<!-- ========= MOBILE DROPDOWN MENU ========= -->
+<div id="mobileMenu" class="mobile-only mobile-menu">
+  <a href="research.html" class="nav-btn">Research</a>
+  <a href="software.html" class="nav-btn">Software</a>
+  <a href="pdfs/alcocerjj_cv.pdf" class="nav-btn">CV</a>
+  <a href="photography.html" class="nav-btn">Photography</a>
+</div>
+
+<!-- ========= HERO ========= -->
+<section class="hero">
+  <div class="hero-wrapper">
+    <div class="hero-inner">
+      <div class="container">
+        <div class="text_wrapper">
+          <div class="text_hide"></div>
+          <div class="text">Software</div>
+          <div class="text_cursor"></div>
+        </div>
+        <div class="subtitle">Coding Packages, Projects, and Methodological Expertise</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<h2 class="section-title" style="font-family:'Times New Roman', Times, serif;">
+  Overview
+</h2>
+  <section class="intro-section">
+      <div>
+          <div class="intro-paragraph">
+              <p>
+                I have over seven years of experience in Python, R, and Stata, 
+                specializing in statistical modeling, causal inference, data 
+                visualization, machine learning, and natural language processing. 
+                My work focuses on developing reproducible, user-friendly tools that 
+                enable robust quantitative analysis across diverse research domains.
+              </p>
+              <p>
+                My programming expertise spans the full data science workflow, 
+                from data ingestion and transformation to statistical modeling 
+                and interactive result delivery. I have independently and 
+                collaboratively developed and maintained software packages, and 
+                implemented modular, end-to-end workflows for statistical inference.
+              </p>
+              <p>
+                I have deep expertise in causal inference methods, including propensity
+                score matching (e.g., MDM, genetic matching, CEM), regression 
+                discontinuity designs (standard and in time), and modern synthetic 
+                control methods such as Generalized Synthetic Control (GSC), 
+                Synthetic Difference-in-Differences (SDID), and event study DID. 
+                These approaches support robust policy evaluation and impact analysis 
+                in observational settings.
+              </p>  
+              <p>
+                I also specialize in natural language processing and text analysis, 
+                developing tools for keyword extraction, sentiment and emotion analysis,
+                multilingual processing, and topic modeling using both lexicon-based 
+                methods and transformer-based architectures (e.g., BERTopic, RoBERTa, XLM-R).
+              </p>
+              <p>
+                Complementing my statistical and NLP expertise is my background in web 
+                application development using Streamlit and Shiny, through which I build 
+                interactive, browser-based tools for applied researchers and analysts. 
+                These tools are designed to eliminate the coding barrier, making complex 
+                methods usable through intuitive interfaces. Overall, my work sits at 
+                the intersection of methodological rigor, data accessibility, and 
+                applied insight, integrating computational tools with causal reasoning 
+                to support impactful, transparent, and reproducible research
+              </p>
+            </div>
+        </div>
+    </section>
+
+<h2 class="section-title" style="font-family:'Times New Roman', Times, serif;">
+  TextViz Studio 
+</h2>
+  <section class="intro-section">
+    <div>
+      <div class="intro-paragraph">
+          <p>
+            <a href="https://textvizstudio.streamlit.app/">TextViz Studio</a> is a 
+            browser-based, no-code platform I developed to make advanced statistical 
+            and text analysis techniques accessible to researchers without programming 
+            backgrounds. Built entirely in Python using Streamlit, the application 
+            encapsulates a range of quantitative and natural language processing tools 
+            through an intuitive user interface that abstracts away the complexity of code.
+          </p>
+          <p>
+            The platform includes modular tools for statistical data exploration, 
+            regression modeling, keyword and N-gram analysis, multilingual sentiment 
+            and emotion detection, and transformer-based topic modeling. These tools 
+            are designed to support common workflows in the social sciences, policy 
+            evaluation, and qualitative research. Users can perform everything from 
+            basic descriptive analysis to causal modeling and topic discovery with 
+            just a few clicks, and export visualizations, summaries, and formatted 
+            tables for reporting or publication.
+          </p>
+          <p>
+            TextViz Studio reflects my broader goal of democratizing data science: 
+            building transparent, customizable tools that preserve methodological 
+            rigor while enabling broader access. It supports both exploratory and 
+            confirmatory research designs, integrates modern machine learning 
+            backends (e.g., BERTopic, GPT-based labeling, RoBERTa), and allows 
+            batch processing for large-scale document analysis.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="section-title" style="font-family:'Times New Roman', Times, serif;">
+  Packages 
+</h2>
+  <section class="intro-section">
+    <div>
+      <div class="intro-paragraph">
+          <h3 class="subtitle-header"> <a href="https://github.com/alcocer-jj/AppendIDs">AppendIDs (R Package)</a></h3>
+          <p>
+            The AppendIDs R package helps researchers working with cross-sectional and cross-sectional 
+            time-series (CSTS) country data to resolve inconsistencies across differing country-coding 
+            schemes. Designed for scholars in international relations and comparative politics, the 
+            package simplifies the merging of datasets that rely on divergent systems such as Gleditsch-Ward,
+            Correlates of War (COW), and International Financial Statistics (IFS) codes.
+          </p>
+            Its core function automatically appends standardized Gleditsch-Ward identifiers to country-year 
+            and dyadic datasets, flags duplicate entries, and supports integration with tools like the 
+            countrycode package. This enables seamless dataset alignment across varying naming conventions 
+            and coding systems, including for countries with historical name or status changes 
+            (e.g., pre-1990 West Germany vs. post-reunification Germany).
+          <p>
+            AppendIDs is a key tool behind the International Political Economy (IPE) Data Resource, 
+            which unifies over 90 commonly used datasets in the IPE literature. It promotes replicability 
+            and efficient data integration for large-scale comparative research.
+          </p>
+          <h3 class="subtitle-header"> <a href="https://github.com/alcocer-jj/topicmodelCV">topicmodelCV (R Package)</a></h3>
+          <p>
+            The topicmodelCV R package provides a streamlined way to determine the optimal number of topics (k) 
+            for Latent Dirichlet Allocation (LDA) models using 10-fold cross-validation. Designed for applied 
+            researchers working with text data, the package evaluates model quality across multiple 
+            metrics—including perplexity, held-out likelihood, and semantic coherence.
+          </p>
+          <p>
+            By supplying a pre-processed document-term matrix (DTM) to the function, users can run 
+            multiple LDA models using the topicmodels package and compare model performance across values of k. 
+            The package outputs a tidy results table for inspection and includes built-in visualization 
+            functions to support quick and interpretable model selection.
+          </p>
+          <p>
+            topicmodelCV simplifies a critical step in unsupervised topic modeling, making cross-validated LDA 
+            evaluation more accessible, reproducible, and interpretable for researchers and data scientists.
+          </p>
+      </div>
+    </div>
+  </section>
+    <a onclick="topFunction()" id="to-top">
+        <i class="fa-solid fa-angle-up"></i>
+    </a>
+
+    <footer class="footer">
+        <div class="footer-section footer-center">
+            <div><a data-link="email">jalcocer@law.harvard.edu</a></div>
+            <div> 
+                <a data-link="googleScholar">Google Scholar</a> | 
+                <a data-link="linkedin">LinkedIn</a> | 
+                <a data-link="github">GitHub</a> | 
+                <a data-link="orcid">ORCID</a>
+            </div>
+            <div>&copy; 2022-2025 Jose J. Alcocer. All rights reserved.</div>
+        </div>
+    </footer>
+
+  <div id="noise-bg"></div>
+  <script type="module">
+    import { initApp } from '/Users/josealcocer/Documents/alcocer-jj.github.io/js/main.js';
+    document.addEventListener('DOMContentLoaded', initApp);
+  </script>
+  <script src="/Users/josealcocer/Documents/alcocer-jj.github.io/js/software.js"></script>
+  
+<script src="https://kit.fontawesome.com/74504d8101.js" crossorigin="anonymous"></script>
+<script src="https://cdn.usefathom.com/script.js" data-site="KLVIAPIB" defer></script>
+
+</body>
+</html>

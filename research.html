@@ -9,321 +9,546 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/research.css">
-<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-  <div class="topnav" id="myTopnav">
-    <a href="index.html" style="color: white; font-size: 17px">José Javier</a>
-    <a href="index.html">Home</a>
-    <a href="research.html" class="active">Research</a>
-    <a href="https://textvizstudio.streamlit.app/">TextViz Studio</a>
-    <a href="teaching.html">Teaching and Code</a>
-    <a href="media.html">Media</a>
-    <a href="photography.html">Photography</a>
-    <a href="pdfs/alcocerjj_cv.pdf">CV</a>
-    <a id="themeToggle" class="dark icon" style="display: block;"><i class="fa-solid fa-moon"></i></a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+<!-- ========= NAVBAR ========= -->
+<div class="topnav" id="myTopnav">
+  <!-- Left nav -->
+  <div class="left-nav desktop-only">
+    <a href="research.html" class="nav-btn">Research</a>
+    <a href="software.html" class="nav-btn">Software</a>
+  </div>
+
+  <!-- Center brand -->
+  <a href="index.html" class="topnav-name">José Javier</a>
+
+  <!-- Right nav -->
+  <div class="right-nav">
+    <div class="desktop-only">
+      <a href="pdfs/alcocerjj_cv.pdf" class="nav-btn">CV</a>
+      <a href="photography.html" class="nav-btn">Photography</a>
+    </div>
+
+    <!-- sun/moon SVG toggle: visible on all screen sizes -->
+    <label
+      for="themeToggle"
+      class="st-sunMoonThemeToggleBtn"
+      aria-label="Toggle light/dark"
+    >
+      <input
+        type="checkbox"
+        id="themeToggle"
+        class="themeToggleInput"
+      />
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        stroke="none"
+      >
+        <mask id="moon-mask">
+          <rect x="0" y="0" width="20" height="20" fill="white"/>
+          <circle cx="11" cy="3" r="8" fill="black"/>
+        </mask>
+        <circle
+          class="sunMoon"
+          cx="10" cy="10"
+          r="8"
+          mask="url(#moon-mask)"
+        />
+        <g>
+          <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"/>
+          <circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"/>
+          <circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"/>
+          <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"/>
+          <circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"/>
+          <circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"/>
+        </g>
+      </svg>
+    </label>
+
+    <!-- Hamburger menu icon: mobile only -->
+    <button id="menuIcon" class="nav-btn toggle-btn mobile-only icon-button">
       <i class="fa fa-bars"></i>
-    </a>
+      <i class="fa fa-xmark"></i>
+    </button>
   </div>
-
-<div class="header" id="myHeader">
-  <h1 style="font-weight: normal">Research</h1>
-  <h2></h2>
 </div>
 
-<h3 style="font-size: 23px;">Research Interests</h3>
-<p style="font-size: 18px" class="courses">
+<!-- ========= MOBILE DROPDOWN MENU ========= -->
+<div id="mobileMenu" class="mobile-only mobile-menu">
+  <a href="research.html" class="nav-btn">Research</a>
+  <a href="software.html" class="nav-btn">Software</a>
+  <a href="pdfs/alcocerjj_cv.pdf" class="nav-btn">CV</a>
+  <a href="photography.html" class="nav-btn">Photography</a>
+</div>
 
-    My research focuses on the intersection of legislative institutions, 
-    race and ethnicity, political behavior, and policy-making. I examine 
-    how racial minority legislators navigate institutional challenges and 
-    employ strategic behaviors to represent their communities and influence 
-    policy outcomes, with a particular focus on cooperation and representation
-     across racial lines. Additionally, I explore how race and electoral 
-     competition shape legislative behavior, including sponsorship and 
-     cosponsorship dynamics, while investigating how voting systems and 
-     institutional designs influence policy diversity and governance. 
-     Methodologically, I incorporate advanced tools such as Artificial 
-     Intelligence (AI), machine learning (ML), natural language 
-     processing (NLP), and statistical inference to analyze large-scale 
-     political data, uncover patterns in legislative behavior, and assess 
-     political discourse. This allows me to provide data-driven insights 
-     into how political elites engage with marginalized communities and 
-     influence perceptions of government legitimacy and fairness. My 
-     research aims to shed light on the broader implications of race, 
-     identity, and institutional structures in shaping political outcomes.
-
-  <br><br>
-</p>
-
-<div>
-  <h3 style="font-size: 23px;">Publications</h3>
-  
-    <p style="font-size: 18px" class="courses">[2]<a href = "https://www.cambridge.org/core/journals/journal-of-race-ethnicity-and-politics/article/minority-legislators-sponsor-and-cosponsor-differently-from-white-legislators-causal-evidence-from-us-congress/66D0FA5741BF052EC03C8A6EB60A50D8?utm_date=20250428&utm_id=1745826656&utm_campaign=Open%20Access,REP&utm_source=twitter&utm_medium=social&utm_content">
-      Minority Legislator Sponsor and Cosponsor Differently From White Legislators: Causal Evidence from U.S. Congress.</a> <i>The Journal of Race, Ethnicity, and Politics.</i>
-    </p>
-    <button class="collapsible">Abstract</button>
-  
-    <div class="content">
-    <p>How do race, ethnicity, and gender shape a legislator’s approach to 
-      bill sponsorship and cosponsorship? This paper examines how institutional
-      marginalization influences the legislative strategies of racial and 
-      gender minority representatives. Constrained by systemic barriers that 
-      limit their ability to sponsor legislation, minority legislators prioritize 
-      cosponsorship to achieve policy goals, build coalitions, and demonstrate 
-      responsiveness to their constituencies. Using the quasi-experimental 
-      context of the 2016 and 2018 U.S. congressional elections, I apply the 
-      synthetic difference-in-differences estimator and find that minority 
-      legislators sponsor fewer bills but cosponsor significantly more than their 
-      non-Hispanic White counterparts. Additionally, race-gendered effects reveal 
-      that women of color sponsor significantly less legislation than non-minority 
-      legislators and men of color. These patterns cannot be explained by factors 
-      like freshman status or primary election competitiveness. The findings 
-      highlight the strategic adaptations of minority legislators to navigate 
-      structural inequities and amplify their legislative influence. 
-      This study is the first to use a causal inference approach to explore 
-      the intersection of race, gender, and sponsorship and cosponsorship of 
-      congressional bills, contributing to a deeper understanding of legislative 
-      behavior among marginalized groups.</p>
-    </div>
-  
-    <p style="font-size: 18px" class="courses">[1]
-      <a href = "https://www.sciencedirect.com/science/article/abs/pii/S0033350620301128">
-                            Exploring the Effect of Colorado's Recreational
-                              Marijuana Policy on Opioid Overdose Rates</a><br>
-                              <i>Royal Society of Public Health, 2020, Volume 185,
-                              8-14.</i></p>
-    <button class="collapsible">Abstract</button>
-
-      <div class="content">
-       <p>How has the legalization of recreational marijuana shaped opioid overdose deaths in 
-        Colorado? While prior research has examined the effects of medical cannabis laws, less is 
-        known about the public health consequences of broader marijuana policy liberalization. In 
-        this study, I use the synthetic control method to estimate the effect of Colorado’s 2014 
-        policy change, comparing the state to a data-driven composite of similar states from 1999 
-        to 2017. Using CDC WONDER data, I construct a counterfactual scenario in which Colorado did 
-        not legalize recreational cannabis, incorporating relevant predictors of opioid mortality. 
-        I supplement this approach with a difference-in-differences estimate and conduct placebo 
-        inference tests to assess robustness. The results suggest a 5% decline in opioid overdose 
-        deaths following legalization, but this effect is not statistically significant. These 
-        findings offer limited evidence that recreational marijuana access meaningfully reduced 
-        opioid-related mortality in Colorado, underscoring the need for more nuanced evaluations 
-        of drug policy reform.</p>
+<!-- ========= HERO ========= -->
+<section class="hero">
+  <div class="hero-wrapper">
+    <div class="hero-inner">
+      <div class="container">
+        <div class="text_wrapper">
+          <div class="text_hide"></div>
+          <div class="text">Research</div>
+          <div class="text_cursor"></div>
+        </div>
+        <div class="subtitle">Intersection of Political Institutions, Race and Ethnicity, and Causal Inference</div>
       </div>
-     
-  <h4 style="font-size: 23px; ">Working Papers</h4>
-
-  <p style="font-size: 18px" class="courses"><b>Examining Minority and Non-Minority Legislators' 
-    Willingness to Cooperate Across Racial Groups in Legislative Cosponsorship.</b>
-  </p>
-  <button class="collapsible">Abstract</button>
-
-  <div class="content">
-  <p>This study investigates whether minority (Black and Latine) Congressmembers are more 
-    inclined than White legislators to engage in cooperative behaviors via bill cosponsorship, 
-    both within their own racial and ethnic groups and with White legislators. Building 
-    upon theories of social identity and marginalized electoral vulnerability, 
-    I examine whether minority legislators strategically cosponsor bills introduced 
-    by White legislators more frequently than White legislators cosponsor bills 
-    introduced by minority legislators. By analyzing cosponsorship patterns from 
-    multiple congressional sessions and employing fixed-effects Seemingly Unrelated 
-    Negative Binomial Regression (SUNBR) models, I provide a nuanced understanding 
-    of how identity influences legislative collaboration.</p>
+    </div>
   </div>
-  
-  
-  <p style="font-size: 18px" class="courses"><b>The Influence of Race and Electoral Competition on Representation: 
-    Sponsorship and Cosponsorship Dynamics in Congress.</b>
-  </p>
-  <button class="collapsible">Abstract</button>
+</section>
 
-  <div class="content">
-  <p>This study examines whether racial differences in legislative behavior, specifically bill 
-    sponsorship and cosponsorship, exist between Minority (Black and Latino) and Non-minority 
-    (White) legislators in the U.S. Congress, even after accounting for electoral conditions 
-    such as district competitiveness and changes in House majority control. Using data from the 
-    95th to the 117th Congresses, I employ Propensity Score Matching (PSM) using Gradient 
-    Boosting (GB) to create comparable groups of Minority and White legislators. 
-    Following matching, I implement a Multilevel Model (MLM) with fixed effects for 
-    congressional sessions to analyze how individual-level factors, district characteristics, 
-    and temporal political environments influence bill sponsorship and cosponsorship. 
-    This study’s findings aim to provide a nuanced understanding of how race and electoral 
-    conditions interact to shape legislative strategies over time, contributing to the broader 
-    discourse on representation and policymaking in a diverse political landscape.</p>
-  </div>
+<h2 class="section-title" style="font-family:'Times New Roman', Times, serif;">
+  Overview
+</h2>
+  <section class="intro-section">
+      <div>
+          <div class="intro-paragraph">
+              <p>
+                My research asks how race, identity, and institutional design shape political
+                representation in the American context. I study how legislators from marginalized
+                communities—especially racial and gender minorities—navigate institutional 
+                constraints and adopt responsive behaviors to influence policy. 
+              </p>
+              <p>
+                Much of my work focuses on bill sponsorship and cosponsorship as agenda setting and 
+                coalition-building tools for shaping policy under conditions of exclusion. 
+                I’m especially interested in how formal rules (e.g., seniority) and institutional 
+                pressures (e.g., partisan caucuses) interact with identity to structure political agency. 
+              </p>
+              <p>
+                At its core, my research investigates how American democratic institutions 
+                distribute voice, and how that distribution reflects deeper structures of power 
+                and inequality. As my work expands, I aim to explore how these dynamics play out 
+                in the judicial realm, specifically how identity and institutional context can 
+                shape judicial behavior and policy interpretation.
+              </p>
+              <p>
+                Alongside this work, I’m developing methods that bring together causal 
+                inference, machine learning, and computational social science to better 
+                study political behavior in high-dimensional, institutionally complex 
+                settings. I’m especially interested in how to improve inference in 
+                overdispersed count data, staggered treatment adoptions, and online 
+                survey experiments affected by synthetic or biased data. 
+              </p>
+              <p>
+                These methodological interests are not detached from my substantive work. 
+                They grow out of a need to model strategic behavior under constraint, to 
+                uncover patterns that conventional approaches often miss, and to do justice 
+                to the messiness of real political data. These interests are driven by a 
+                core belief that better tools help us ask better questions, and that rigorous 
+                methods, when paired with critical theory, can help illuminate the deeper 
+                structures of exclusion and power that shape democratic life.
+              </p>
+              <p>
+                I also serve as a key researcher for the <a href="https://dornsife.usc.edu/everydayrespect/">
+                Everday Respect Project</a>, which brings together researchers, community members, 
+                and city officials to study officer-driver communication during police 
+                traffic stops. In this work, I help design and lead analyses that combine 
+                large-scale natural language processing, causal inference, and community-validated 
+                survey data to assess how everyday state-citizen interactions reproduce
+                or repair racial inequality. 
+              </p> 
+              <p>
+                As part of this project, I work closely with computer scientists and 
+                data engineers to build scalable annotation pipelines for body-worn camera 
+                footage, acting as a bridge between social theory and data architecture. 
+                This project reflects a broader commitment in my research. To use data 
+                science not just for prediction or efficiency, but for accountability, 
+                equity, and democratic renewal. The list below includes all of my published 
+                research. You can find information about working papers and articles under 
+                review in my <a href="pdfs/alcocerjj_cv.pdf">CV</a>.
 
+              </p>
+            </div>
+        </div>
+    </section>
 
-  <p style="font-size: 18px" class="courses"><b>La Raza: Race and Legislator’s Responsiveness to Indigenous
-    Constituents in Mexico.</b>
-    Co-authored with José Muzquiz (USC).
-  </p>
-  <button class="collapsible">Abstract</button>
-
-  <div class="content">
-  <p>This audit experiment examines the responsiveness of Mexican legislators to constituents 
-    from different racial groups through an email experiment using simulated constituents with 
-    racially coded names. Legislators were randomly assigned to receive the same message from 
-    one of three constituent profiles: Indigenous, mestiza, or European. The findings reveal 
-    that legislators responded more frequently and were more likely to engage with the 
-    Indigenous profile compared to the mestiza and European profiles. This study fills a 
-    notable gap in the literature by centering indigeneity in audit experiments, which has 
-    been largely overlooked. Additionally, it represents the first audit study to explore 
-    racial discrimination in the context of Mexican politics.</p>
-  </div>  
-
-
-  <p style="font-size: 18px" class="courses"><b>Equity and Exhaustion: The Link Between Fairness 
-    Perceptions and Burnout in Local Government Workers.</b>
-    Co-authored with Esther Gonzalez (USC) and Cynthia Wilkes (US OES-GSA).
-  </p>
-  <button class="collapsible">Abstract</button>
-
-  <div class="content">
-  <p>This study explores the relationship between perceptions of procedural and distributive 
-    justice and burnout among local government employees, using data from a 2018 survey of 
-    over 1,000 employees in Los Angeles County. Testing the Conservation of Resources (COR) 
-    Theory and the Job Demands-Resources (JD-R) Model, we applied a series of OLS regressions 
-    to examine the impact of fairness perceptions on burnout outcomes. The results show that 
-    lower perceptions of procedural fairness are strongly associated with higher levels of 
-    emotional exhaustion, cynicism, and inefficacy. While distributive fairness also affects 
-    burnout, its influence is less pronounced. Significant variations are observed across 
-    gender and racial groups, with women of color experiencing the highest levels of emotional 
-    exhaustion and cynicism. These findings underscore the importance of procedural fairness 
-    in reducing burnout and highlight the need for equitable processes to improve employee 
-    well-being and retention in local government settings.</p>
-  </div>  
-
-
-    <p style="font-size: 18px" class="courses"> <b>Street-Level Bureaucrats and Political 
-      Control: Do Los Angeles Police Change their Behavior in Response
-       to Policy Changes.</b> Co-authored with Benjamin A.T. Graham (USC),
-       Harry Muttram (UC-Riverside), Michael 
-       Sierra-Arévalo (UT-Austin), Nicholas Weller (UC-Riverside).
-        </p>
-    <button class="collapsible">Abstract</button>
-
-    <div class="content">
-    <p>The extant literature on bureaucratic delegation outlines the political 
-      conditions under which principals should delegate discretion to agents and 
-      offers a variety of procedural and ex-post mechanisms for controlling agent 
-      behavior. These studies, however, often focus on bureaucrats at the federal 
-      level. This national focus obscures how theories of political control 
-      translate into environments in which bureaucrats have tremendous discretion, 
-      as is true for policing. To what extent are efforts to reduce the discretion 
-      of street-level bureaucrats successful in affecting bureaucratic behavior? 
-      We address the question by assessing the impact of a 2022 departmental change 
-      in the criteria needed for LAPD officers to conduct pretextual stops, in effect 
-      reducing police discretion by requiring evidence of both a traffic violation and 
-      “articulable information.” Using traffic stop data from the Racial and Identity 
-      Profiling Act of 2015 and employing a synthetic difference-in-difference design 
-      to construct a synthetic LAPD from departments across California, we find 
-      that the policy change on average reduced the proportion of pretextual 
-      stops conducted by ten percentage points. Consistent with street-level 
-      bureaucracy theory, however, our evidence suggests that officers exert 
-      considerable influence over the implementation of policy and the threat 
-      of departmental sanctions.</p>
-    </div>
-
-    <p style="font-size: 18px" class="courses"><b>Disconnected Policing: 
-      Street-level bureaucrats, policy representation, and traffic 
-      stops in Los Angeles.</b> Co-authored with Lauren Brown (USC), 
-      Raquel Delerme (USC), Benjamin A.T. Graham (USC), Kyle Hulburd (USC),
-      Harry Muttram (UC-Riverside), Michael Sierra-Arévalo (UT-Austin), 
-      Jackson Trager (USC), and Nicholas Weller (USC).</p>
-    <button class="collapsible">Abstract</button>
-
-    <div class="content">
-    <p>This study explores how police officers, as street-level bureaucrats, 
-      shape public perceptions of policy representation and state legitimacy. 
-      While racial disparities in policing are well-documented, less attention 
-      is given to how these disparities influence public attitudes. Through 
-      a mixed-methods approach, we examine survey data and interviews from Los
-       Angeles residents about their experiences and expectations during 
-       traffic stops. Despite sharing similar preferences for respectful 
-       and fair treatment, Black and Latino residents report significantly 
-       more negative experiences compared to White residents, and perceive 
-       a greater gap between their expectations and actual police behavior.
-       These findings highlight that while policy expectations may be 
-       consistent across racial groups, the experiences of Black and 
-       Latine communities with police differ significantly. This study 
-       underscores the need to consider not just formal policies but also 
-       the actions of street-level bureaucrats in shaping public attitudes 
-       toward the state.</p>
-    </div>
-
-    <p style="font-size: 18px" class="courses"><b>Top-two open primary systems increase 
-      ideological diversity in state legislative parties.</b> Co-authored with
-      Christian Grose (USC) [<a href = "pdfs/primaries_poster.pdf">Poster</a> | <a href = "pdfs/top_two_presentation.pdf">Conference Presentation</a>].</p>
-    <button class="collapsible">Abstract</button>
-  
-    <div class="content">
-    <p>Does the top-two primary increase ideological heterogeneity in parties in state legislatures? 
-      We argue and find that the possibility of same-party elections in the top-2 leads to greater 
-      diversity within party caucuses in state legislatures; in contrast to closed primary systems. 
-      In closed primaries, party caucuses are less ideologically diverse as reelection incentives 
-      for all members within the caucus are similar. In top-two states, party caucuses will have 
-      greater ideological diversity as some candidates will face primary reelection incentives to 
-      move to the extreme; while other candidates will face general election reelection incentives. 
-      We test this using a synthetic control model. We find causal evidence that the top-two primary 
-      has increased ideological diversity in both the majority and minority party caucuses in some 
-      legislative chambers. This effect persists for Democratic party caucuses after adoption of 
-      top-two, but this effect for Republican party caucuses is only for a few time periods before 
-      it reverts back to pre-treatment lower ideological heterogeneity. Implications for the top-2 
-      and top-4 systems are discussed..</p>
-    </div>
-
-
-    <p style="font-size: 18px" class="courses"><b>Racial Discourse in the Digital Age: 
-      Comparing Tone and Framing of Racial Issues in Legislator Communication.</b></p>
-    <button class="collapsible">Abstract</button>
-
-    <div class="content">
-    <p>This article aims to investigate how legislators from different racial 
-      backgrounds frame and communicate about racial issues such as systemic racism, 
-      racial equity, and minority rights on social media and public statements. It 
-      will compare the tone sentiment and framing (policy-oriented, personal, 
-      narrative) used by Black, Latine, Asian-American, and White legislators
-       in their discussions on race.</p>
-    </div>
-
-    <p style="font-size: 18px" class="courses"><b>Strategic Legislating: 
-      Measuring Electoral Priorities of the Elite via Survey Experimentation.</b>
-      </p>
-    <button class="collapsible">Abstract</button>
-
-    <div class="content">
-    <p>This study investigates how legislators prioritize non-rollcall activities—such 
-      as constituency service, district outreach, media relations, and fundraising—when 
-      anticipating different levels of electoral competition. It also examines how 
-      these priorities differ across racial identities, with a focus on 
-      how minority legislators may face unique electoral pressures. Using a 
-      randomized survey experiment, members of Congress will be primed to expect 
-      either a highly competitive or very safe election and asked to rank the
-      importance of various non-rollcall activities for ensuring their electoral 
-      success. The findings will provide insights into the intersection of race, 
-      electoral strategy, and legislative behavior, contributing to broader discussions 
-      about representation and the diverse strategies legislators employ outside of 
-      roll-call votes.</p>
-    </div>
+<h2 class="section-title" style="font-family:'Times New Roman', Times, serif;">
+  Publications
+</h2>
+  <section class="intro-section">
+    <div>
+<div class="filters-wrapper">
+  <!-- Type Filter -->
+  <select id="filter-type" multiple data-placeholder="Publication Type">
+    <option selected>Peer-Reviewed</option>
+    <option selected>Other</option>
+  </select>
+  <!-- Research Keywords Filter -->
+  <select id="filter-keywords" multiple data-placeholder="Research Keywords">
+    <option>Causal Inference</option>
+    <option>Electoral System</option>
+    <option>Experiment</option>
+    <option>Gender</option>
+    <option>Legislature</option>
+    <option>Mexico</option>    
+    <option>Policy Evaluation</option>
+    <option>Public Health</option>
+    <option>Public Policy</option>    
+    <option>Race</option>
+    <option>Representation</option>
+    <option>U.S. Congress</option>
+    <option>Voting Methods</option>
+  </select>
 </div>
+      <div class="intro-paragraph">
+        <div class="publication-entry" data-type="peer-reviewed" data-keywords="indigenous, mexico, legislature, experiment">
+          <p>
+          Múzquiz, José E. and <strong>Alcocer, Jose J.</strong> 2025.
+            "Legislator Responsiveness to Racialized Constituencies in Mexico."
+          <i>The Journal of Experimental Political Science.</i> Forthcoming.
+        </p>
+        <div style="display: flex; gap: 10px; padding: 0 0;">
+          <button
+            class="fancy-abstract-button"
+            title="Toggle Abstract"
+            data-id="14"
+          >
+            <svg
+              class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300"
+              viewBox="0 0 24 24"
+              height="50px"
+              width="50px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-width="1.5"
+                d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+              ></path>
+              <path stroke-width="1.5" d="M8 12H16"></path>
+              <path stroke-width="1.5" d="M12 16V8"></path>
+            </svg>
+          </button>
+          <span>|</span>
+          <span class="pub-info">
+            <a href="https://doi.org/10.7910/DVN/VS3GL8">Replication</a>
+          </span>
+        </div>
+        <div class="dropdown-menu" data-id="14">
+          <p>
+            This study examines how racial identity affects legislative responsiveness in Mexico using an 
+            email-based audit experiment. Emails from simulated Indigenous, Mestiza, and European-White 
+            constituents were sent to all 626 federal legislators to test whether perceived identity shapes 
+            replies and their quality. Contrary to expectations, Indigenous-named constituents received 
+            significantly higher response rates that were more personalized and helpful than their 
+            European-White counterparts, while Mestiza-named constituents showed no significant differences 
+            in response rates. We found no coalition-based differences, though power was limited, and 
+            responsiveness declined in districts with larger Indigenous populations, revealing how national 
+            inclusion norms may be moderated by local demographic and political dynamics.
+          </p>
+        </div>
+        </div>
+        <!-- SEPARATOR -->
+        <div class="publication-entry" data-type="other" data-keywords="u.s. congress, race, legislature, causal inference, representation, gender">
+        <p>
+          <strong>Alcocer, Jose J.</strong> 2025.
+          <a href="https://blogs.lse.ac.uk/usappblog/2025/06/06/facing-institutional-barriers-to-sponsoring-bills-in-congress-newly-elected-minority-representatives-cosponsor-far-more-than-their-non-minority-counterparts/">
+            "Facing Institutional Barriers to Sponsoring Bills in Congress, Newly Elected Minority Representatives Cosponsor Far More Than Their Non-Minority Counterparts."
+          </a>
+          <i>United States Politics and Policy (USAPP).</i> London School of Economics Phelan United States Centre.
+        </p>
+        <div style="display: flex; gap: 10px; padding: 0 0;">
+          <button
+            class="fancy-abstract-button"
+            title="Toggle Abstract"
+            data-id="9"
+          >
+            <svg
+              class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300"
+              viewBox="0 0 24 24"
+              height="50px"
+              width="50px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-width="1.5"
+                d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+              ></path>
+              <path stroke-width="1.5" d="M8 12H16"></path>
+              <path stroke-width="1.5" d="M12 16V8"></path>
+            </svg>
+          </button>
+          <span>|</span>
+          <span class="pub-info">
+            <a href="pdfs/lse.06.06.25.pdf">PDF</a>
+          </span>
+        </div>
+        <div class="dropdown-menu" data-id="9">
+          <p>
+            In the US Congress, a key signal of a legislator’s effectiveness is their sponsorship
+            of bills, but minority representatives, particularly women of color, often face
+            institutional and informal barriers to sponsoring legislation. In new research, I
+            explore how minority representatives work around these constraints by
+            cosponsoring bills. I find that newly elected minority members are likely to have a
+            20 percent higher cosponsorship rate compared to their white predecessors, and
+            that this rate is even greater for legislators who are women of color.
+          </p>
+        </div>
+        </div>
+        <!-- SEPARATOR -->
+        <div class="publication-entry" data-type="peer-reviewed" data-keywords="u.s. congress, race, legislature, causal inference, representation, gender">
+        <p>
+          <strong>Alcocer, Jose J.</strong> 2025.
+          <a href="https://www.cambridge.org/core/journals/journal-of-race-ethnicity-and-politics/article/minority-legislators-sponsor-and-cosponsor-differently-from-white-legislators-causal-evidence-from-us-congress/66D0FA5741BF052EC03C8A6EB60A50D8?utm_date=20250428&utm_id=1745826656&utm_campaign=Open%20Access,REP&utm_source=twitter&utm_medium=social&utm_content">
+            "Minority Legislator Sponsor and Cosponsor Differently From White Legislators: Causal Evidence from U.S. Congress."
+          </a>
+          <i>The Journal of Race, Ethnicity, and Politics.</i> First View.
+        </p>
+        <div style="display: flex; gap: 10px; padding: 0 0;">
+          <button
+            class="fancy-abstract-button"
+            title="Toggle Abstract"
+            data-id="13"
+          >
+            <svg
+              class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300"
+              viewBox="0 0 24 24"
+              height="50px"
+              width="50px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-width="1.5"
+                d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+              ></path>
+              <path stroke-width="1.5" d="M8 12H16"></path>
+              <path stroke-width="1.5" d="M12 16V8"></path>
+            </svg>
+          </button>
+          <span>|</span>
+          <span class="pub-info">
+            <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/YLEBIK">Replication</a>
+          </span>
+          <span>|</span>
+          <span class="pub-info">
+            <a href="https://static.cambridge.org/content/id/urn%3Acambridge.org%3Aid%3Aarticle%3AS2056608525000297/resource/name/S2056608525000297sup001.pdf">Supplementary</a>
+          </span>
+          <span>|</span>
+          <span class="pub-info">
+            <a href="pdfs/10.1017.rep.2025.29.pdf">PDF</a>
+          </span>
+        </div>
+        <div class="dropdown-menu" data-id="13">
+          <p>
+            How do race, ethnicity, and gender shape a legislator’s approach to 
+            bill sponsorship and cosponsorship? This paper examines how institutional
+            marginalization influences the legislative strategies of racial and 
+            gender minority representatives. Constrained by systemic barriers that 
+            limit their ability to sponsor legislation, minority legislators prioritize 
+            cosponsorship to achieve policy goals, build coalitions, and demonstrate 
+            responsiveness to their constituencies. Using the quasi-experimental 
+            context of the 2016 and 2018 U.S. congressional elections, I apply the 
+            synthetic difference-in-differences estimator and find that minority 
+            legislators sponsor fewer bills but cosponsor significantly more than their 
+            non-Hispanic White counterparts. Additionally, race-gendered effects reveal 
+            that women of color sponsor significantly less legislation than non-minority 
+            legislators and men of color. These patterns cannot be explained by factors 
+            like freshman status or primary election competitiveness. The findings 
+            highlight the strategic adaptations of minority legislators to navigate 
+            structural inequities and amplify their legislative influence. 
+            This study is the first to use a causal inference approach to explore 
+            the intersection of race, gender, and sponsorship and cosponsorship of 
+            congressional bills, contributing to a deeper understanding of legislative 
+            behavior among marginalized groups.
+          </p>
+        </div>
+        </div>
+        <!-- SEPARATOR -->        
+         <div class="publication-entry" data-type="other" data-keywords="representation, electoral systems, voting methods">
+        <p>
+          Hua, Whitney and <strong>Alcocer, Jose J.</strong> 2024.
+            “Transforming the Vote: How Voting Reforms Can Improve Equity for Underrepresented Minorities.”
+          <i>The Center for Election Science.</i> Last updated January 2025.
+        </p>
+        <div style="display: flex; gap: 10px; padding: 0 0;">
+          <button
+            class="fancy-abstract-button"
+            title="Toggle Abstract"
+            data-id="11"
+          >
+            <svg
+              class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300"
+              viewBox="0 0 24 24"
+              height="50px"
+              width="50px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-width="1.5"
+                d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+              ></path>
+              <path stroke-width="1.5" d="M8 12H16"></path>
+              <path stroke-width="1.5" d="M12 16V8"></path>
+            </svg>
+          </button>
+          <span>|</span>          
+          <span class="pub-info">
+            <a href="pdfs/ces.01.29.25.pdf">PDF</a>
+          </span>
+        </div>
+        <div class="dropdown-menu" data-id="11">
+          <p>
+            Ranked Choice Voting (RCV) is frequently promoted as an alternative to 
+            Plurality Voting, with the goal of enhancing democratic representation.
+            As its gained traction across various jurisdictions—ranging from states 
+            like Alaska and Maine to cities like New York and San Francisco—the 
+            impact of RCV on minority communities has become a critical area of 
+            research and debate. While the adoption and awareness of RCV continue to
+            expand, scholars have increasingly raised concerns about its effectiveness
+            in fulfilling its promises of improved representation and equity. Some 
+            of the literature has shown that RCV often falls short in addressing 
+            these goals, particularly for underrepresented minority groups. As such, 
+            there is a growing need to critically assess RCV's limitations and explore 
+            alternative voting methods that may more effectively promote fair representation.
+            One such alternative is Approval Voting, which presents a promising approach
+            to overcoming the shortcomings of RCV. Approval Voting could offer a more 
+            equitable solution, especially in terms of its impact on minority voters.
+          </p>
+        </div>
+        </div>
+        <!-- SEPARATOR -->
+        <div class="publication-entry" data-type="other" data-keywords="representation, electoral systems, voting methods">
+        <p>
+          Hua, Whitney, <strong>Alcocer, Jose J.</strong>, and Mike Piel. 2024. 
+            ”America [Mis]Represented: 2022 Vote-Split Elections Report.”
+          <i>The Center for Election Science.</i>
+        </p>
+        <div style="display: flex; gap: 10px; padding: 0 0;">
+          <button
+            class="fancy-abstract-button"
+            title="Toggle Abstract"
+            data-id="10"
+          >
+            <svg
+              class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300"
+              viewBox="0 0 24 24"
+              height="50px"
+              width="50px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-width="1.5"
+                d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+              ></path>
+              <path stroke-width="1.5" d="M8 12H16"></path>
+              <path stroke-width="1.5" d="M12 16V8"></path>
+            </svg>
+          </button>
+          <span>|</span>          
+          <span class="pub-info">
+            <a href="pdfs/ces.07.17.24.pdf">PDF</a>
+          </span>
+        </div>
+        <div class="dropdown-menu" data-id="10">
+          <p>
+            The America (Mis)Represented: 2022 Election Report investigates the 
+            prevalence and consequences of vote splitting in the United States’ 
+            2022 election cycle. Vote splitting—where multiple candidates divide 
+            the vote in plurality systems—frequently results in non-majority winners, 
+            undermining representative outcomes. Analyzing 5,662 national primary 
+            elections, the report finds that 11.9% exhibited vote-splitting dynamics, 
+            with pronounced effects in states such as New Hampshire, Arizona, and 
+            California. Voter dissatisfaction has intensified, with public confidence 
+            in democracy dropping from 41% in 2021 to 31% by 2024. Logistic regression
+             analyses reveal that open-seat and competitive races are significantly 
+             more prone to vote splitting. The report advocates for reforms such as 
+             approval voting, which mitigates vote distortion and better captures 
+             voter preferences. Evidence from simulations, including California’s 
+             2024 Senate primary, suggests that such reforms could lead to more 
+             representative electoral outcomes.
+          </p>
+        </div>
+        </div>
+        <!-- SEPARATOR -->
+        <div class="publication-entry" data-type="peer-reviewed" data-keywords="public health, public policy, policy evaluation, causal inference">
+        <p>
+          <strong>Alcocer, Jose J.</strong> 2020.
+          <a href="https://www.cambridge.org/core/journals/journal-of-race-ethnicity-and-politics/article/minority-legislators-sponsor-and-cosponsor-differently-from-white-legislators-causal-evidence-from-us-congress/66D0FA5741BF052EC03C8A6EB60A50D8?utm_date=20250428&utm_id=1745826656&utm_campaign=Open%20Access,REP&utm_source=twitter&utm_medium=social&utm_content">
+            “Exploring the Effect of Colorado’s Recreational Marijuana Policy on Opioid Overdose Rates.”
+          </a>
+          <i>Public Health,</i> Volume 185, 8-14.
+        </p>
+        <div style="display: flex; gap: 10px; padding: 0 0;">
+          <button
+            class="fancy-abstract-button"
+            title="Toggle Abstract"
+            data-id="12"
+          >
+            <svg
+              class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300"
+              viewBox="0 0 24 24"
+              height="50px"
+              width="50px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-width="1.5"
+                d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+              ></path>
+              <path stroke-width="1.5" d="M8 12H16"></path>
+              <path stroke-width="1.5" d="M12 16V8"></path>
+            </svg>
+          </button>
+          <span>|</span>
+          <span class="pub-info">
+            <a href="https://doi.org/10.7910/DVN/63JL0M">Replication</a>
+          </span>                    
+          <span>|</span>
+          <span class="pub-info">
+            <a href="pdfs/10.1016.j.puhe.2020.04.007.pdf">PDF</a>
+          </span>                              
+        </div>
+        <div class="dropdown-menu" data-id="12">
+          <p>
+            How has the legalization of recreational marijuana shaped opioid overdose deaths in 
+            Colorado? While prior research has examined the effects of medical cannabis laws, less is 
+            known about the public health consequences of broader marijuana policy liberalization. In 
+            this study, I use the synthetic control method to estimate the effect of Colorado’s 2014 
+            policy change, comparing the state to a data-driven composite of similar states from 1999 
+            to 2017. Using CDC WONDER data, I construct a counterfactual scenario in which Colorado did 
+            not legalize recreational cannabis, incorporating relevant predictors of opioid mortality. 
+            I supplement this approach with a difference-in-differences estimate and conduct placebo 
+            inference tests to assess robustness. The results suggest a 5% decline in opioid overdose 
+            deaths following legalization, but this effect is not statistically significant. These 
+            findings offer limited evidence that recreational marijuana access meaningfully reduced 
+            opioid-related mortality in Colorado, underscoring the need for more nuanced evaluations 
+            of drug policy reform.
+          </p>
+        </div>
+        </div>
+      </section>
 
-<p class="courses2"></p>
+    <a onclick="topFunction()" id="to-top">
+        <i class="fa-solid fa-angle-up"></i>
+    </a>
 
-<a onclick="topFunction()" id="to-top">
-  <i class="fa-solid fa-angle-up"></i>
-</a>
+    <footer class="footer">
+        <div class="footer-section footer-center">
+            <div><a data-link="email">jalcocer@law.harvard.edu</a></div>
+            <div> 
+                <a data-link="googleScholar">Google Scholar</a> | 
+                <a data-link="linkedin">LinkedIn</a> | 
+                <a data-link="github">GitHub</a> | 
+                <a data-link="orcid">ORCID</a>
+            </div>
+            <div>&copy; 2022-2025 Jose J. Alcocer. All rights reserved.</div>
+        </div>
+    </footer>
 
-<footer>
-  <p> © Jose Alcocer 2022-2025</p>
-</footer>
-
-<script src="main.js"></script>
+  <div id="noise-bg"></div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="module">
+    import { initApp } from '/Users/josealcocer/Documents/alcocer-jj.github.io/js/main.js';
+    document.addEventListener('DOMContentLoaded', initApp);
+  </script>
+  <script src="/Users/josealcocer/Documents/alcocer-jj.github.io/js/research.js"></script>
+  
 <script src="https://kit.fontawesome.com/74504d8101.js" crossorigin="anonymous"></script>
-<script src="https://cdn.usefathom.com/script.js" data-site="KLVIAPIB" defer></script>
-
 </body>
 </html>
