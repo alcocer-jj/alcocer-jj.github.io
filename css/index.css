@@ -31,7 +31,7 @@ body.dark-mode .intro-paragraph p {
   margin: 70px 60px;
   border-radius: 25px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-  url("/Users/josealcocer/Desktop/IMG_8128.JPG");
+  url("imgs/IMG_8128.JPG");
   background-size: cover;
   background-position: center;
   padding: 4rem 2rem 6rem;
