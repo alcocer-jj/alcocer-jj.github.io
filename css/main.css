@@ -356,7 +356,7 @@ body.page-loaded .topnav {
     bottom: -50%;
     width: 400%;
     height: 400vh;
-    background: transparent url("imgs/noise.png") repeat 0 0;
+    background: transparent url("/imgs/noise.png") repeat 0 0;
     background-repeat: repeat;
     animation: 1s steps(2) infinite noise;
     pointer-events: none;
