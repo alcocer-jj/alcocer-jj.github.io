@@ -14,7 +14,7 @@ export function initApp() {
     linkedin: 'https://www.linkedin.com/in/alcocerjj',
     github: 'https://www.github.com/alcocer-jj',
     orcid: 'https://www.orcid.org/0009-0005-0469-3689',
-    openReview: 'https://openreview.net/profile?id=~Jose_J._Alcocer1'
+    openReview: 'https://www.openreview.net/profile?id=~Jose_J._Alcocer1',
   };
   document.querySelectorAll('[data-link]').forEach(el => {
     const key = el.getAttribute('data-link');
