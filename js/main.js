@@ -13,7 +13,8 @@ export function initApp() {
     googleScholar: 'https://www.scholar.google.com/citations?user=e8xo650AAAAJ&hl=en',
     linkedin: 'https://www.linkedin.com/in/alcocerjj',
     github: 'https://www.github.com/alcocer-jj',
-    orcid: 'https://www.orcid.org/0009-0005-0469-3689'
+    orcid: 'https://www.orcid.org/0009-0005-0469-3689',
+    openReview: 'https://openreview.net/profile?id=~Jose_J._Alcocer1'
   };
   document.querySelectorAll('[data-link]').forEach(el => {
     const key = el.getAttribute('data-link');
