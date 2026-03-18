@@ -150,6 +150,14 @@ $(document).ready(function () {
   });
 
   filterAll(); // Initial run
+
+  // Close any open selectMultiple dropdown on outside click
+  $(document).on('click', function (e) {
+    if (!$(e.target).closest('.selectMultiple').length) {
+      $('.selectMultiple.open').removeClass('open');
+    }
+  });
+  
 });
 
 function filterAll() {
