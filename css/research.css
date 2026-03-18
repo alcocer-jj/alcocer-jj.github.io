@@ -603,3 +603,14 @@ body.page-loaded .hero-inner {
     transform: scale(50, 50);
   }
 }
+
+/* ================= WP FILTER STACKING FIX ================ */
+/* Ensures the WP keyword dropdown floats above the publications section */
+#wp-filters-wrapper {
+  position: relative;
+  z-index: 100;
+}
+
+#wp-filters-wrapper .selectMultiple > ul {
+  z-index: 100;
+}
