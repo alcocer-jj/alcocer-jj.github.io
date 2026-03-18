@@ -605,12 +605,23 @@ body.page-loaded .hero-inner {
 }
 
 /* ================= WP FILTER STACKING FIX ================ */
-/* Ensures the WP keyword dropdown floats above the publications section */
+/* WP section sits above publications in the stacking order */
 #wp-filters-wrapper {
   position: relative;
-  z-index: 100;
+  z-index: 50;
+}
+
+#wp-filters-wrapper .selectMultiple {
+  position: relative;
+  z-index: 50;
 }
 
 #wp-filters-wrapper .selectMultiple > ul {
-  z-index: 100;
+  z-index: 50;
+}
+
+/* Publications section pushed below */
+#pub-filters-wrapper {
+  position: relative;
+  z-index: 1;
 }
