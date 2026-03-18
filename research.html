@@ -176,7 +176,7 @@
     <div>
 <div class="filters-wrapper">
   <!-- Research Keywords Filter -->
-  <select id="filter-keywords" multiple data-placeholder="Research Keywords">
+  <select id="wp-filter-keywords" multiple data-placeholder="Research Keywords">
     <option>Causal Inference</option>
     <option>Electoral System</option>
     <option>Experiment</option>
@@ -196,7 +196,7 @@
   <!-------------------------------------------->
   <!-- Beginning of working paper entries ------>
   <!-------------------------------------------->
-      <div class="intro-paragraph">
+      <div class="intro-paragraph" id="working-papers-list">
         <div class="publication-entry" data-keywords="electoral system, legislature, redistricting, representation, u.s. congress">
           <p>
           <strong>Alcocer, Jose J.</strong> , Christian R. Grose, and Seth C. McKee. 2026.
@@ -245,6 +245,9 @@
           </p>
         </div>
         </div>
+      </div><!-- close working-papers-list -->
+    </div><!-- close wrapping div -->
+  </section><!-- close intro-section for working papers -->
 
 <h2 class="section-title" style="font-family:'Times New Roman', Times, serif;">
   Publications
@@ -253,12 +256,12 @@
     <div>
 <div class="filters-wrapper">
   <!-- Type Filter -->
-  <select id="filter-type" multiple data-placeholder="Publication Type">
+  <select id="pub-filter-type" multiple data-placeholder="Publication Type">
     <option selected>Peer-Reviewed</option>
     <option selected>Other</option>
   </select>
   <!-- Research Keywords Filter -->
-  <select id="filter-keywords" multiple data-placeholder="Research Keywords">
+  <select id="pub-filter-keywords" multiple data-placeholder="Research Keywords">
     <option>Causal Inference</option>
     <option>Electoral System</option>
     <option>Experiment</option>
@@ -279,7 +282,7 @@
   <!------------------------------------------>
   <!-- Beginning of publication entries ------>
   <!------------------------------------------>
-      <div class="intro-paragraph">
+      <div class="intro-paragraph" id="publications-list">
         <div class="publication-entry" data-type="other" data-keywords="redistricting, representation">
           <p>
           <strong>Alcocer, Jose J.</strong> 2025.
@@ -330,7 +333,6 @@
         <!------------------------------------------>
         <!-- SEPARATOR ----------------------------->
         <!------------------------------------------>
-      <div class="intro-paragraph">
         <div class="publication-entry" data-type="peer-reviewed" data-keywords="indigenous, mexico, legislature, experiment">
           <p>
           Múzquiz, José E. and <strong>Alcocer, Jose J.</strong> 2025.
@@ -674,7 +676,7 @@
 
     <footer class="footer">
         <div class="footer-section footer-center">
-            <div><a data-link="email">jalcocer@law.harvard.edu</a></div>
+            <div><a data-link="email"><span class="__cf_email__" data-cfemail="bfd5ded3dcd0dcdacdffd3dec891d7decdc9decddb91dadbca">[email&#160;protected]</span></a></div>
             <div> 
                 <a data-link="googleScholar">Google Scholar</a> | 
                 <a data-link="linkedin">LinkedIn</a> | 
@@ -687,13 +689,7 @@
     </footer>
 
   <div id="noise-bg"></div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="module">
     import { initApp } from '/js/main.js';
-    document.addEventListener('DOMContentLoaded', initApp);
-  </script>
-  <script src="/js/research.js"></script>
-
-<script src="https://kit.fontawesome.com/74504d8101.js" crossorigin="anonymous"></script>
-</body>
-</html>
+    document.a

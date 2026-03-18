@@ -111,7 +111,7 @@ $(document).ready(function () {
           a.addClass('shown');
           span.addClass('hide');
           select.find('option:contains(' + text + ')').prop('selected', true);
-          filterPublications();
+          filterAll();
         }, 500);
       });
       li.slideUp(400, function () {
@@ -135,7 +135,7 @@ $(document).ready(function () {
               if (!select.find('option:selected').length) {
                 span.removeClass('hide');
               }
-              filterPublications();
+              filterAll();
             });
             a.remove();
           });
@@ -149,19 +149,42 @@ $(document).ready(function () {
     });
   });
 
-  filterPublications(); // Initial run
+  filterAll(); // Initial run
 });
+
+function filterAll() {
+  filterWorkingPapers();
+  filterPublications();
+}
+
+function filterWorkingPapers() {
+  const selectedKeywords = Array.from(
+    document.querySelectorAll('#wp-filter-keywords option:checked')
+  ).map(opt => opt.textContent.trim().toLowerCase());
+
+  document.querySelectorAll('#working-papers-list .publication-entry').forEach(pub => {
+    const keywords = (pub.dataset.keywords || '')
+      .toLowerCase()
+      .split(',')
+      .map(t => t.trim());
+
+    const hasKeywords = selectedKeywords.length === 0 ||
+      selectedKeywords.every(k => keywords.includes(k));
+
+    pub.style.display = hasKeywords ? '' : 'none';
+  });
+}
 
 function filterPublications() {
   const selectedTypes = Array.from(
-    document.querySelectorAll('#filter-type option:checked')
+    document.querySelectorAll('#pub-filter-type option:checked')
   ).map(opt => opt.textContent.trim().toLowerCase());
 
   const selectedKeywords = Array.from(
-    document.querySelectorAll('#filter-keywords option:checked')
+    document.querySelectorAll('#pub-filter-keywords option:checked')
   ).map(opt => opt.textContent.trim().toLowerCase());
 
-  document.querySelectorAll('.publication-entry').forEach(pub => {
+  document.querySelectorAll('#publications-list .publication-entry').forEach(pub => {
     const typeTag = (pub.dataset.type || '').toLowerCase().trim();
     const keywords = (pub.dataset.keywords || '')
       .toLowerCase()
