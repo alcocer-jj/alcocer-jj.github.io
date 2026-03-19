@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.alcocerjj.com/css/main.css">
 <link rel="stylesheet" href="https://www.alcocerjj.com/css/research.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 
 </head>
 
@@ -202,7 +203,7 @@
           <strong>Alcocer, Jose J.</strong> , Christian R. Grose, and Seth C. McKee. 2026.
             "Redistricting Redux and the Battle to Win the U.S. House in 2026: How Partisan Are the New Maps?"
         </p>
-        <div style="display: flex; gap: 10px; padding: 0 0;">
+        <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
           <button
             class="fancy-abstract-button"
             title="Toggle Abstract"
@@ -222,6 +223,10 @@
               <path stroke-width="1.5" d="M8 12H16"></path>
               <path stroke-width="1.5" d="M12 16V8"></path>
             </svg>
+          </button>
+          <span>|</span>
+          <button class="map-toggle-btn" data-map-id="redistricting-2026" title="Interactive Maps">
+            Interactive Maps
           </button>
         </div>
         <div class="dropdown-menu" data-id="1a">
@@ -243,6 +248,11 @@
             context, and analyze these new maps to determine their effectiveness in meeting the line drawers’ 
             intentions.
           </p>
+        </div>
+        <div class="map-dropdown" data-map-id="redistricting-2026">
+          <div id="rmap-controls"></div>
+          <div id="redistricting-map"></div>
+          <div id="rmap-plan-buttons"></div>
         </div>
         </div>
       </div><!-- close working-papers-list -->
@@ -676,7 +686,7 @@
 
     <footer class="footer">
         <div class="footer-section footer-center">
-            <div><a data-link="email"><span class="__cf_email__" data-cfemail="bfd5ded3dcd0dcdacdffd3dec891d7decdc9decddb91dadbca">jalcocer@law.harvard.edu</span></a></div>
+            <div><a data-link="email"><span class="__cf_email__" data-cfemail="bfd5ded3dcd0dcdacdffd3dec891d7decdc9decddb91dadbca">[email&#160;protected]</span></a></div>
             <div> 
                 <a data-link="googleScholar">Google Scholar</a> | 
                 <a data-link="linkedin">LinkedIn</a> | 
@@ -690,7 +700,8 @@
 
   <div id="noise-bg"></div>
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script src="https://kit.fontawesome.com/74504d8101.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="/js/redistricting_map.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/js/research.js"></script>
   <script type="module">

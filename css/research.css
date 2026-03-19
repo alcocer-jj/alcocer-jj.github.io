@@ -625,3 +625,352 @@ body.page-loaded .hero-inner {
   position: relative;
   z-index: 1;
 }
+
+/* ================= INTERACTIVE MAP COMPONENT ================ */
+
+/* ── "Interactive Maps" toggle button — neon gradient ─────── */
+.map-toggle-btn {
+  display: inline-block;
+  padding: 8px 22px;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: white;
+  border: none;
+  border-radius: 5em;
+  background-size: 200% 100%;
+  background-image: linear-gradient(145deg, #ff53eb, #4b4bff, #5de7ff);
+  box-shadow: 2px 2px 8px 1px #4b4bff, -2px -2px 8px 1px #ff53eb;
+  transition: 0.5s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.map-toggle-btn:hover {
+  background-position: 99%;
+  box-shadow: 2px 2px 8px 1px #5de7ff, -2px -2px 8px 1px #4b4bff;
+}
+.map-toggle-btn:active,
+.map-toggle-btn.active {
+  transform: scale(0.92);
+  box-shadow: 2px 2px 10px 2px #5de7ff, -2px -2px 10px 2px #4b4bff;
+}
+
+/* ── Expandable map container ──────────────────────────────── */
+.map-dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  margin-top: 10px;
+}
+.map-dropdown.open {
+  max-height: 820px;
+}
+
+/* ── Leaflet map element ────────────────────────────────────── */
+#redistricting-map {
+  height: 520px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Top bar: dropdown select ───────────────────────────────── */
+.rmap-top-bar {
+  padding: 12px 0 8px;
+}
+
+.rmap-select-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.rmap-select {
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #1a1a1a;
+  background: #fff;
+  border: 2px solid #966E6D;
+  border-radius: 20px;
+  padding: 6px 36px 6px 16px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.rmap-select:hover,
+.rmap-select:focus {
+  border-color: #7a5251;
+  box-shadow: 0 0 0 3px rgba(150, 110, 109, 0.15);
+}
+
+.rmap-select-arrow {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 12px;
+  color: #966E6D;
+}
+
+/* ── Pill buttons (metrics + plan year) ─────────────────────── */
+.rmap-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 0 4px;
+}
+
+.rmap-pills-plans {
+  padding: 10px 0 4px;
+}
+
+.rmap-pill {
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  padding: 5px 16px;
+  border-radius: 20px;
+  border: 2px solid #966E6D;
+  background-color: #fff;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+  white-space: nowrap;
+  user-select: none;
+}
+.rmap-pill:hover {
+  background-color: rgba(150, 110, 109, 0.12);
+  border-color: #7a5251;
+}
+.rmap-pill.active {
+  background-color: #966E6D;
+  color: rgb(38, 38, 38);
+  border-color: #966E6D;
+}
+.rmap-pill:active {
+  transform: scale(0.95);
+}
+
+/* ── Legend ─────────────────────────────────────────────────── */
+.rmap-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 0 10px;
+  font-family: sans-serif;
+  font-size: 12px;
+  color: #444;
+}
+
+.rml-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rml-dot {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rmap-legend-scale {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rml-label {
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #555;
+  white-space: nowrap;
+}
+
+.rml-steps {
+  display: flex;
+  gap: 2px;
+}
+.rml-step {
+  display: block;
+  width: 22px;
+  height: 14px;
+  border-radius: 2px;
+  cursor: help;
+}
+
+.rml-gradient {
+  width: 120px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+.rml-sub {
+  font-family: sans-serif;
+  font-size: 10px;
+  color: #888;
+  font-style: italic;
+  width: 100%;
+}
+
+/* ── Plan buttons bar (below map) ────────────────────────────── */
+#rmap-plan-buttons {
+  min-height: 0;
+}
+
+/* ── Loading / error overlay ─────────────────────────────────── */
+#rmap-msg {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(250, 249, 249, 0.97);
+  padding: 20px 24px;
+  border-radius: 8px;
+  font-family: sans-serif;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.7;
+  z-index: 9999;
+  max-width: 380px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  flex-direction: column;
+  align-items: center;
+}
+#rmap-msg code {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #444;
+  word-break: break-all;
+  text-align: left;
+  background: #f0f0f0;
+  padding: 6px 8px;
+  border-radius: 4px;
+}
+
+/* ── Leaflet tooltip wrapper ─────────────────────────────────── */
+.rmap-leaflet-tt.leaflet-tooltip {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.rmap-leaflet-tt.leaflet-tooltip::before { display: none !important; }
+
+/* Lightweight hover tooltip for districts */
+.rmt-tt-sm {
+  background: rgba(250, 249, 249, 0.97);
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* ── Popup container ─────────────────────────────────────────── */
+.rmap-popup .leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.rmap-popup .leaflet-popup-content {
+  margin: 0;
+  width: auto !important;
+}
+.rmap-popup .leaflet-popup-tip-container { display: none; }
+
+/* ── Data table (popup + state hover) ───────────────────────── */
+.rmt-wrap {
+  font-family: sans-serif;
+  font-size: 12px;
+  min-width: 260px;
+}
+
+.rmt {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.rmt-head {
+  background: #966E6D;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 12px;
+  text-align: left;
+  letter-spacing: 0.02em;
+}
+
+.rmt-even { background: #f4f7fc; }
+.rmt-odd  { background: #ffffff; }
+
+.rmt tr td {
+  padding: 5px 10px;
+  border-bottom: 1px solid #e8eaf0;
+  vertical-align: middle;
+}
+
+.rmt-num {
+  color: #aaa;
+  font-size: 10px;
+  width: 20px;
+  text-align: right;
+  padding-right: 6px !important;
+}
+
+.rmt-key {
+  font-weight: 700;
+  color: #333;
+  white-space: nowrap;
+}
+
+.rmt-val {
+  color: #1a1a1a;
+  text-align: right;
+}
+
+/* ── Dark mode ───────────────────────────────────────────────── */
+body.dark-mode #redistricting-map      { border-color: #333; }
+body.dark-mode .rmap-select            { background: #2a2a2a; color: #faf9f9; border-color: #966E6D; }
+body.dark-mode .rmap-pill              { background: #2a2a2a; color: #faf9f9; border-color: #966E6D; }
+body.dark-mode .rmap-pill.active       { background: #966E6D; color: #faf9f9; }
+body.dark-mode .rmap-pill:hover        { background: rgba(150,110,109,0.25); }
+body.dark-mode .rmap-legend            { color: #ccc; }
+body.dark-mode .rml-label              { color: #aaa; }
+body.dark-mode .rmt-tt-sm             { background: rgba(26,26,26,0.97); border-color: #444; color: #faf9f9; }
+body.dark-mode .rmt-head              { background: #7a5251; }
+body.dark-mode .rmt-even              { background: #252525; }
+body.dark-mode .rmt-odd               { background: #1e1e1e; }
+body.dark-mode .rmt-key               { color: #eee; }
+body.dark-mode .rmt-val               { color: #faf9f9; }
+body.dark-mode .rmt tr td             { border-bottom-color: #333; }
+body.dark-mode #rmap-msg              { background: rgba(26,26,26,0.97); color: #faf9f9; }
+body.dark-mode #rmap-msg code         { background: #2a2a2a; color: #ccc; }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  #redistricting-map    { height: 380px; }
+  .map-dropdown.open    { max-height: 620px; }
+  .rml-gradient         { width: 80px; }
+  .rmap-pill            { font-size: 11px; padding: 4px 12px; }
+}
