@@ -18,18 +18,17 @@
 
   // ─── STATE CONFIG ────────────────────────────────────────────────
   // year = two-digit suffix in the filename (e.g. oh22.geojson)
-  // Confirm Ohio's earlier year (oh22 vs oh21) and update if needed.
   const STATES = {
     CA: { name: 'California',     plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] },
     MO: { name: 'Missouri',       plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] },
-    NC: { name: 'North Carolina', plans: [{ year: '21', type: T.OLD }, { year: '23', type: T.MID }, { year: '25', type: T.NEW }] },
+    NC: { name: 'North Carolina', plans: [{ year: '22', type: T.OLD }, { year: '23', type: T.MID }, { year: '25', type: T.NEW }] },
     OH: { name: 'Ohio',           plans: [{ year: '22', type: T.OLD }, { year: '25', type: T.NEW }] },
     TX: { name: 'Texas',          plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] },
     UT: { name: 'Utah',           plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] },
-    VA: { name: 'Virginia',       plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] }
+    VA: { name: 'Virginia',       plans: [{ year: '21', type: T.OLD }, { year: '26', type: T.NEW }] }
   };
 
-  const YEAR_LABEL = { '21': '2021 Map', '22': '2022 Map', '23': '2023 Map', '25': '2025 Map' };
+  const YEAR_LABEL = { '21': '2021 Map', '22': '2022 Map', '23': '2023 Map', '25': '2025 Map', '26': '2026 Map' };
 
   // ─── COLOR FUNCTIONS ─────────────────────────────────────────────
 
