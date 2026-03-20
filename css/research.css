@@ -1001,6 +1001,7 @@ body.page-loaded .hero-inner {
   background: none !important;
   border: none !important;
   box-shadow: none !important;
+  z-index: 650 !important;
 }
 
 .rmap-state-label span {

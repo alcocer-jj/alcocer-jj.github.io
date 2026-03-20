@@ -376,7 +376,13 @@
           if (!dictEl) {
             dictEl = document.createElement('div');
             dictEl.id = 'rmap-dict-bar';
-            legendBar?.parentNode?.insertBefore(dictEl, legendBar.nextSibling);
+            // Insert after legend bar if possible, otherwise append to controls
+            const anchor = legendBar || document.getElementById('rmap-controls');
+            if (legendBar && legendBar.parentNode) {
+              legendBar.parentNode.insertBefore(dictEl, legendBar.nextSibling);
+            } else if (anchor) {
+              anchor.appendChild(dictEl);
+            }
           }
           dictEl.innerHTML = dictionaryHTML(dictKey);
         } else {
