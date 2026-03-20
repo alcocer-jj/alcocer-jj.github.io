@@ -631,7 +631,7 @@ body.page-loaded .hero-inner {
 /* ── "Interactive Maps" toggle button — neon gradient ─────── */
 .map-toggle-btn {
   display: inline-block;
-  padding: 6px 22px;
+  padding: 4px 22px;
   font-size: 15px;
   font-family: sans-serif;
   color: white;
