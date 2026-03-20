@@ -93,31 +93,47 @@ export function initApp() {
   //  ──────────────────────────────────────
   // HIDE navbar on scroll down, SHOW on scroll up
   // ALSO: close mobile menu when navbar hides
+  // ALSO: show/hide scroll-to-top button
+  // Single consolidated scroll handler — no competing style.transform
   // ──────────────────────────────────────
+  const toTopButton = document.getElementById("to-top");
   let lastScrollY = window.scrollY;
 
   window.addEventListener("scroll", function () {
     const navbar = document.querySelector(".topnav");
     const currentScrollY = window.scrollY;
 
+    // Always show navbar when fully scrolled to the top
+    if (currentScrollY <= 0) {
+      navbar.classList.remove("hidden");
+      navbar.style.transform = "";
+      lastScrollY = 0;
+      if (toTopButton) toTopButton.style.display = "none";
+      return;
+    }
+
     if (currentScrollY > lastScrollY) {
       // Scrolling down — hide navbar
       navbar.classList.add("hidden");
+      navbar.style.transform = "";
 
       // Close mobile menu if open
       if (menuOpen) {
         mobileMenu.classList.remove("open");
         mobileMenu.classList.add("closing");
         menuIcon.classList.remove("open");
-
-        setTimeout(() => {
-          mobileMenu.classList.remove("closing");
-        }, 400);
+        setTimeout(() => mobileMenu.classList.remove("closing"), 400);
         menuOpen = false;
       }
     } else {
       // Scrolling up — show navbar
       navbar.classList.remove("hidden");
+      navbar.style.transform = "";
+    }
+
+    // Scroll-to-top button
+    if (toTopButton) {
+      toTopButton.style.display = currentScrollY > 500 ? "block" : "none";
     }
 
     lastScrollY = currentScrollY;
@@ -184,11 +200,6 @@ export function initApp() {
   // ──────────────────────────────────────
   // SCROLL-TO-TOP BUTTON
   // ──────────────────────────────────────
-  const toTopButton = document.getElementById("to-top");
-  window.onscroll = function() {
-    if (window.scrollY > 500) toTopButton.style.display = "block";
-    else toTopButton.style.display = "none";
-  };
   window.topFunction = function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -230,24 +241,6 @@ export function initApp() {
 
   window.addEventListener("pageshow", () => {
   document.body.classList.add("page-loaded");
-  });
-
-    // ──────────────────────────────────────
-  // HIDE/SHOW NAVBAR ON SCROLL (fixed)
-  // ──────────────────────────────────────
-  const nav           = document.getElementById("myTopnav");
-  let prevScrollPos   = window.pageYOffset;
-
-  window.addEventListener("scroll", function() {
-    const currentScrollPos = window.pageYOffset;
-    if (currentScrollPos > prevScrollPos) {
-      // scroll down → hide
-      nav.style.transform = "translateY(-100%)";
-    } else {
-      // scroll up → show
-      nav.style.transform = "translateY(0)";
-    }
-    prevScrollPos = currentScrollPos;
   });
 
   // page‐load fade‐in

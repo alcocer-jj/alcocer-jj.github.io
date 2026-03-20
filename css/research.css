@@ -631,7 +631,7 @@ body.page-loaded .hero-inner {
 /* ── "Interactive Maps" toggle button — neon gradient ─────── */
 .map-toggle-btn {
   display: inline-block;
-  padding: 8px 22px;
+  padding: 6px 22px;
   font-size: 15px;
   font-family: sans-serif;
   color: white;
@@ -662,12 +662,12 @@ body.page-loaded .hero-inner {
   margin-top: 10px;
 }
 .map-dropdown.open {
-  max-height: 820px;
+  max-height: 1100px;
 }
 
-/* ── Leaflet map element ────────────────────────────────────── */
+/* ── Leaflet map element (+15% height: 520 → 600) ──────────── */
 #redistricting-map {
-  height: 520px;
+  height: 600px;
   width: 100%;
   border-radius: 10px;
   border: 1px solid #ddd;
@@ -675,9 +675,11 @@ body.page-loaded .hero-inner {
   z-index: 1;
 }
 
-/* ── Top bar: dropdown select ───────────────────────────────── */
+/* ── Top bar: centered dropdown ─────────────────────────────── */
 .rmap-top-bar {
   padding: 12px 0 8px;
+  display: flex;
+  justify-content: center;
 }
 
 .rmap-select-wrap {
@@ -718,16 +720,18 @@ body.page-loaded .hero-inner {
   color: #966E6D;
 }
 
-/* ── Pill buttons (metrics + plan year) ─────────────────────── */
+/* ── Pill buttons — centered ─────────────────────────────────── */
 .rmap-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   padding: 8px 0 4px;
+  justify-content: center;
 }
 
 .rmap-pills-plans {
   padding: 10px 0 4px;
+  justify-content: center;
 }
 
 .rmap-pill {
@@ -761,28 +765,39 @@ body.page-loaded .hero-inner {
   transform: scale(0.95);
 }
 
-/* ── Legend ─────────────────────────────────────────────────── */
+/* Dictionary pill — slightly distinct */
+.rmap-pill-dict {
+  border-style: dashed;
+  opacity: 0.85;
+}
+.rmap-pill-dict.active {
+  border-style: solid;
+  opacity: 1;
+}
+
+/* ── Legend — centered ───────────────────────────── */
 .rmap-legend {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 14px;
-  padding: 8px 0 10px;
+  justify-content: center;
+  gap: 16px;
+  padding: 9px 0 11px;
   font-family: sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   color: #444;
 }
 
 .rml-item {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 }
 
 .rml-dot {
   display: inline-block;
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -790,13 +805,15 @@ body.page-loaded .hero-inner {
 .rmap-legend-scale {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 9px;
   flex-wrap: wrap;
+  padding: 9px 0 11px;
 }
 
 .rml-label {
   font-family: sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   color: #555;
   white-space: nowrap;
@@ -804,33 +821,70 @@ body.page-loaded .hero-inner {
 
 .rml-steps {
   display: flex;
-  gap: 2px;
+  gap: 3px;
 }
 .rml-step {
   display: block;
-  width: 22px;
-  height: 14px;
+  width: 24px;
+  height: 15px;
   border-radius: 2px;
   cursor: help;
 }
 
 .rml-gradient {
-  width: 120px;
-  height: 14px;
+  width: 132px;
+  height: 15px;
   border-radius: 3px;
 }
 
 .rml-sub {
   font-family: sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   color: #888;
   font-style: italic;
   width: 100%;
+  text-align: center;
 }
 
-/* ── Plan buttons bar (below map) ────────────────────────────── */
+/* ── Plan buttons bar (below map) — centered ─────────────────── */
 #rmap-plan-buttons {
   min-height: 0;
+}
+
+/* ── Dictionary panel ────────────────────────────────────────── */
+#rmap-dict-bar {
+  padding: 4px 0 8px;
+}
+
+.rmap-dict {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0 4px;
+}
+
+.rmap-dict-entry {
+  background: #f9f5f5;
+  border-left: 3px solid #966E6D;
+  border-radius: 0 6px 6px 0;
+  padding: 8px 12px;
+}
+
+.rmap-dict-label {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #966E6D;
+  margin-bottom: 4px;
+}
+
+.rmap-dict-desc {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
 }
 
 /* ── Loading / error overlay ─────────────────────────────────── */
@@ -874,7 +928,6 @@ body.page-loaded .hero-inner {
 }
 .rmap-leaflet-tt.leaflet-tooltip::before { display: none !important; }
 
-/* Lightweight hover tooltip for districts */
 .rmt-tt-sm {
   background: rgba(250, 249, 249, 0.97);
   border: 1px solid #ddd;
@@ -899,18 +952,16 @@ body.page-loaded .hero-inner {
 }
 .rmap-popup .leaflet-popup-tip-container { display: none; }
 
-/* ── Data table (popup + state hover) ───────────────────────── */
+/* ── Data table ──────────────────────────────────────────────── */
 .rmt-wrap {
   font-family: sans-serif;
   font-size: 12px;
   min-width: 260px;
 }
-
 .rmt {
   border-collapse: collapse;
   width: 100%;
 }
-
 .rmt-head {
   background: #966E6D;
   color: #fff;
@@ -920,16 +971,13 @@ body.page-loaded .hero-inner {
   text-align: left;
   letter-spacing: 0.02em;
 }
-
 .rmt-even { background: #f4f7fc; }
 .rmt-odd  { background: #ffffff; }
-
 .rmt tr td {
   padding: 5px 10px;
   border-bottom: 1px solid #e8eaf0;
   vertical-align: middle;
 }
-
 .rmt-num {
   color: #aaa;
   font-size: 10px;
@@ -937,16 +985,43 @@ body.page-loaded .hero-inner {
   text-align: right;
   padding-right: 6px !important;
 }
-
 .rmt-key {
   font-weight: 700;
   color: #333;
   white-space: nowrap;
 }
-
 .rmt-val {
   color: #1a1a1a;
   text-align: right;
+}
+
+/* ── Map labels (state abbreviations + district numbers) ─────── */
+.rmap-state-label,
+.rmap-dist-label {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.rmap-state-label span {
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff;
+  letter-spacing: 0.03em;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.rmap-dist-label span {
+  font-family: sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-shadow: 0 0 2px #fff, 0 0 2px #fff;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 /* ── Dark mode ───────────────────────────────────────────────── */
@@ -957,20 +1032,46 @@ body.dark-mode .rmap-pill.active       { background: #966E6D; color: #faf9f9; }
 body.dark-mode .rmap-pill:hover        { background: rgba(150,110,109,0.25); }
 body.dark-mode .rmap-legend            { color: #ccc; }
 body.dark-mode .rml-label              { color: #aaa; }
-body.dark-mode .rmt-tt-sm             { background: rgba(26,26,26,0.97); border-color: #444; color: #faf9f9; }
-body.dark-mode .rmt-head              { background: #7a5251; }
-body.dark-mode .rmt-even              { background: #252525; }
-body.dark-mode .rmt-odd               { background: #1e1e1e; }
-body.dark-mode .rmt-key               { color: #eee; }
-body.dark-mode .rmt-val               { color: #faf9f9; }
-body.dark-mode .rmt tr td             { border-bottom-color: #333; }
-body.dark-mode #rmap-msg              { background: rgba(26,26,26,0.97); color: #faf9f9; }
-body.dark-mode #rmap-msg code         { background: #2a2a2a; color: #ccc; }
+body.dark-mode .rmt-tt-sm              { background: rgba(26,26,26,0.97); border-color: #444; color: #faf9f9; }
+body.dark-mode .rmt-head               { background: #7a5251; }
+body.dark-mode .rmt-even               { background: #252525; }
+body.dark-mode .rmt-odd                { background: #1e1e1e; }
+body.dark-mode .rmt-key                { color: #eee; }
+body.dark-mode .rmt-val                { color: #faf9f9; }
+body.dark-mode .rmt tr td              { border-bottom-color: #333; }
+body.dark-mode #rmap-msg               { background: rgba(26,26,26,0.96); color: #faf9f9; }
+body.dark-mode #rmap-msg code          { background: #2a2a2a; color: #ccc; }
+body.dark-mode .rmap-dict-entry        { background: #1e1e1e; border-left-color: #966E6D; }
+body.dark-mode .rmap-dict-desc         { color: #ccc; }
+body.dark-mode .rmap-state-label span,
+body.dark-mode .rmap-dist-label span   { color: #fff; text-shadow: 0 0 3px #000, 0 0 3px #000; }
 
 /* ── Responsive ──────────────────────────────────────────────── */
-@media (max-width: 680px) {
-  #redistricting-map    { height: 380px; }
-  .map-dropdown.open    { max-height: 620px; }
-  .rml-gradient         { width: 80px; }
-  .rmap-pill            { font-size: 11px; padding: 4px 12px; }
+
+/* Hide the entire map component on small screens.
+   The toggle button is replaced by a static notice.
+   Threshold: 768px catches all phones + portrait tablets. */
+@media (max-width: 767px) {
+  .map-toggle-btn       { display: none !important; }
+  .map-dropdown         { display: none !important; }
+  .rmap-mobile-notice   { display: inline-block !important; }
+}
+
+/* The notice is hidden by default on larger screens */
+.rmap-mobile-notice {
+  display: none;
+  font-family: sans-serif;
+  font-size: 12px;
+  color: #966E6D;
+  font-style: italic;
+  vertical-align: middle;
+}
+
+/* Modest adjustments for mid-size screens (768–999px) */
+@media (min-width: 768px) and (max-width: 999px) {
+  #redistricting-map   { height: 480px; }
+  .map-dropdown.open   { max-height: 900px; }
+  .rml-gradient        { width: 100px; }
+  .rmap-pill           { font-size: 11px; padding: 4px 13px; }
+  .rmap-dict-desc      { font-size: 13px; }
 }
