@@ -129,12 +129,12 @@
   function winProbColor(prob) {
     if (prob == null) return '#d7d7d7';
     const p = Number(prob);
-    if (p > 53) return lerpColor('#6aaaf5', '#013364', (p - 53) / 47);
-    if (p < 47) return lerpColor('#f0907a', '#661001', (47 - p) / 47);
+    if (p > 53) return lerpColor('#6aaaf5', '#1a60c0', (p - 53) / 47);
+    if (p < 47) return lerpColor('#f0907a', '#c04030', (47 - p) / 47);
     return '#a183ff';
   }
 
-  const BROWN = ['#DEB89A', '#C68B5A', '#9B5E3B', '#5C2B1F', '#1C0A09'];
+  const BROWN = ['#1C0A09', '#5C2B1F', '#9B5E3B', '#C68B5A', '#DEB89A'];
   function compactnessColor(pct) {
     if (pct == null) return '#d7d7d7';
     const t = Math.max(0, Math.min(100, Number(pct))) / 100;
