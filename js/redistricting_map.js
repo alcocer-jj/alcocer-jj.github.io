@@ -177,6 +177,7 @@
   let _tileLayer  = null;
   let _stateLayer = null;
   let _distLayer  = null;
+  let _labelLayer = null;
   let _curView    = 'plan';
   let _curPlan    = null;
   let _curMapType = null;
@@ -434,6 +435,56 @@
     }
   }
 
+  // ─── LABELS ──────────────────────────────────────────────────────
+
+  function addStateLabels(geoLayer) {
+    if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
+    const markers = [];
+    geoLayer.eachLayer(layer => {
+      const abbr = layer.feature.properties['Abbr'];
+      if (!abbr) return;
+      const center = layer.getBounds().getCenter();
+      markers.push(
+        L.marker(center, {
+          icon: L.divIcon({
+            className: 'rmap-state-label',
+            html: `<span>${abbr}</span>`,
+            iconSize: null,
+            iconAnchor: [16, 8]
+          }),
+          interactive: false
+        })
+      );
+    });
+    _labelLayer = L.layerGroup(markers).addTo(_map);
+  }
+
+  function addDistrictLabels(geoLayer) {
+    if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
+    const markers = [];
+    geoLayer.eachLayer(layer => {
+      const num = layer.feature.properties['District No.'];
+      if (num == null) return;
+      const center = layer.getBounds().getCenter();
+      markers.push(
+        L.marker(center, {
+          icon: L.divIcon({
+            className: 'rmap-dist-label',
+            html: `<span>${num}</span>`,
+            iconSize: null,
+            iconAnchor: [10, 7]
+          }),
+          interactive: false
+        })
+      );
+    });
+    _labelLayer = L.layerGroup(markers).addTo(_map);
+  }
+
+  function clearLabels() {
+    if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
+  }
+
   // ─── FETCH / CACHE ───────────────────────────────────────────────
 
   async function fetchGeo(url) {
@@ -484,6 +535,7 @@
   async function showPlanLevel() {
     _curView = 'plan'; _curPlan = null; _curMapType = null; _curMetric = 'enacted';
     if (_distLayer)  { _map.removeLayer(_distLayer); _distLayer = null; }
+    clearLabels();
     clearPlanButtons();
     renderControls('plan');
     renderPills(PLAN_PILLS, 'enacted');
@@ -492,6 +544,7 @@
     if (_stateLayer) {
       _stateLayer.addTo(_map);
       applyMetric('enacted');
+      addStateLabels(_stateLayer);
       _map.flyToBounds(_stateLayer.getBounds(), { padding: [40, 40], duration: 0.6 });
       return;
     }
@@ -501,6 +554,7 @@
       clearMsg();
       _stateLayer = buildStateLayer(geo);
       _stateLayer.addTo(_map);
+      addStateLabels(_stateLayer);
       _map.flyToBounds(_stateLayer.getBounds(), { padding: [40, 40], duration: 0 });
     } catch (err) {
       setMsg(`State GeoJSON not found.<br>
@@ -519,7 +573,12 @@
         layer.bindTooltip(stateTableHTML(f.properties), { className: 'rmap-leaflet-tt', sticky: true, maxWidth: 320 });
         layer.on({
           mouseover: e => e.target.setStyle({ weight: 2.5, color: '#222', fillOpacity: 0.95 }),
-          mouseout:  e => _stateLayer.resetStyle(e.target),
+          mouseout: e => {
+            const pill = PLAN_PILLS.find(p => p.id === _curMetric);
+            if (pill && pill.colorFn) {
+              e.target.setStyle({ fillColor: pill.colorFn(e.target.feature.properties), weight: 1.5, color: '#444', fillOpacity: 0.82 });
+            }
+          },
           click: () => {
             if (!STATES[abbr]) return;
             const st = STATES[abbr];
@@ -538,6 +597,7 @@
     _curView = abbr; _curPlan = planYear; _curMapType = mapType;
     if (_stateLayer) _map.removeLayer(_stateLayer);
     if (_distLayer)  { _map.removeLayer(_distLayer); _distLayer = null; }
+    clearLabels();
 
     const pills = STATE_PILLS[mapType] || STATE_PILLS[T.OLD];
     if (!pills.find(p => p.id === _curMetric)) _curMetric = pills[0].id;
@@ -569,12 +629,19 @@
           layer.bindPopup(districtTableHTML(p, mapType), { maxWidth: 360, className: 'rmap-popup' });
           layer.on({
             mouseover: e => e.target.setStyle({ weight: 2.5, color: '#111', fillOpacity: 0.95 }),
-            mouseout:  e => _distLayer.resetStyle(e.target),
+            mouseout: e => {
+              const pills = STATE_PILLS[_curMapType] || STATE_PILLS[T.OLD];
+              const pill = pills.find(p => p.id === _curMetric);
+              if (pill && pill.colorFn) {
+                e.target.setStyle({ fillColor: pill.colorFn(e.target.feature.properties), weight: 1, color: '#555', fillOpacity: 0.82 });
+              }
+            },
             click:     e => e.target.openPopup()
           });
         }
       }).addTo(_map);
 
+      addDistrictLabels(_distLayer);
       _map.flyToBounds(_distLayer.getBounds(), { padding: [30, 30], duration: 0.7 });
     } catch (err) {
       const yr = YEAR_LABEL[planYear] || planYear;
