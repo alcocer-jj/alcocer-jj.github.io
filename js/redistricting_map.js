@@ -109,29 +109,29 @@
   function extremityColor(pct) {
     if (pct == null) return '#d7d7d7';
     const p = Number(pct);
-    if (p >= 95) return '#0063c7';
+    if (p >= 95) return '#013364';
     if (p >= 90) return '#1a60c0';
     if (p >= 81) return '#6aaaf5';
     if (p >= 20) return '#d7d7d7';
     if (p >= 11) return '#f0907a';
     if (p >= 6)  return '#c04030';
-    return '#c71f01';
+    return '#661001';
   }
 
   function partisanDiffColor(diff) {
     if (diff == null) return '#d7d7d7';
     const d = Number(diff);
-    if (d >= 3)  return lerpColor('#AEC5E6', '#08306b', Math.min(1, (d - 3) / 57));
-    if (d <= -3) return lerpColor('#FCAE91', '#7f0000', Math.min(1, (-d - 3) / 57));
-    return '#7B2D8B';
+    if (d >= 3)  return lerpColor('#6aaaf5', '#013364', Math.min(1, (d - 3) / 57));
+    if (d <= -3) return lerpColor('#f0907a', '#661001', Math.min(1, (-d - 3) / 57));
+    return '#a183ff';
   }
 
   function winProbColor(prob) {
     if (prob == null) return '#d7d7d7';
     const p = Number(prob);
-    if (p > 53) return lerpColor('#6BAED6', '#08306b', (p - 53) / 47);
-    if (p < 47) return lerpColor('#FC8D59', '#7f0000', (47 - p) / 47);
-    return '#7B2D8B';
+    if (p > 53) return lerpColor('#6aaaf5', '#013364', (p - 53) / 47);
+    if (p < 47) return lerpColor('#f0907a', '#661001', (47 - p) / 47);
+    return '#a183ff';
   }
 
   const BROWN = ['#DEB89A', '#C68B5A', '#9B5E3B', '#5C2B1F', '#1C0A09'];
