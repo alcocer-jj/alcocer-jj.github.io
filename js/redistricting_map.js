@@ -177,7 +177,6 @@
   let _tileLayer  = null;
   let _stateLayer = null;
   let _distLayer  = null;
-  let _labelLayer = null;
   let _curView    = 'plan';
   let _curPlan    = null;
   let _curMapType = null;
@@ -435,56 +434,6 @@
     }
   }
 
-  // ─── LABELS ──────────────────────────────────────────────────────
-
-  function addStateLabels(geoLayer) {
-    if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
-    const markers = [];
-    geoLayer.eachLayer(layer => {
-      const abbr = layer.feature.properties['Abbr'];
-      if (!abbr) return;
-      const center = layer.getBounds().getCenter();
-      markers.push(
-        L.marker(center, {
-          icon: L.divIcon({
-            className: 'rmap-state-label',
-            html: `<span>${abbr}</span>`,
-            iconSize: null,
-            iconAnchor: [16, 8]
-          }),
-          interactive: false
-        })
-      );
-    });
-    _labelLayer = L.layerGroup(markers).addTo(_map);
-  }
-
-  function addDistrictLabels(geoLayer) {
-    if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
-    const markers = [];
-    geoLayer.eachLayer(layer => {
-      const num = layer.feature.properties['District No.'];
-      if (num == null) return;
-      const center = layer.getBounds().getCenter();
-      markers.push(
-        L.marker(center, {
-          icon: L.divIcon({
-            className: 'rmap-dist-label',
-            html: `<span>${num}</span>`,
-            iconSize: null,
-            iconAnchor: [10, 7]
-          }),
-          interactive: false
-        })
-      );
-    });
-    _labelLayer = L.layerGroup(markers).addTo(_map);
-  }
-
-  function clearLabels() {
-    if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
-  }
-
   // ─── FETCH / CACHE ───────────────────────────────────────────────
 
   async function fetchGeo(url) {
@@ -535,7 +484,6 @@
   async function showPlanLevel() {
     _curView = 'plan'; _curPlan = null; _curMapType = null; _curMetric = 'enacted';
     if (_distLayer)  { _map.removeLayer(_distLayer); _distLayer = null; }
-    clearLabels();
     clearPlanButtons();
     renderControls('plan');
     renderPills(PLAN_PILLS, 'enacted');
@@ -544,7 +492,6 @@
     if (_stateLayer) {
       _stateLayer.addTo(_map);
       applyMetric('enacted');
-      addStateLabels(_stateLayer);
       _map.flyToBounds(_stateLayer.getBounds(), { padding: [40, 40], duration: 0.6 });
       return;
     }
@@ -554,7 +501,6 @@
       clearMsg();
       _stateLayer = buildStateLayer(geo);
       _stateLayer.addTo(_map);
-      addStateLabels(_stateLayer);
       _map.flyToBounds(_stateLayer.getBounds(), { padding: [40, 40], duration: 0 });
     } catch (err) {
       setMsg(`State GeoJSON not found.<br>
@@ -597,7 +543,6 @@
     _curView = abbr; _curPlan = planYear; _curMapType = mapType;
     if (_stateLayer) _map.removeLayer(_stateLayer);
     if (_distLayer)  { _map.removeLayer(_distLayer); _distLayer = null; }
-    clearLabels();
 
     const pills = STATE_PILLS[mapType] || STATE_PILLS[T.OLD];
     if (!pills.find(p => p.id === _curMetric)) _curMetric = pills[0].id;
@@ -641,7 +586,6 @@
         }
       }).addTo(_map);
 
-      addDistrictLabels(_distLayer);
       _map.flyToBounds(_distLayer.getBounds(), { padding: [30, 30], duration: 0.7 });
     } catch (err) {
       const yr = YEAR_LABEL[planYear] || planYear;
