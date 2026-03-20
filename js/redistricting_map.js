@@ -109,13 +109,13 @@
   function extremityColor(pct) {
     if (pct == null) return '#d7d7d7';
     const p = Number(pct);
-    if (p >= 95) return '#08306b';
-    if (p >= 90) return '#2171b5';
-    if (p >= 81) return '#6baed6';
+    if (p >= 95) return '#0063c7';
+    if (p >= 90) return '#1a60c0';
+    if (p >= 81) return '#6aaaf5';
     if (p >= 20) return '#d7d7d7';
-    if (p >= 11) return '#fc8d59';
-    if (p >= 6)  return '#d7301f';
-    return '#7f0000';
+    if (p >= 11) return '#f0907a';
+    if (p >= 6)  return '#c04030';
+    return '#c71f01';
   }
 
   function partisanDiffColor(diff) {
