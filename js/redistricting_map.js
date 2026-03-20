@@ -207,42 +207,66 @@
   function stateTableHTML(p) {
     const rows = [];
     const push = (k, v) => { if (v != null && v !== '' && v !== '—') rows.push([k, v]); };
+    push('State',                   p['State']);
+    push('Abbr',                    p['Abbr']);
     push('No. of Districts',        p['No. of Districts']);
-    push('Total Population',        fmtInt(p['Total Pop.']));
-    push('Modified Voting Pop.',    fmtInt(p['Total Modified Voting Pop.']));
+    push('Total Pop.',              fmtInt(p['Total Pop.']));
+    push('Total Modified Voting Pop.', fmtInt(p['Total Modified Voting Pop.']));
     push('Plan Enacted By',         p['Plan Enacted By']);
-    push('Mean Avg. Dem. Vote',     fmtPct(p['Mean Avg. Dem. Vote Share']));
-    push('Dem. Vote % Extremity',   fmtRnk(p['Dem. Vote Share % Extremity']));
-    push('Mean Avg. Rep. Vote',     fmtPct(p['Mean Avg. Rep. Vote Share']));
-    push('Rep. Vote % Extremity',   fmtRnk(p['Rep. Vote Share % Extremity']));
+    push('Avg. Polsby-Compactness', fmtN(p['Avg. Polsby-Compactness'], 3));
+    push('Compactness % Extremity', fmtRnk(p['Compactness % Extremity']));
+    push('Mean Avg. Dem. Vote Share', fmtPct(p['Mean Avg. Dem. Vote Share']));
+    push('Dem. Vote Share % Extremity', fmtRnk(p['Dem. Vote Share % Extremity']));
+    push('Mean Avg. Rep. Vote Share', fmtPct(p['Mean Avg. Rep. Vote Share']));
+    push('Rep. Vote Share % Extremity', fmtRnk(p['Rep. Vote Share % Extremity']));
     push('Exp. Seat Composition',   p['Exp. Seat Composition']);
     push('Exp. Dem. Seats',         p['Exp. Dem. Seats']);
     push('Dem. Seat % Extremity',   fmtRnk(p['Dem. Seat % Extremity']));
     push('Exp. Rep. Seats',         p['Exp. Rep. Seats']);
     push('Rep. Seat % Extremity',   fmtRnk(p['Rep. Seat % Extremity']));
-    push('Avg. Compactness',        fmtN(p['Avg. Polsby-Compactness'], 3));
-    push('Compactness % Extremity', fmtRnk(p['Compactness % Extremity']));
     return buildTable(p['State'] || p['Abbr'] || '—', rows);
   }
 
   function districtTableHTML(p, mapType) {
     const rows = [];
     const push = (k, v) => { if (v != null && v !== '' && v !== '—') rows.push([k, v]); };
-    push('Partisan Vote Share',      fmtPct(p['Partisan Vote Share']));
-    push('Avg. Dem. Vote Share',     fmtPct(p['Avg. Dem. Vote Share']));
-    push('Avg. Rep. Vote Share',     fmtPct(p['Avg. Rep. Vote Share']));
-    push('Prob. of Dem. Win',        fmtPct(p['Prob. of Dem. Win']));
-    push('Prob. of Rep. Win',        fmtPct(p['Prob. of Rep. Win']));
-    push('Modified Voting Pop.',     fmtInt(p['Modified Voting Pop.']));
-    if (mapType === T.MID || mapType === T.NEW) {
-      push('Total Population',       fmtInt(p['Pop.']));
-      push('Rep. Vote Share % Chg.', p['Rep. Vote Share % Change']);
-    }
-    if (mapType === T.NEW) {
-      push('Dem. Vote Share % Ext.', fmtRnk(p['Dem. Vote Share % Extremity']));
-      push('Rep. Vote Share % Ext.', fmtRnk(p['Rep. Vote Share % Extremity']));
+
+    if (mapType === T.OLD) {
+      push('District No.',           p['District No.']);
+      push('Pop.',                   fmtInt(p['Pop.']));
+      push('Modified Voting Pop.',   fmtInt(p['Modified Voting Pop.']));
+      push('Partisan Vote Share',    fmtPct(p['Partisan Vote Share']));
+      push('Avg. Dem. Vote Share',   fmtPct(p['Avg. Dem. Vote Share']));
+      push('Avg. Rep. Vote Share',   fmtPct(p['Avg. Rep. Vote Share']));
+      push('Prob. of Dem. Win',      fmtPct(p['Prob. of Dem. Win']));
+      push('Prob. of Rep. Win',      fmtPct(p['Prob. of Rep. Win']));
+    } else if (mapType === T.MID) {
+      push('District No.',           p['District No.']);
+      push('Pop.',                   fmtInt(p['Pop.']));
+      push('Modified Voting Pop.',   fmtInt(p['Modified Voting Pop.']));
+      push('Partisan Vote Share',    fmtPct(p['Partisan Vote Share']));
+      push('Avg. Dem. Vote Share',   fmtPct(p['Avg. Dem. Vote Share']));
+      push('Dem. Vote Share % Change', p['Dem. Vote Share % Change']);
+      push('Prob. of Dem. Win',      fmtPct(p['Prob. of Dem. Win']));
+      push('Avg. Rep. Vote Share',   fmtPct(p['Avg. Rep. Vote Share']));
+      push('Rep. Vote Share % Change', p['Rep. Vote Share % Change']);
+      push('Prob. of Rep. Win',      fmtPct(p['Prob. of Rep. Win']));
+    } else {
+      // T.NEW
+      push('District No.',           p['District No.']);
+      push('Pop.',                   fmtInt(p['Pop.']));
+      push('Modified Voting Pop.',   fmtInt(p['Modified Voting Pop.']));
       push('Polsby-Compactness',     fmtN(p['Polsby-Compactness'], 3));
-      push('Compactness % Ext.',     fmtRnk(p['Compactness % Extremity']));
+      push('Compactness % Extremity', fmtRnk(p['Compactness % Extremity']));
+      push('Partisan Vote Share',    fmtPct(p['Partisan Vote Share']));
+      push('Avg. Dem. Vote Share',   fmtPct(p['Avg. Dem. Vote Share']));
+      push('Dem. Vote Share % Change', p['Dem. Vote Share % Change']);
+      push('Dem. Vote Share % Extremity', fmtRnk(p['Dem. Vote Share % Extremity']));
+      push('Prob. of Dem. Win',      fmtPct(p['Prob. of Dem. Win']));
+      push('Avg. Rep. Vote Share',   fmtPct(p['Avg. Rep. Vote Share']));
+      push('Rep. Vote Share % Change', p['Rep. Vote Share % Change']);
+      push('Rep. Vote Share % Extremity', fmtRnk(p['Rep. Vote Share % Extremity']));
+      push('Prob. of Rep. Win',      fmtPct(p['Prob. of Rep. Win']));
     }
     return buildTable(`District ${p['District No.']}`, rows);
   }
@@ -362,49 +386,26 @@
 
     bar.querySelectorAll('.rmap-pill').forEach(btn => {
       btn.addEventListener('click', () => {
+        bar.querySelectorAll('.rmap-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
         const pillId = btn.dataset.pill;
 
         if (pillId === 'dictionary') {
-          // Dictionary is independent — toggle it without touching color pills
-          const isOpen = btn.classList.contains('active');
-          btn.classList.toggle('active', !isOpen);
-
+          // Show dictionary, hide legend
           const legendBar = document.getElementById('rmap-legend-bar');
+          if (legendBar) legendBar.innerHTML = '';
+          const dictKey = _curView === 'plan' ? 'plan' : (_curMapType || T.OLD);
           let dictEl = document.getElementById('rmap-dict-bar');
-
-          if (!isOpen) {
-            // Opening dictionary
-            if (legendBar) legendBar.innerHTML = '';
-            if (!dictEl) {
-              dictEl = document.createElement('div');
-              dictEl.id = 'rmap-dict-bar';
-              if (legendBar && legendBar.parentNode) {
-                legendBar.parentNode.insertBefore(dictEl, legendBar.nextSibling);
-              } else {
-                document.getElementById('rmap-controls')?.appendChild(dictEl);
-              }
-            }
-            const dictKey = _curView === 'plan' ? 'plan' : (_curMapType || T.OLD);
-            dictEl.innerHTML = dictionaryHTML(dictKey);
-          } else {
-            // Closing dictionary — restore the legend for current color pill
-            if (dictEl) dictEl.innerHTML = '';
-            const activePill = _curView === 'plan'
-              ? PLAN_PILLS.find(p => p.id === _curMetric)
-              : (STATE_PILLS[_curMapType] || STATE_PILLS[T.OLD]).find(p => p.id === _curMetric);
-            if (activePill) renderLegend(activePill.legend);
+          if (!dictEl) {
+            dictEl = document.createElement('div');
+            dictEl.id = 'rmap-dict-bar';
+            legendBar?.parentNode?.insertBefore(dictEl, legendBar.nextSibling);
           }
+          dictEl.innerHTML = dictionaryHTML(dictKey);
         } else {
-          // Color pills — only deactivate other color pills, never touch dictionary
-          bar.querySelectorAll('.rmap-pill:not(.rmap-pill-dict)').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          // If dictionary is open, close it and restore legend
+          // Hide dictionary, restore legend
           const dictEl = document.getElementById('rmap-dict-bar');
           if (dictEl) dictEl.innerHTML = '';
-          const dictBtn = bar.querySelector('.rmap-pill-dict');
-          if (dictBtn) dictBtn.classList.remove('active');
-
           _curMetric = pillId;
           renderLegend(btn.dataset.legend);
           applyMetric(pillId);
