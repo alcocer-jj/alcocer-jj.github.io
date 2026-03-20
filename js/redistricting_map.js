@@ -314,7 +314,7 @@
       case 'compactness':
         return `<div class="rmap-legend rmap-legend-scale">
           <span class="rml-label">Less compact ←</span>
-          <div class="rml-gradient" style="background:linear-gradient(to right,#1C0A09,#5C2B1F,#9B5E3B,#C68B5A,#DEB89A)"></div>
+          <div class="rml-gradient" style="background:linear-gradient(to right,#DEB89A,#C68B5A,#9B5E3B,#5C2B1F,#1C0A09)"></div>
           <span class="rml-label">→ More compact</span>
         </div>`;
       default:
@@ -626,15 +626,7 @@
         }
       }).addTo(_map);
 
-      // Dynamic padding: larger states (CA, TX) get more padding to avoid
-      // zooming out too far; smaller states get less so they fill the view.
-      const bounds = _distLayer.getBounds();
-      const lngSpan = bounds.getEast() - bounds.getWest();
-      const latSpan = bounds.getNorth() - bounds.getSouth();
-      const maxSpan = Math.max(lngSpan, latSpan);
-      // CA/TX span ~10 degrees → pad=80; small states ~2 degrees → pad=30
-      const pad = Math.round(Math.min(80, Math.max(20, maxSpan * 7)));
-      _map.flyToBounds(bounds, { padding: [pad, pad], duration: 0.7 });
+      _map.flyToBounds(_distLayer.getBounds(), { padding: [120, 120], duration: 0.7 });
     } catch (err) {
       const yr = YEAR_LABEL[planYear] || planYear;
       setMsg(`<strong>${STATES[abbr]?.name} — ${yr}</strong> not yet available.<br>
