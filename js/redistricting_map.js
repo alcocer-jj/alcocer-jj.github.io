@@ -14,15 +14,15 @@
   // NC: plans are nc22 (OLD), nc23 (MID), nc25 (NEW)
   const STATES = {
     CA: { name: 'California',     plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] },
-    MO: { name: 'Missouri',       plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] },
+    MO: { name: 'Missouri',       plans: [{ year: '22', type: T.OLD }, { year: '25', type: T.NEW }] },
     NC: { name: 'North Carolina', plans: [{ year: '22', type: T.OLD }, { year: '23', type: T.MID }, { year: '25', type: T.NEW }] },
     OH: { name: 'Ohio',           plans: [{ year: '22', type: T.OLD }, { year: '25', type: T.NEW }] },
     TX: { name: 'Texas',          plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] },
     UT: { name: 'Utah',           plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] },
-    VA: { name: 'Virginia',       plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] }
+    VA: { name: 'Virginia',       plans: [{ year: '21', type: T.OLD }, { year: '26', type: T.NEW }] }
   };
 
-  const YEAR_LABEL = { '21': '2021 Map', '22': '2022 Map', '23': '2023 Map', '25': '2025 Map' };
+  const YEAR_LABEL = { '21': '2021 Map', '22': '2022 Map', '23': '2023 Map', '25': '2025 Map', '26': '2026 Map' };
 
   // ─── DICTIONARY CONTENT ──────────────────────────────────────────
   const DICT = {
@@ -381,26 +381,49 @@
 
     bar.querySelectorAll('.rmap-pill').forEach(btn => {
       btn.addEventListener('click', () => {
-        bar.querySelectorAll('.rmap-pill').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
         const pillId = btn.dataset.pill;
 
         if (pillId === 'dictionary') {
-          // Show dictionary, hide legend
+          // Dictionary is independent — toggle without touching color pills
+          const isOpen = btn.classList.contains('active');
+          btn.classList.toggle('active', !isOpen);
+
           const legendBar = document.getElementById('rmap-legend-bar');
-          if (legendBar) legendBar.innerHTML = '';
-          const dictKey = _curView === 'plan' ? 'plan' : (_curMapType || T.OLD);
           let dictEl = document.getElementById('rmap-dict-bar');
-          if (!dictEl) {
-            dictEl = document.createElement('div');
-            dictEl.id = 'rmap-dict-bar';
-            legendBar?.parentNode?.insertBefore(dictEl, legendBar.nextSibling);
+
+          if (!isOpen) {
+            // Opening: hide legend, show dictionary
+            if (legendBar) legendBar.innerHTML = '';
+            if (!dictEl) {
+              dictEl = document.createElement('div');
+              dictEl.id = 'rmap-dict-bar';
+              if (legendBar && legendBar.parentNode) {
+                legendBar.parentNode.insertBefore(dictEl, legendBar.nextSibling);
+              } else {
+                document.getElementById('rmap-controls')?.appendChild(dictEl);
+              }
+            }
+            const dictKey = _curView === 'plan' ? 'plan' : (_curMapType || T.OLD);
+            dictEl.innerHTML = dictionaryHTML(dictKey);
+          } else {
+            // Closing: hide dictionary, restore legend for current color pill
+            if (dictEl) dictEl.innerHTML = '';
+            const activePill = _curView === 'plan'
+              ? PLAN_PILLS.find(p => p.id === _curMetric)
+              : (STATE_PILLS[_curMapType] || STATE_PILLS[T.OLD]).find(p => p.id === _curMetric);
+            if (activePill) renderLegend(activePill.legend);
           }
-          dictEl.innerHTML = dictionaryHTML(dictKey);
         } else {
-          // Hide dictionary, restore legend
+          // Color pills: only deactivate other color pills, never touch dictionary
+          bar.querySelectorAll('.rmap-pill:not(.rmap-pill-dict)').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          // If dictionary is open, close it and restore legend
           const dictEl = document.getElementById('rmap-dict-bar');
           if (dictEl) dictEl.innerHTML = '';
+          const dictBtn = bar.querySelector('.rmap-pill-dict');
+          if (dictBtn) dictBtn.classList.remove('active');
+
           _curMetric = pillId;
           renderLegend(btn.dataset.legend);
           applyMetric(pillId);
