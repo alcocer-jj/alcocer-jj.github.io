@@ -75,7 +75,7 @@
       },
       {
         label: 'Compactness',
-        desc: 'The percentile rank of each district\'s Polsby-Compactness score — a geometric measure defined as 4π × (area / perimeter²) — relative to the ensemble distribution of simulated plans. A score of 1.0 indicates a perfect circle; lower scores indicate more irregular or elongated shapes. Districts in the upper percentiles (lighter brown) are more compact than most simulated alternatives. Highly non-compact districts (darker brown) may reflect boundary manipulation along partisan or racial lines, though irregular geography can also produce low compactness scores.'
+        desc: 'The percentile rank of each district\'s Polsby-Compactness score — a geometric measure defined as 4π × (area / perimeter²) — relative to the ensemble distribution of simulated plans. A score of 1.0 indicates a perfect circle; lower scores indicate more irregular or elongated shapes. Districts in the upper percentiles (darker brown) are more compact than most simulated alternatives. Highly non-compact districts (lighter brown) may reflect boundary manipulation along partisan or racial lines, though irregular geography can also produce low compactness scores.'
       }
     ]
   };
@@ -134,7 +134,7 @@
     return '#a183ff';
   }
 
-  const BROWN = ['#1C0A09', '#5C2B1F', '#9B5E3B', '#C68B5A', '#DEB89A'];
+  const BROWN = ['#DEB89A', '#C68B5A', '#9B5E3B', '#5C2B1F', '#1C0A09'];
   function compactnessColor(pct) {
     if (pct == null) return '#d7d7d7';
     const t = Math.max(0, Math.min(100, Number(pct))) / 100;
@@ -514,11 +514,9 @@
     subdomains: 'abcd', maxZoom: 20
   };
   function updateTiles() {
+    // Map always uses light tiles regardless of page dark mode
+    // to keep district colors readable in both themes.
     if (!_map || !_tileLayer) return;
-    const dark = document.body.classList.contains('dark-mode');
-    _map.removeLayer(_tileLayer);
-    _tileLayer = L.tileLayer(dark ? TILES.dark : TILES.light, TILE_OPTS).addTo(_map);
-    _tileLayer.bringToBack();
   }
 
   // ─── VIEWS ───────────────────────────────────────────────────────
@@ -628,7 +626,7 @@
         }
       }).addTo(_map);
 
-      _map.flyToBounds(_distLayer.getBounds(), { padding: [30, 30], duration: 0.7 });
+      _map.flyToBounds(_distLayer.getBounds(), { padding: [120, 120], duration: 0.7 });
     } catch (err) {
       const yr = YEAR_LABEL[planYear] || planYear;
       setMsg(`<strong>${STATES[abbr]?.name} — ${yr}</strong> not yet available.<br>
@@ -656,9 +654,8 @@
     if (_map) { _map.invalidateSize(); return; }
     const mapEl = document.getElementById('redistricting-map');
     if (!mapEl) return;
-    const dark = document.body.classList.contains('dark-mode');
     _map = L.map('redistricting-map', { center: [37.5, -96], zoom: 4, zoomControl: true });
-    _tileLayer = L.tileLayer(dark ? TILES.dark : TILES.light, TILE_OPTS).addTo(_map);
+    _tileLayer = L.tileLayer(TILES.light, TILE_OPTS).addTo(_map);
     new MutationObserver(updateTiles).observe(document.body, { attributes: true, attributeFilter: ['class'] });
     await showPlanLevel();
   }
