@@ -134,7 +134,7 @@
     return '#7B2D8B';
   }
 
-  const BROWN = ['#1C0A09', '#5C2B1F', '#9B5E3B', '#C68B5A', '#DEB89A'];
+  const BROWN = ['#DEB89A', '#C68B5A', '#9B5E3B', '#5C2B1F', '#1C0A09'];
   function compactnessColor(pct) {
     if (pct == null) return '#d7d7d7';
     const t = Math.max(0, Math.min(100, Number(pct))) / 100;
