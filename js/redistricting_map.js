@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  const DATA_PATH = './data';
+  const DATA_PATH = '/data';
   const T = { OLD: 'old', MID: 'mid', NEW: 'new' };
 
   // ─── STATE CONFIG ────────────────────────────────────────────────
@@ -436,29 +436,6 @@
   }
 
   // ─── LABELS ──────────────────────────────────────────────────────
-  // Uses polylabel (pole of inaccessibility) to find a point that is
-  // guaranteed to be inside the polygon and as far from any edge as
-  // possible — handles non-convex and fragmented gerrymandered shapes.
-
-  function polyLabelPoint(feature) {
-    // polylabel expects [ [ [lng, lat], ... ], holes... ] per ring
-    // For MultiPolygon, find the largest polygon by point count and label that.
-    const geom = feature.geometry;
-    let rings;
-    if (geom.type === 'Polygon') {
-      rings = geom.coordinates;
-    } else if (geom.type === 'MultiPolygon') {
-      // pick the part with the most coordinates (largest visible piece)
-      rings = geom.coordinates.reduce((best, part) =>
-        part[0].length > best[0].length ? part : best
-      );
-    } else {
-      return null;
-    }
-    // polylabel returns [lng, lat]
-    const pt = polylabel(rings, 0.001);
-    return L.latLng(pt[1], pt[0]);
-  }
 
   function addStateLabels(geoLayer) {
     if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
@@ -466,9 +443,9 @@
     geoLayer.eachLayer(layer => {
       const abbr = layer.feature.properties['Abbr'];
       if (!abbr) return;
-      const latlng = polyLabelPoint(layer.feature) || layer.getBounds().getCenter();
+      const center = layer.getBounds().getCenter();
       markers.push(
-        L.marker(latlng, {
+        L.marker(center, {
           icon: L.divIcon({
             className: 'rmap-state-label',
             html: `<span>${abbr}</span>`,
@@ -488,9 +465,9 @@
     geoLayer.eachLayer(layer => {
       const num = layer.feature.properties['District No.'];
       if (num == null) return;
-      const latlng = polyLabelPoint(layer.feature) || layer.getBounds().getCenter();
+      const center = layer.getBounds().getCenter();
       markers.push(
-        L.marker(latlng, {
+        L.marker(center, {
           icon: L.divIcon({
             className: 'rmap-dist-label',
             html: `<span>${num}</span>`,
