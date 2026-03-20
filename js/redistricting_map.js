@@ -7,17 +7,11 @@
 (function () {
   'use strict';
 
-  // ─── DATA PATH ───────────────────────────────────────────────────
   const DATA_PATH = './data';
-
-  // ─── MAP TYPES ───────────────────────────────────────────────────
-  // OLD : ca21-style  — no Pop., no ensemble columns
-  // MID : nc23-style  — has Pop. + Rep. % Change, no ensemble
-  // NEW : ca25-style  — full ensemble columns
   const T = { OLD: 'old', MID: 'mid', NEW: 'new' };
 
   // ─── STATE CONFIG ────────────────────────────────────────────────
-  // year = two-digit suffix in the filename (e.g. oh22.geojson)
+  // NC: plans are nc22 (OLD), nc23 (MID), nc25 (NEW)
   const STATES = {
     CA: { name: 'California',     plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] },
     MO: { name: 'Missouri',       plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] },
@@ -25,10 +19,66 @@
     OH: { name: 'Ohio',           plans: [{ year: '22', type: T.OLD }, { year: '25', type: T.NEW }] },
     TX: { name: 'Texas',          plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] },
     UT: { name: 'Utah',           plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] },
-    VA: { name: 'Virginia',       plans: [{ year: '21', type: T.OLD }, { year: '26', type: T.NEW }] }
+    VA: { name: 'Virginia',       plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] }
   };
 
-  const YEAR_LABEL = { '21': '2021 Map', '22': '2022 Map', '23': '2023 Map', '25': '2025 Map', '26': '2026 Map' };
+  const YEAR_LABEL = { '21': '2021 Map', '22': '2022 Map', '23': '2023 Map', '25': '2025 Map' };
+
+  // ─── DICTIONARY CONTENT ──────────────────────────────────────────
+  const DICT = {
+    plan: [
+      {
+        label: 'By Enacted Party',
+        desc: 'Indicates the political party or institution responsible for drawing and enacting each state\'s current congressional district map. Maps enacted by Democrats are shown in blue, Republican-enacted maps in red, and court-ordered maps in yellow. During this mid-decade redistricting cycle, most maps were drawn by Republican-controlled legislatures following legal challenges to earlier plans.'
+      },
+      {
+        label: 'By Seat Composition',
+        desc: 'Reflects the expected partisan composition of each state\'s congressional delegation based on projected seat-level outcomes. States where Democrats are projected to hold a majority of seats appear in blue; Republican-majority states in red. This metric captures the aggregate partisan lean of the enacted map at the state level.'
+      },
+      {
+        label: 'By Partisan Extremity',
+        desc: 'Shows where each state\'s enacted map falls in the distribution of 750,000 algorithmically simulated plans with respect to expected Democratic seat share. The percentile rank is derived from the ensemble of neutral plans generated under the same legal and demographic constraints. States at or above the 95th percentile (darkest blue) produce more Democratic-favorable outcomes than nearly all neutral maps — indicating a Democratic gerrymander. States at or below the 5th percentile (darkest red) indicate an extreme Republican advantage. States between the 20th and 80th percentile fall within the range that an impartial process would plausibly produce.'
+      }
+    ],
+    [T.OLD]: [
+      {
+        label: 'Partisan Vote Share',
+        desc: 'The difference between the average Democratic and Republican two-party vote share in each district (Dem% − Rep%). Positive values indicate a Democratic lean (blue, deepening with margin); negative values indicate a Republican lean (red). Districts within ±3 percentage points are treated as competitive swing districts (purple). Vote share is averaged across available election cycles to smooth out single-election volatility.'
+      },
+      {
+        label: 'Win Probability',
+        desc: 'The estimated probability that a Democratic candidate wins the district, derived from historical voting patterns and the district\'s partisan composition under the enacted map. Probabilities between 47% and 53% are classified as toss-ups (purple). This metric reflects the likely electoral outcome under normal conditions, not a single-election forecast.'
+      }
+    ],
+    [T.MID]: [
+      {
+        label: 'Partisan Vote Share',
+        desc: 'The difference between the average Democratic and Republican two-party vote share in each district (Dem% − Rep%). Positive values indicate a Democratic lean (blue, deepening with margin); negative values indicate a Republican lean (red). Districts within ±3 percentage points are treated as competitive swing districts (purple). Vote share is averaged across available election cycles to smooth out single-election volatility.'
+      },
+      {
+        label: 'Win Probability',
+        desc: 'The estimated probability that a Democratic candidate wins the district, derived from historical voting patterns and the district\'s partisan composition under the enacted map. Probabilities between 47% and 53% are classified as toss-ups (purple). This metric reflects the likely electoral outcome under normal conditions, not a single-election forecast.'
+      }
+    ],
+    [T.NEW]: [
+      {
+        label: 'Partisan Vote Share',
+        desc: 'The difference between the average Democratic and Republican two-party vote share in each district (Dem% − Rep%). Positive values indicate a Democratic lean (blue); negative values indicate a Republican lean (red). Districts within ±3 percentage points are classified as competitive swing districts (purple). Vote share is averaged across available election cycles to reduce single-election noise.'
+      },
+      {
+        label: 'Win Probability',
+        desc: 'The estimated probability that a Democratic candidate wins the district, derived from historical voting patterns and the district\'s partisan composition. Probabilities between 47% and 53% are classified as toss-ups (purple). This metric reflects expected electoral outcomes under normal partisan conditions rather than a cycle-specific forecast.'
+      },
+      {
+        label: 'Ensemble Partisan Lean',
+        desc: 'Shows where each district\'s enacted Democratic vote share falls relative to the distribution of 750,000 algorithmically simulated plans for the state. The percentile rank answers the question: among all neutral maps that could have been drawn, how many produced a less Democratic district than this one? Districts at or above the 95th percentile received a higher Democratic vote share than nearly all neutral alternatives — suggesting potential packing of Democratic voters. Districts below the 20th percentile may reflect Democratic voter cracking. The range between the 20th and 80th percentile is considered neutral.'
+      },
+      {
+        label: 'Compactness',
+        desc: 'The percentile rank of each district\'s Polsby-Compactness score — a geometric measure defined as 4π × (area / perimeter²) — relative to the ensemble distribution of simulated plans. A score of 1.0 indicates a perfect circle; lower scores indicate more irregular or elongated shapes. Districts in the upper percentiles (lighter brown) are more compact than most simulated alternatives. Highly non-compact districts (darker brown) may reflect boundary manipulation along partisan or racial lines, though irregular geography can also produce low compactness scores.'
+      }
+    ]
+  };
 
   // ─── COLOR FUNCTIONS ─────────────────────────────────────────────
 
@@ -39,7 +89,6 @@
     return `rgb(${Math.round(r1+(r2-r1)*t)},${Math.round(g1+(g2-g1)*t)},${Math.round(b1+(b2-b1)*t)})`;
   }
 
-  // Plan Enacted By — categorical
   function enactedColor(val) {
     if (!val) return '#d7d7d7';
     const v = val.toLowerCase();
@@ -49,7 +98,6 @@
     return '#888';
   }
 
-  // Exp. Seat Composition — categorical
   function compositionColor(val) {
     if (!val) return '#d7d7d7';
     const v = val.toLowerCase();
@@ -58,7 +106,6 @@
     return '#888';
   }
 
-  // Partisan Extremity — 7-step on Dem. Seat % Extremity (or Dem. Vote Share % Extremity)
   function extremityColor(pct) {
     if (pct == null) return '#d7d7d7';
     const p = Number(pct);
@@ -71,7 +118,6 @@
     return '#7f0000';
   }
 
-  // Partisan Vote Share — continuous (Dem − Rep)
   function partisanDiffColor(diff) {
     if (diff == null) return '#d7d7d7';
     const d = Number(diff);
@@ -80,7 +126,6 @@
     return '#7B2D8B';
   }
 
-  // Win Probability — Prob. of Dem. Win (0–100)
   function winProbColor(prob) {
     if (prob == null) return '#d7d7d7';
     const p = Number(prob);
@@ -89,7 +134,6 @@
     return '#7B2D8B';
   }
 
-  // Compactness — brown palette
   const BROWN = ['#1C0A09', '#5C2B1F', '#9B5E3B', '#C68B5A', '#DEB89A'];
   function compactnessColor(pct) {
     if (pct == null) return '#d7d7d7';
@@ -102,25 +146,29 @@
   // ─── PILL / METRIC DEFINITIONS ───────────────────────────────────
 
   const PLAN_PILLS = [
-    { id: 'enacted',     label: 'By Enacted Party',     colorFn: p => enactedColor(p['Plan Enacted By']),          legend: 'enacted'     },
-    { id: 'composition', label: 'By Seat Composition',  colorFn: p => compositionColor(p['Exp. Seat Composition']), legend: 'composition' },
-    { id: 'extremity',   label: 'By Partisan Extremity', colorFn: p => extremityColor(p['Dem. Seat % Extremity']),  legend: 'extremity'   }
+    { id: 'enacted',     label: 'By Enacted Party',      colorFn: p => enactedColor(p['Plan Enacted By']),          legend: 'enacted'     },
+    { id: 'composition', label: 'By Seat Composition',   colorFn: p => compositionColor(p['Exp. Seat Composition']), legend: 'composition' },
+    { id: 'extremity',   label: 'By Partisan Extremity', colorFn: p => extremityColor(p['Dem. Seat % Extremity']),   legend: 'extremity'   },
+    { id: 'dictionary',  label: 'Dictionary',            colorFn: null, legend: null }
   ];
 
   const STATE_PILLS = {
     [T.OLD]: [
-      { id: 'partisan', label: 'Partisan Vote Share', colorFn: d => partisanDiffColor(d['Partisan Vote Share']), legend: 'partisan' },
-      { id: 'winprob',  label: 'Win Probability',     colorFn: d => winProbColor(d['Prob. of Dem. Win']),        legend: 'winprob'  }
+      { id: 'partisan',   label: 'Partisan Vote Share', colorFn: d => partisanDiffColor(d['Partisan Vote Share']), legend: 'partisan' },
+      { id: 'winprob',    label: 'Win Probability',     colorFn: d => winProbColor(d['Prob. of Dem. Win']),        legend: 'winprob'  },
+      { id: 'dictionary', label: 'Dictionary',          colorFn: null, legend: null }
     ],
     [T.MID]: [
-      { id: 'partisan', label: 'Partisan Vote Share', colorFn: d => partisanDiffColor(d['Partisan Vote Share']), legend: 'partisan' },
-      { id: 'winprob',  label: 'Win Probability',     colorFn: d => winProbColor(d['Prob. of Dem. Win']),        legend: 'winprob'  }
+      { id: 'partisan',   label: 'Partisan Vote Share', colorFn: d => partisanDiffColor(d['Partisan Vote Share']), legend: 'partisan' },
+      { id: 'winprob',    label: 'Win Probability',     colorFn: d => winProbColor(d['Prob. of Dem. Win']),        legend: 'winprob'  },
+      { id: 'dictionary', label: 'Dictionary',          colorFn: null, legend: null }
     ],
     [T.NEW]: [
       { id: 'partisan',    label: 'Partisan Vote Share',    colorFn: d => partisanDiffColor(d['Partisan Vote Share']),      legend: 'partisan'    },
       { id: 'winprob',     label: 'Win Probability',        colorFn: d => winProbColor(d['Prob. of Dem. Win']),             legend: 'winprob'     },
       { id: 'ensemble',    label: 'Ensemble Partisan Lean', colorFn: d => extremityColor(d['Dem. Vote Share % Extremity']), legend: 'extremity'   },
-      { id: 'compactness', label: 'Compactness',            colorFn: d => compactnessColor(d['Compactness % Extremity']),   legend: 'compactness' }
+      { id: 'compactness', label: 'Compactness',            colorFn: d => compactnessColor(d['Compactness % Extremity']),   legend: 'compactness' },
+      { id: 'dictionary',  label: 'Dictionary',             colorFn: null, legend: null }
     ]
   };
 
@@ -129,6 +177,7 @@
   let _tileLayer  = null;
   let _stateLayer = null;
   let _distLayer  = null;
+  let _labelLayer = null;
   let _curView    = 'plan';
   let _curPlan    = null;
   let _curMapType = null;
@@ -150,54 +199,51 @@
         <td class="rmt-key">${k}</td>
         <td class="rmt-val">${v}</td>
       </tr>`).join('');
-    return `
-      <div class="rmt-wrap">
-        <table class="rmt">
-          <thead><tr><th class="rmt-head" colspan="3">${title}</th></tr></thead>
-          <tbody>${trs}</tbody>
-        </table>
-      </div>`;
+    return `<div class="rmt-wrap"><table class="rmt">
+      <thead><tr><th class="rmt-head" colspan="3">${title}</th></tr></thead>
+      <tbody>${trs}</tbody>
+    </table></div>`;
   }
 
   function stateTableHTML(p) {
-    const push = (arr, k, v) => { if (v != null && v !== '' && v !== '—') arr.push([k, v]); };
     const rows = [];
-    push(rows, 'No. of Districts',        p['No. of Districts']);
-    push(rows, 'Total Population',        fmtInt(p['Total Pop.']));
-    push(rows, 'Modified Voting Pop.',    fmtInt(p['Total Modified Voting Pop.']));
-    push(rows, 'Plan Enacted By',         p['Plan Enacted By']);
-    push(rows, 'Mean Avg. Dem. Vote',     fmtPct(p['Mean Avg. Dem. Vote Share']));
-    push(rows, 'Dem. Vote % Extremity',   fmtRnk(p['Dem. Vote Share % Extremity']));
-    push(rows, 'Mean Avg. Rep. Vote',     fmtPct(p['Mean Avg. Rep. Vote Share']));
-    push(rows, 'Rep. Vote % Extremity',   fmtRnk(p['Rep. Vote Share % Extremity']));
-    push(rows, 'Exp. Seat Composition',   p['Exp. Seat Composition']);
-    push(rows, 'Exp. Dem. Seats',         p['Exp. Dem. Seats']);
-    push(rows, 'Dem. Seat % Extremity',   fmtRnk(p['Dem. Seat % Extremity']));
-    push(rows, 'Exp. Rep. Seats',         p['Exp. Rep. Seats']);
-    push(rows, 'Rep. Seat % Extremity',   fmtRnk(p['Rep. Seat % Extremity']));
-    push(rows, 'Avg. Compactness',        fmtN(p['Avg. Polsby-Compactness'], 3));
-    push(rows, 'Compactness % Extremity', fmtRnk(p['Compactness % Extremity']));
+    const push = (k, v) => { if (v != null && v !== '' && v !== '—') rows.push([k, v]); };
+    push('No. of Districts',        p['No. of Districts']);
+    push('Total Population',        fmtInt(p['Total Pop.']));
+    push('Modified Voting Pop.',    fmtInt(p['Total Modified Voting Pop.']));
+    push('Plan Enacted By',         p['Plan Enacted By']);
+    push('Mean Avg. Dem. Vote',     fmtPct(p['Mean Avg. Dem. Vote Share']));
+    push('Dem. Vote % Extremity',   fmtRnk(p['Dem. Vote Share % Extremity']));
+    push('Mean Avg. Rep. Vote',     fmtPct(p['Mean Avg. Rep. Vote Share']));
+    push('Rep. Vote % Extremity',   fmtRnk(p['Rep. Vote Share % Extremity']));
+    push('Exp. Seat Composition',   p['Exp. Seat Composition']);
+    push('Exp. Dem. Seats',         p['Exp. Dem. Seats']);
+    push('Dem. Seat % Extremity',   fmtRnk(p['Dem. Seat % Extremity']));
+    push('Exp. Rep. Seats',         p['Exp. Rep. Seats']);
+    push('Rep. Seat % Extremity',   fmtRnk(p['Rep. Seat % Extremity']));
+    push('Avg. Compactness',        fmtN(p['Avg. Polsby-Compactness'], 3));
+    push('Compactness % Extremity', fmtRnk(p['Compactness % Extremity']));
     return buildTable(p['State'] || p['Abbr'] || '—', rows);
   }
 
   function districtTableHTML(p, mapType) {
-    const push = (arr, k, v) => { if (v != null && v !== '' && v !== '—') arr.push([k, v]); };
     const rows = [];
-    push(rows, 'Partisan Vote Share',      fmtPct(p['Partisan Vote Share']));
-    push(rows, 'Avg. Dem. Vote Share',     fmtPct(p['Avg. Dem. Vote Share']));
-    push(rows, 'Avg. Rep. Vote Share',     fmtPct(p['Avg. Rep. Vote Share']));
-    push(rows, 'Prob. of Dem. Win',        fmtPct(p['Prob. of Dem. Win']));
-    push(rows, 'Prob. of Rep. Win',        fmtPct(p['Prob. of Rep. Win']));
-    push(rows, 'Modified Voting Pop.',     fmtInt(p['Modified Voting Pop.']));
+    const push = (k, v) => { if (v != null && v !== '' && v !== '—') rows.push([k, v]); };
+    push('Partisan Vote Share',      fmtPct(p['Partisan Vote Share']));
+    push('Avg. Dem. Vote Share',     fmtPct(p['Avg. Dem. Vote Share']));
+    push('Avg. Rep. Vote Share',     fmtPct(p['Avg. Rep. Vote Share']));
+    push('Prob. of Dem. Win',        fmtPct(p['Prob. of Dem. Win']));
+    push('Prob. of Rep. Win',        fmtPct(p['Prob. of Rep. Win']));
+    push('Modified Voting Pop.',     fmtInt(p['Modified Voting Pop.']));
     if (mapType === T.MID || mapType === T.NEW) {
-      push(rows, 'Total Population',       fmtInt(p['Pop.']));
-      push(rows, 'Rep. Vote Share % Chg.', p['Rep. Vote Share % Change']);
+      push('Total Population',       fmtInt(p['Pop.']));
+      push('Rep. Vote Share % Chg.', p['Rep. Vote Share % Change']);
     }
     if (mapType === T.NEW) {
-      push(rows, 'Dem. Vote Share % Ext.', fmtRnk(p['Dem. Vote Share % Extremity']));
-      push(rows, 'Rep. Vote Share % Ext.', fmtRnk(p['Rep. Vote Share % Extremity']));
-      push(rows, 'Polsby-Compactness',     fmtN(p['Polsby-Compactness'], 3));
-      push(rows, 'Compactness % Ext.',     fmtRnk(p['Compactness % Extremity']));
+      push('Dem. Vote Share % Ext.', fmtRnk(p['Dem. Vote Share % Extremity']));
+      push('Rep. Vote Share % Ext.', fmtRnk(p['Rep. Vote Share % Extremity']));
+      push('Polsby-Compactness',     fmtN(p['Polsby-Compactness'], 3));
+      push('Compactness % Ext.',     fmtRnk(p['Compactness % Extremity']));
     }
     return buildTable(`District ${p['District No.']}`, rows);
   }
@@ -258,6 +304,19 @@
     }
   }
 
+  // ─── DICTIONARY PANEL HTML ───────────────────────────────────────
+
+  function dictionaryHTML(dictKey) {
+    const entries = DICT[dictKey] || [];
+    if (!entries.length) return '';
+    const items = entries.map(e => `
+      <div class="rmap-dict-entry">
+        <div class="rmap-dict-label">${e.label}</div>
+        <div class="rmap-dict-desc">${e.desc}</div>
+      </div>`).join('');
+    return `<div class="rmap-dict">${items}</div>`;
+  }
+
   // ─── CONTROLS RENDERING ──────────────────────────────────────────
 
   function renderControls(selectedView) {
@@ -297,16 +356,37 @@
     const bar = document.getElementById('rmap-pills-bar');
     if (!bar) return;
     bar.innerHTML = `<div class="rmap-pills">${pills.map(p =>
-      `<button class="rmap-pill${p.id === activeId ? ' active' : ''}" data-pill="${p.id}" data-legend="${p.legend}">
+      `<button class="rmap-pill${p.id === 'dictionary' ? ' rmap-pill-dict' : ''}${p.id === activeId ? ' active' : ''}"
+               data-pill="${p.id}" data-legend="${p.legend || ''}">
         ${p.label}
        </button>`).join('')}</div>`;
+
     bar.querySelectorAll('.rmap-pill').forEach(btn => {
       btn.addEventListener('click', () => {
         bar.querySelectorAll('.rmap-pill').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        _curMetric = btn.dataset.pill;
-        renderLegend(btn.dataset.legend);
-        applyMetric(_curMetric);
+        const pillId = btn.dataset.pill;
+
+        if (pillId === 'dictionary') {
+          // Show dictionary, hide legend
+          const legendBar = document.getElementById('rmap-legend-bar');
+          if (legendBar) legendBar.innerHTML = '';
+          const dictKey = _curView === 'plan' ? 'plan' : (_curMapType || T.OLD);
+          let dictEl = document.getElementById('rmap-dict-bar');
+          if (!dictEl) {
+            dictEl = document.createElement('div');
+            dictEl.id = 'rmap-dict-bar';
+            legendBar?.parentNode?.insertBefore(dictEl, legendBar.nextSibling);
+          }
+          dictEl.innerHTML = dictionaryHTML(dictKey);
+        } else {
+          // Hide dictionary, restore legend
+          const dictEl = document.getElementById('rmap-dict-bar');
+          if (dictEl) dictEl.innerHTML = '';
+          _curMetric = pillId;
+          renderLegend(btn.dataset.legend);
+          applyMetric(pillId);
+        }
       });
     });
   }
@@ -346,13 +426,63 @@
   function applyMetric(pillId) {
     if (_curView === 'plan' && _stateLayer) {
       const pill = PLAN_PILLS.find(p => p.id === pillId);
-      if (!pill) return;
+      if (!pill || !pill.colorFn) return;
       _stateLayer.eachLayer(l => l.setStyle({ fillColor: pill.colorFn(l.feature.properties) }));
     } else if (_distLayer) {
       const pill = (STATE_PILLS[_curMapType] || []).find(p => p.id === pillId);
-      if (!pill) return;
+      if (!pill || !pill.colorFn) return;
       _distLayer.eachLayer(l => l.setStyle({ fillColor: pill.colorFn(l.feature.properties) }));
     }
+  }
+
+  // ─── LABELS ──────────────────────────────────────────────────────
+
+  function addStateLabels(geoLayer) {
+    if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
+    const markers = [];
+    geoLayer.eachLayer(layer => {
+      const abbr = layer.feature.properties['Abbr'];
+      if (!abbr) return;
+      const center = layer.getBounds().getCenter();
+      markers.push(
+        L.marker(center, {
+          icon: L.divIcon({
+            className: 'rmap-state-label',
+            html: `<span>${abbr}</span>`,
+            iconSize: null,
+            iconAnchor: [16, 8]
+          }),
+          interactive: false
+        })
+      );
+    });
+    _labelLayer = L.layerGroup(markers).addTo(_map);
+  }
+
+  function addDistrictLabels(geoLayer) {
+    if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
+    const markers = [];
+    geoLayer.eachLayer(layer => {
+      const num = layer.feature.properties['District No.'];
+      if (num == null) return;
+      const center = layer.getBounds().getCenter();
+      markers.push(
+        L.marker(center, {
+          icon: L.divIcon({
+            className: 'rmap-dist-label',
+            html: `<span>${num}</span>`,
+            iconSize: null,
+            iconAnchor: [10, 7]
+          }),
+          interactive: false
+        })
+      );
+    });
+    _labelLayer = L.layerGroup(markers).addTo(_map);
+  }
+
+  function clearLabels() {
+    if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
   }
 
   // ─── FETCH / CACHE ───────────────────────────────────────────────
@@ -404,7 +534,8 @@
 
   async function showPlanLevel() {
     _curView = 'plan'; _curPlan = null; _curMapType = null; _curMetric = 'enacted';
-    if (_distLayer) { _map.removeLayer(_distLayer); _distLayer = null; }
+    if (_distLayer)  { _map.removeLayer(_distLayer); _distLayer = null; }
+    clearLabels();
     clearPlanButtons();
     renderControls('plan');
     renderPills(PLAN_PILLS, 'enacted');
@@ -413,6 +544,7 @@
     if (_stateLayer) {
       _stateLayer.addTo(_map);
       applyMetric('enacted');
+      addStateLabels(_stateLayer);
       _map.flyToBounds(_stateLayer.getBounds(), { padding: [40, 40], duration: 0.6 });
       return;
     }
@@ -422,6 +554,7 @@
       clearMsg();
       _stateLayer = buildStateLayer(geo);
       _stateLayer.addTo(_map);
+      addStateLabels(_stateLayer);
       _map.flyToBounds(_stateLayer.getBounds(), { padding: [40, 40], duration: 0 });
     } catch (err) {
       setMsg(`State GeoJSON not found.<br>
@@ -459,6 +592,7 @@
     _curView = abbr; _curPlan = planYear; _curMapType = mapType;
     if (_stateLayer) _map.removeLayer(_stateLayer);
     if (_distLayer)  { _map.removeLayer(_distLayer); _distLayer = null; }
+    clearLabels();
 
     const pills = STATE_PILLS[mapType] || STATE_PILLS[T.OLD];
     if (!pills.find(p => p.id === _curMetric)) _curMetric = pills[0].id;
@@ -495,6 +629,8 @@
           });
         }
       }).addTo(_map);
+
+      addDistrictLabels(_distLayer);
       _map.flyToBounds(_distLayer.getBounds(), { padding: [30, 30], duration: 0.7 });
     } catch (err) {
       const yr = YEAR_LABEL[planYear] || planYear;
