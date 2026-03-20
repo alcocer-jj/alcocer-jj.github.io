@@ -626,7 +626,15 @@
         }
       }).addTo(_map);
 
-      _map.flyToBounds(_distLayer.getBounds(), { padding: [120, 120], duration: 0.7 });
+      // Dynamic padding: larger states (CA, TX) get more padding to avoid
+      // zooming out too far; smaller states get less so they fill the view.
+      const bounds = _distLayer.getBounds();
+      const lngSpan = bounds.getEast() - bounds.getWest();
+      const latSpan = bounds.getNorth() - bounds.getSouth();
+      const maxSpan = Math.max(lngSpan, latSpan);
+      // CA/TX span ~10 degrees → pad=80; small states ~2 degrees → pad=30
+      const pad = Math.round(Math.min(80, Math.max(20, maxSpan * 7)));
+      _map.flyToBounds(bounds, { padding: [pad, pad], duration: 0.7 });
     } catch (err) {
       const yr = YEAR_LABEL[planYear] || planYear;
       setMsg(`<strong>${STATES[abbr]?.name} — ${yr}</strong> not yet available.<br>
