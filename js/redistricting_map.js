@@ -206,67 +206,62 @@
 
   function stateTableHTML(p) {
     const rows = [];
-    const push = (k, v) => { if (v != null && v !== '' && v !== '—') rows.push([k, v]); };
-    push('State',                   p['State']);
-    push('Abbr',                    p['Abbr']);
-    push('No. of Districts',        p['No. of Districts']);
-    push('Total Pop.',              fmtInt(p['Total Pop.']));
-    push('Total Modified Voting Pop.', fmtInt(p['Total Modified Voting Pop.']));
-    push('Plan Enacted By',         p['Plan Enacted By']);
-    push('Avg. Polsby-Compactness', fmtN(p['Avg. Polsby-Compactness'], 3));
-    push('Compactness % Extremity', fmtRnk(p['Compactness % Extremity']));
-    push('Mean Avg. Dem. Vote Share', fmtPct(p['Mean Avg. Dem. Vote Share']));
-    push('Dem. Vote Share % Extremity', fmtRnk(p['Dem. Vote Share % Extremity']));
-    push('Mean Avg. Rep. Vote Share', fmtPct(p['Mean Avg. Rep. Vote Share']));
-    push('Rep. Vote Share % Extremity', fmtRnk(p['Rep. Vote Share % Extremity']));
-    push('Exp. Seat Composition',   p['Exp. Seat Composition']);
-    push('Exp. Dem. Seats',         p['Exp. Dem. Seats']);
-    push('Dem. Seat % Extremity',   fmtRnk(p['Dem. Seat % Extremity']));
-    push('Exp. Rep. Seats',         p['Exp. Rep. Seats']);
-    push('Rep. Seat % Extremity',   fmtRnk(p['Rep. Seat % Extremity']));
+    const push = (k, v) => { if (v != null && v !== '' && v !== '\u2014') rows.push([k, v]); };
+    push('Total Congressional Districts',                                    p['No. of Districts']);
+    push('Total Population (Census 2020)',                                   fmtInt(p['Total Pop.']));
+    push('Modified Voting Age Population (MVAP, RDH)',                       fmtInt(p['Total Modified Voting Pop.']));
+    push('Party Responsible for Enacting Plan',                              p['Plan Enacted By']);
+    push('Average Polsby-Compactness',                                       fmtN(p['Avg. Polsby-Compactness'], 3));
+    push('Compactness Ensemble Percentile Rank (750K Simulated Plans)',      fmtRnk(p['Compactness % Extremity']));
+    push('Mean Average Democratic Vote Share',                               fmtPct(p['Mean Avg. Dem. Vote Share']));
+    push('Dem. Vote Share Ensemble Percentile Rank (750K Simulated Plans)',  fmtRnk(p['Dem. Vote Share % Extremity']));
+    push('Mean Average Republican Vote Share',                               fmtPct(p['Mean Avg. Rep. Vote Share']));
+    push('Rep. Vote Share Ensemble Percentile Rank (750K Simulated Plans)',  fmtRnk(p['Rep. Vote Share % Extremity']));
+    push('Expected Seat Composition',                                        p['Exp. Seat Composition']);
+    push('Expected Democratic Seats',                                        p['Exp. Dem. Seats']);
+    push('Dem. Seats Ensemble Percentile Rank (750K Simulated Plans)',       fmtRnk(p['Dem. Seat % Extremity']));
+    push('Expected Republican Seats',                                        p['Exp. Rep. Seats']);
+    push('Rep. Seats Ensemble Percentile Rank (750K Simulated Plans)',       fmtRnk(p['Rep. Seat % Extremity']));
     return buildTable(p['State'] || p['Abbr'] || '—', rows);
   }
 
   function districtTableHTML(p, mapType) {
     const rows = [];
-    const push = (k, v) => { if (v != null && v !== '' && v !== '—') rows.push([k, v]); };
+    const push = (k, v) => { if (v != null && v !== '' && v !== '\u2014') rows.push([k, v]); };
 
     if (mapType === T.OLD) {
-      push('District No.',           p['District No.']);
-      push('Pop.',                   fmtInt(p['Pop.']));
-      push('Modified Voting Pop.',   fmtInt(p['Modified Voting Pop.']));
-      push('Partisan Vote Share',    fmtPct(p['Partisan Vote Share']));
-      push('Avg. Dem. Vote Share',   fmtPct(p['Avg. Dem. Vote Share']));
-      push('Avg. Rep. Vote Share',   fmtPct(p['Avg. Rep. Vote Share']));
-      push('Prob. of Dem. Win',      fmtPct(p['Prob. of Dem. Win']));
-      push('Prob. of Rep. Win',      fmtPct(p['Prob. of Rep. Win']));
+      push('Total Population (Census 2020)',                                  fmtInt(p['Pop.']));
+      push('Modified Voting Age Population (MVAP, RDH)',                      fmtInt(p['Modified Voting Pop.']));
+      push('Partisan Vote Share',                                             fmtPct(p['Partisan Vote Share']));
+      push('Average Democratic Vote Share',                                   fmtPct(p['Avg. Dem. Vote Share']));
+      push('Average Republican Vote Share',                                   fmtPct(p['Avg. Rep. Vote Share']));
+      push('Prob. of Dem. Win (2020\u20132024 Elections)',                   fmtPct(p['Prob. of Dem. Win']));
+      push('Prob. of Rep. Win (2020\u20132024 Elections)',                   fmtPct(p['Prob. of Rep. Win']));
     } else if (mapType === T.MID) {
-      push('District No.',           p['District No.']);
-      push('Pop.',                   fmtInt(p['Pop.']));
-      push('Modified Voting Pop.',   fmtInt(p['Modified Voting Pop.']));
-      push('Partisan Vote Share',    fmtPct(p['Partisan Vote Share']));
-      push('Avg. Dem. Vote Share',   fmtPct(p['Avg. Dem. Vote Share']));
-      push('Dem. Vote Share % Change', p['Dem. Vote Share % Change']);
-      push('Prob. of Dem. Win',      fmtPct(p['Prob. of Dem. Win']));
-      push('Avg. Rep. Vote Share',   fmtPct(p['Avg. Rep. Vote Share']));
-      push('Rep. Vote Share % Change', p['Rep. Vote Share % Change']);
-      push('Prob. of Rep. Win',      fmtPct(p['Prob. of Rep. Win']));
+      push('Total Population (Census 2020)',                                  fmtInt(p['Pop.']));
+      push('Modified Voting Age Population (MVAP, RDH)',                      fmtInt(p['Modified Voting Pop.']));
+      push('Partisan Vote Share',                                             fmtPct(p['Partisan Vote Share']));
+      push('Average Democratic Vote Share',                                   fmtPct(p['Avg. Dem. Vote Share']));
+      push('Democratic Vote Share Change from Previous Plan',                 p['Dem. Vote Share % Change']);
+      push('Prob. of Dem. Win (2020\u20132024 Elections)',                   fmtPct(p['Prob. of Dem. Win']));
+      push('Average Republican Vote Share',                                   fmtPct(p['Avg. Rep. Vote Share']));
+      push('Republican Vote Share Change from Previous Plan',                 p['Rep. Vote Share % Change']);
+      push('Prob. of Rep. Win (2020\u20132024 Elections)',                   fmtPct(p['Prob. of Rep. Win']));
     } else {
       // T.NEW
-      push('District No.',           p['District No.']);
-      push('Pop.',                   fmtInt(p['Pop.']));
-      push('Modified Voting Pop.',   fmtInt(p['Modified Voting Pop.']));
-      push('Polsby-Compactness',     fmtN(p['Polsby-Compactness'], 3));
-      push('Compactness % Extremity', fmtRnk(p['Compactness % Extremity']));
-      push('Partisan Vote Share',    fmtPct(p['Partisan Vote Share']));
-      push('Avg. Dem. Vote Share',   fmtPct(p['Avg. Dem. Vote Share']));
-      push('Dem. Vote Share % Change', p['Dem. Vote Share % Change']);
-      push('Dem. Vote Share % Extremity', fmtRnk(p['Dem. Vote Share % Extremity']));
-      push('Prob. of Dem. Win',      fmtPct(p['Prob. of Dem. Win']));
-      push('Avg. Rep. Vote Share',   fmtPct(p['Avg. Rep. Vote Share']));
-      push('Rep. Vote Share % Change', p['Rep. Vote Share % Change']);
-      push('Rep. Vote Share % Extremity', fmtRnk(p['Rep. Vote Share % Extremity']));
-      push('Prob. of Rep. Win',      fmtPct(p['Prob. of Rep. Win']));
+      push('Total Population (Census 2020)',                                  fmtInt(p['Pop.']));
+      push('Modified Voting Age Population (MVAP, RDH)',                      fmtInt(p['Modified Voting Pop.']));
+      push('Polsby-Compactness',                                              fmtN(p['Polsby-Compactness'], 3));
+      push('Compactness Ensemble Percentile Rank (750K Simulated Plans)',     fmtRnk(p['Compactness % Extremity']));
+      push('Partisan Vote Share',                                             fmtPct(p['Partisan Vote Share']));
+      push('Average Democratic Vote Share',                                   fmtPct(p['Avg. Dem. Vote Share']));
+      push('Democratic Vote Share Change from Previous Plan',                 p['Dem. Vote Share % Change']);
+      push('Dem. Vote Share Ensemble Percentile Rank (750K Simulated Plans)', fmtRnk(p['Dem. Vote Share % Extremity']));
+      push('Prob. of Dem. Win (2020\u20132024 Elections)',                   fmtPct(p['Prob. of Dem. Win']));
+      push('Average Republican Vote Share',                                   fmtPct(p['Avg. Rep. Vote Share']));
+      push('Republican Vote Share Change from Previous Plan',                 p['Rep. Vote Share % Change']);
+      push('Rep. Vote Share Ensemble Percentile Rank (750K Simulated Plans)', fmtRnk(p['Rep. Vote Share % Extremity']));
+      push('Prob. of Rep. Win (2020\u20132024 Elections)',                   fmtPct(p['Prob. of Rep. Win']));
     }
     return buildTable(`District ${p['District No.']}`, rows);
   }
