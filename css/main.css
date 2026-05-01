@@ -402,9 +402,11 @@ body.page-loaded .topnav {
 body.dark-mode,
 body.dark-mode html {
     background-color: #1a1a1a !important;
-    color: #faf9f9 !important;
+    color: #c8c8c8 !important;
 }
-
+body.dark-mode strong {
+    color: #d4b0af;
+}
 body.dark-mode .topnav,
 body.dark-mode .left-nav,
 body.dark-mode .right-nav,
