@@ -1,12 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+
 /* ================= GLOBAL STYLES ================ */
 html {
     scroll-behavior: smooth;
 }
 
 body {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    line-height: 1.7;
     scroll-behavior: smooth;
     margin: 0;
-    font-family: 'Times New Roman', Times, serif;
     box-sizing: border-box;
     background-color: #faf9f9;
     color: #1a1a1a;
@@ -93,6 +97,7 @@ body.page-loaded .topnav {
     left: 50%;
     transform: translateX(-50%);
     font-size: 26px;
+    font-family: 'Inter', sans-serif;
     font-weight: normal;
     margin-top: 4px;
     text-decoration: none !important;
@@ -121,6 +126,7 @@ body.page-loaded .topnav {
     text-transform: uppercase;
     padding: 20px 18px;
     margin-top: 8px;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     border: none !important;
     outline: none !important;
@@ -308,7 +314,7 @@ body.page-loaded .topnav {
     padding: 1.5rem 2rem;
     background-color: #faf9f9;
     font-size: 14px;
-    font-family: sans-serif;
+    font-family: 'Inter', sans-serif;
     color: #1a1a1a;
     border-top: none;
 }
