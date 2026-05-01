@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -200,6 +202,144 @@ body.page-loaded .hero-inner {
   color: #966E6D;
 }
 
+
+/* ================= VENN DIAGRAM ================ */
+
+.venn-section {
+  padding: 8px 0 40px;
+}
+
+.venn-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #aaa;
+  text-align: center;
+  margin: 0 0 1.25rem;
+}
+
+.venn-scale-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.venn-area {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  flex-shrink: 0;
+  transform-origin: top center;
+}
+
+.vc {
+  position: absolute;
+  width: 305px;
+  height: 305px;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+}
+
+.vc1 { top: 0;     left: 0;     background: rgba(150,110,109,0.42); }
+.vc2 { top: 0;     left: 195px; background: rgba(88,116,150,0.42);  }
+.vc3 { top: 195px; left: 0;     background: rgba(100,136,100,0.42); }
+.vc4 { top: 195px; left: 195px; background: rgba(174,144,82,0.42);  }
+
+.vl {
+  position: absolute;
+  z-index: 10;
+  font-family: 'Lora', serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.55;
+  width: 106px;
+  transition: color 0.3s;
+}
+
+.vl1 { top: 38px;  left: 16px;  color: #6b3837; }
+.vl2 { top: 38px;  left: 378px; text-align: right; color: #1b3a56; }
+.vl3 { top: 358px; left: 16px;  color: #274e2e; }
+.vl4 { top: 358px; left: 378px; text-align: right; color: #614109; }
+
+.vcenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  width: 118px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #111;
+  line-height: 1.65;
+  transition: color 0.3s;
+}
+
+.venn-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 1.25rem;
+}
+
+.venn-key {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  color: #888;
+  transition: color 0.3s;
+}
+
+.venn-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ---- Venn dark mode ---- */
+body.dark-mode .vc {
+  mix-blend-mode: screen;
+}
+
+body.dark-mode .vc1 { background: rgba(210,145,143,0.55); }
+body.dark-mode .vc2 { background: rgba(110,155,205,0.55); }
+body.dark-mode .vc3 { background: rgba(130,180,130,0.55); }
+body.dark-mode .vc4 { background: rgba(220,185,100,0.55); }
+
+body.dark-mode .vl1  { color: #f28c8a; }
+body.dark-mode .vl2  { color: #7ab8d8; }
+body.dark-mode .vl3  { color: #8ecf96; }
+body.dark-mode .vl4  { color: #f0be50; }
+body.dark-mode .vcenter    { color: #f0ece8; }
+body.dark-mode .venn-eyebrow { color: #666; }
+body.dark-mode .venn-key   { color: #bbb; }
+
+/* ---- Venn responsive scaling ---- */
+@media (max-width: 580px) {
+  .venn-scale-wrapper { height: 375px; }
+  .venn-area { transform: scale(0.75); }
+}
+
+@media (max-width: 440px) {
+  .venn-scale-wrapper { height: 300px; }
+  .venn-area { transform: scale(0.60); }
+}
+
+@media (max-width: 360px) {
+  .venn-scale-wrapper { height: 265px; }
+  .venn-area { transform: scale(0.53); }
+}
 
 /* ================= RESPONSIVE STYLES ================ */
 @media (max-width: 999px) {
