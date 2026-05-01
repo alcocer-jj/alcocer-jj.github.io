@@ -411,7 +411,8 @@ body.dark-mode html {
     color: #c8c8c8 !important;
 }
 body.dark-mode strong {
-    color: #c9a96e;
+ /* color: #c9a96e; */
+    color: #8aab8e
 }
 body.dark-mode .topnav,
 body.dark-mode .left-nav,
