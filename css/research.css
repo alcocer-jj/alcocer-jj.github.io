@@ -326,19 +326,46 @@ body.dark-mode .venn-eyebrow { color: #666; }
 body.dark-mode .venn-key   { color: #bbb; }
 
 /* ---- Venn responsive scaling ---- */
-@media (max-width: 580px) {
+@media (max-width: 780px) {
   .venn-scale-wrapper { height: 375px; }
-  .venn-area { transform: scale(0.75); }
+  .venn-area  { width: 375px; height: 375px; }
+  .vc         { width: 229px; height: 229px; }
+  .vc2        { top: 0;      left: 146px; }
+  .vc3        { top: 146px;  left: 0;     }
+  .vc4        { top: 146px;  left: 146px; }
+  .vl         { font-size: 9px; width: 80px; }
+  .vl2        { top: 38px;  left: 284px; }
+  .vl3        { top: 269px; left: 16px;  }
+  .vl4        { top: 269px; left: 284px; }
+  .vcenter    { font-size: 7px; width: 89px; }
 }
 
 @media (max-width: 440px) {
   .venn-scale-wrapper { height: 300px; }
-  .venn-area { transform: scale(0.60); }
+  .venn-area  { width: 300px; height: 300px; }
+  .vc         { width: 183px; height: 183px; }
+  .vc2        { top: 0;      left: 117px; }
+  .vc3        { top: 117px;  left: 0;     }
+  .vc4        { top: 117px;  left: 117px; }
+  .vl         { font-size: 7px; width: 64px; }
+  .vl2        { top: 38px;  left: 227px; }
+  .vl3        { top: 215px; left: 16px;  }
+  .vl4        { top: 215px; left: 227px; }
+  .vcenter    { font-size: 6px; width: 71px; }
 }
 
 @media (max-width: 360px) {
   .venn-scale-wrapper { height: 265px; }
-  .venn-area { transform: scale(0.53); }
+  .venn-area  { width: 265px; height: 265px; }
+  .vc         { width: 162px; height: 162px; }
+  .vc2        { top: 0;      left: 103px; }
+  .vc3        { top: 103px;  left: 0;     }
+  .vc4        { top: 103px;  left: 103px; }
+  .vl         { font-size: 6px; width: 56px; }
+  .vl2        { top: 38px;  left: 200px; }
+  .vl3        { top: 190px; left: 16px;  }
+  .vl4        { top: 190px; left: 200px; }
+  .vcenter    { font-size: 5px; width: 63px; }
 }
 
 
@@ -357,9 +384,9 @@ body.dark-mode .venn-key   { color: #bbb; }
 .pub-tabs {
   display: flex;
   position: relative;
-  background-color: #f0ece8;
+  background-color: #fff;
   box-shadow: 0 0 1px 0 rgba(150,110,109,0.20), 0 6px 12px 0 rgba(150,110,109,0.20);
-  padding: 0.5rem;
+  padding: 0.75rem;
   border-radius: 99px;
 }
 
@@ -378,7 +405,7 @@ input[name="pub-tabs"] {
   height: 54px;
   width: 200px;
   font-size: 1.25rem;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lora', serif;
   font-weight: 500;
   border-radius: 99px;
   cursor: pointer;
@@ -418,7 +445,7 @@ input#tab-wp:checked    ~ .pub-glider { transform: translateX(200%); }
 /* Dark mode */
 body.dark-mode .pub-tabs {
   background-color: #2a2a2a;
-  box-shadow: 0 0 1px 0 rgba(150,110,109,0.15), 0 6px 12px 0 rgba(0,0,0,0.35);
+  box-shadow: 0 0 1px 0 rgba(150,110,109,0.20), 0 6px 12px 0 rgba(0,0,0,0.35);
 }
 
 body.dark-mode .pub-tab {
@@ -434,57 +461,30 @@ body.dark-mode .pub-glider {
 }
 
 /* Responsive */
-@media (max-width: 999px) {
-  .pub-tab {
-    width: 160px;
-    font-size: 1rem;
-    height: 50px;
-  }
-  .pub-glider {
-    width: 160px;
-    height: 50px;
-  }
-}
-
 @media (max-width: 680px) {
   .pub-tab {
     width: 110px;
-    font-size: 0.78rem;
-    height: 42px;
+    font-size: 0.85rem;
+    height: 44px;
   }
   .pub-glider {
     width: 110px;
-    height: 42px;
+    height: 44px;
   }
   .pub-tabs {
-    padding: 0.4rem;
+    padding: 0.5rem;
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 400px) {
   .pub-tab {
-    width: 88px;
-    font-size: 0.65rem;
-    height: 38px;
+    width: 90px;
+    font-size: 0.72rem;
+    height: 40px;
   }
   .pub-glider {
-    width: 88px;
-    height: 38px;
-  }
-  .pub-tabs {
-    padding: 0.3rem;
-  }
-}
-
-@media (max-width: 340px) {
-  .pub-tab {
-    width: 75px;
-    font-size: 0.58rem;
-    height: 34px;
-  }
-  .pub-glider {
-    width: 75px;
-    height: 34px;
+    width: 90px;
+    height: 40px;
   }
 }
 
