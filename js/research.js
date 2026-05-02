@@ -161,49 +161,19 @@ $(document).ready(function () {
 });
 
 function filterAll() {
-  filterWorkingPapers();
-  filterPublications();
-}
-
-function filterWorkingPapers() {
-  const selectedKeywords = Array.from(
-    document.querySelectorAll('#wp-filter-keywords option:checked')
+  const selectedAreas = Array.from(
+    document.querySelectorAll('#pub-filter-areas option:checked')
   ).map(opt => opt.textContent.trim().toLowerCase());
 
-  document.querySelectorAll('#working-papers-list .publication-entry').forEach(pub => {
-    const keywords = (pub.dataset.keywords || '')
+  document.querySelectorAll('.publication-entry').forEach(pub => {
+    const areas = (pub.dataset.areas || '')
       .toLowerCase()
       .split('|')
       .map(t => t.trim());
 
-    const hasKeywords = selectedKeywords.length === 0 ||
-      selectedKeywords.every(k => keywords.includes(k));
+    const hasAreas = selectedAreas.length === 0 ||
+      selectedAreas.some(a => areas.includes(a));
 
-    pub.style.display = hasKeywords ? '' : 'none';
-  });
-}
-
-function filterPublications() {
-  const selectedTypes = Array.from(
-    document.querySelectorAll('#pub-filter-type option:checked')
-  ).map(opt => opt.textContent.trim().toLowerCase());
-
-  const selectedKeywords = Array.from(
-    document.querySelectorAll('#pub-filter-keywords option:checked')
-  ).map(opt => opt.textContent.trim().toLowerCase());
-
-  document.querySelectorAll('#publications-list .publication-entry').forEach(pub => {
-    const typeTag = (pub.dataset.type || '').toLowerCase().trim();
-    const keywords = (pub.dataset.keywords || '')
-      .toLowerCase()
-      .split('|')
-      .map(t => t.trim());
-
-    const hasType = selectedTypes.length === 0 || selectedTypes.includes(typeTag);
-
-    const hasKeywords = selectedKeywords.length === 0 ||
-      selectedKeywords.every(k => keywords.includes(k));
-
-    pub.style.display = hasType && hasKeywords ? '' : 'none';
+    pub.style.display = hasAreas ? '' : 'none';
   });
 }
