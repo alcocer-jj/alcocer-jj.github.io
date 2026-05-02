@@ -326,19 +326,29 @@ body.dark-mode .venn-eyebrow { color: #666; }
 body.dark-mode .venn-key   { color: #bbb; }
 
 /* ---- Venn responsive scaling ---- */
-@media (max-width: 580px) {
-  .venn-scale-wrapper { height: 375px; }
+@media (max-width: 750px) {
+  .venn-scale-wrapper { height: 502px; }
+  .venn-area { transform: scale(0.85); }
+}
+
+@media (max-width: 650px) {
+  .venn-scale-wrapper { height: 443px; }
   .venn-area { transform: scale(0.75); }
 }
 
+@media (max-width: 540px) {
+  .venn-scale-wrapper { height: 413px; }
+  .venn-area { transform: scale(0.70); }
+}
+
 @media (max-width: 440px) {
-  .venn-scale-wrapper { height: 300px; }
-  .venn-area { transform: scale(0.60); }
+  .venn-scale-wrapper { height: 336px; }
+  .venn-area { transform: scale(0.57); }
 }
 
 @media (max-width: 360px) {
-  .venn-scale-wrapper { height: 265px; }
-  .venn-area { transform: scale(0.53); }
+  .venn-scale-wrapper { height: 283px; }
+  .venn-area { transform: scale(0.48); }
 }
 
 /* ================= RESPONSIVE STYLES ================ */
