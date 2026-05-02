@@ -166,37 +166,44 @@ function filterAll() {
 }
 
 function filterWorkingPapers() {
-  const selectedAreas = Array.from(
-    document.querySelectorAll('#pub-filter-areas option:checked')
+  const selectedKeywords = Array.from(
+    document.querySelectorAll('#wp-filter-keywords option:checked')
   ).map(opt => opt.textContent.trim().toLowerCase());
 
   document.querySelectorAll('#working-papers-list .publication-entry').forEach(pub => {
-    const areas = (pub.dataset.areas || '')
+    const keywords = (pub.dataset.keywords || '')
       .toLowerCase()
-      .split(',')
+      .split('|')
       .map(t => t.trim());
 
-    const hasAreas = selectedAreas.length === 0 ||
-      selectedAreas.some(a => areas.includes(a));
+    const hasKeywords = selectedKeywords.length === 0 ||
+      selectedKeywords.every(k => keywords.includes(k));
 
-    pub.style.display = hasAreas ? '' : 'none';
+    pub.style.display = hasKeywords ? '' : 'none';
   });
 }
 
 function filterPublications() {
-  const selectedAreas = Array.from(
-    document.querySelectorAll('#pub-filter-areas option:checked')
+  const selectedTypes = Array.from(
+    document.querySelectorAll('#pub-filter-type option:checked')
   ).map(opt => opt.textContent.trim().toLowerCase());
 
-  document.querySelectorAll('#panel-peer .publication-entry, #panel-other .publication-entry').forEach(pub => {
-    const areas = (pub.dataset.areas || '')
+  const selectedKeywords = Array.from(
+    document.querySelectorAll('#pub-filter-keywords option:checked')
+  ).map(opt => opt.textContent.trim().toLowerCase());
+
+  document.querySelectorAll('#publications-list .publication-entry').forEach(pub => {
+    const typeTag = (pub.dataset.type || '').toLowerCase().trim();
+    const keywords = (pub.dataset.keywords || '')
       .toLowerCase()
-      .split(',')
+      .split('|')
       .map(t => t.trim());
 
-    const hasAreas = selectedAreas.length === 0 ||
-      selectedAreas.some(a => areas.includes(a));
+    const hasType = selectedTypes.length === 0 || selectedTypes.includes(typeTag);
 
-    pub.style.display = hasAreas ? '' : 'none';
+    const hasKeywords = selectedKeywords.length === 0 ||
+      selectedKeywords.every(k => keywords.includes(k));
+
+    pub.style.display = hasType && hasKeywords ? '' : 'none';
   });
 }
