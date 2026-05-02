@@ -1,108 +1,109 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <title>Alcocerjj | Research</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://www.alcocerjj.com/css/main.css">
-    <link rel="stylesheet" href="https://www.alcocerjj.com/css/research.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
-  </head>
-  <body>
-    <!-- ========= NAVBAR ========= -->
-     <div class="topnav" id="myTopnav">
-      <!-- Left nav -->
-       <div class="left-nav desktop-only">
-        <a href="research.html" class="nav-btn">Research</a>
-        <a href="software.html" class="nav-btn">Software</a>
-      </div>
-      <!-- Center brand -->
-       <a href="index.html" class="topnav-name">José Javier</a>
-       <!-- Right nav -->
-        <div class="right-nav">
-          <div class="desktop-only">
-            <a href="/pdfs/alcocerjj_cv.pdf" class="nav-btn">CV</a>
-            <a href="photography.html" class="nav-btn">Photography</a>
-          </div>
-          <!-- sun/moon SVG toggle: visible on all screen sizes -->
-           <label for="themeToggle" class="st-sunMoonThemeToggleBtn" aria-label="Toggle light/dark">
-            <input type="checkbox" id="themeToggle" class="themeToggleInput"/>
-            <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" stroke="none">
-              <mask id="moon-mask">
-                <rect x="0" y="0" width="20" height="20" fill="white"/>
-                <circle cx="11" cy="3" r="8" fill="black"/>
-              </mask>
-              <circle class="sunMoon" cx="10" cy="10" r="8" mask="url(#moon-mask)"/>
-              <g>
-                <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"/>
-                <circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"/>
-                <circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"/>
-                <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"/>
-                <circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"/>
-                <circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"/>
-              </g>
-            </svg>
-          </label>
-          <!-- Hamburger menu icon: mobile only -->
-           <button id="menuIcon" class="nav-btn toggle-btn mobile-only icon-button">
-            <i class="fa fa-bars"></i>
-            <i class="fa fa-xmark"></i>
-          </button>
-        </div>
-      </div>
-      <!-- ========= MOBILE DROPDOWN MENU ========= -->
-       <div id="mobileMenu" class="mobile-only mobile-menu">
-        <a href="research.html" class="nav-btn">Research</a>
-        <a href="software.html" class="nav-btn">Software</a>
-        <a href="pdfs/alcocerjj_cv.pdf" class="nav-btn">CV</a>
-        <a href="photography.html" class="nav-btn">Photography</a>
-      </div>
-      <!-- ========= HERO ========= -->
-       <section class="hero">
-        <div class="hero-wrapper">
-          <div class="hero-inner">
-            <div class="container">
-              <div class="text_wrapper">
-                <div class="text_hide"></div>
-                <div class="text">Research</div>
-                <div class="text_cursor"></div>
-              </div>  
-              <div class="subtitle">Representation, Accountability, and Democratic Governance</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <h2 class="section-title" style="font-family:'Times New Roman', Times, serif;">
+<head>
+<title>Alcocerjj | Research</title>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://www.alcocerjj.com/css/main.css" rel="stylesheet"/>
+<link href="https://www.alcocerjj.com/css/research.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Lora:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
+</link></head>
+<body>
+<!-- ========= NAVBAR ========= -->
+<div class="topnav" id="myTopnav">
+<!-- Left nav -->
+<div class="left-nav desktop-only">
+<a class="nav-btn" href="research.html">Research</a>
+<a class="nav-btn" href="software.html">Software</a>
+</div>
+<!-- Center brand -->
+<a class="topnav-name" href="index.html">José Javier</a>
+<!-- Right nav -->
+<div class="right-nav">
+<div class="desktop-only">
+<a class="nav-btn" href="/pdfs/alcocerjj_cv.pdf">CV</a>
+<a class="nav-btn" href="photography.html">Photography</a>
+</div>
+<!-- sun/moon SVG toggle: visible on all screen sizes -->
+<label aria-label="Toggle light/dark" class="st-sunMoonThemeToggleBtn" for="themeToggle">
+<input class="themeToggleInput" id="themeToggle" type="checkbox"/>
+<svg fill="currentColor" height="18" stroke="none" viewbox="0 0 20 20" width="18">
+<mask id="moon-mask">
+<rect fill="white" height="20" width="20" x="0" y="0"></rect>
+<circle cx="11" cy="3" fill="black" r="8"></circle>
+</mask>
+<circle class="sunMoon" cx="10" cy="10" mask="url(#moon-mask)" r="8"></circle>
+<g>
+<circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"></circle>
+<circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"></circle>
+<circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"></circle>
+<circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"></circle>
+<circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"></circle>
+<circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"></circle>
+</g>
+</svg>
+</label>
+<!-- Hamburger menu icon: mobile only -->
+<button class="nav-btn toggle-btn mobile-only icon-button" id="menuIcon">
+<i class="fa fa-bars"></i>
+<i class="fa fa-xmark"></i>
+</button>
+</div>
+</div>
+<!-- ========= MOBILE DROPDOWN MENU ========= -->
+<div class="mobile-only mobile-menu" id="mobileMenu">
+<a class="nav-btn" href="research.html">Research</a>
+<a class="nav-btn" href="software.html">Software</a>
+<a class="nav-btn" href="pdfs/alcocerjj_cv.pdf">CV</a>
+<a class="nav-btn" href="photography.html">Photography</a>
+</div>
+<!-- ========= HERO ========= -->
+<section class="hero">
+<div class="hero-wrapper">
+<div class="hero-inner">
+<div class="container">
+<div class="text_wrapper">
+<div class="text_hide"></div>
+<div class="text">Research</div>
+<div class="text_cursor"></div>
+</div>
+<div class="subtitle">Representation, Accountability, and Democratic Governance</div>
+</div>
+</div>
+</div>
+</section>
+<h2 class="section-title" style="font-family:'Times New Roman', Times, serif;">
         Overview
       </h2>
-      <section class="intro-section">
-        <div>
-          <!-- ========= VENN DIAGRAM ========= -->
-          <div class="venn-section">
-            <p class="venn-eyebrow">Research Areas</p>
-            <div class="venn-scale-wrapper">
-              <div class="venn-area">
-                <div class="vc vc1"></div>
-                <div class="vc vc2"></div>
-                <div class="vc vc3"></div>
-                <div class="vc vc4"></div>
-                <div class="vl vl1">Race, Identity &amp; Legislative Power</div>
-                <div class="vl vl2">Electoral Institutions &amp; Partisan Governance</div>
-                <div class="vl vl3">Street-Level Governance &amp; Accountability</div>
-                <div class="vl vl4">Racialized Representation in Latin America</div>
-                <div class="vcenter">Methods, Measurement &amp; Computational Theory</div>
-              </div>
-            </div>
-            <div class="venn-footer">
-              <div class="venn-key"><div class="venn-dot" style="background:rgba(150,110,109,0.85);"></div>U.S. Legislature</div>
-              <div class="venn-key"><div class="venn-dot" style="background:rgba(88,116,150,0.85);"></div>Electoral Institutions</div>
-              <div class="venn-key"><div class="venn-dot" style="background:rgba(100,136,100,0.85);"></div>Street-Level Governance</div>
-              <div class="venn-key"><div class="venn-dot" style="background:rgba(174,144,82,0.85);"></div>Latin America</div>
-            </div>
-          </div>
-          <div class="intro-paragraph">
-            <p>
+<section class="intro-section">
+<div>
+<!-- ========= VENN DIAGRAM ========= -->
+<div class="venn-section">
+<p class="venn-eyebrow">Research Areas</p>
+<div class="venn-scale-wrapper">
+<div class="venn-area">
+<div class="vc vc1"></div>
+<div class="vc vc2"></div>
+<div class="vc vc3"></div>
+<div class="vc vc4"></div>
+<div class="vl vl1">Race, Identity &amp; Legislative Power</div>
+<div class="vl vl2">Electoral Institutions &amp; Partisan Governance</div>
+<div class="vl vl3">Street-Level Governance &amp; Accountability</div>
+<div class="vl vl4">Racialized Representation in Latin America</div>
+<div class="vcenter">Methods, Measurement &amp; Computational Theory</div>
+</div>
+</div>
+<div class="venn-footer">
+<div class="venn-key"><div class="venn-dot" style="background:rgba(150,110,109,0.85);"></div>U.S. Legislature</div>
+<div class="venn-key"><div class="venn-dot" style="background:rgba(88,116,150,0.85);"></div>Electoral Institutions</div>
+<div class="venn-key"><div class="venn-dot" style="background:rgba(100,136,100,0.85);"></div>Street-Level Governance</div>
+<div class="venn-key"><div class="venn-dot" style="background:rgba(174,144,82,0.85);"></div>Latin America</div>
+</div>
+</div>
+<div class="intro-paragraph">
+<p>
               My research asks how formal institutions and informal power structures jointly determine
               who has political voice, and at what cost. I study this question across four connected 
               domains: (1) how race and gender shape legislative behavior and coalition-building within the 
@@ -112,66 +113,66 @@
               reveals about communication, power, and accountability in everyday policing; and (4) how racialized
               constituencies are represented, or symbolically managed, in Latin American institutional contexts.
             </p>
-            <p>
+<p>
               Across these areas, my work draws on causal inference, computational social science, and 
               measurement theory to study political behavior in settings where conventional approaches fall 
               short. The four areas are distinct in context but unified by a common argument: that the 
               distribution of political voice reflects deeper structures of power and exclusion that only 
               rigorous, theoretically grounded empirical work can illuminate.
             </p>
-          </div>          
-        </div>
-      </section>
-            <!-- ========= PUBLICATIONS TABS SECTION ========= -->
-      <div class="pub-tabs-section">
-        <div class="pub-tabs-wrapper">
-          <div class="pub-tabs">
-            <input type="radio" id="tab-peer" name="pub-tabs" checked />
-            <label class="pub-tab" for="tab-peer">Peer-Reviewed</label>
-            <input type="radio" id="tab-other" name="pub-tabs" />
-            <label class="pub-tab" for="tab-other">Other</label>
-            <input type="radio" id="tab-wp" name="pub-tabs" />
-            <label class="pub-tab" for="tab-wp">Working Papers</label>
-            <span class="pub-glider"></span>
-          </div>
-        </div>
-        <section class="intro-section">
-          <div>
-            <div class="filters-wrapper" id="pub-filters-wrapper">
-              <select id="pub-filter-keywords" multiple data-placeholder="Research Keywords">
-                <option>Artificial Intelligence</option>
-                <option>Bureaucracy</option>
-                <option>Causal Inference</option>
-                <option>Computation and Language</option>
-                <option>Electoral System</option>
-                <option>Experiment</option>
-                <option>Gender</option>
-                <option>Indigenous</option>
-                <option>Legislature</option>
-                <option>Machine Learning</option>
-                <option>Mexico</option>
-                <option>Policing</option>
-                <option>Policy Evaluation</option>
-                <option>Public Health</option>
-                <option>Public Policy</option>
-                <option>Race</option>
-                <option>Redistricting</option>
-                <option>Representation</option>
-                <option>U.S. Congress</option>
-                <option>Voting Methods</option>
-              </select>
-            </div>
-            <!-- ===== PEER-REVIEWED PANEL ===== -->
-            <div class="tab-panel active" id="panel-peer">
-              <div class="intro-paragraph" id="publications-list">
-<div class="publication-entry" data-keywords="artificial intelligence, bureaucracy, computation and language, machine learning, policing, race, representation" data-type="peer-reviewed">
+</div>
+</div>
+</section>
+<!-- ========= PUBLICATIONS TABS SECTION ========= -->
+<div class="pub-tabs-section">
+<div class="pub-tabs-wrapper">
+<div class="pub-tabs">
+<input checked="" id="tab-peer" name="pub-tabs" type="radio"/>
+<label class="pub-tab" for="tab-peer">Peer-Reviewed</label>
+<input id="tab-other" name="pub-tabs" type="radio"/>
+<label class="pub-tab" for="tab-other">Other</label>
+<input id="tab-wp" name="pub-tabs" type="radio"/>
+<label class="pub-tab" for="tab-wp">Working Papers</label>
+<span class="pub-glider"></span>
+</div>
+</div>
+<section class="intro-section">
+<div>
+<div class="filters-wrapper" id="pub-filters-wrapper">
+<select data-placeholder="Research Area" id="pub-filter-areas" multiple="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<option>Race, Identity &amp; Legislative Power</option><option>Electoral Institutions &amp; Partisan Governance</option><option>Street-Level Governance &amp; Accountability</option><option>Racialized Representation in Latin America</option><option>Methods</option></select>
+</div>
+<!-- ===== PEER-REVIEWED PANEL ===== -->
+<div class="tab-panel active" id="panel-peer">
+<div class="intro-paragraph" id="publications-list">
+<div class="publication-entry" data-areas="TBD">
 <p>
                 Golazizian, Preni, Elnaz Rahmati, Jackson Trager, Zhivar Sourati, Nona Ghazizadeh, Yiorgos Chochlakis, 
                 <strong>Jose J. Alcocer*</strong>, Kerby Bennett*, Aarya Vijay Devnani*, Parsa Hejabi*, Harry Muttram*, 
                 Akshay Kiran Padte*, Mehrshad Saadatinia*, Chenhao Wu*, Alireza S. Zaibari*, Michael Sierra-Arévalo, 
                 Nick Weller, Shrikanth Narayanan, Benjamin A.T. Graham, and Morteza Dehghani. 2026. 
                 <a href="https://arxiv.org/abs/2602.10339v1">"The Subjectivity of Respect in Police Traffic Stops: Modeling Community Perspectives in Body-Worn Camera Footage."</a> <span style="font-style: italic;">Association for Computational Lingustics.</span> Forthcoming.
-              </p>
+              <span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0;">
 <button class="fancy-abstract-button" data-id="8" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -200,13 +201,13 @@
                 </p>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="indigenous, mexico, legislature, experiment" data-type="peer-reviewed">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
                 Múzquiz, José E. and <strong>Jose J. Alcocer</strong> 2025. <a href="https://www.cambridge.org/core/journals/journal-of-experimental-political-science/article/legislator-responsiveness-to-racialized-constituencies-in-mexico/151CE7998B726D602BB5047F6B45CCB5?utm_campaign=shareaholic&amp;utm_medium=copy_link&amp;utm_source=bookmark">"Legislator Responsiveness to Racialized Constituencies in Mexico."</a> <span style="font-style: italic;">The Journal of Experimental Political Science.</span> First View.
-              </p>
+              <span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0;">
 <button class="fancy-abstract-button" data-id="6" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -234,13 +235,13 @@
                 </p>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="u.s. congress, race, legislature, causal inference, representation, gender" data-type="peer-reviewed">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
 <strong>Alcocer, Jose J.</strong> 2025. <a href="https://www.cambridge.org/core/journals/journal-of-race-ethnicity-and-politics/article/minority-legislators-sponsor-and-cosponsor-differently-from-white-legislators-causal-evidence-from-us-congress/66D0FA5741BF052EC03C8A6EB60A50D8?utm_date=20250428&amp;utm_id=1745826656&amp;utm_campaign=Open%20Access,REP&amp;utm_source=twitter&amp;utm_medium=social&amp;utm_content">"Minority Legislator Sponsor and Cosponsor Differently From White Legislators: Causal Evidence from U.S. Congress."</a> <span style="font-style: italic;">The Journal of Race, Ethnicity, and Politics.</span> 10(2), pp. 277-289.
-              </p>
+              <span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0;">
 <button class="fancy-abstract-button" data-id="4" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -287,13 +288,13 @@
                 </p>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="public health, public policy, policy evaluation, causal inference" data-type="peer-reviewed">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
 <strong>Alcocer, Jose J.</strong> 2020. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0033350620301128?via%3Dihub">“Exploring the Effect of Colorado’s Recreational Marijuana Policy on Opioid Overdose Rates.”</a> <span style="font-style: italic;">Public Health</span>, Volume 185, 8-14.
-              </p>
+              <span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0;">
 <button class="fancy-abstract-button" data-id="1" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -329,15 +330,15 @@
                 </p>
 </div>
 </div>
-              </div>
-            </div>
-            <!-- ===== OTHER PANEL ===== -->
-            <div class="tab-panel" id="panel-other">
-              <div class="intro-paragraph">
-<div class="publication-entry" data-keywords="electoral system, legislature, representation" data-type="other">
+</div>
+</div>
+<!-- ===== OTHER PANEL ===== -->
+<div class="tab-panel" id="panel-other">
+<div class="intro-paragraph">
+<div class="publication-entry" data-areas="TBD">
 <p>
 <strong>Alcocer, Jose J.</strong> and Christian R. Grose. 2026. <a href="https://christiangrose.medium.com/what-does-the-usc-formula-from-the-cancelled-governors-debate-teach-us-7190bcbe0b9f">“What Does the USC Formula from the Cancelled Governor's Debate Teach Us? Candidate Viability Predicts Primary Vote Shares in California”</a> <span style="font-style: italic;">Medium.</span>
-</p>
+<span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0;">
 <button class="fancy-abstract-button" data-id="10" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -368,13 +369,13 @@
                 </p>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="race" data-type="other">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
                 Rosalía Chávez Zárate, Marlene Orozco, <strong>Jose J. Alcocer</strong>, and George Foster. 2026. <a href="https://www.gsb.stanford.edu/faculty-research/publications/2025-state-latino-entrepreneurship">“2025 State of Latino Entrepreneurship.”</a> <span style="font-style: italic;">Stanford Latino Entrepreneurship Initiative,</span> Stanford Graduate School of Business. 
-              </p>
+              <span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0;">
 <button class="fancy-abstract-button" data-id="9" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -400,13 +401,13 @@
                 </p>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="redistricting, representation" data-type="other">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
 <strong>Alcocer, Jose J.</strong> 2025. <a href="https://hls.harvard.edu/amicus-libris/the-methodological-landscape-with-respect-to-identifying-gerrymandering/">"The Methodological Landscape With Respect to Identifying Gerrymandering"</a> <span style="font-style: italic;">Amicus Libris.</span> Briefs from the Harvard Law School Library.
-              </p>
+              <span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0;">
 <button class="fancy-abstract-button" data-id="7" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -434,13 +435,13 @@
                 </p>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="u.s. congress, race, legislature, causal inference, representation, gender" data-type="other">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
 <strong>Alcocer, Jose J.</strong> 2025. <a href="https://blogs.lse.ac.uk/usappblog/2025/06/06/facing-institutional-barriers-to-sponsoring-bills-in-congress-newly-elected-minority-representatives-cosponsor-far-more-than-their-non-minority-counterparts/">"Facing Institutional Barriers to Sponsoring Bills in Congress, Newly Elected Minority Representatives Cosponsor Far More Than Their Non-Minority Counterparts."</a> <span style="font-style: italic;">United States Politics and Policy (USAPP).</span> The London School of Economics Phelan United States Centre.
-              </p>
+              <span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0;">
 <button class="fancy-abstract-button" data-id="5" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -466,13 +467,13 @@
                 </p>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="representation, electoral systems, voting methods" data-type="other">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
                 Hua, Whitney and <strong>Jose J. Alcocer</strong> 2024. <a href="https://storage.googleapis.com/ces-media/Special%20Reports/Transforming%20the%20Vote.pdf">“Transforming the Vote: How Voting Reforms Can Improve Equity for Underrepresented Minorities.”</a> <span style="font-style: italic;">The Center for Election Science.</span>
-</p>
+<span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0;">
 <button class="fancy-abstract-button" data-id="3" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -506,13 +507,13 @@
                 </p>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="representation, electoral systems, voting methods" data-type="other">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
                 Hua, Whitney, <strong>Jose J. Alcocer</strong>, and Mike Piel. 2024. <a href="https://mgaleg.maryland.gov/cmte_testimony/2025/eee/1shEUOpch3_1FhMgfn4qq8JkYrBrXrIZT.pdf">”America [Mis]Represented: 2022 Vote-Split Elections Report.”</a> <span style="font-style: italic;">The Center for Election Science.</span>
-</p>
+<span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0;">
 <button class="fancy-abstract-button" data-id="2" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -546,16 +547,16 @@
                 </p>
 </div>
 </div>
-              </div>
-            </div>
-            <!-- ===== WORKING PAPERS PANEL ===== -->
-            <div class="tab-panel" id="panel-wp">
-              <div class="intro-paragraph" id="working-papers-list">
-<div class="publication-entry" data-keywords="electoral system, legislature, machine learning, redistricting, representation, u.s. congress">
+</div>
+</div>
+<!-- ===== WORKING PAPERS PANEL ===== -->
+<div class="tab-panel" id="panel-wp">
+<div class="intro-paragraph" id="working-papers-list">
+<div class="publication-entry" data-areas="TBD">
 <p>
 <strong>Alcocer, Jose J.</strong>, Christian R. Grose, and Seth C. McKee. 2026.
                     "Redistricting Redux and the Battle to Win the U.S. House in 2026: How Partisan Are the New Maps?"
-                  </p>
+                  <span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
 <button class="fancy-abstract-button" data-id="8a" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -596,13 +597,13 @@
 <div id="rmap-plan-buttons"></div>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="experiment, legislature, mexico, race, representation">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
 <strong>Alcocer, Jose J.</strong> and José E. Múzquiz. "Mexican Home Style: Assessing Symbolic versus Substantive Responsiveness to Racialized Constituencies."
-                  </p>
+                  <span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
 <button class="fancy-abstract-button" data-id="7a" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -634,13 +635,13 @@
                     </p>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="causal inference, electoral system, legislature, representation, voting methods">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
 <strong>Alcocer, Jose J.</strong> and Christian R. Grose. "Top-two Open Primary Systems Increase Ideological Diversity in US State Legislative Parties."
-                  </p>
+                  <span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
 <button class="fancy-abstract-button" data-id="6a" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -666,13 +667,13 @@
                     </p>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="causal inference, gender, legislature, race, representation, u.s. congress">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
 <strong>Alcocer, Jose J.</strong> "Institutional and Electoral Constraints Shape Minority Legislating: Analysis of the U.S. House from 1981 - 2022."
-                  </p>
+                  <span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
 <button class="fancy-abstract-button" data-id="5a" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -698,13 +699,13 @@
                     </p>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="bureaucracy, policing, public policy, race, representation">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
                    Sierra-Arévalo, Michael, <strong>Jose J. Alcocer</strong>, Lauren Brown, Raquel Delerme, Brittany Friedman, Benjamin A.T. Graham, Harry G. Muttram, Jackson Trager, and Nicholas Weller. "Police as Policymakers: How Experiences with Policy Implementation Shape Policy Representation."
-                  </p>
+                  <span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
 <button class="fancy-abstract-button" data-id="4a" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -730,15 +731,15 @@
                     </p>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="artificial intelligence, bureaucracy, computation and language, machine learning, policing, race, representation">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
                     A.T. Graham Benjamin, <strong>Jose J. Alcocer</strong>, Lauren Brown, Yiorgos Chochlakis, Morteza Dehghani, Raquel Delerme,
                     Brittany Friedman, Ellie Graeden, Preni Golazizian, Rajat Hebbar, Parsa Hejabi, Aditya Kommineni, Harry G. Muttram, 
                     Shrikanth Narayanan, Mayagüez Salinas, Michael Sierra-Arévalo, Jackson Trager, and Nicholas Weller. "Community-Informed AI Models for Police Accountability."
-                  </p>
+                  <span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
 <button class="fancy-abstract-button" data-id="3a" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -763,14 +764,14 @@
                     </p>
 </div>
 </div>
-              <!-------------------------------------------->
-              <!-- Divider --------------------------------->
-              <!-------------------------------------------->
-<div class="publication-entry" data-keywords="bureaucracy, causal inference, policing, policy evaluation, public policy, race, representation">
+<!-------------------------------------------->
+<!-- Divider --------------------------------->
+<!-------------------------------------------->
+<div class="publication-entry" data-areas="TBD">
 <p>
                     Muttram, Harry, <strong>Jose J. Alcocer</strong>, Lauren Brown, Benjamin A.T. Graham, Michael Sierra-Arévalo, 
                     and Nicholas Weller. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5288326">"Political Control and Policing: When Do Police Comply with Police Reform?"</a>
-</p>
+<span class="entry-badges"><span class="badge badge-tbd">TBD</span></span></p>
 <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
 <button class="fancy-abstract-button" data-id="1a" title="Toggle Abstract">
 <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
@@ -793,36 +794,35 @@
                     </p>
 </div>
 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <!-- ========= FOOTER SECTION ========= -->
-          <a onclick="topFunction()" id="to-top"><i class="fa-solid fa-angle-up"></i></a>
-          <footer class="footer">
-            <div class="footer-section footer-center">
-              <div><a data-link="email">jalcocer@law.harvard.edu</a></div>
-              <div> 
-                <a data-link="googleScholar">Google Scholar</a> | 
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- ========= FOOTER SECTION ========= -->
+<a id="to-top" onclick="topFunction()"><i class="fa-solid fa-angle-up"></i></a>
+<footer class="footer">
+<div class="footer-section footer-center">
+<div><a data-link="email">jalcocer@law.harvard.edu</a></div>
+<div>
+<a data-link="googleScholar">Google Scholar</a> | 
                 <a data-link="linkedin">LinkedIn</a> | 
                 <a data-link="github">GitHub</a> | 
                 <a data-link="openReview">OpenReview</a> |
-                <a data-link="orcid">ORCID</a> 
-              </div>
-              <div>&copy; 2022-2026 Jose J. Alcocer. All rights reserved.</div>
-            </div>
-          </footer>
-        <div id="noise-bg"></div>
-        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-        <script src="/js/redistricting_map.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="/js/research.js"></script>
-        <script src="https://kit.fontawesome.com/74504d8101.js" crossorigin="anonymous"></script>
-        <script type="module">import { initApp } from '/js/main.js'; document.addEventListener('DOMContentLoaded', () => {initApp(); });</script>
-  
-    <script>
+                <a data-link="orcid">ORCID</a>
+</div>
+<div>© 2022-2026 Jose J. Alcocer. All rights reserved.</div>
+</div>
+</footer>
+<div id="noise-bg"></div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script crossorigin="" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="/js/redistricting_map.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/research.js"></script>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/74504d8101.js"></script>
+<script type="module">import { initApp } from '/js/main.js'; document.addEventListener('DOMContentLoaded', () => {initApp(); });</script>
+<script>
       // ── Tab switching ──────────────────────────────────────────────────
       const panelMap = { 'tab-peer': 'panel-peer', 'tab-other': 'panel-other', 'tab-wp': 'panel-wp' };
       document.querySelectorAll('input[name="pub-tabs"]').forEach(radio => {
@@ -835,22 +835,22 @@
 
       // ── Keyword filtering ──────────────────────────────────────────────
       function applyKeywordFilter() {
-        const select = document.getElementById('pub-filter-keywords');
+        const select = document.getElementById('pub-filter-areas');
         if (!select) return;
         const selected = Array.from(select.selectedOptions).map(o => o.value.toLowerCase());
         const activePanel = document.querySelector('.tab-panel.active');
         if (!activePanel) return;
         activePanel.querySelectorAll('.publication-entry').forEach(entry => {
           if (selected.length === 0) { entry.style.display = ''; return; }
-          const kw = (entry.dataset.keywords || '').toLowerCase();
+          const kw = (entry.dataset.areas || '').toLowerCase();
           entry.style.display = selected.some(s => kw.includes(s)) ? '' : 'none';
         });
       }
 
       document.addEventListener('DOMContentLoaded', function () {
-        const kwSelect = document.getElementById('pub-filter-keywords');
+        const kwSelect = document.getElementById('pub-filter-areas');
         if (kwSelect) kwSelect.addEventListener('change', applyKeywordFilter);
       });
     </script>
-  </body>
+</body>
 </html>
