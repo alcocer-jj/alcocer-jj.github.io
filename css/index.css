@@ -166,7 +166,10 @@ body.page-loaded .hero-inner {
   text-align: center;
 }
 
-.carousel-item h1, h2, h3, p {
+.carousel-item h1,
+.carousel-item h2,
+.carousel-item h3,
+.carousel-item p {
   color: #1a1a1a;
   font-family: sans-serif;
 }
