@@ -9,10 +9,9 @@ body.dark-mode .carousel-container {
   background: #1a1a1a;
 }
 
-body.dark-mode .carousel-item h1, h2, h3, p {
-  color: #faf9f9;
-}
-    
+body.dark-mode .carousel-item h1,
+body.dark-mode .carousel-item h2,
+body.dark-mode .carousel-item h3,
 body.dark-mode .carousel-item p {
   color: #faf9f9;
 }
