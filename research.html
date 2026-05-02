@@ -122,133 +122,67 @@
           </div>          
         </div>
       </section>
-      <!-- ========= PUBLISHED PAPERS SECTION ========= -->
-      <h2 class="section-title" style="font-family:'Times New Roman', Times, serif;">
-        Publications
-      </h2>
-      <section class="intro-section">
-        <div>
-          <div class="filters-wrapper" id="pub-filters-wrapper">
-            <!-- Type Filter -->
-            <select id="pub-filter-type" multiple data-placeholder="Publication Type">
-              <option selected>Peer-Reviewed</option>
-              <option selected>Other</option>
-            </select>
-            <!-- Research Keywords Filter -->
-            <select id="pub-filter-keywords" multiple data-placeholder="Research Keywords">
-              <option>Artificial Intelligence</option>
-              <option>Bureaucracy</option>
-              <option>Computation and Language</option>              
-              <option>Causal Inference</option>
-              <option>Electoral System</option>
-              <option>Experiment</option>
-              <option>Gender</option>
-              <option>Legislature</option>
-              <option>Machine Learning</option>
-              <option>Mexico</option>    
-              <option>Policing</option>
-              <option>Policy Evaluation</option>
-              <option>Public Health</option>
-              <option>Public Policy</option>    
-              <option>Race</option>
-              <option>Redistricting</option>
-              <option>Representation</option>
-              <option>U.S. Congress</option>
-              <option>Voting Methods</option>
-            </select>
+            <!-- ========= PUBLICATIONS TABS SECTION ========= -->
+      <div class="pub-tabs-section">
+        <div class="pub-tabs-wrapper">
+          <div class="pub-tabs">
+            <input type="radio" id="tab-peer" name="pub-tabs" checked />
+            <label class="pub-tab" for="tab-peer">Peer-Reviewed</label>
+            <input type="radio" id="tab-other" name="pub-tabs" />
+            <label class="pub-tab" for="tab-other">Other</label>
+            <input type="radio" id="tab-wp" name="pub-tabs" />
+            <label class="pub-tab" for="tab-wp">Working Papers</label>
+            <span class="pub-glider"></span>
           </div>
-          <div class="intro-paragraph" id="publications-list">            
-            <!------------------------------------------>
-            <!-- Beginning of publication entries ------>
-            <!------------------------------------------>
-            <div class="publication-entry" data-type="other" data-keywords="electoral system, legislature, representation">
-              <p>
-                <strong>Alcocer, Jose J.</strong> and Christian R. Grose. 2026. <a href="https://christiangrose.medium.com/what-does-the-usc-formula-from-the-cancelled-governors-debate-teach-us-7190bcbe0b9f">“What Does the USC Formula from the Cancelled Governor's Debate Teach Us? Candidate Viability Predicts Primary Vote Shares in California”</a> <span style = "font-style: italic;">Medium.</span>
-              </p>
-              <div style="display: flex; gap: 10px; padding: 0 0;">
-                <button class="fancy-abstract-button" title="Toggle Abstract" data-id="10">
-                  <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                    <path stroke-width="1.5" d="M8 12H16"></path>
-                    <path stroke-width="1.5" d="M12 16V8"></path>
-                  </svg>
-                </button>
-              </div>
-              <div class="dropdown-menu" data-id="10">
-                <p>
-                  Candidate viability scores developed by USC Professor Christian Grose<span>&#8212;</span>originally 
-                  constructed to determine eligibility for a March 2026 gubernatorial debate co-hosted by USC, ABC, 
-                  and Univision<span>&#8212;</span>demonstrate significant predictive power for California primary 
-                  election outcomes. Though the debate was cancelled amid political controversy over the selection 
-                  formula, we set aside this dispute to examine a broader empirical question: do objective, pre-election 
-                  viability metrics, derived from candidates' polling and fundraising strength, predict primary 
-                  electoral performance? Drawing on all California gubernatorial primaries over the past 20 years 
-                  and all U.S. Senate primaries since 2010, we find that candidates with the highest viability 
-                  scores consistently advanced to the general election. OLS regressions reveal that pre-election 
-                  viability scores are robustly associated with primary vote shares, even after accounting for additional 
-                  covariates. The 2016 U.S. Senate primary exemplifies this relationship, as the two candidates with 
-                  the highest viability scores (Kamala Harris and Loretta Sanchez) advanced with vote shares closely 
-                  aligned with their predicted standings. Applying this framework to the 2026 cycle, we identify a 
-                  structural risk of Democratic vote fragmentation stemming from score clustering among a large 
-                  candidate field, and find a non-trivial probability that two Republican candidates could advance 
-                  through California's top-two primary system despite the state's Democratic-leaning electorate.
-                </p>
-              </div>
-            </div>                
-            <!------------------------------------------>
-            <!-- SEPARATOR ----------------------------->
-            <!------------------------------------------>
-            <div class="publication-entry" data-type="other" data-keywords="race">
-              <p>
-                Rosalía Chávez Zárate, Marlene Orozco, <strong>Jose J. Alcocer</strong>, and George Foster. 2026. <a href="https://www.gsb.stanford.edu/faculty-research/publications/2025-state-latino-entrepreneurship">“2025 State of Latino Entrepreneurship.”</a> <span style = "font-style: italic;">Stanford Latino Entrepreneurship Initiative,</span> Stanford Graduate School of Business. 
-              </p>
-              <div style="display: flex; gap: 10px; padding: 0 0;">
-                <button class="fancy-abstract-button" title="Toggle Abstract" data-id="9">
-                  <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                    <path stroke-width="1.5" d="M8 12H16"></path>
-                    <path stroke-width="1.5" d="M12 16V8"></path>
-                  </svg>
-                </button>
-              </div>
-              <div class="dropdown-menu" data-id="9">
-                <p>
-                  Latino-owned businesses (LOBs) are emerging as a transformative force in the U.S. economy. 
-                  Representing nearly 10% of employer firms, these 553,000 businesses generated $832 billion in 
-                  revenue in 2023, with growth in firm creation, employment, and revenue consistently outpacing 
-                  White-owned businesses. Between 2017 and 2023, LOBs added 180,000 net new firms and nearly one 
-                  million jobs. A growing share operate in technology sectors, expand internationally earlier 
-                  than peers, and pursue acquisitions and new markets at higher rates. Despite this momentum, 
-                  structural barriers persist: LOBs face chronic funding gaps that widen with loan size, receive 
-                  less actionable feedback after denials, and have seen their venture capital participation collapse 
-                  at the early stage, pre-seed/seed share dropped 79% since 2020. Addressing these capital access 
-                  disparities through clearer lending guidance, targeted investment, and supportive policy will be 
-                  essential to sustaining and scaling Latino entrepreneurship's considerable economic contributions.
-                </p>
-              </div>
-            </div>   
-            <!------------------------------------------>
-            <!-- SEPARATOR ----------------------------->
-            <!------------------------------------------>
-            <div class="publication-entry" data-type="peer-reviewed" data-keywords="artificial intelligence, bureaucracy, computation and language, machine learning, policing, race, representation">
-              <p>
+        </div>
+        <section class="intro-section">
+          <div>
+            <div class="filters-wrapper" id="pub-filters-wrapper">
+              <select id="pub-filter-keywords" multiple data-placeholder="Research Keywords">
+                <option>Artificial Intelligence</option>
+                <option>Bureaucracy</option>
+                <option>Causal Inference</option>
+                <option>Computation and Language</option>
+                <option>Electoral System</option>
+                <option>Experiment</option>
+                <option>Gender</option>
+                <option>Indigenous</option>
+                <option>Legislature</option>
+                <option>Machine Learning</option>
+                <option>Mexico</option>
+                <option>Policing</option>
+                <option>Policy Evaluation</option>
+                <option>Public Health</option>
+                <option>Public Policy</option>
+                <option>Race</option>
+                <option>Redistricting</option>
+                <option>Representation</option>
+                <option>U.S. Congress</option>
+                <option>Voting Methods</option>
+              </select>
+            </div>
+            <!-- ===== PEER-REVIEWED PANEL ===== -->
+            <div class="tab-panel active" id="panel-peer">
+              <div class="intro-paragraph" id="publications-list">
+<div class="publication-entry" data-keywords="artificial intelligence, bureaucracy, computation and language, machine learning, policing, race, representation" data-type="peer-reviewed">
+<p>
                 Golazizian, Preni, Elnaz Rahmati, Jackson Trager, Zhivar Sourati, Nona Ghazizadeh, Yiorgos Chochlakis, 
                 <strong>Jose J. Alcocer*</strong>, Kerby Bennett*, Aarya Vijay Devnani*, Parsa Hejabi*, Harry Muttram*, 
                 Akshay Kiran Padte*, Mehrshad Saadatinia*, Chenhao Wu*, Alireza S. Zaibari*, Michael Sierra-Arévalo, 
                 Nick Weller, Shrikanth Narayanan, Benjamin A.T. Graham, and Morteza Dehghani. 2026. 
-                <a href="https://arxiv.org/abs/2602.10339v1">"The Subjectivity of Respect in Police Traffic Stops: Modeling Community Perspectives in Body-Worn Camera Footage."</a> <span style = "font-style: italic;">Association for Computational Lingustics.</span> Forthcoming.
+                <a href="https://arxiv.org/abs/2602.10339v1">"The Subjectivity of Respect in Police Traffic Stops: Modeling Community Perspectives in Body-Worn Camera Footage."</a> <span style="font-style: italic;">Association for Computational Lingustics.</span> Forthcoming.
               </p>
-              <div style="display: flex; gap: 10px; padding: 0 0;">
-                <button class="fancy-abstract-button" title="Toggle Abstract" data-id="8">
-                  <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                    <path stroke-width="1.5" d="M8 12H16"></path>
-                    <path stroke-width="1.5" d="M12 16V8"></path>
-                  </svg>
-                </button>
-              </div>
-              <div class="dropdown-menu" data-id="8">
-                <p>
+<div style="display: flex; gap: 10px; padding: 0 0;">
+<button class="fancy-abstract-button" data-id="8" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+<div class="dropdown-menu" data-id="8">
+<p>
                   Traffic stops are among the most frequent police-civilian interactions, and body-worn cameras (BWCs) provide a unique
                   record of how these encounters unfold. Respect is a central dimension of these interactions, shaping public trust and 
                   perceived legitimacy, yet its interpretation is inherently subjective and shaped by lived experience, rendering 
@@ -264,64 +198,30 @@
                   prediction performance and rationale alignment. Our perspective-aware framework enables law enforcement to 
                   better understand diverse community expectations, providing a vital tool for building public trust and procedural legitimacy.
                 </p>
-              </div>
-            </div>
-            <!------------------------------------------>
-            <!-- SEPARATOR ----------------------------->
-            <!------------------------------------------>
-            <div class="publication-entry" data-type="other" data-keywords="redistricting, representation">
-              <p>
-                <strong>Alcocer, Jose J.</strong> 2025. <a href="https://hls.harvard.edu/amicus-libris/the-methodological-landscape-with-respect-to-identifying-gerrymandering/">"The Methodological Landscape With Respect to Identifying Gerrymandering"</a> <span style = "font-style: italic;">Amicus Libris.</span> Briefs from the Harvard Law School Library.
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="indigenous, mexico, legislature, experiment" data-type="peer-reviewed">
+<p>
+                Múzquiz, José E. and <strong>Jose J. Alcocer</strong> 2025. <a href="https://www.cambridge.org/core/journals/journal-of-experimental-political-science/article/legislator-responsiveness-to-racialized-constituencies-in-mexico/151CE7998B726D602BB5047F6B45CCB5?utm_campaign=shareaholic&amp;utm_medium=copy_link&amp;utm_source=bookmark">"Legislator Responsiveness to Racialized Constituencies in Mexico."</a> <span style="font-style: italic;">The Journal of Experimental Political Science.</span> First View.
               </p>
-              <div style="display: flex; gap: 10px; padding: 0 0;">
-                <button class="fancy-abstract-button" title="Toggle Abstract" data-id="7">
-                  <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                    <path stroke-width="1.5" d="M8 12H16"></path>
-                    <path stroke-width="1.5" d="M12 16V8"></path>
-                  </svg>
-                </button>
-              </div>
-              <div class="dropdown-menu" data-id="7">
-                <p>
-                  Gerrymandering remains a central challenge to democratic representation in the United States,
-                  shaping both partisan advantage and the electoral prospects of historically underrepresented 
-                  communities. This piece traces the evolution of redistricting law and methodology across two 
-                  doctrinal strands: constitutional limits on partisan gerrymandering and statutory protections 
-                  against racial vote dilution under the Voting Rights Act. It argues that contemporary 
-                  redistricting disputes increasingly turn on the interaction between legal standards and empirical 
-                  tools used to evaluate fairness. After reviewing early geometric measures of compactness and 
-                  outcome-based partisan metrics, the article highlights the rise of computational ensemble simulations 
-                  as the dominant framework for detecting partisan bias. It then examines race-focused methods, 
-                  including ecological inference and emerging techniques for identifying racial predominance, 
-                  alongside developing efforts to operationalize “communities of interest.” Taken together, these 
-                  approaches reflect a broader methodological shift from intuition to data-driven inference, raising 
-                  new questions about transparency, assumptions, and administrability in redistricting adjudication.
-                </p>
-              </div>
-            </div>
-            <!------------------------------------------>
-            <!-- SEPARATOR ----------------------------->
-            <!------------------------------------------>
-            <div class="publication-entry" data-type="peer-reviewed" data-keywords="indigenous, mexico, legislature, experiment">
-              <p>
-                Múzquiz, José E. and <strong>Jose J. Alcocer</strong> 2025. <a href="https://www.cambridge.org/core/journals/journal-of-experimental-political-science/article/legislator-responsiveness-to-racialized-constituencies-in-mexico/151CE7998B726D602BB5047F6B45CCB5?utm_campaign=shareaholic&utm_medium=copy_link&utm_source=bookmark">"Legislator Responsiveness to Racialized Constituencies in Mexico."</a> <span style = "font-style: italic;">The Journal of Experimental Political Science.</span> First View.
-              </p>
-              <div style="display: flex; gap: 10px; padding: 0 0;">
-                <button class="fancy-abstract-button" title="Toggle Abstract" data-id="6">
-                  <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                    <path stroke-width="1.5" d="M8 12H16"></path>
-                    <path stroke-width="1.5" d="M12 16V8"></path>
-                  </svg>
-                </button>
-                <span>|</span>
-                <span class="pub-info">
-                  <a href="https://doi.org/10.7910/DVN/VS3GL8">Replication</a>
-                </span>
-              </div>
-              <div class="dropdown-menu" data-id="6">
-                <p>
+<div style="display: flex; gap: 10px; padding: 0 0;">
+<button class="fancy-abstract-button" data-id="6" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+<span>|</span>
+<span class="pub-info">
+<a href="https://doi.org/10.7910/DVN/VS3GL8">Replication</a>
+</span>
+</div>
+<div class="dropdown-menu" data-id="6">
+<p>
                   This study examines how racial identity affects legislative responsiveness in Mexico using an 
                   email-based audit experiment. Emails from simulated Indigenous, Mestiza, and European-White 
                   constituents were sent to all 626 federal legislators to test whether perceived identity shapes 
@@ -332,70 +232,38 @@
                   responsiveness declined in districts with larger Indigenous populations, revealing how national 
                   inclusion norms may be moderated by local demographic and political dynamics.
                 </p>
-              </div>
-            </div>
-            <!------------------------------------------>
-            <!-- SEPARATOR ----------------------------->
-            <!------------------------------------------>
-            <div class="publication-entry" data-type="other" data-keywords="u.s. congress, race, legislature, causal inference, representation, gender">
-              <p>
-                <strong>Alcocer, Jose J.</strong> 2025. <a href="https://blogs.lse.ac.uk/usappblog/2025/06/06/facing-institutional-barriers-to-sponsoring-bills-in-congress-newly-elected-minority-representatives-cosponsor-far-more-than-their-non-minority-counterparts/">"Facing Institutional Barriers to Sponsoring Bills in Congress, Newly Elected Minority Representatives Cosponsor Far More Than Their Non-Minority Counterparts."</a> <span style = "font-style: italic;">United States Politics and Policy (USAPP).</span> The London School of Economics Phelan United States Centre.
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="u.s. congress, race, legislature, causal inference, representation, gender" data-type="peer-reviewed">
+<p>
+<strong>Alcocer, Jose J.</strong> 2025. <a href="https://www.cambridge.org/core/journals/journal-of-race-ethnicity-and-politics/article/minority-legislators-sponsor-and-cosponsor-differently-from-white-legislators-causal-evidence-from-us-congress/66D0FA5741BF052EC03C8A6EB60A50D8?utm_date=20250428&amp;utm_id=1745826656&amp;utm_campaign=Open%20Access,REP&amp;utm_source=twitter&amp;utm_medium=social&amp;utm_content">"Minority Legislator Sponsor and Cosponsor Differently From White Legislators: Causal Evidence from U.S. Congress."</a> <span style="font-style: italic;">The Journal of Race, Ethnicity, and Politics.</span> 10(2), pp. 277-289.
               </p>
-              <div style="display: flex; gap: 10px; padding: 0 0;">
-                <button class="fancy-abstract-button" title="Toggle Abstract" data-id="5">
-                  <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                    <path stroke-width="1.5" d="M8 12H16"></path>
-                    <path stroke-width="1.5" d="M12 16V8"></path>
-                  </svg>
-                </button>
-                <span>|</span>
-                <span class="pub-info">
-                  <a href="pdfs/lse.06.06.25.pdf">PDF</a>
-                </span>
-              </div>
-              <div class="dropdown-menu" data-id="5">
-                <p>
-                  In the US Congress, a key signal of a legislator’s effectiveness is their sponsorship
-                  of bills, but minority representatives, particularly women of color, often face
-                  institutional and informal barriers to sponsoring legislation. In new research, I
-                  explore how minority representatives work around these constraints by
-                  cosponsoring bills. I find that newly elected minority members are likely to have a
-                  20 percent higher cosponsorship rate compared to their white predecessors, and
-                  that this rate is even greater for legislators who are women of color.
-                </p>
-              </div>
-            </div>
-            <!------------------------------------------>
-            <!-- SEPARATOR ----------------------------->
-            <!------------------------------------------>
-            <div class="publication-entry" data-type="peer-reviewed" data-keywords="u.s. congress, race, legislature, causal inference, representation, gender">
-              <p>
-                <strong>Alcocer, Jose J.</strong> 2025. <a href="https://www.cambridge.org/core/journals/journal-of-race-ethnicity-and-politics/article/minority-legislators-sponsor-and-cosponsor-differently-from-white-legislators-causal-evidence-from-us-congress/66D0FA5741BF052EC03C8A6EB60A50D8?utm_date=20250428&utm_id=1745826656&utm_campaign=Open%20Access,REP&utm_source=twitter&utm_medium=social&utm_content">"Minority Legislator Sponsor and Cosponsor Differently From White Legislators: Causal Evidence from U.S. Congress."</a> <span style = "font-style: italic;">The Journal of Race, Ethnicity, and Politics.</span> 10(2), pp. 277-289.
-              </p>
-              <div style="display: flex; gap: 10px; padding: 0 0;">
-                <button class="fancy-abstract-button" title="Toggle Abstract" data-id="4">
-                  <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                    <path stroke-width="1.5" d="M8 12H16"></path>
-                    <path stroke-width="1.5" d="M12 16V8"></path>
-                  </svg>
-                </button>
-                <span>|</span>
-                <span class="pub-info">
-                  <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/YLEBIK">Replication</a>
-                </span>
-                <span>|</span>
-                <span class="pub-info">
-                  <a href="https://static.cambridge.org/content/id/urn%3Acambridge.org%3Aid%3Aarticle%3AS2056608525000297/resource/name/S2056608525000297sup001.pdf">Supplementary</a>
-                </span>
-                <span>|</span>
-                <span class="pub-info">
-                  <a href="pdfs/10.1017.rep.2025.29.pdf">PDF</a>
-                </span>
-              </div>
-              <div class="dropdown-menu" data-id="4">
-                <p>
+<div style="display: flex; gap: 10px; padding: 0 0;">
+<button class="fancy-abstract-button" data-id="4" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+<span>|</span>
+<span class="pub-info">
+<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/YLEBIK">Replication</a>
+</span>
+<span>|</span>
+<span class="pub-info">
+<a href="https://static.cambridge.org/content/id/urn%3Acambridge.org%3Aid%3Aarticle%3AS2056608525000297/resource/name/S2056608525000297sup001.pdf">Supplementary</a>
+</span>
+<span>|</span>
+<span class="pub-info">
+<a href="pdfs/10.1017.rep.2025.29.pdf">PDF</a>
+</span>
+</div>
+<div class="dropdown-menu" data-id="4">
+<p>
                   How do race, ethnicity, and gender shape a legislator’s approach to 
                   bill sponsorship and cosponsorship? This paper examines how institutional
                   marginalization influences the legislative strategies of racial and 
@@ -417,30 +285,209 @@
                   congressional bills, contributing to a deeper understanding of legislative 
                   behavior among marginalized groups.
                 </p>
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="public health, public policy, policy evaluation, causal inference" data-type="peer-reviewed">
+<p>
+<strong>Alcocer, Jose J.</strong> 2020. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0033350620301128?via%3Dihub">“Exploring the Effect of Colorado’s Recreational Marijuana Policy on Opioid Overdose Rates.”</a> <span style="font-style: italic;">Public Health</span>, Volume 185, 8-14.
+              </p>
+<div style="display: flex; gap: 10px; padding: 0 0;">
+<button class="fancy-abstract-button" data-id="1" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+<span>|</span>
+<span class="pub-info">
+<a href="https://doi.org/10.7910/DVN/63JL0M">Replication</a>
+</span>
+<span>|</span>
+<span class="pub-info">
+<a href="pdfs/10.1016.j.puhe.2020.04.007.pdf">PDF</a>
+</span>
+</div>
+<div class="dropdown-menu" data-id="1">
+<p>
+                  How has the legalization of recreational marijuana shaped opioid overdose deaths in 
+                  Colorado? While prior research has examined the effects of medical cannabis laws, less is 
+                  known about the public health consequences of broader marijuana policy liberalization. In 
+                  this study, I use the synthetic control method to estimate the effect of Colorado's 2014 
+                  policy change, comparing the state to a data-driven composite of similar states from 1999 
+                  to 2017. Using CDC WONDER data, I construct a counterfactual scenario in which Colorado did 
+                  not legalize recreational cannabis, incorporating relevant predictors of opioid mortality. 
+                  I supplement this approach with a difference-in-differences estimate and conduct placebo 
+                  inference tests to assess robustness. The results suggest a 5% decline in opioid overdose 
+                  deaths following legalization, but this effect is not statistically significant. These 
+                  findings offer limited evidence that recreational marijuana access meaningfully reduced 
+                  opioid-related mortality in Colorado, underscoring the need for more nuanced evaluations 
+                  of drug policy reform.
+                </p>
+</div>
+</div>
               </div>
             </div>
-            <!------------------------------------------>
-            <!-- SEPARATOR ----------------------------->
-            <!------------------------------------------>
-            <div class="publication-entry" data-type="other" data-keywords="representation, electoral systems, voting methods">
-              <p>
-                Hua, Whitney and <strong>Jose J. Alcocer</strong> 2024. <a href="https://storage.googleapis.com/ces-media/Special%20Reports/Transforming%20the%20Vote.pdf">“Transforming the Vote: How Voting Reforms Can Improve Equity for Underrepresented Minorities.”</a> <span style = "font-style: italic;">The Center for Election Science.</span>
+            <!-- ===== OTHER PANEL ===== -->
+            <div class="tab-panel" id="panel-other">
+              <div class="intro-paragraph">
+<div class="publication-entry" data-keywords="electoral system, legislature, representation" data-type="other">
+<p>
+<strong>Alcocer, Jose J.</strong> and Christian R. Grose. 2026. <a href="https://christiangrose.medium.com/what-does-the-usc-formula-from-the-cancelled-governors-debate-teach-us-7190bcbe0b9f">“What Does the USC Formula from the Cancelled Governor's Debate Teach Us? Candidate Viability Predicts Primary Vote Shares in California”</a> <span style="font-style: italic;">Medium.</span>
+</p>
+<div style="display: flex; gap: 10px; padding: 0 0;">
+<button class="fancy-abstract-button" data-id="10" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+<div class="dropdown-menu" data-id="10">
+<p>
+                  Candidate viability scores developed by USC Professor Christian Grose<span>—</span>originally 
+                  constructed to determine eligibility for a March 2026 gubernatorial debate co-hosted by USC, ABC, 
+                  and Univision<span>—</span>demonstrate significant predictive power for California primary 
+                  election outcomes. Though the debate was cancelled amid political controversy over the selection 
+                  formula, we set aside this dispute to examine a broader empirical question: do objective, pre-election 
+                  viability metrics, derived from candidates' polling and fundraising strength, predict primary 
+                  electoral performance? Drawing on all California gubernatorial primaries over the past 20 years 
+                  and all U.S. Senate primaries since 2010, we find that candidates with the highest viability 
+                  scores consistently advanced to the general election. OLS regressions reveal that pre-election 
+                  viability scores are robustly associated with primary vote shares, even after accounting for additional 
+                  covariates. The 2016 U.S. Senate primary exemplifies this relationship, as the two candidates with 
+                  the highest viability scores (Kamala Harris and Loretta Sanchez) advanced with vote shares closely 
+                  aligned with their predicted standings. Applying this framework to the 2026 cycle, we identify a 
+                  structural risk of Democratic vote fragmentation stemming from score clustering among a large 
+                  candidate field, and find a non-trivial probability that two Republican candidates could advance 
+                  through California's top-two primary system despite the state's Democratic-leaning electorate.
+                </p>
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="race" data-type="other">
+<p>
+                Rosalía Chávez Zárate, Marlene Orozco, <strong>Jose J. Alcocer</strong>, and George Foster. 2026. <a href="https://www.gsb.stanford.edu/faculty-research/publications/2025-state-latino-entrepreneurship">“2025 State of Latino Entrepreneurship.”</a> <span style="font-style: italic;">Stanford Latino Entrepreneurship Initiative,</span> Stanford Graduate School of Business. 
               </p>
-              <div style="display: flex; gap: 10px; padding: 0 0;">
-                <button class="fancy-abstract-button" title="Toggle Abstract" data-id="3">
-                  <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                    <path stroke-width="1.5" d="M8 12H16"></path>
-                    <path stroke-width="1.5" d="M12 16V8"></path>
-                  </svg>
-                </button>
-                <span>|</span>          
-                <span class="pub-info">
-                  <a href="pdfs/ces.01.29.25.pdf">PDF</a>
-                </span>
-              </div>
-              <div class="dropdown-menu" data-id="3">
-                <p>
+<div style="display: flex; gap: 10px; padding: 0 0;">
+<button class="fancy-abstract-button" data-id="9" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+<div class="dropdown-menu" data-id="9">
+<p>
+                  Latino-owned businesses (LOBs) are emerging as a transformative force in the U.S. economy. 
+                  Representing nearly 10% of employer firms, these 553,000 businesses generated $832 billion in 
+                  revenue in 2023, with growth in firm creation, employment, and revenue consistently outpacing 
+                  White-owned businesses. Between 2017 and 2023, LOBs added 180,000 net new firms and nearly one 
+                  million jobs. A growing share operate in technology sectors, expand internationally earlier 
+                  than peers, and pursue acquisitions and new markets at higher rates. Despite this momentum, 
+                  structural barriers persist: LOBs face chronic funding gaps that widen with loan size, receive 
+                  less actionable feedback after denials, and have seen their venture capital participation collapse 
+                  at the early stage, pre-seed/seed share dropped 79% since 2020. Addressing these capital access 
+                  disparities through clearer lending guidance, targeted investment, and supportive policy will be 
+                  essential to sustaining and scaling Latino entrepreneurship's considerable economic contributions.
+                </p>
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="redistricting, representation" data-type="other">
+<p>
+<strong>Alcocer, Jose J.</strong> 2025. <a href="https://hls.harvard.edu/amicus-libris/the-methodological-landscape-with-respect-to-identifying-gerrymandering/">"The Methodological Landscape With Respect to Identifying Gerrymandering"</a> <span style="font-style: italic;">Amicus Libris.</span> Briefs from the Harvard Law School Library.
+              </p>
+<div style="display: flex; gap: 10px; padding: 0 0;">
+<button class="fancy-abstract-button" data-id="7" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+<div class="dropdown-menu" data-id="7">
+<p>
+                  Gerrymandering remains a central challenge to democratic representation in the United States,
+                  shaping both partisan advantage and the electoral prospects of historically underrepresented 
+                  communities. This piece traces the evolution of redistricting law and methodology across two 
+                  doctrinal strands: constitutional limits on partisan gerrymandering and statutory protections 
+                  against racial vote dilution under the Voting Rights Act. It argues that contemporary 
+                  redistricting disputes increasingly turn on the interaction between legal standards and empirical 
+                  tools used to evaluate fairness. After reviewing early geometric measures of compactness and 
+                  outcome-based partisan metrics, the article highlights the rise of computational ensemble simulations 
+                  as the dominant framework for detecting partisan bias. It then examines race-focused methods, 
+                  including ecological inference and emerging techniques for identifying racial predominance, 
+                  alongside developing efforts to operationalize “communities of interest.” Taken together, these 
+                  approaches reflect a broader methodological shift from intuition to data-driven inference, raising 
+                  new questions about transparency, assumptions, and administrability in redistricting adjudication.
+                </p>
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="u.s. congress, race, legislature, causal inference, representation, gender" data-type="other">
+<p>
+<strong>Alcocer, Jose J.</strong> 2025. <a href="https://blogs.lse.ac.uk/usappblog/2025/06/06/facing-institutional-barriers-to-sponsoring-bills-in-congress-newly-elected-minority-representatives-cosponsor-far-more-than-their-non-minority-counterparts/">"Facing Institutional Barriers to Sponsoring Bills in Congress, Newly Elected Minority Representatives Cosponsor Far More Than Their Non-Minority Counterparts."</a> <span style="font-style: italic;">United States Politics and Policy (USAPP).</span> The London School of Economics Phelan United States Centre.
+              </p>
+<div style="display: flex; gap: 10px; padding: 0 0;">
+<button class="fancy-abstract-button" data-id="5" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+<span>|</span>
+<span class="pub-info">
+<a href="pdfs/lse.06.06.25.pdf">PDF</a>
+</span>
+</div>
+<div class="dropdown-menu" data-id="5">
+<p>
+                  In the US Congress, a key signal of a legislator’s effectiveness is their sponsorship
+                  of bills, but minority representatives, particularly women of color, often face
+                  institutional and informal barriers to sponsoring legislation. In new research, I
+                  explore how minority representatives work around these constraints by
+                  cosponsoring bills. I find that newly elected minority members are likely to have a
+                  20 percent higher cosponsorship rate compared to their white predecessors, and
+                  that this rate is even greater for legislators who are women of color.
+                </p>
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="representation, electoral systems, voting methods" data-type="other">
+<p>
+                Hua, Whitney and <strong>Jose J. Alcocer</strong> 2024. <a href="https://storage.googleapis.com/ces-media/Special%20Reports/Transforming%20the%20Vote.pdf">“Transforming the Vote: How Voting Reforms Can Improve Equity for Underrepresented Minorities.”</a> <span style="font-style: italic;">The Center for Election Science.</span>
+</p>
+<div style="display: flex; gap: 10px; padding: 0 0;">
+<button class="fancy-abstract-button" data-id="3" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+<span>|</span>
+<span class="pub-info">
+<a href="pdfs/ces.01.29.25.pdf">PDF</a>
+</span>
+</div>
+<div class="dropdown-menu" data-id="3">
+<p>
                   Ranked Choice Voting (RCV) is frequently promoted as an alternative to 
                   Plurality Voting, with the goal of enhancing democratic representation.
                   As its gained traction across various jurisdictions—ranging from states 
@@ -457,30 +504,30 @@
                   to overcoming the shortcomings of RCV. Approval Voting could offer a more 
                   equitable solution, especially in terms of its impact on minority voters.
                 </p>
-              </div>
-            </div>
-            <!------------------------------------------>
-            <!-- SEPARATOR ----------------------------->
-            <!------------------------------------------>
-            <div class="publication-entry" data-type="other" data-keywords="representation, electoral systems, voting methods">
-              <p>
-                Hua, Whitney, <strong>Jose J. Alcocer</strong>, and Mike Piel. 2024. <a href="https://mgaleg.maryland.gov/cmte_testimony/2025/eee/1shEUOpch3_1FhMgfn4qq8JkYrBrXrIZT.pdf">”America [Mis]Represented: 2022 Vote-Split Elections Report.”</a> <span style = "font-style: italic;">The Center for Election Science.</span>
-              </p>
-              <div style="display: flex; gap: 10px; padding: 0 0;">
-                <button class="fancy-abstract-button" title="Toggle Abstract" data-id="2">
-                  <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                    <path stroke-width="1.5" d="M8 12H16"></path>
-                    <path stroke-width="1.5" d="M12 16V8"></path>
-                  </svg>
-                </button>
-                <span>|</span>          
-                <span class="pub-info">
-                  <a href="pdfs/ces.07.17.24.pdf">PDF</a>
-                </span>
-              </div>
-              <div class="dropdown-menu" data-id="2">
-                <p>
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="representation, electoral systems, voting methods" data-type="other">
+<p>
+                Hua, Whitney, <strong>Jose J. Alcocer</strong>, and Mike Piel. 2024. <a href="https://mgaleg.maryland.gov/cmte_testimony/2025/eee/1shEUOpch3_1FhMgfn4qq8JkYrBrXrIZT.pdf">”America [Mis]Represented: 2022 Vote-Split Elections Report.”</a> <span style="font-style: italic;">The Center for Election Science.</span>
+</p>
+<div style="display: flex; gap: 10px; padding: 0 0;">
+<button class="fancy-abstract-button" data-id="2" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+<span>|</span>
+<span class="pub-info">
+<a href="pdfs/ces.07.17.24.pdf">PDF</a>
+</span>
+</div>
+<div class="dropdown-menu" data-id="2">
+<p>
                   The America (Mis)Represented: 2022 Election Report investigates the 
                   prevalence and consequences of vote splitting in the United States’ 
                   2022 election cycle. Vote splitting—where multiple candidates divide 
@@ -497,106 +544,34 @@
                   2024 Senate primary, suggests that such reforms could lead to more 
                   representative electoral outcomes.
                 </p>
+</div>
+</div>
               </div>
             </div>
-            <!------------------------------------------>
-            <!-- SEPARATOR ----------------------------->
-            <!------------------------------------------>
-            <div class="publication-entry" data-type="peer-reviewed" data-keywords="public health, public policy, policy evaluation, causal inference">
-              <p>
-                <strong>Alcocer, Jose J.</strong> 2020. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0033350620301128?via%3Dihub">“Exploring the Effect of Colorado’s Recreational Marijuana Policy on Opioid Overdose Rates.”</a> <span style = "font-style: italic;">Public Health</span>, Volume 185, 8-14.
-              </p>
-              <div style="display: flex; gap: 10px; padding: 0 0;">
-                <button class="fancy-abstract-button" title="Toggle Abstract" data-id="1">
-                  <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                    <path stroke-width="1.5" d="M8 12H16"></path>
-                    <path stroke-width="1.5" d="M12 16V8"></path>
-                  </svg>
-                </button>
-                <span>|</span>
-                <span class="pub-info">
-                  <a href="https://doi.org/10.7910/DVN/63JL0M">Replication</a>
-                </span>                    
-                <span>|</span>
-                <span class="pub-info">
-                  <a href="pdfs/10.1016.j.puhe.2020.04.007.pdf">PDF</a>
-                </span>                              
-              </div>
-              <div class="dropdown-menu" data-id="1">
-                <p>
-                  How has the legalization of recreational marijuana shaped opioid overdose deaths in 
-                  Colorado? While prior research has examined the effects of medical cannabis laws, less is 
-                  known about the public health consequences of broader marijuana policy liberalization. In 
-                  this study, I use the synthetic control method to estimate the effect of Colorado's 2014 
-                  policy change, comparing the state to a data-driven composite of similar states from 1999 
-                  to 2017. Using CDC WONDER data, I construct a counterfactual scenario in which Colorado did 
-                  not legalize recreational cannabis, incorporating relevant predictors of opioid mortality. 
-                  I supplement this approach with a difference-in-differences estimate and conduct placebo 
-                  inference tests to assess robustness. The results suggest a 5% decline in opioid overdose 
-                  deaths following legalization, but this effect is not statistically significant. These 
-                  findings offer limited evidence that recreational marijuana access meaningfully reduced 
-                  opioid-related mortality in Colorado, underscoring the need for more nuanced evaluations 
-                  of drug policy reform.
-                </p>
-              </div>
-            </div>
-          </section>
-          <!-- ========= WORKING PAPERS SECTION ========= -->
-          <h2 class="section-title" style="font-family:'Times New Roman', Times, serif;">
-            Working Papers
-          </h2>
-          <section class="intro-section">
-            <div>
-              <div class="filters-wrapper" id="wp-filters-wrapper">
-                <!-- Research Keywords Filter -->
-                 <select id="wp-filter-keywords" multiple data-placeholder="Research Keywords">
-                  <option>Artificial Intelligence</option>
-                  <option>Bureaucracy</option>
-                  <option>Causal Inference</option>
-                  <option>Computation and Language</option>
-                  <option>Electoral System</option>
-                  <option>Experiment</option>
-                  <option>Gender</option>
-                  <option>Legislature</option>
-                  <option>Machine Learning</option>
-                  <option>Mexico</option>
-                  <option>Policing</option> 
-                  <option>Policy Evaluation</option>
-                  <option>Public Health</option>
-                  <option>Public Policy</option>    
-                  <option>Race</option>
-                  <option>Redistricting</option>
-                  <option>Representation</option>
-                  <option>U.S. Congress</option>
-                  <option>Voting Methods</option>
-                </select>
-              </div>
+            <!-- ===== WORKING PAPERS PANEL ===== -->
+            <div class="tab-panel" id="panel-wp">
               <div class="intro-paragraph" id="working-papers-list">
-                <!-------------------------------------------->
-                <!-- Beginning of working paper entries ------>
-                <!-------------------------------------------->
-                <div class="publication-entry" data-keywords="electoral system, legislature, machine learning, redistricting, representation, u.s. congress">
-                  <p>
-                    <strong>Alcocer, Jose J.</strong>, Christian R. Grose, and Seth C. McKee. 2026.
+<div class="publication-entry" data-keywords="electoral system, legislature, machine learning, redistricting, representation, u.s. congress">
+<p>
+<strong>Alcocer, Jose J.</strong>, Christian R. Grose, and Seth C. McKee. 2026.
                     "Redistricting Redux and the Battle to Win the U.S. House in 2026: How Partisan Are the New Maps?"
                   </p>
-                  <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
-                    <button class="fancy-abstract-button" title="Toggle Abstract" data-id="8a">
-                      <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                        <path stroke-width="1.5" d="M8 12H16"></path>
-                        <path stroke-width="1.5" d="M12 16V8"></path>
-                      </svg>
-                    </button>
-                    <span>|</span>
-                    <button class="map-toggle-btn" data-map-id="redistricting-2026" title="Interactive Maps">
+<div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
+<button class="fancy-abstract-button" data-id="8a" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+<span>|</span>
+<button class="map-toggle-btn" data-map-id="redistricting-2026" title="Interactive Maps">
                       Interactive Maps
                     </button>
-                    <span style = "color: #89837a;" class="rmap-mobile-notice">Interactive map available on larger screens.</span>
-                  </div>
-                  <div class="dropdown-menu" data-id="8a">
-                    <p>
+<span class="rmap-mobile-notice" style="color: #89837a;">Interactive map available on larger screens.</span>
+</div>
+<div class="dropdown-menu" data-id="8a">
+<p>
                       With the U.S. House of Representatives Republican majority hanging in the balance—President Trump has
                       turned to redistricting as a possible means of maintaining GOP control in an upcoming 2026 midterm
                       environment likely to favor Democrats. Political observers aptly characterize this latest partisan
@@ -614,31 +589,31 @@
                       context, and analyze these new maps to determine their effectiveness in meeting the line drawers' 
                       intentions.
                     </p>
-                  </div>
-                  <div class="map-dropdown" data-map-id="redistricting-2026">
-                    <div id="rmap-controls"></div>
-                    <div id="redistricting-map"></div>
-                    <div id="rmap-plan-buttons"></div>
-                  </div>
-                </div>
-                <!-------------------------------------------->
-                <!-- Divider --------------------------------->
-                <!-------------------------------------------->
-                <div class="publication-entry" data-keywords="experiment, legislature, mexico, race, representation">
-                  <p>
-                    <strong>Alcocer, Jose J.</strong> and José E. Múzquiz. "Mexican Home Style: Assessing Symbolic versus Substantive Responsiveness to Racialized Constituencies."
+</div>
+<div class="map-dropdown" data-map-id="redistricting-2026">
+<div id="rmap-controls"></div>
+<div id="redistricting-map"></div>
+<div id="rmap-plan-buttons"></div>
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="experiment, legislature, mexico, race, representation">
+<p>
+<strong>Alcocer, Jose J.</strong> and José E. Múzquiz. "Mexican Home Style: Assessing Symbolic versus Substantive Responsiveness to Racialized Constituencies."
                   </p>
-                  <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
-                    <button class="fancy-abstract-button" title="Toggle Abstract" data-id="7a">
-                      <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                        <path stroke-width="1.5" d="M8 12H16"></path>
-                        <path stroke-width="1.5" d="M12 16V8"></path>
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="dropdown-menu" data-id="7a">
-                    <p>
+<div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
+<button class="fancy-abstract-button" data-id="7a" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+<div class="dropdown-menu" data-id="7a">
+<p>
                       Most audit studies of legislative responsiveness find that racial minorities receive less engagement
                       from elected officials. Yet recent evidence from Mexico reveals the opposite: Mexican legislators exhibit
                       pro-Indigenous responsiveness. This finding raises a critical theoretical question: <i>does this responsiveness
@@ -657,26 +632,26 @@
                       contributes to global theories of racialized representation by offering the first experimental test of whether 
                       descriptive responsiveness to marginalized groups reflects surface-level signaling or genuine political incorporation.
                     </p>
-                  </div>
-                </div>
-                <!-------------------------------------------->
-                <!-- Divider --------------------------------->
-                <!-------------------------------------------->
-                <div class="publication-entry" data-keywords="causal inference, electoral system, legislature, representation, voting methods">
-                  <p>
-                    <strong>Alcocer, Jose J.</strong> and Christian R. Grose. "Top-two Open Primary Systems Increase Ideological Diversity in US State Legislative Parties."
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="causal inference, electoral system, legislature, representation, voting methods">
+<p>
+<strong>Alcocer, Jose J.</strong> and Christian R. Grose. "Top-two Open Primary Systems Increase Ideological Diversity in US State Legislative Parties."
                   </p>
-                  <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
-                    <button class="fancy-abstract-button" title="Toggle Abstract" data-id="6a">
-                      <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                        <path stroke-width="1.5" d="M8 12H16"></path>
-                        <path stroke-width="1.5" d="M12 16V8"></path>
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="dropdown-menu" data-id="6a">
-                    <p>
+<div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
+<button class="fancy-abstract-button" data-id="6a" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+<div class="dropdown-menu" data-id="6a">
+<p>
                       This study explores how top-two primary systems affect ideological diversity in U.S. state legislative parties,
                       focusing on California and Washington. Using a synthetic difference-in-differences (SDID) approach, it compares 
                       ideological heterogeneity, measured with Shor-McCarty ideal points, across different primary systems. Findings 
@@ -689,29 +664,29 @@
                       credibility in complex settings and shows that electoral reforms like top-two primaries can meaningfully reshape 
                       the ideological composition of legislatures—often in asymmetric and context-dependent ways.
                     </p>
-                  </div>
-                </div>
-                <!-------------------------------------------->
-                <!-- Divider --------------------------------->
-                <!-------------------------------------------->
-                <div class="publication-entry" data-keywords="causal inference, gender, legislature, race, representation, u.s. congress">
-                  <p>
-                    <strong>Alcocer, Jose J.</strong> "Institutional and Electoral Constraints Shape Minority Legislating: Analysis of the U.S. House from 1981 - 2022."
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="causal inference, gender, legislature, race, representation, u.s. congress">
+<p>
+<strong>Alcocer, Jose J.</strong> "Institutional and Electoral Constraints Shape Minority Legislating: Analysis of the U.S. House from 1981 - 2022."
                   </p>
-                  <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
-                    <button class="fancy-abstract-button" title="Toggle Abstract" data-id="5a">
-                      <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                        <path stroke-width="1.5" d="M8 12H16"></path>
-                        <path stroke-width="1.5" d="M12 16V8"></path>
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="dropdown-menu" data-id="5a">
-                    <p>
+<div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
+<button class="fancy-abstract-button" data-id="5a" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+<div class="dropdown-menu" data-id="5a">
+<p>
                       How do race, ethnicity, and gender causally shape legislative behavior within institutions presumed neutral? This
                       study advances a theory of strategic persistence to explain how marginalized legislators navigate compounded 
-                      constraints<span>&#8212;</span>electoral vulnerability, institutional exclusion, and representational burdens. Drawing on theories of 
+                      constraints<span>—</span>electoral vulnerability, institutional exclusion, and representational burdens. Drawing on theories of 
                       descriptive and substantive representation, intersectionality, and strategic behavior, I argue that race and gender 
                       jointly condition legislative influence. Using a difference-in-differences design with exact matching and negative 
                       binomial fixed effects models, I analyze House member activity from 1981 to 2022. Results show that minority 
@@ -721,26 +696,26 @@
                       power. Instead, cosponsorship is used as a durable, strategic tool for navigating exclusion and building influence 
                       within unequal institutional structures.
                     </p>
-                  </div>
-                </div>
-                <!-------------------------------------------->
-                <!-- Divider --------------------------------->
-                <!-------------------------------------------->
-                <div class="publication-entry" data-keywords="bureaucracy, policing, public policy, race, representation">
-                  <p>
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="bureaucracy, policing, public policy, race, representation">
+<p>
                    Sierra-Arévalo, Michael, <strong>Jose J. Alcocer</strong>, Lauren Brown, Raquel Delerme, Brittany Friedman, Benjamin A.T. Graham, Harry G. Muttram, Jackson Trager, and Nicholas Weller. "Police as Policymakers: How Experiences with Policy Implementation Shape Policy Representation."
                   </p>
-                  <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
-                    <button class="fancy-abstract-button" title="Toggle Abstract" data-id="4a">
-                      <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                        <path stroke-width="1.5" d="M8 12H16"></path>
-                        <path stroke-width="1.5" d="M12 16V8"></path>
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="dropdown-menu" data-id="4a">
-                    <p>
+<div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
+<button class="fancy-abstract-button" data-id="4a" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+<div class="dropdown-menu" data-id="4a">
+<p>
                       Studies of political representation tend to focus on public preferences and legislative policy. This scholarship largely relies 
                       on operationalization of “policy” that elides how policies are implemented by street-level bureaucrats and perceived by 
                       individuals with varied experiences and expectations of the state. This approach obscures the possibility that individuals, 
@@ -753,28 +728,28 @@
                       direct and vicarious past policing experiences. Our results underscore the utility of looking beyond the letter of formal policy 
                       to account for policy implementation in the study of public preferences and their practical representation. 
                     </p>
-                  </div>
-                </div>
-                <!-------------------------------------------->
-                <!-- Divider --------------------------------->
-                <!-------------------------------------------->
-                <div class="publication-entry" data-keywords="artificial intelligence, bureaucracy, computation and language, machine learning, policing, race, representation">
-                  <p>
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="artificial intelligence, bureaucracy, computation and language, machine learning, policing, race, representation">
+<p>
                     A.T. Graham Benjamin, <strong>Jose J. Alcocer</strong>, Lauren Brown, Yiorgos Chochlakis, Morteza Dehghani, Raquel Delerme,
                     Brittany Friedman, Ellie Graeden, Preni Golazizian, Rajat Hebbar, Parsa Hejabi, Aditya Kommineni, Harry G. Muttram, 
                     Shrikanth Narayanan, Mayagüez Salinas, Michael Sierra-Arévalo, Jackson Trager, and Nicholas Weller. "Community-Informed AI Models for Police Accountability."
                   </p>
-                  <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
-                    <button class="fancy-abstract-button" title="Toggle Abstract" data-id="3a">
-                      <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                        <path stroke-width="1.5" d="M8 12H16"></path>
-                        <path stroke-width="1.5" d="M12 16V8"></path>
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="dropdown-menu" data-id="3a">
-                    <p>
+<div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
+<button class="fancy-abstract-button" data-id="3a" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+<div class="dropdown-menu" data-id="3a">
+<p>
                       Face-to-face interactions between police officers and the public affect both individual well-being and democratic legitimacy.
                       Many government-public interactions are captured on video, including interactions between police officers and drivers captured 
                       on bodyworn cameras (BWCs). New advances in AI technology enable these interactions to be analyzed at scale, opening promising 
@@ -784,29 +759,29 @@
                       research project through which the approach was inductively developed: an effort to build AI tools to analyze BWC footage of 
                       traffic stops conducted by the Los Angeles Police Department. We focus on the role of social scientists as members of 
                       multidisciplinary teams responsible for integrating the perspectives of diverse stakeholders into the development of AI tools 
-                      in the domain of police<span>&#8212;</span>and government<span>&#8212;</span>accountability.
+                      in the domain of police<span>—</span>and government<span>—</span>accountability.
                     </p>
-                  </div>
-                </div>
-                <!-------------------------------------------->
-                <!-- Divider --------------------------------->
-                <!-------------------------------------------->
-                <div class="publication-entry" data-keywords="bureaucracy, causal inference, policing, policy evaluation, public policy, race, representation">
-                  <p>
+</div>
+</div>
+              <!-------------------------------------------->
+              <!-- Divider --------------------------------->
+              <!-------------------------------------------->
+<div class="publication-entry" data-keywords="bureaucracy, causal inference, policing, policy evaluation, public policy, race, representation">
+<p>
                     Muttram, Harry, <strong>Jose J. Alcocer</strong>, Lauren Brown, Benjamin A.T. Graham, Michael Sierra-Arévalo, 
                     and Nicholas Weller. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5288326">"Political Control and Policing: When Do Police Comply with Police Reform?"</a>
-                  </p>
-                  <div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
-                    <button class="fancy-abstract-button" title="Toggle Abstract" data-id="1a">
-                      <svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" viewBox="0 0 24 24" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-width="1.5" d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path>
-                        <path stroke-width="1.5" d="M8 12H16"></path>
-                        <path stroke-width="1.5" d="M12 16V8"></path>
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="dropdown-menu" data-id="1a">
-                    <p>
+</p>
+<div style="display: flex; gap: 10px; padding: 0 0; align-items: center;">
+<button class="fancy-abstract-button" data-id="1a" title="Toggle Abstract">
+<svg class="stroke-teal-500 fill-none group-hover:fill-teal-800 group-active:stroke-teal-200 group-active:fill-teal-600 group-active:duration-0 duration-300" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+<path d="M8 12H16" stroke-width="1.5"></path>
+<path d="M12 16V8" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+<div class="dropdown-menu" data-id="1a">
+<p>
                       Police wield broad discretion. They are also agents of political principals who set policy that prescribes their behavior. 
                       We develop a model of police reform and argue that successful implementation requires that either (1) officers do not resist 
                       key policy elements or (2) principals are willing to sanction non-compliant officers. We test our theory using a 2022 
@@ -816,12 +791,14 @@
                       LAPD personnel support our model's predictions that noncompliance was driven by agent resistance and a lack of expected 
                       sanctions for policy violations.
                     </p>
-                  </div>
-                </div>
+</div>
+</div>
               </div>
             </div>
-          </section>
-          <!-- ========= FOOTER SECTION ========= -->
+          </div>
+        </section>
+      </div>
+      <!-- ========= FOOTER SECTION ========= -->
           <a onclick="topFunction()" id="to-top"><i class="fa-solid fa-angle-up"></i></a>
           <footer class="footer">
             <div class="footer-section footer-center">
@@ -844,5 +821,36 @@
         <script src="/js/research.js"></script>
         <script src="https://kit.fontawesome.com/74504d8101.js" crossorigin="anonymous"></script>
         <script type="module">import { initApp } from '/js/main.js'; document.addEventListener('DOMContentLoaded', () => {initApp(); });</script>
+  
+    <script>
+      // ── Tab switching ──────────────────────────────────────────────────
+      const panelMap = { 'tab-peer': 'panel-peer', 'tab-other': 'panel-other', 'tab-wp': 'panel-wp' };
+      document.querySelectorAll('input[name="pub-tabs"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+          document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+          document.getElementById(panelMap[this.id]).classList.add('active');
+          applyKeywordFilter();
+        });
+      });
+
+      // ── Keyword filtering ──────────────────────────────────────────────
+      function applyKeywordFilter() {
+        const select = document.getElementById('pub-filter-keywords');
+        if (!select) return;
+        const selected = Array.from(select.selectedOptions).map(o => o.value.toLowerCase());
+        const activePanel = document.querySelector('.tab-panel.active');
+        if (!activePanel) return;
+        activePanel.querySelectorAll('.publication-entry').forEach(entry => {
+          if (selected.length === 0) { entry.style.display = ''; return; }
+          const kw = (entry.dataset.keywords || '').toLowerCase();
+          entry.style.display = selected.some(s => kw.includes(s)) ? '' : 'none';
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const kwSelect = document.getElementById('pub-filter-keywords');
+        if (kwSelect) kwSelect.addEventListener('change', applyKeywordFilter);
+      });
+    </script>
   </body>
 </html>
