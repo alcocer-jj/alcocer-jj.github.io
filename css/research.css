@@ -386,7 +386,7 @@ body.dark-mode .venn-key   { color: #bbb; }
   position: relative;
   background-color: #fff;
   box-shadow: 0 0 1px 0 rgba(150,110,109,0.20), 0 6px 12px 0 rgba(150,110,109,0.20);
-  padding: 0.75rem;
+  padding: 0.5rem;
   border-radius: 99px;
 }
 
@@ -402,9 +402,9 @@ input[name="pub-tabs"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 54px;
-  width: 200px;
-  font-size: 1.25rem;
+  height: 44px;
+  width: 155px;
+  font-size: 0.85rem;
   font-family: 'Lora', serif;
   font-weight: 500;
   border-radius: 99px;
@@ -421,8 +421,8 @@ input[name="pub-tabs"]:checked + .pub-tab {
 .pub-glider {
   position: absolute;
   display: flex;
-  height: 54px;
-  width: 200px;
+  height: 44px;
+  width: 155px;
   background-color: #966e6d;
   z-index: 1;
   border-radius: 99px;
@@ -464,27 +464,27 @@ body.dark-mode .pub-glider {
 @media (max-width: 680px) {
   .pub-tab {
     width: 110px;
-    font-size: 0.85rem;
-    height: 44px;
+    font-size: 0.75rem;
+    height: 38px;
   }
   .pub-glider {
     width: 110px;
-    height: 44px;
+    height: 38px;
   }
   .pub-tabs {
-    padding: 0.5rem;
+    padding: 0.4rem;
   }
 }
 
 @media (max-width: 400px) {
   .pub-tab {
     width: 90px;
-    font-size: 0.72rem;
-    height: 40px;
+    font-size: 0.68rem;
+    height: 36px;
   }
   .pub-glider {
     width: 90px;
-    height: 40px;
+    height: 36px;
   }
 }
 
