@@ -326,7 +326,7 @@ body.dark-mode .venn-eyebrow { color: #666; }
 body.dark-mode .venn-key   { color: #bbb; }
 
 /* ---- Venn responsive scaling ---- */
-@media (max-width: 690px) {
+@media (max-width: 710px) {
   .venn-scale-wrapper { height: 375px; }
   .venn-area  { width: 375px; height: 375px; }
   .vc         { width: 229px; height: 229px; }
