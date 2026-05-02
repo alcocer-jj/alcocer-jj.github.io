@@ -327,17 +327,17 @@ body.dark-mode .venn-key   { color: #bbb; }
 
 /* ---- Venn responsive scaling ---- */
 @media (max-width: 580px) {
-  .venn-scale-wrapper { height: 443px; }
+  .venn-scale-wrapper { height: 375px; }
   .venn-area { transform: scale(0.75); }
 }
 
 @media (max-width: 440px) {
-  .venn-scale-wrapper { height: 354px; }
+  .venn-scale-wrapper { height: 300px; }
   .venn-area { transform: scale(0.60); }
 }
 
 @media (max-width: 360px) {
-  .venn-scale-wrapper { height: 313px; }
+  .venn-scale-wrapper { height: 265px; }
   .venn-area { transform: scale(0.53); }
 }
 
