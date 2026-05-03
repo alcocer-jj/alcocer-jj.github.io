@@ -332,10 +332,10 @@ body.dark-mode .venn-key   { color: #bbb; }
   .vc3        { top: 146px;  left: 0;     }
   .vc4        { top: 146px;  left: 146px; }
   .vl         { font-size: 9px; width: 80px; }
-  .vl1        { top: 111px; left: 70px;  }
-  .vl2        { top: 111px; left: 225px; }
-  .vl3        { top: 254px; left: 70px;  }
-  .vl4        { top: 254px; left: 225px; }
+  .vl1        { top: 95px;  left: 70px;  }
+  .vl2        { top: 95px;  left: 226px; }
+  .vl3        { top: 242px; left: 70px;  }
+  .vl4        { top: 242px; left: 226px; }
   .vcenter    { font-size: 7px; width: 89px; }
 }
 
@@ -347,10 +347,10 @@ body.dark-mode .venn-key   { color: #bbb; }
   .vc3        { top: 117px;  left: 0;     }
   .vc4        { top: 117px;  left: 117px; }
   .vl         { font-size: 7px; width: 64px; }
-  .vl1        { top: 89px;  left: 56px;  }
-  .vl2        { top: 89px;  left: 180px; }
-  .vl3        { top: 203px; left: 56px;  }
-  .vl4        { top: 203px; left: 180px; }
+  .vl1        { top: 76px;  left: 56px;  }
+  .vl2        { top: 76px;  left: 180px; }
+  .vl3        { top: 193px; left: 56px;  }
+  .vl4        { top: 193px; left: 180px; }
   .vcenter    { font-size: 6px; width: 71px; }
 }
 
@@ -362,10 +362,10 @@ body.dark-mode .venn-key   { color: #bbb; }
   .vc3        { top: 103px;  left: 0;     }
   .vc4        { top: 103px;  left: 103px; }
   .vl         { font-size: 6px; width: 56px; }
-  .vl1        { top: 79px;  left: 49px;  }
-  .vl2        { top: 79px;  left: 159px; }
-  .vl3        { top: 179px; left: 49px;  }
-  .vl4        { top: 179px; left: 159px; }
+  .vl1        { top: 67px;  left: 49px;  }
+  .vl2        { top: 67px;  left: 159px; }
+  .vl3        { top: 171px; left: 49px;  }
+  .vl4        { top: 171px; left: 159px; }
   .vcenter    { font-size: 5px; width: 63px; }
 }
 
