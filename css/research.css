@@ -245,10 +245,10 @@ body.page-loaded .hero-inner {
   position: absolute;
   z-index: 10;
   font-family: 'Lora', serif;
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.55;
-  width: 125px;
+  width: 130px;
   transition: color 0.3s;
 }
 
@@ -331,7 +331,7 @@ body.dark-mode .venn-key   { color: #bbb; }
   .vc2        { top: 0;      left: 146px; }
   .vc3        { top: 146px;  left: 0;     }
   .vc4        { top: 146px;  left: 146px; }
-  .vl         { font-size: 9px; width: 80px; }
+  .vl         { font-size: 10px; width: 83px; }
   .vl1        { top: 95px;  left: 70px;  }
   .vl2        { top: 95px;  left: 226px; }
   .vl3        { top: 242px; left: 70px;  }
@@ -346,7 +346,7 @@ body.dark-mode .venn-key   { color: #bbb; }
   .vc2        { top: 0;      left: 117px; }
   .vc3        { top: 117px;  left: 0;     }
   .vc4        { top: 117px;  left: 117px; }
-  .vl         { font-size: 7px; width: 64px; }
+  .vl         { font-size: 8px; width: 66px; }
   .vl1        { top: 76px;  left: 56px;  }
   .vl2        { top: 76px;  left: 180px; }
   .vl3        { top: 193px; left: 56px;  }
@@ -361,7 +361,7 @@ body.dark-mode .venn-key   { color: #bbb; }
   .vc2        { top: 0;      left: 103px; }
   .vc3        { top: 103px;  left: 0;     }
   .vc4        { top: 103px;  left: 103px; }
-  .vl         { font-size: 6px; width: 56px; }
+  .vl         { font-size: 7px; width: 58px; }
   .vl1        { top: 67px;  left: 49px;  }
   .vl2        { top: 67px;  left: 159px; }
   .vl3        { top: 171px; left: 49px;  }
