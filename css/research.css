@@ -257,10 +257,10 @@ body.page-loaded .hero-inner {
 .vc3 { top: 230px; left: 0;     background: rgba(100,136,100,0.42); }
 .vc4 { top: 230px; left: 230px; background: rgba(174,144,82,0.42);  }
 
-.vl1 { top: 160px; left: 110px; color: #6b3837; }
-.vl2 { top: 160px; left: 355px; text-align: right; color: #1b3a56; }
-.vl3 { top: 385px; left: 110px; color: #274e2e; }
-.vl4 { top: 385px; left: 355px; text-align: right; color: #614109; }
+.vl1 { top: 150px; left: 110px; color: #6b3837; }
+.vl2 { top: 150px; left: 355px; text-align: right; color: #1b3a56; }
+.vl3 { top: 380px; left: 110px; color: #274e2e; }
+.vl4 { top: 380px; left: 355px; text-align: right; color: #614109; }
 
 .vcenter {
   position: absolute;
