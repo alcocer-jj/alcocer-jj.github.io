@@ -309,7 +309,7 @@
                   </span>
                   First View.
                   <span class="entry-badges">
-                    <span class="badge latin-america">
+                    <span class="badge badge-latin">
                       Latin America
                     </span>
                   </span>
@@ -365,7 +365,7 @@
                   </span>
                   10(2), pp. 277-289.
                   <span class="entry-badges">
-                    <span class="badge race-identity">
+                    <span class="badge badge-race">
                       Race & Identity
                     </span>
                   </span>
@@ -1270,16 +1270,7 @@
 
             // ── Keyword filtering ──────────────────────────────────────────────
             function applyKeywordFilter() {
-                const select = document.getElementById('pub-filter-areas');
-                if (!select) return;
-                const selected = Array.from(select.selectedOptions).map(o => o.value.toLowerCase());
-                const activePanel = document.querySelector('.tab-panel.active');
-                if (!activePanel) return;
-                activePanel.querySelectorAll('.publication-entry').forEach(entry => {
-                    if (selected.length === 0) { entry.style.display = ''; return; }
-                    const kw = (entry.dataset.areas || '').toLowerCase();
-                    entry.style.display = selected.some(s => kw.includes(s)) ? '' : 'none';
-                });
+                filterAll();
             }
 
             document.addEventListener('DOMContentLoaded', function () {
