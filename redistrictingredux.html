@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Alcocerjj | Redistricting Redux — Interactive Maps</title>
+    <title>Alcocerjj | Redistricting Redux</title>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link href="https://www.alcocerjj.com/css/main.css" rel="stylesheet"/>
     <link href="https://www.alcocerjj.com/css/redistrictingredux.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
     <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
-    <!-- polylabel loaded synchronously so it is guaranteed available before any map code runs -->
     <script src="https://cdn.jsdelivr.net/npm/polylabel@2.0.0/dist/polylabel.min.js"></script>
   </head>
   <body>
@@ -68,7 +67,7 @@
               <div class="text">Redistricting Redux</div>
               <div class="text_cursor"></div>
             </div>
-            <div class="subtitle">Supplementary Material</div>
+            <div class="subtitle">Interactive Map</div>
           </div>
         </div>
       </div>
@@ -80,15 +79,16 @@
       <div class="intro-paragraph">
         <p>
           This page contains an interactive map for the states analyzed in Alcocer, Grose, and McKee (2026),
-          "Redistricting Redux and the Battle to Win the U.S. House in 2026: How Partisan Are the New Maps?"
+          "Redistricting Redux and the Battle to Win the U.S. House in 2026: How Partisan Are the New Maps?"          
+        </p>
+        <p>
           Use the state selector and metric pills below to explore district-level partisan vote share, win probabilities,
           ensemble partisan lean, and compactness across all enacted plans.
-        </p>
+        </p>        
       </div>
     </section>
 
     <!-- ========= MAP SECTION ========= -->
-    <h2 class="section-title" style="font-family:'Times New Roman', Times, serif;">Interactive Map</h2>
     <section class="intro-section">
       <div class="rmap-standalone-wrap">
         <div id="rmap-controls"></div>
