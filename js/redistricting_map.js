@@ -14,6 +14,7 @@
   // NC: plans are nc22 (OLD), nc23 (MID), nc25 (NEW)
   const STATES = {
     CA: { name: 'California',     plans: [{ year: '21', type: T.OLD }, { year: '25', type: T.NEW }] },
+    FL: { name: 'Florida',        plans: [{ year: '22', type: T.OLD }, { year: '26', type: T.NEW }] },
     MO: { name: 'Missouri',       plans: [{ year: '22', type: T.OLD }, { year: '25', type: T.NEW }] },
     NC: { name: 'North Carolina', plans: [{ year: '22', type: T.OLD }, { year: '23', type: T.MID }, { year: '25', type: T.NEW }] },
     OH: { name: 'Ohio',           plans: [{ year: '22', type: T.OLD }, { year: '25', type: T.NEW }] },
