@@ -778,6 +778,7 @@
     const mapEl = document.getElementById('redistricting-map');
     if (!mapEl) return;
     _map = L.map('redistricting-map', { center: [37.5, -96], zoom: 4, zoomControl: true });
+    window._debugMap = _map; // ── TEMP: expose map for console coordinate picking — remove when done
     _tileLayer = L.tileLayer(TILES.light, TILE_OPTS).addTo(_map);
     new MutationObserver(updateTiles).observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
