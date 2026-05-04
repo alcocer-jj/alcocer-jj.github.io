@@ -187,8 +187,69 @@
   // the reset button perfectly in sync
   const FLY_OPTS = { padding: [80, 80], duration: 0.7 };
 
-  // Labels only render above this zoom — avoids clutter at state level
-  const LABEL_MIN_ZOOM = 7;
+  // ─── LABEL OVERRIDES ─────────────────────────────────────────────
+  // Manually verified coordinates for districts where polylabel places
+  // the label in a visually misleading position due to concave geometry.
+  // Key structure: LABEL_OVERRIDES[stateAbbr][planYear][districtNo]
+  // Coordinates collected by clicking on the map in debug mode.
+  const LABEL_OVERRIDES = {
+    VA: {
+      '21': {
+        '2':  [37.57199779223275,  -75.86059570312501]
+      },
+      '26': {
+        '1':  [38.201598147827575, -77.63282775878908],
+        '4':  [36.880032538779545, -77.56072998046876],
+        '7':  [38.34714250005549,  -78.10523986816408],
+        '9':  [37.13048711472637,  -81.41418457031251]
+      }
+    },
+    TX: {
+      '21': {
+        '26': [33.49965962354912,  -97.25234985351562]
+      },
+      '25': {
+        '14': [29.863497627308266, -94.03335571289062],
+        '26': [33.49965962354912,  -97.25234985351562],
+        '27': [30.03000151307321,  -96.27895037109376]
+      }
+    },
+    OH: {
+      '22': {
+        '9':  [41.57198551012257,  -83.04016113281251]
+      },
+      '25': {
+        '9':  [41.412608176283975, -84.2926025390625]
+      }
+    },
+    NC: {
+      '23': {
+        '5':  [36.2317428596932,   -81.34689331054689],
+        '13': [35.53411210290148,  -78.60855102539064]
+      },
+      '25': {
+        '5':  [36.2317428596932,   -81.34689331054689],
+        '13': [35.53411210290148,  -78.60855102539064]
+      }
+    },
+    CA: {
+      '21': {
+        '19': [36.51481000942913,  -121.83837890625],
+        '28': [34.26140183944268,  -118.10440063476564],
+        '31': [34.09741305931332,  -117.93479919433595],
+        '39': [33.94473951827565,  -117.31819152832033],
+        '41': [33.707990491665825, -116.64459228515626],
+        '45': [33.760409262412985, -117.96792984008789],
+        '46': [33.84057692941614,  -117.93273925781251]
+      },
+      '25': {
+        '19': [36.54460466314512,  -121.82189941406251],
+        '32': [34.053708327558354, -118.6681365966797],
+        '39': [33.96381981623876,  -117.40745544433595],
+        '45': [33.77225369675314,  -117.97788619995119]
+      }
+    }
+  };
   let _curPlan    = null;
   let _curMapType = null;
   let _curMetric  = 'enacted';
@@ -537,7 +598,6 @@
     if (_distLayer)  { _map.removeLayer(_distLayer);  _distLayer  = null; }
     if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
     if (_resetBtn)   { _resetBtn.style.display = 'none'; }
-    _map.off('zoomend', _onZoom);
     clearPlanButtons();
     renderControls('plan');
     renderPills(PLAN_PILLS, 'enacted');
@@ -598,7 +658,6 @@
     if (_stateLayer) _map.removeLayer(_stateLayer);
     if (_distLayer)  { _map.removeLayer(_distLayer);  _distLayer  = null; }
     if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
-    _map.off('zoomend', _onZoom);
 
     const pills = STATE_PILLS[mapType] || STATE_PILLS[T.OLD];
     if (!pills.find(p => p.id === _curMetric)) _curMetric = pills[0].id;
@@ -645,22 +704,23 @@
       // ── Standalone district number labels ─────────────────────────
       // Uses L.tooltip() added directly to the map (not bindTooltip)
       // so placement is fully controlled by polylabel position.
-      // Labels are hidden below LABEL_MIN_ZOOM to avoid clutter.
+      // Manually verified overrides in LABEL_OVERRIDES take priority
+      // for districts where concave geometry misleads polylabel.
       _labelLayer = L.layerGroup();
       geo.features.forEach(f => {
         const distNum = f.properties['District No.'];
         if (distNum == null) return;
-        const center = getLabelCenter(f);
+        const override = LABEL_OVERRIDES[abbr]?.[planYear]?.[String(distNum)];
+        const center = override
+          ? L.latLng(override[0], override[1])
+          : getLabelCenter(f);
         if (!center) return;
         L.tooltip({ permanent: true, direction: 'center', className: 'rmap-dist-label-tt', interactive: false })
           .setLatLng(center)
           .setContent(String(distNum))
           .addTo(_labelLayer);
       });
-      if (_map.getZoom() >= LABEL_MIN_ZOOM) _labelLayer.addTo(_map);
-
-      // Show/hide labels as user zooms
-      _map.on('zoomend', _onZoom);
+      _labelLayer.addTo(_map);
 
       // Show reset button now that a state is loaded
       if (_resetBtn) _resetBtn.style.display = '';
@@ -759,18 +819,6 @@
     }
   }
 
-  // ─── ZOOM HANDLER ────────────────────────────────────────────────
-  // Named so it can be added and removed cleanly
-
-  function _onZoom() {
-    if (!_labelLayer) return;
-    if (_map.getZoom() >= LABEL_MIN_ZOOM) {
-      if (!_map.hasLayer(_labelLayer)) _labelLayer.addTo(_map);
-    } else {
-      if (_map.hasLayer(_labelLayer)) _map.removeLayer(_labelLayer);
-    }
-  }
-
   // ─── MAP INIT ────────────────────────────────────────────────────
 
   async function initMap() {
@@ -778,7 +826,6 @@
     const mapEl = document.getElementById('redistricting-map');
     if (!mapEl) return;
     _map = L.map('redistricting-map', { center: [37.5, -96], zoom: 4, zoomControl: true });
-    window._debugMap = _map; // ── TEMP: expose map for console coordinate picking — remove when done
     _tileLayer = L.tileLayer(TILES.light, TILE_OPTS).addTo(_map);
     new MutationObserver(updateTiles).observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
