@@ -177,3 +177,15 @@ function filterAll() {
     pub.style.display = hasAreas ? '' : 'none';
   });
 }
+
+// ----------------------------
+// TAB SWITCHING
+// ----------------------------
+const panelMap = { 'tab-peer': 'panel-peer', 'tab-other': 'panel-other', 'tab-wp': 'panel-wp' };
+
+document.querySelectorAll('input[name="pub-tabs"]').forEach(radio => {
+  radio.addEventListener('change', function () {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById(panelMap[this.id]).classList.add('active');
+  });
+});

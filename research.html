@@ -9,7 +9,6 @@
       <link href="https://www.alcocerjj.com/css/main.css" rel="stylesheet"/>
       <link href="https://www.alcocerjj.com/css/research.css" rel="stylesheet"/>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Lora:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
-      <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
     </head>
     <body>
       <!-- ========= NAVBAR ========= -->
@@ -537,20 +536,11 @@
                     <button class="map-toggle-btn" data-map-id="redistricting-2026" title="Interactive Maps">
                       Maps
                     </button>
-                    <span class="rmap-mobile-notice" style="color: #89837a;">Interactive map available on larger screens.</span>
                   </div>
                   <div class="dropdown-menu" data-id="7w">
                     <p>
                       With the U.S. House of Representatives Republican majority hanging in the balance—President Trump has turned to redistricting as a possible means of maintaining GOP control in an upcoming 2026 midterm environment likely to favor Democrats. Political observers aptly characterize this latest partisan battle over congressional redistricting as an arms race. Indeed, with Texas Republicans passing a new map with the goal of netting five more seats, failed deterrence has come in the form of California Democrats responding in kind with a map voters approved, which is expected to net their party five additional seats. Further, due to legal provisions and litigation, two other states have new plans enacted for 2026, Ohio and Utah; and several other states have redrawn their maps in the hopes of partisan gains. In this paper, we examine all pre-2025 and post-2025 maps passed during this cycle of mid-decade redistricting. Using simulation methods placing various constraints on districts, we automate the drawing of 750,000s of maps in each of these states. We then compare and contrast the old and new map in each mid-decade redistricting state to evaluate for partisan bias, and determine which mid-decade redistricting maps are the most partisan outliers relative to a baseline simulated distribution of plans. We chronicle this latest round of “re-redistricting,” place it in historical context, and analyze these new maps to determine their effectiveness in meeting the line drawers' intentions.
                     </p>
-                  </div>
-                  <div class="map-dropdown" data-map-id="redistricting-2026">
-                    <div id="rmap-controls">
-                    </div>
-                    <div id="redistricting-map">
-                    </div>
-                    <div id="rmap-plan-buttons">
-                    </div>
                   </div>
                 </div>
                 <!-------------------------------------------->
@@ -763,10 +753,6 @@
       </div>
       <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
       </script>
-      <script crossorigin="" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-      </script>
-      <script src="/js/redistricting_map.js">
-      </script>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js">
       </script>
       <script src="/js/research.js">
@@ -775,36 +761,6 @@
       </script>
       <script type="module">
         import { initApp } from '/js/main.js'; document.addEventListener('DOMContentLoaded', () => {initApp(); });
-      </script>
-      <script>
-        // ── Tab switching ──────────────────────────────────────────────────
-        const panelMap = { 'tab-peer': 'panel-peer', 'tab-other': 'panel-other', 'tab-wp': 'panel-wp' };
-        document.querySelectorAll('input[name="pub-tabs"]').forEach(radio => {
-        radio.addEventListener('change', function () {
-        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-        document.getElementById(panelMap[this.id]).classList.add('active');
-        applyKeywordFilter();
-        });
-        });
-
-        // ── Keyword filtering ──────────────────────────────────────────────
-        function applyKeywordFilter() {
-        const select = document.getElementById('pub-filter-areas');
-        if (!select) return;
-        const selected = Array.from(select.selectedOptions).map(o => o.value.toLowerCase());
-        const activePanel = document.querySelector('.tab-panel.active');
-        if (!activePanel) return;
-        activePanel.querySelectorAll('.publication-entry').forEach(entry => {
-        if (selected.length === 0) { entry.style.display = ''; return; }
-        const kw = (entry.dataset.areas || '').toLowerCase();
-        entry.style.display = selected.some(s => kw.includes(s)) ? '' : 'none';
-        });
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-        const kwSelect = document.getElementById('pub-filter-areas');
-        if (kwSelect) kwSelect.addEventListener('change', applyKeywordFilter);
-        });
       </script>
     </body>
   </html>
