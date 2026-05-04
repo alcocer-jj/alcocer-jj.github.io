@@ -578,7 +578,7 @@
   // ─── TILES / DARK MODE ───────────────────────────────────────────
 
   const TILES = {
-    light: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+    light: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png',
     dark:  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
   };
   const TILE_OPTS = {
@@ -632,7 +632,7 @@
         const abbr = f.properties['Abbr'];
         layer.bindTooltip(stateTableHTML(f.properties), { className: 'rmap-leaflet-tt', sticky: true, maxWidth: 320 });
         layer.on({
-          mouseover: e => e.target.setStyle({ weight: 2.5, color: '#222', fillOpacity: 0.95 }),
+          mouseover: e => e.target.setStyle({ weight: 2.5, color: '#222', fillOpacity: 0.80 }),
           mouseout: e => {
             const pill = PLAN_PILLS.find(p => p.id === _curMetric);
             if (pill && pill.colorFn) {
@@ -688,7 +688,7 @@
           );
           layer.bindPopup(districtTableHTML(p, mapType), { maxWidth: 360, className: 'rmap-popup' });
           layer.on({
-            mouseover: e => e.target.setStyle({ weight: 2.5, color: '#111', fillOpacity: 0.95 }),
+            mouseover: e => e.target.setStyle({ weight: 2.5, color: '#111', fillOpacity: 0.80 }),
             mouseout: e => {
               const pills = STATE_PILLS[_curMapType] || STATE_PILLS[T.OLD];
               const pill = pills.find(p => p.id === _curMetric);
