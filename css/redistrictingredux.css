@@ -136,8 +136,9 @@ body.page-loaded .hero-inner {
 /* ================= INTERACTIVE MAP COMPONENT ================ */
 
 /* ── Leaflet map element ──────────────────────────────────── */
+/* ── MAP HEIGHT — to resize, change the px value below (and the matching tablet height further down) ── */
 #redistricting-map {
-  height: 835px;
+  height: 793px;
   width: 100%;
   border-radius: 10px;
   border: 1px solid #ddd;
@@ -481,6 +482,25 @@ body.page-loaded .hero-inner {
   text-align: right;
 }
 
+/* ── District number labels ──────────────────────────────── */
+.rmap-dist-label {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.rmap-dist-label span {
+  font-family: sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-shadow:
+    0 0 3px rgba(255,255,255,0.95),
+    0 0 3px rgba(255,255,255,0.95),
+    0 0 3px rgba(255,255,255,0.95);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
 /* ── Dark mode ───────────────────────────────────────────── */
 body.dark-mode #redistricting-map      { border-color: #333; }
 body.dark-mode .rmap-select            { background: #2a2a2a; color: #faf9f9; border-color: #966E6D; }
@@ -543,7 +563,7 @@ body.dark-mode .intro-section          { background-color: #1a1a1a; }
 }
 
 @media (min-width: 768px) and (max-width: 999px) {
-  #redistricting-map { height: 668px; }
+  #redistricting-map { height: 635px; } /* ── TABLET MAP HEIGHT — change this to match ~80% of the default height above ── */
   .rml-gradient      { width: 100px; }
   .rmap-pill         { font-size: 11px; padding: 4px 13px; }
   .rmap-dict-desc    { font-size: 13px; }

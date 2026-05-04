@@ -178,6 +178,7 @@
   let _tileLayer  = null;
   let _stateLayer = null;
   let _distLayer  = null;
+  let _labelLayer = null;   // permanent district number labels
   let _curView    = 'plan';
   let _curPlan    = null;
   let _curMapType = null;
@@ -507,7 +508,7 @@
   // ─── TILES / DARK MODE ───────────────────────────────────────────
 
   const TILES = {
-    light: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+    light: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
     dark:  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
   };
   const TILE_OPTS = {
@@ -525,6 +526,7 @@
   async function showPlanLevel() {
     _curView = 'plan'; _curPlan = null; _curMapType = null; _curMetric = 'enacted';
     if (_distLayer)  { _map.removeLayer(_distLayer); _distLayer = null; }
+    if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
     clearPlanButtons();
     renderControls('plan');
     renderPills(PLAN_PILLS, 'enacted');
@@ -554,7 +556,7 @@
   function buildStateLayer(geo) {
     const pill = PLAN_PILLS[0];
     return L.geoJSON(geo, {
-      style: f => ({ fillColor: pill.colorFn(f.properties), fillOpacity: 0.82, weight: 1.5, color: '#444' }),
+      style: f => ({ fillColor: pill.colorFn(f.properties), fillOpacity: 0.65, weight: 1.5, color: '#444' }),
       onEachFeature: (f, layer) => {
         const abbr = f.properties['Abbr'];
         layer.bindTooltip(stateTableHTML(f.properties), { className: 'rmap-leaflet-tt', sticky: true, maxWidth: 320 });
@@ -563,7 +565,7 @@
           mouseout: e => {
             const pill = PLAN_PILLS.find(p => p.id === _curMetric);
             if (pill && pill.colorFn) {
-              e.target.setStyle({ fillColor: pill.colorFn(e.target.feature.properties), weight: 1.5, color: '#444', fillOpacity: 0.82 });
+              e.target.setStyle({ fillColor: pill.colorFn(e.target.feature.properties), weight: 1.5, color: '#444', fillOpacity: 0.65 });
             }
           },
           click: () => {
@@ -584,6 +586,7 @@
     _curView = abbr; _curPlan = planYear; _curMapType = mapType;
     if (_stateLayer) _map.removeLayer(_stateLayer);
     if (_distLayer)  { _map.removeLayer(_distLayer); _distLayer = null; }
+    if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
 
     const pills = STATE_PILLS[mapType] || STATE_PILLS[T.OLD];
     if (!pills.find(p => p.id === _curMetric)) _curMetric = pills[0].id;
@@ -601,7 +604,7 @@
       clearMsg();
 
       _distLayer = L.geoJSON(geo, {
-        style: f => ({ fillColor: activePill.colorFn(f.properties), fillOpacity: 0.82, weight: 1, color: '#555' }),
+        style: f => ({ fillColor: activePill.colorFn(f.properties), fillOpacity: 0.65, weight: 1, color: '#555' }),
         onEachFeature: (f, layer) => {
           const p = f.properties;
           layer.bindTooltip(
@@ -619,13 +622,33 @@
               const pills = STATE_PILLS[_curMapType] || STATE_PILLS[T.OLD];
               const pill = pills.find(p => p.id === _curMetric);
               if (pill && pill.colorFn) {
-                e.target.setStyle({ fillColor: pill.colorFn(e.target.feature.properties), weight: 1, color: '#555', fillOpacity: 0.82 });
+                e.target.setStyle({ fillColor: pill.colorFn(e.target.feature.properties), weight: 1, color: '#555', fillOpacity: 0.65 });
               }
             },
             click:     e => e.target.openPopup()
           });
         }
       }).addTo(_map);
+
+      // ── District number labels — centered in each polygon ─────────
+      _labelLayer = L.layerGroup();
+      geo.features.forEach(f => {
+        const distNum = f.properties['District No.'];
+        if (distNum == null) return;
+        const center = L.geoJSON(f).getBounds().getCenter();
+        L.marker(center, {
+          icon: L.divIcon({
+            className: 'rmap-dist-label',
+            html: `<span>${distNum}</span>`,
+            iconSize:   [24, 16],
+            iconAnchor: [12, 8]
+          }),
+          interactive: false,
+          keyboard:    false
+        }).addTo(_labelLayer);
+      });
+      _labelLayer.addTo(_map);
+      // ─────────────────────────────────────────────────────────────
 
       _map.flyToBounds(_distLayer.getBounds(), { padding: [120, 120], duration: 0.7 });
     } catch (err) {
