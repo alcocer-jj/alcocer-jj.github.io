@@ -532,7 +532,7 @@ body.dark-mode .intro-section          { background-color: #1a1a1a; }
   #rmap-controls,
   #rmap-plan-buttons { display: none; }
   .rmap-standalone-wrap::before {
-    content: 'The interactive map is best experienced on a larger screen. Visit on a desktop, laptop, or tablet \2014 or flip your phone to landscape and refresh the page.';
+    content: 'The interactive map is best experienced on a larger screen. Visit on a desktop, laptop, or tablet\2014 or flip your mobile device to landscape and refresh the page.';
     display: block;
     font-family: sans-serif;
     font-size: 14px;
