@@ -138,7 +138,7 @@ body.page-loaded .hero-inner {
 /* ── Leaflet map element ──────────────────────────────────── */
 /* ── MAP HEIGHT — to resize, change the px value below (and the matching tablet height further down) ── */
 #redistricting-map {
-  height: 694px;
+  height: 659px;
   width: 100%;
   border-radius: 10px;
   border: 1px solid #ddd;
@@ -580,7 +580,7 @@ body.dark-mode .intro-section          { background-color: #1a1a1a; }
 }
 
 @media (min-width: 768px) and (max-width: 999px) {
-  #redistricting-map { height: 556px; } /* ── TABLET MAP HEIGHT — change this to match ~80% of the default height above ── */
+  #redistricting-map { height: 528px; } /* ── TABLET MAP HEIGHT — change this to match ~80% of the default height above ── */
   .rml-gradient      { width: 100px; }
   .rmap-pill         { font-size: 11px; padding: 4px 13px; }
   .rmap-dict-desc    { font-size: 13px; }
