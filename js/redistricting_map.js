@@ -728,34 +728,35 @@
 
   function getLabelCenter(feature) {
     const geom = feature.geometry;
-    let ring;
+    let rings;
     if (geom.type === 'Polygon') {
-      ring = geom.coordinates[0];
+      rings = geom.coordinates;
     } else if (geom.type === 'MultiPolygon') {
       // Use the largest polygon by area — avoids placing label on a tiny island
-      ring = geom.coordinates
+      rings = geom.coordinates
         .map(poly => poly[0])
-        .sort((a, b) => _ringArea(b) - _ringArea(a))[0];
+        .sort((a, b) => _ringArea(b) - _ringArea(a));
+      rings = [rings[0]];
     } else {
       return null;
     }
 
-    // Proper geometric centroid
-    const [cx, cy] = _ringCentroid(ring);
-    if (_pointInRing([cx, cy], ring)) return L.latLng(cy, cx);
-
-    // If centroid is outside (concave polygon), walk the ring midpoints
-    // until we find an interior point
-    for (let i = 0; i < ring.length - 1; i++) {
-      const mx = (ring[i][0] + ring[i + 1][0]) / 2;
-      const my = (ring[i][1] + ring[i + 1][1]) / 2;
-      if (_pointInRing([mx, my], ring)) return L.latLng(my, mx);
+    // polylabel is loaded synchronously in <head> so it is always available.
+    // It finds the pole of inaccessibility — the point furthest from all
+    // polygon edges — which always feels visually centered even for
+    // highly concave or irregular gerrymander shapes.
+    try {
+      const pt = polylabel(rings, 0.01);
+      return L.latLng(pt[1], pt[0]);
+    } catch (e) {
+      // Fallback: proper geometric centroid
+      const [cx, cy] = _ringCentroid(rings[0]);
+      if (_pointInRing([cx, cy], rings[0])) return L.latLng(cy, cx);
+      // Last resort: vertex average
+      let x = 0, y = 0;
+      rings[0].forEach(([lng, lat]) => { x += lng; y += lat; });
+      return L.latLng(y / rings[0].length, x / rings[0].length);
     }
-
-    // Last resort: vertex average
-    let x = 0, y = 0;
-    ring.forEach(([lng, lat]) => { x += lng; y += lat; });
-    return L.latLng(y / ring.length, x / ring.length);
   }
 
   // ─── ZOOM HANDLER ────────────────────────────────────────────────
