@@ -483,7 +483,8 @@ body.page-loaded .hero-inner {
 }
 
 /* ── District number labels ──────────────────────────────── */
-.rmap-dist-label {
+/* Must target .leaflet-div-icon to override Leaflet's default white box */
+.rmap-dist-label.leaflet-div-icon {
   background: none !important;
   border: none !important;
   box-shadow: none !important;
@@ -493,6 +494,7 @@ body.page-loaded .hero-inner {
   font-size: 10px;
   font-weight: 700;
   color: #1a1a1a;
+  /* Triple shadow creates a white halo readable over any district fill color */
   text-shadow:
     0 0 3px rgba(255,255,255,0.95),
     0 0 3px rgba(255,255,255,0.95),
@@ -501,24 +503,18 @@ body.page-loaded .hero-inner {
   white-space: nowrap;
 }
 
-/* ── Reset view button ───────────────────────────────────── */
-.rmap-reset-btn {
-  width: 30px;
-  height: 30px;
-  font-size: 16px;
-  line-height: 30px;
-  text-align: center;
-  background: #fff;
-  border: 2px solid rgba(0,0,0,0.2);
-  border-radius: 4px;
-  cursor: pointer;
-  color: #333;
-  padding: 0;
+/* ── Reset-view button — injected into zoom control group ─── */
+/* Uses Leaflet's own zoom-control sizing so it matches +/− exactly */
+.leaflet-control-zoom-reset {
+  font-size: 15px !important;
+  line-height: 26px !important;
+  color: #444 !important;
+  text-decoration: none !important;
   display: block;
 }
-.rmap-reset-btn:hover {
-  background: #f4f4f4;
-  color: #966E6D;
+.leaflet-control-zoom-reset:hover {
+  color: #966E6D !important;
+  background-color: #f4f4f4;
 }
 
 /* ── Dark mode ───────────────────────────────────────────── */
