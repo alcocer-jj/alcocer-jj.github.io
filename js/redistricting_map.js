@@ -178,12 +178,17 @@
   let _tileLayer  = null;
   let _stateLayer = null;
   let _distLayer  = null;
-  let _labelLayer = null;   // permanent district number labels
-  let _resetBtn   = null;   // reset-view button DOM element (lives in zoom control)
+  let _labelLayer = null;   // standalone tooltip labels per district
+  let _resetBtn   = null;   // reset-view button in zoom control
+
   let _curView    = 'plan';
 
-  // Shared fly-to options — keep loadState and reset button in sync
+  // Single source of truth for flyToBounds — keeps loadState and
+  // the reset button perfectly in sync
   const FLY_OPTS = { padding: [80, 80], duration: 0.7 };
+
+  // Labels only render above this zoom — avoids clutter at state level
+  const LABEL_MIN_ZOOM = 7;
   let _curPlan    = null;
   let _curMapType = null;
   let _curMetric  = 'enacted';
@@ -532,6 +537,7 @@
     if (_distLayer)  { _map.removeLayer(_distLayer);  _distLayer  = null; }
     if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
     if (_resetBtn)   { _resetBtn.style.display = 'none'; }
+    _map.off('zoomend', _onZoom);
     clearPlanButtons();
     renderControls('plan');
     renderPills(PLAN_PILLS, 'enacted');
@@ -592,6 +598,7 @@
     if (_stateLayer) _map.removeLayer(_stateLayer);
     if (_distLayer)  { _map.removeLayer(_distLayer);  _distLayer  = null; }
     if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
+    _map.off('zoomend', _onZoom);
 
     const pills = STATE_PILLS[mapType] || STATE_PILLS[T.OLD];
     if (!pills.find(p => p.id === _curMetric)) _curMetric = pills[0].id;
@@ -635,28 +642,29 @@
         }
       }).addTo(_map);
 
-      // ── District labels — polylabel places them inside the polygon ─
+      // ── Standalone district number labels ─────────────────────────
+      // Uses L.tooltip() added directly to the map (not bindTooltip)
+      // so placement is fully controlled by polylabel position.
+      // Labels are hidden below LABEL_MIN_ZOOM to avoid clutter.
       _labelLayer = L.layerGroup();
       geo.features.forEach(f => {
         const distNum = f.properties['District No.'];
         if (distNum == null) return;
         const center = getLabelCenter(f);
         if (!center) return;
-        L.marker(center, {
-          icon: L.divIcon({
-            className:  'rmap-dist-label',
-            html:       `<span>${distNum}</span>`,
-            iconSize:   [24, 16],
-            iconAnchor: [12, 8]
-          }),
-          interactive: false,
-          keyboard:    false
-        }).addTo(_labelLayer);
+        L.tooltip({ permanent: true, direction: 'center', className: 'rmap-dist-label-tt', interactive: false })
+          .setLatLng(center)
+          .setContent(String(distNum))
+          .addTo(_labelLayer);
       });
-      _labelLayer.addTo(_map);
+      if (_map.getZoom() >= LABEL_MIN_ZOOM) _labelLayer.addTo(_map);
 
-      // Show the reset button now that a state is loaded
+      // Show/hide labels as user zooms
+      _map.on('zoomend', _onZoom);
+
+      // Show reset button now that a state is loaded
       if (_resetBtn) _resetBtn.style.display = '';
+      // ─────────────────────────────────────────────────────────────
 
       _map.flyToBounds(_distLayer.getBounds(), FLY_OPTS);
     } catch (err) {
@@ -681,33 +689,85 @@
   }
 
   // ─── LABEL PLACEMENT ─────────────────────────────────────────────
-  // Uses polylabel (pole of inaccessibility) to guarantee the label
-  // lands inside the actual polygon — critical for concave gerrymander
-  // shapes where the bounding-box center falls in a neighbouring district.
+  // Inline implementation — no external CDN dependency or race condition.
+  // Uses the proper geometric centroid formula (shoelace) which is
+  // guaranteed to be correct for convex polygons and accurate for most
+  // political districts. Falls back gracefully for edge cases.
+
+  function _ringArea(ring) {
+    let a = 0;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      a += (ring[j][0] + ring[i][0]) * (ring[j][1] - ring[i][1]);
+    }
+    return Math.abs(a / 2);
+  }
+
+  function _ringCentroid(ring) {
+    let cx = 0, cy = 0, area = 0;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const cross = ring[j][0] * ring[i][1] - ring[i][0] * ring[j][1];
+      cx   += (ring[j][0] + ring[i][0]) * cross;
+      cy   += (ring[j][1] + ring[i][1]) * cross;
+      area += cross;
+    }
+    area /= 2;
+    return [cx / (6 * area), cy / (6 * area)];
+  }
+
+  function _pointInRing(pt, ring) {
+    let inside = false;
+    const [px, py] = pt;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [xi, yi] = ring[i], [xj, yj] = ring[j];
+      if ((yi > py) !== (yj > py) && px < ((xj - xi) * (py - yi)) / (yj - yi) + xi) {
+        inside = !inside;
+      }
+    }
+    return inside;
+  }
+
   function getLabelCenter(feature) {
     const geom = feature.geometry;
-    let rings;
+    let ring;
     if (geom.type === 'Polygon') {
-      rings = geom.coordinates;
+      ring = geom.coordinates[0];
     } else if (geom.type === 'MultiPolygon') {
-      // Use the largest polygon by exterior ring vertex count
-      rings = geom.coordinates
-        .slice()
-        .sort((a, b) => b[0].length - a[0].length)[0];
+      // Use the largest polygon by area — avoids placing label on a tiny island
+      ring = geom.coordinates
+        .map(poly => poly[0])
+        .sort((a, b) => _ringArea(b) - _ringArea(a))[0];
     } else {
       return null;
     }
-    if (typeof polylabel === 'function') {
-      try {
-        const pt = polylabel(rings, 1.0);
-        return L.latLng(pt[1], pt[0]);
-      } catch (e) { /* fall through */ }
+
+    // Proper geometric centroid
+    const [cx, cy] = _ringCentroid(ring);
+    if (_pointInRing([cx, cy], ring)) return L.latLng(cy, cx);
+
+    // If centroid is outside (concave polygon), walk the ring midpoints
+    // until we find an interior point
+    for (let i = 0; i < ring.length - 1; i++) {
+      const mx = (ring[i][0] + ring[i + 1][0]) / 2;
+      const my = (ring[i][1] + ring[i + 1][1]) / 2;
+      if (_pointInRing([mx, my], ring)) return L.latLng(my, mx);
     }
-    // Fallback: centroid of exterior ring vertices
-    const ext = rings[0];
+
+    // Last resort: vertex average
     let x = 0, y = 0;
-    ext.forEach(([lng, lat]) => { x += lng; y += lat; });
-    return L.latLng(y / ext.length, x / ext.length);
+    ring.forEach(([lng, lat]) => { x += lng; y += lat; });
+    return L.latLng(y / ring.length, x / ring.length);
+  }
+
+  // ─── ZOOM HANDLER ────────────────────────────────────────────────
+  // Named so it can be added and removed cleanly
+
+  function _onZoom() {
+    if (!_labelLayer) return;
+    if (_map.getZoom() >= LABEL_MIN_ZOOM) {
+      if (!_map.hasLayer(_labelLayer)) _labelLayer.addTo(_map);
+    } else {
+      if (_map.hasLayer(_labelLayer)) _map.removeLayer(_labelLayer);
+    }
   }
 
   // ─── MAP INIT ────────────────────────────────────────────────────
@@ -721,14 +781,14 @@
     new MutationObserver(updateTiles).observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
     // Inject reset button into the existing zoom control so it sits
-    // flush with +/− and matches their size automatically
+    // flush with +/− and matches their sizing automatically
     const zoomEl = _map.zoomControl.getContainer();
     _resetBtn = L.DomUtil.create('a', 'leaflet-control-zoom-reset', zoomEl);
-    _resetBtn.innerHTML = '&#8962;';   // ⌂
-    _resetBtn.href      = '#';
-    _resetBtn.title     = 'Reset to full state view';
+    _resetBtn.innerHTML   = '&#8962;';
+    _resetBtn.href        = '#';
+    _resetBtn.title       = 'Reset to full state view';
     _resetBtn.setAttribute('role', 'button');
-    _resetBtn.style.display = 'none';   // hidden until a state is loaded
+    _resetBtn.style.display = 'none';
     L.DomEvent.disableClickPropagation(_resetBtn);
     L.DomEvent.on(_resetBtn, 'click', L.DomEvent.preventDefault);
     L.DomEvent.on(_resetBtn, 'click', () => {
