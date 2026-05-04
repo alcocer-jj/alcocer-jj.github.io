@@ -579,12 +579,12 @@
   // ─── TILES / DARK MODE ───────────────────────────────────────────
 
   const TILES = {
-    light: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    light: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png',
     dark:  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
   };
   const TILE_OPTS = {
-    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    subdomains: 'abc', maxZoom: 19
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> © <a href="https://carto.com/">CARTO</a>',
+    subdomains: 'abcd', maxZoom: 20
   };
   function updateTiles() {
     // Map always uses light tiles regardless of page dark mode
