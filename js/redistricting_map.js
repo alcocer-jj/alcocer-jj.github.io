@@ -179,6 +179,7 @@
   let _stateLayer = null;
   let _distLayer  = null;
   let _labelLayer = null;   // permanent district number labels
+  let _resetCtrl  = null;   // reset-to-state-bounds button
   let _curView    = 'plan';
   let _curPlan    = null;
   let _curMapType = null;
@@ -521,12 +522,44 @@
     if (!_map || !_tileLayer) return;
   }
 
+  // ─── LABEL PLACEMENT ─────────────────────────────────────────────
+  // Uses polylabel (pole of inaccessibility) when available to place
+  // district labels inside the actual polygon boundary — critical for
+  // concave and irregular gerrymander shapes where the bounding-box
+  // center can fall inside a neighbouring district.
+  function getLabelCenter(feature) {
+    const geom = feature.geometry;
+    let rings;
+    if (geom.type === 'Polygon') {
+      rings = geom.coordinates;
+    } else if (geom.type === 'MultiPolygon') {
+      // Use the largest polygon (by exterior ring vertex count)
+      rings = geom.coordinates
+        .slice()
+        .sort((a, b) => b[0].length - a[0].length)[0];
+    } else {
+      return null;
+    }
+    if (typeof polylabel === 'function') {
+      try {
+        const pt = polylabel(rings, 1.0);
+        return L.latLng(pt[1], pt[0]);
+      } catch (e) { /* fall through to centroid */ }
+    }
+    // Fallback: centroid of exterior ring vertices
+    const ext = rings[0];
+    let x = 0, y = 0;
+    ext.forEach(([lng, lat]) => { x += lng; y += lat; });
+    return L.latLng(y / ext.length, x / ext.length);
+  }
+
   // ─── VIEWS ───────────────────────────────────────────────────────
 
   async function showPlanLevel() {
     _curView = 'plan'; _curPlan = null; _curMapType = null; _curMetric = 'enacted';
-    if (_distLayer)  { _map.removeLayer(_distLayer); _distLayer = null; }
+    if (_distLayer)  { _map.removeLayer(_distLayer);  _distLayer  = null; }
     if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
+    if (_resetCtrl)  { _map.removeControl(_resetCtrl); _resetCtrl = null; }
     clearPlanButtons();
     renderControls('plan');
     renderPills(PLAN_PILLS, 'enacted');
@@ -585,8 +618,9 @@
   async function loadState(abbr, planYear, mapType) {
     _curView = abbr; _curPlan = planYear; _curMapType = mapType;
     if (_stateLayer) _map.removeLayer(_stateLayer);
-    if (_distLayer)  { _map.removeLayer(_distLayer); _distLayer = null; }
+    if (_distLayer)  { _map.removeLayer(_distLayer);  _distLayer  = null; }
     if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
+    if (_resetCtrl)  { _map.removeControl(_resetCtrl); _resetCtrl = null; }
 
     const pills = STATE_PILLS[mapType] || STATE_PILLS[T.OLD];
     if (!pills.find(p => p.id === _curMetric)) _curMetric = pills[0].id;
@@ -630,12 +664,15 @@
         }
       }).addTo(_map);
 
-      // ── District number labels — centered in each polygon ─────────
+      // ── District number labels — pole of inaccessibility via polylabel ──
+      // Guarantees the label lands inside the actual polygon boundary,
+      // even for concave or irregular gerrymander shapes.
       _labelLayer = L.layerGroup();
       geo.features.forEach(f => {
         const distNum = f.properties['District No.'];
         if (distNum == null) return;
-        const center = L.geoJSON(f).getBounds().getCenter();
+        const center = getLabelCenter(f);
+        if (!center) return;
         L.marker(center, {
           icon: L.divIcon({
             className: 'rmap-dist-label',
@@ -648,6 +685,24 @@
         }).addTo(_labelLayer);
       });
       _labelLayer.addTo(_map);
+
+      // ── Reset-view button — snaps back to full state bounds ───────
+      const stateBounds = _distLayer.getBounds();
+      const RsetCtrl = L.Control.extend({
+        options: { position: 'topleft' },
+        onAdd() {
+          const btn = L.DomUtil.create('button', 'rmap-reset-btn leaflet-bar');
+          btn.innerHTML = '&#8962;';   // ⌂ house symbol
+          btn.title = 'Reset to full state view';
+          L.DomEvent.disableClickPropagation(btn);
+          L.DomEvent.on(btn, 'click', () => {
+            _map.flyToBounds(stateBounds, { padding: [80, 80], duration: 0.7 });
+          });
+          return btn;
+        }
+      });
+      _resetCtrl = new RsetCtrl();
+      _map.addControl(_resetCtrl);
       // ─────────────────────────────────────────────────────────────
 
       _map.flyToBounds(_distLayer.getBounds(), { padding: [120, 120], duration: 0.7 });
