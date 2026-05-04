@@ -661,20 +661,12 @@
     await showPlanLevel();
   }
 
-  // ─── BUTTON WIRING ───────────────────────────────────────────────
+  // ─── AUTO-INIT ───────────────────────────────────────────────────
+  // Standalone page: no toggle button — initialise directly on load.
 
   document.addEventListener('DOMContentLoaded', () => {
-    const btn       = document.querySelector('.map-toggle-btn[data-map-id="redistricting-2026"]');
-    const container = document.querySelector('.map-dropdown[data-map-id="redistricting-2026"]');
-    if (!btn || !container) return;
-    btn.addEventListener('click', () => {
-      const opening = container.classList.toggle('open');
-      btn.classList.toggle('active', opening);
-      if (opening) {
-        setTimeout(initMap, 60);
-        setTimeout(() => _map?.invalidateSize(), 240);
-      }
-    });
+    setTimeout(initMap, 60);
+    setTimeout(() => _map?.invalidateSize(), 240);
   });
 
 })();
