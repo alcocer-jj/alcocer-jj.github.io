@@ -179,8 +179,11 @@
   let _stateLayer = null;
   let _distLayer  = null;
   let _labelLayer = null;   // permanent district number labels
-  let _resetCtrl  = null;   // reset-to-state-bounds button
+  let _resetBtn   = null;   // reset-view button DOM element (lives in zoom control)
   let _curView    = 'plan';
+
+  // Shared fly-to options — keep loadState and reset button in sync
+  const FLY_OPTS = { padding: [80, 80], duration: 0.7 };
   let _curPlan    = null;
   let _curMapType = null;
   let _curMetric  = 'enacted';
@@ -522,44 +525,13 @@
     if (!_map || !_tileLayer) return;
   }
 
-  // ─── LABEL PLACEMENT ─────────────────────────────────────────────
-  // Uses polylabel (pole of inaccessibility) when available to place
-  // district labels inside the actual polygon boundary — critical for
-  // concave and irregular gerrymander shapes where the bounding-box
-  // center can fall inside a neighbouring district.
-  function getLabelCenter(feature) {
-    const geom = feature.geometry;
-    let rings;
-    if (geom.type === 'Polygon') {
-      rings = geom.coordinates;
-    } else if (geom.type === 'MultiPolygon') {
-      // Use the largest polygon (by exterior ring vertex count)
-      rings = geom.coordinates
-        .slice()
-        .sort((a, b) => b[0].length - a[0].length)[0];
-    } else {
-      return null;
-    }
-    if (typeof polylabel === 'function') {
-      try {
-        const pt = polylabel(rings, 1.0);
-        return L.latLng(pt[1], pt[0]);
-      } catch (e) { /* fall through to centroid */ }
-    }
-    // Fallback: centroid of exterior ring vertices
-    const ext = rings[0];
-    let x = 0, y = 0;
-    ext.forEach(([lng, lat]) => { x += lng; y += lat; });
-    return L.latLng(y / ext.length, x / ext.length);
-  }
-
   // ─── VIEWS ───────────────────────────────────────────────────────
 
   async function showPlanLevel() {
     _curView = 'plan'; _curPlan = null; _curMapType = null; _curMetric = 'enacted';
     if (_distLayer)  { _map.removeLayer(_distLayer);  _distLayer  = null; }
     if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
-    if (_resetCtrl)  { _map.removeControl(_resetCtrl); _resetCtrl = null; }
+    if (_resetBtn)   { _resetBtn.style.display = 'none'; }
     clearPlanButtons();
     renderControls('plan');
     renderPills(PLAN_PILLS, 'enacted');
@@ -620,7 +592,6 @@
     if (_stateLayer) _map.removeLayer(_stateLayer);
     if (_distLayer)  { _map.removeLayer(_distLayer);  _distLayer  = null; }
     if (_labelLayer) { _map.removeLayer(_labelLayer); _labelLayer = null; }
-    if (_resetCtrl)  { _map.removeControl(_resetCtrl); _resetCtrl = null; }
 
     const pills = STATE_PILLS[mapType] || STATE_PILLS[T.OLD];
     if (!pills.find(p => p.id === _curMetric)) _curMetric = pills[0].id;
@@ -664,9 +635,7 @@
         }
       }).addTo(_map);
 
-      // ── District number labels — pole of inaccessibility via polylabel ──
-      // Guarantees the label lands inside the actual polygon boundary,
-      // even for concave or irregular gerrymander shapes.
+      // ── District labels — polylabel places them inside the polygon ─
       _labelLayer = L.layerGroup();
       geo.features.forEach(f => {
         const distNum = f.properties['District No.'];
@@ -675,8 +644,8 @@
         if (!center) return;
         L.marker(center, {
           icon: L.divIcon({
-            className: 'rmap-dist-label',
-            html: `<span>${distNum}</span>`,
+            className:  'rmap-dist-label',
+            html:       `<span>${distNum}</span>`,
             iconSize:   [24, 16],
             iconAnchor: [12, 8]
           }),
@@ -686,26 +655,10 @@
       });
       _labelLayer.addTo(_map);
 
-      // ── Reset-view button — snaps back to full state bounds ───────
-      const stateBounds = _distLayer.getBounds();
-      const RsetCtrl = L.Control.extend({
-        options: { position: 'topleft' },
-        onAdd() {
-          const btn = L.DomUtil.create('button', 'rmap-reset-btn leaflet-bar');
-          btn.innerHTML = '&#8962;';   // ⌂ house symbol
-          btn.title = 'Reset to full state view';
-          L.DomEvent.disableClickPropagation(btn);
-          L.DomEvent.on(btn, 'click', () => {
-            _map.flyToBounds(stateBounds, { padding: [80, 80], duration: 0.7 });
-          });
-          return btn;
-        }
-      });
-      _resetCtrl = new RsetCtrl();
-      _map.addControl(_resetCtrl);
-      // ─────────────────────────────────────────────────────────────
+      // Show the reset button now that a state is loaded
+      if (_resetBtn) _resetBtn.style.display = '';
 
-      _map.flyToBounds(_distLayer.getBounds(), { padding: [120, 120], duration: 0.7 });
+      _map.flyToBounds(_distLayer.getBounds(), FLY_OPTS);
     } catch (err) {
       const yr = YEAR_LABEL[planYear] || planYear;
       setMsg(`<strong>${STATES[abbr]?.name} — ${yr}</strong> not yet available.<br>
@@ -727,6 +680,36 @@
     }
   }
 
+  // ─── LABEL PLACEMENT ─────────────────────────────────────────────
+  // Uses polylabel (pole of inaccessibility) to guarantee the label
+  // lands inside the actual polygon — critical for concave gerrymander
+  // shapes where the bounding-box center falls in a neighbouring district.
+  function getLabelCenter(feature) {
+    const geom = feature.geometry;
+    let rings;
+    if (geom.type === 'Polygon') {
+      rings = geom.coordinates;
+    } else if (geom.type === 'MultiPolygon') {
+      // Use the largest polygon by exterior ring vertex count
+      rings = geom.coordinates
+        .slice()
+        .sort((a, b) => b[0].length - a[0].length)[0];
+    } else {
+      return null;
+    }
+    if (typeof polylabel === 'function') {
+      try {
+        const pt = polylabel(rings, 1.0);
+        return L.latLng(pt[1], pt[0]);
+      } catch (e) { /* fall through */ }
+    }
+    // Fallback: centroid of exterior ring vertices
+    const ext = rings[0];
+    let x = 0, y = 0;
+    ext.forEach(([lng, lat]) => { x += lng; y += lat; });
+    return L.latLng(y / ext.length, x / ext.length);
+  }
+
   // ─── MAP INIT ────────────────────────────────────────────────────
 
   async function initMap() {
@@ -736,6 +719,22 @@
     _map = L.map('redistricting-map', { center: [37.5, -96], zoom: 4, zoomControl: true });
     _tileLayer = L.tileLayer(TILES.light, TILE_OPTS).addTo(_map);
     new MutationObserver(updateTiles).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+    // Inject reset button into the existing zoom control so it sits
+    // flush with +/− and matches their size automatically
+    const zoomEl = _map.zoomControl.getContainer();
+    _resetBtn = L.DomUtil.create('a', 'leaflet-control-zoom-reset', zoomEl);
+    _resetBtn.innerHTML = '&#8962;';   // ⌂
+    _resetBtn.href      = '#';
+    _resetBtn.title     = 'Reset to full state view';
+    _resetBtn.setAttribute('role', 'button');
+    _resetBtn.style.display = 'none';   // hidden until a state is loaded
+    L.DomEvent.disableClickPropagation(_resetBtn);
+    L.DomEvent.on(_resetBtn, 'click', L.DomEvent.preventDefault);
+    L.DomEvent.on(_resetBtn, 'click', () => {
+      if (_distLayer) _map.flyToBounds(_distLayer.getBounds(), FLY_OPTS);
+    });
+
     await showPlanLevel();
   }
 
