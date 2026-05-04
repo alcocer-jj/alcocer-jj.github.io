@@ -25,6 +25,10 @@ body.page-loaded {
     opacity: 1;
 }
 
+p strong {
+  color: #6d8196;
+}
+
 a {
     color: #966e6d;
     text-decoration: none;
