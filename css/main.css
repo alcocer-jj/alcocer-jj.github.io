@@ -25,12 +25,14 @@ body.page-loaded {
     opacity: 1;
 }
 
+/*
 p strong {
   color: #6d8196;
 }
+*/
 
 a {
-    color: #966e6d;
+    color: #5C766D; /* previous color #966e6d; */
     text-decoration: none;
 }
 
@@ -486,10 +488,10 @@ body.dark-mode .footer-center {
         text-align: left;
     }
 
-    .topnav {        
-        padding: 0px 0px 0px 41px; 
+    .topnav {
+        padding: 0px 0px 0px 41px;
         transition: opacity 0.45s ease, transform 0.45s ease-in-out;
-        background-color: #faf9f9;        
+        background-color: #faf9f9;
         text-align: center;
     }
 
@@ -500,38 +502,38 @@ body.dark-mode .footer-center {
         height: 50px;
         padding: 0;
     }
-        
+
     .icon-button i {
-        position: absolute;        
-        top: 50%; left: 50%;        
-        transform: translate(-50%, -50%);        
-        font-size: 25px;         
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 25px;
         transition: opacity 0.3s ease;
     }
 
-    .icon-button i.fa-xmark {        
-        opacity: 0;        
+    .icon-button i.fa-xmark {
+        opacity: 0;
     }
- 
+
     .icon-button.open i.fa-bars {
-        opacity: 0;        
+        opacity: 0;
     }
-        
+
     .icon-button.open i.fa-xmark {
-        opacity: 1;        
+        opacity: 1;
     }
-        
+
     .st-sunMoonThemeToggleBtn {
-        font-size: 14px;        
+        font-size: 14px;
         margin-top: 7px;
     }
-}   
+}
 
 /* MOBILE DEVICES */
 @media (max-width: 680px) {
-    
+
     .topnav {
-        padding: 0px 0px 0px 30px; 
+        padding: 0px 0px 0px 30px;
     }
 
     .right-nav {
@@ -547,7 +549,5 @@ body.dark-mode .footer-center {
         margin-top: 7px;
         margin-left: 0px;
         text-align: left;
-    }        
+    }
 }
-
-
