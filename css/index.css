@@ -25,7 +25,7 @@ body.dark-mode .intro-paragraph p {
   background-position: center;
   padding: 2rem 2rem 6rem;
   position: relative;
-  min-height: 810px;
+  min-height: 805px;
   max-width: min(1565px, 100% - 50px);
   box-sizing: border-box;
   display: flex;
@@ -128,7 +128,7 @@ body.page-loaded .hero-inner {
 .section-title {
   margin: 16px 60px 0;
   font-size: 50px;
-  color: red; /* #966E6D; */
+  color: #1E4571; /* #966E6D; */
   text-align: center;
   font-family: Georgia, Palatino, "Times New Roman", Times, serif;
 }
