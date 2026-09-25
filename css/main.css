@@ -116,7 +116,7 @@ body.page-loaded .topnav {
     font-size: 28px;
     font-family: Georgia, Palatino, "Times New Roman", Times, serif !important;
     font-weight: normal;
-    color: blue !important;
+    color: black !important;
     text-decoration: none !important;
     white-space: nowrap;
     z-index: 1;
@@ -501,7 +501,7 @@ body.dark-mode .footer-center {
     .topnav {
         padding: 0px 0px 0px 41px;
         transition: opacity 0.45s ease, transform 0.45s ease-in-out;
-        background-color: #faf9f9;
+        background-color: #e8e5f0;  /* #faf9f9; */
         text-align: center;
     }
 
