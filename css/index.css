@@ -53,8 +53,8 @@ body.page-loaded .hero-inner {
 }
 
 .profile-pic {
-  width: 225px;
-  height: 225px;
+  width: 200px;
+  height: 200px;
   background: url("https://avatars.githubusercontent.com/u/84480542?v=4") center/cover no-repeat;
   border-radius: 50%;
   border: none;
@@ -63,7 +63,7 @@ body.page-loaded .hero-inner {
 }
 
 .hero .name {
-  font-size: 90px;
+  font-size: 70px;
   font-weight: normal;
   color: #faf9f9;
   margin: 0.2rem 0;
@@ -73,7 +73,7 @@ body.page-loaded .hero-inner {
 
 .hero .position,
 .hero .institution {
-  font-size: 40px;
+  font-size: 60px;
   color: #faf9f9;
   margin: 0.1rem 0;
   z-index: 2;
@@ -89,7 +89,7 @@ body.page-loaded .hero-inner {
 
 .social-icons a {
   color: #fff !important;
-  font-size: 40px;
+  font-size: 50px;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -160,19 +160,17 @@ body.page-loaded .hero-inner {
 /* ================= RESPONSIVE STYLES ================ */
 @media (max-width: 999px) {
 
-
-
   .hero .name {
-    font-size: 75px;
+    font-size: 65px;
   }
 
   .hero .position,
   .hero .institution {
-    font-size: 25px;
+    font-size: 55px;
   }
 
   .social-icons a {
-    font-size: 40px;
+    font-size: 45px;
     transition: color 0.2s ease;
   }
 }
