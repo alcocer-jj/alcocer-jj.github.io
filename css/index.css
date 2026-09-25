@@ -23,7 +23,7 @@ body.dark-mode .intro-paragraph p {
   url("/imgs/IMG_8128.JPG");
   background-size: cover;
   background-position: center;
-  padding: 3rem 2rem 6rem;
+  padding: 2rem 2rem 6rem;
   position: relative;
   min-height: 800px;
   max-width: min(1565px, 100% - 50px);
