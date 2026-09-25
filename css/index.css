@@ -24,8 +24,8 @@ body.dark-mode .intro-paragraph p {
   background-position: center;
   padding: 4rem 2rem 6rem;
   position: relative;
-  min-height: 700px;
-  max-width: min(1575px, 100% - 50px);
+  min-height: 800px;
+  max-width: min(1565px, 100% - 50px);
   box-sizing: border-box;
   display: flex;
   align-items: center;
