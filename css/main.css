@@ -56,7 +56,7 @@ a:hover {
 }
 
 .topnav {
-    background-color: #e8e5f0; /* #faf9f9; */
+    background-color: transparent; /* #e8e5f0; /* #faf9f9; */
     outline-color: none !important;
     padding-top: 7px;
     padding-bottom: 14px;
