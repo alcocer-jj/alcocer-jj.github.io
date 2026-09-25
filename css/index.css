@@ -17,7 +17,7 @@ body.dark-mode .intro-paragraph p {
   transform: translateY(40px) scaleY(0.95);
   transition: opacity 1.2s ease, transform 1.2s ease;
   margin: 70px auto;
-  border-radius: 20px;
+  border-radius: 25px;
    corner-shape: squircle;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
   url("/imgs/IMG_8128.JPG");
@@ -128,7 +128,7 @@ body.page-loaded .hero-inner {
 .section-title {
   margin: 16px 60px 0;
   font-size: 50px;
-  color: #1E4571; /* #966E6D; */
+  color: red; /* #966E6D; */
   text-align: center;
   font-family: Georgia, Palatino, "Times New Roman", Times, serif;
 }
