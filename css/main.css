@@ -423,7 +423,7 @@ body.page-loaded .topnav {
 /* ================= DARK MODE STYLES ================ */
 body.dark-mode,
 body.dark-mode html {
-    background-color: #1a1a1a !important;
+    background-color: #141618 !important; /* #1a1a1a !important; */
     color: #c8c8c8 !important;
 }
 /* body.dark-mode strong { */
@@ -436,7 +436,7 @@ body.dark-mode .left-nav,
 body.dark-mode .right-nav,
 body.dark-mode .nav-btn,
 body.dark-mode .topnav-name {
-    background-color: #1a1a1a !important;
+    background-color: #141618 !important; /* #1a1a1a !important; */
     color: #faf9f9 !important;
 }
 
@@ -445,13 +445,13 @@ body.dark-mode .st-sunMoonThemeToggleBtn {
 }
 
 body.dark-mode .mobile-menu {
-    background: #1a1a1a;
+    background: #141618; /* #1a1a1a !important; */
     outline-color: none !important;
 }
 
 body.dark-mode .footer,
 body.dark-mode .footer-center {
-    background-color: #1a1a1a !important;
+    background-color: #141618 !important; /* #1a1a1a !important; */
     color: #faf9f9 !important;
     position: relative;
 }
