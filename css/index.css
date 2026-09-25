@@ -18,6 +18,7 @@ body.dark-mode .intro-paragraph p {
   transition: opacity 1.2s ease, transform 1.2s ease;
   margin: 70px auto;
   border-radius: 20px;
+   corner-shape: squircle;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
   url("/imgs/IMG_8128.JPG");
   background-size: cover;
