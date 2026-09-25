@@ -16,7 +16,7 @@ body.dark-mode .intro-paragraph p {
   opacity: 0;
   transform: translateY(40px) scaleY(0.95);
   transition: opacity 1.2s ease, transform 1.2s ease;
-  margin: 65px auto;
+  margin: 60px auto;
   border-radius: 33px;
   corner-shape: squircle;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
