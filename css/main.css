@@ -426,11 +426,7 @@ body.dark-mode html {
     background-color: #141618 !important; /* #1a1a1a !important; */
     color: #c8c8c8 !important;
 }
-/* body.dark-mode strong { */
- /* color: #c9a96e; */
- /* color: #8aab8e; */
- /* color: #6d8196; */
-/*} */
+
 body.dark-mode .topnav,
 body.dark-mode .left-nav,
 body.dark-mode .right-nav,
@@ -454,6 +450,10 @@ body.dark-mode .footer-center {
     background-color: #141618 !important; /* #1a1a1a !important; */
     color: #faf9f9 !important;
     position: relative;
+}
+
+body.dark-mode .footer a {
+    color: #faf9f9 !important;
 }
 
 /* ================= RESPONSIVE STYLES ================ */
