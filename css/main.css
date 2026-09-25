@@ -112,10 +112,10 @@ body.page-loaded .topnav {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 22px;
-    font-family: 'Inter', sans-serif !important;
+    font-size: 20px;
+    font-family: Georgia, Palatino, "Times New Roman", Times, serif !important;
     font-weight: normal;
-    margin-top: 4px;
+
     text-decoration: none !important;
     white-space: nowrap;
     z-index: 1;
