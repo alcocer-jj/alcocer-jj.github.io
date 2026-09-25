@@ -28,7 +28,7 @@ body.dark-mode .intro-paragraph p {
   opacity: 0;
   transform: translateY(40px) scaleY(0.95);
   transition: opacity 1.2s ease, transform 1.2s ease;
-  margin: 75px 65px;
+  margin: 70px 65px;
   border-radius: 25px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
   url("/imgs/IMG_8128.JPG");
@@ -36,7 +36,7 @@ body.dark-mode .intro-paragraph p {
   background-position: center;
   padding: 4rem 2rem 6rem;
   position: relative;
-  min-height: 590px;
+  min-height: 550px;
   display: flex;
   align-items: center;
   justify-content: center;
