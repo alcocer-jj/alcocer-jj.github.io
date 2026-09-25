@@ -78,7 +78,7 @@ a:hover {
 
 @supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
     .topnav {
-        background-color: rgba(232, 229, 240, 0.8);
+        background-color: rgba(232, 229, 240, 0.70);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
     }
