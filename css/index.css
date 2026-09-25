@@ -138,15 +138,21 @@ body.page-loaded .hero-inner {
   font-size: 30px;
   font-style: italic;
   color: #1a1a1a;
-  padding: 16px 200px;
+  padding: 16px 20px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.intro-paragraph{
+.intro-paragraph {
   font-size: 20px;
   text-align: justify;
-  padding: 16px 200px;
+  padding: 16px 20px;
   color: #1a1a1a;
   margin-bottom: 60px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ================= RESPONSIVE STYLES ================ */
