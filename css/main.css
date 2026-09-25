@@ -92,7 +92,7 @@ body.page-loaded .topnav {
     display: flex;
     gap: 10px;
     align-items: center;
-    margin-left: 60px;
+    margin-left: 55px;
 }
 
 .right-nav {
@@ -116,7 +116,7 @@ body.page-loaded .topnav {
     font-size: 26px;
     font-family: Georgia, Palatino, "Times New Roman", Times, serif !important;
     font-weight: normal;
-    color: blue !important;
+    color: green !important;
     text-decoration: none !important;
     white-space: nowrap;
     z-index: 1;
