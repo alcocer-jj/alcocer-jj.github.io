@@ -125,7 +125,7 @@ body.page-loaded .hero-inner {
 .section-title {
   margin: 18px 60px 0;
   font-size: 50px;
-  color: #966E6D;
+  color: #1E4571; /* #966E6D; */
   text-align: center;
 }
 
