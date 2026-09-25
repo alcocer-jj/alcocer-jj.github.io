@@ -160,11 +160,7 @@ body.page-loaded .hero-inner {
 /* ================= RESPONSIVE STYLES ================ */
 @media (max-width: 999px) {
 
-  .hero {
-    margin-top: 70px;
-    margin-left: 50px;
-    margin-right: 50px;
-  }
+
 
   .hero .name {
     font-size: 55px;
