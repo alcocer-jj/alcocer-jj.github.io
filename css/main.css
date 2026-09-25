@@ -113,9 +113,10 @@ body.page-loaded .topnav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 22px;
+    font-size: 24px;
     font-family: Georgia, Palatino, "Times New Roman", Times, serif !important;
     font-weight: normal;
+    color: black;
     text-decoration: none !important;
     white-space: nowrap;
     z-index: 1;
