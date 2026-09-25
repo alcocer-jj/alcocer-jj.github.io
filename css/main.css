@@ -92,14 +92,14 @@ body.page-loaded .topnav {
     display: flex;
     gap: 10px;
     align-items: center;
-    margin-left: 50px;
+    margin-left: 55px;
 }
 
 .right-nav {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 58px;
+    margin-right: 78px;
 }
 
 .right-nav > .desktop-only {
@@ -116,7 +116,7 @@ body.page-loaded .topnav {
     font-size: 26px;
     font-family: Georgia, Palatino, "Times New Roman", Times, serif !important;
     font-weight: normal;
-    color: purple !important;
+    color: red !important;
     text-decoration: none !important;
     white-space: nowrap;
     z-index: 1;
