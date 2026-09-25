@@ -155,3 +155,26 @@ body.page-loaded .hero-inner {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* ================= RESPONSIVE STYLES ================ */
+@media (max-width: 999px) {
+
+  .hero {
+    margin-top: 70px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .hero .name {
+    font-size: 55px;
+  }
+
+  .hero .position,
+  .hero .institution {
+    font-size: 25px;
+  }
+
+  .social-icons a {
+    font-size: 40px;
+    transition: color 0.2s ease;
+  }
