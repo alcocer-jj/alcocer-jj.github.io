@@ -58,8 +58,8 @@ a:hover {
 .topnav {
     background-color: rgba(232, 229, 240, 0.9);
     outline-color: none !important;
-    padding-top: 7px;
-    padding-bottom: 7px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     margin-top: 0;
     margin-bottom: 0;
     position: fixed;
