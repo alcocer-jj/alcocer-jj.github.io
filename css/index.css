@@ -36,12 +36,13 @@ body.dark-mode .intro-paragraph p {
   background-position: center;
   padding: 4rem 2rem 6rem;
   position: relative;
-  min-height: 720px;
+  min-height: 620px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
+
 body.page-loaded .hero {
   opacity: 1;
   transform: translateY(0) scaleY(1);
