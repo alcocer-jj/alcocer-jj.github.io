@@ -56,7 +56,7 @@ a:hover {
 }
 
 .topnav {
-    background-color: rgb(232, 229, 240, 0.85); /* #faf9f9; */
+    background-color: rgb(232, 229, 240, 0.9); /* #faf9f9; */
     outline-color: none !important;
     padding-top: 7px;
     padding-bottom: 14px;
