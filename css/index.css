@@ -17,7 +17,7 @@ body.dark-mode .carousel-item p {
 }
 
 body.dark-mode .intro-section,
-body.dark-mode .intro-quote, 
+body.dark-mode .intro-quote,
 body.dark-mode .intro-paragraph p {
   background-color: #1a1a1a !important;
   color: #faf9f9 !important;
@@ -139,112 +139,9 @@ body.page-loaded .hero-inner {
   text-align: center;
 }
 
-.carousel-container {
-  margin: 16px 60px 60px;
-  position: relative;
-  overflow: hidden;
-  background: #faf9f9;
-  border-radius: 12px;
-  padding: 40px 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 1s ease;
-}
-
-.carousel-item {
-  position: absolute;
-  top: 0;
-  width: calc(100% - 40px); /* full width minus padding left+right */
-  padding: 20px;
-  opacity: 0;
-  transition: opacity 1s ease, transform 1s ease;
-  transform: translateX(100%);
-  text-align: center;
-}
-
-.carousel-item h1,
-.carousel-item h2,
-.carousel-item h3,
-.carousel-item p {
-  color: #1a1a1a;
-  font-family: sans-serif;
-}
-
-.carousel-item h1 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.carousel-item p {
-  font-size: 1.4vw;
-  margin-bottom: 1rem;
-}
-
-.carousel-item.active {
-  opacity: 1;
-  transform: translateX(0);
-  position: relative;
-}
-
-.carousel-item.exiting {
-  transform: translateX(-100%);
-  opacity: 0;
-}
-
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.carousel-dots .dot {
-  height: 12px;
-  width: 12px;
-  margin: 0 5px;
-  background-color: #ccc;
-  border-radius: 50%;
-  display: inline-block;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.carousel-dots .dot.active {
-  background-color: #6D8196;
-}
-
-.article-image-card {
-  width: 100%; /* ⬅️ You can change this */
-  height: 400px;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 0 auto;
-}
-
-.article-image-card img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s ease;
-  border-radius: 12px;
-}
-
-.article-image-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
-}
-
-.article-image-card:hover img {
-  transform: scale(1.02);
-}
-
 .intro-section {
   padding: 16px 100px;
-  background-color: #faf9f9;
+  /* background-color: #faf9f9; */
 }
 
 .intro-quote {
@@ -265,92 +162,92 @@ body.page-loaded .hero-inner {
 
 /* ================= RESPONSIVE STYLES ================ */
 @media (max-width: 999px) {
-          
-  .hero {  
-    margin-top: 70px;     
-    margin-left: 50px;        
-    margin-right: 50px;      
-  }
-            
-  .hero .name {    
-    font-size: 55px;      
-  }
 
-  .hero .position,      
-  .hero .institution {        
-    font-size: 25px;      
-  }
-      
-  .social-icons a {
-    font-size: 40px;        
-    transition: color 0.2s ease;      
-  }
-        
-  .intro-section {
-    padding: 16px 80px;      
-  }
-      
-  .intro-quote {
-    font-size: 26px;    
-    padding-left: 0;    
-    padding-right: 0;    
-    margin-left: 0;    
-    margin-right: 0;      
-  }
-      
-  .intro-paragraph{
-    font-size: 20px;    
-    padding: 16px 0px;      
-  }
-}   
-
-@media (max-width: 680px) {
-      
-  .carousel-container {
-    display: none;      
-  }
-        
   .hero {
-    margin-top: 70px;     
-    margin-left: 30px;        
-    margin-right: 30px;        
-    min-height: 450px;              
+    margin-top: 70px;
+    margin-left: 50px;
+    margin-right: 50px;
   }
-              
-  .hero .name {    
-    font-size: 30px;     
+
+  .hero .name {
+    font-size: 55px;
   }
 
   .hero .position,
-  .hero .institution {        
-    font-size: 25px;      
+  .hero .institution {
+    font-size: 25px;
   }
-      
+
   .social-icons a {
-    font-size: 30px;        
-    transition: color 0.2s ease;      
+    font-size: 40px;
+    transition: color 0.2s ease;
   }
-      
-  .profile-pic {        
-    width: 200px;        
-    height: 200px;      
-  }
-      
-  .section-title {
-    font-size: 35px;        
-    text-align: center;  
-  }
-      
+
   .intro-section {
-    padding: 16px 40px;      
+    padding: 16px 80px;
   }
-      
+
   .intro-quote {
-    font-size: 22px;;      
+    font-size: 26px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
   }
-      
+
   .intro-paragraph{
-    font-size: 20px;    
-    padding: 16px 0px;      
+    font-size: 20px;
+    padding: 16px 0px;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .carousel-container {
+    display: none;
+  }
+
+  .hero {
+    margin-top: 70px;
+    margin-left: 30px;
+    margin-right: 30px;
+    min-height: 450px;
+  }
+
+  .hero .name {
+    font-size: 30px;
+  }
+
+  .hero .position,
+  .hero .institution {
+    font-size: 25px;
+  }
+
+  .social-icons a {
+    font-size: 30px;
+    transition: color 0.2s ease;
+  }
+
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+  }
+
+  .section-title {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .intro-section {
+    padding: 16px 40px;
+  }
+
+  .intro-quote {
+    font-size: 22px;;
+  }
+
+  .intro-paragraph{
+    font-size: 20px;
+    padding: 16px 0px;
   }
 }
