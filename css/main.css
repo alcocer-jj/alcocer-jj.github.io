@@ -50,7 +50,7 @@ a:hover {
 }
 
 .topnav {
-    background-color: rgba(232, 229, 240, 0.9);
+    background-color: rgba(232, 229, 240, 0.85);
     outline-color: none !important;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -280,13 +280,21 @@ body.page-loaded .topnav {
     left: 0;
     right: 0;
     z-index: 999;
-    background: #e8e5f0; /* #faf9f9; */
+    background-color: rgba(232, 229, 240, 0.85);
     padding: 1rem 0;
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 10px;
     display: flex;
+}
+
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+    .mobile-menu {
+        background-color: rgba(232, 229, 240, 0.70);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
 }
 
 .mobile-menu.open {
@@ -425,13 +433,25 @@ body.dark-mode a {
     color: #6d8196;
 }
 
-body.dark-mode .topnav,
+body.dark-mode .topnav {
+    background-color: rgba(20, 22, 24, 0.9) !important;
+    color: #faf9f9 !important;
+}
+
 body.dark-mode .left-nav,
 body.dark-mode .right-nav,
 body.dark-mode .nav-btn,
 body.dark-mode .topnav-name {
-    background-color: #141618 !important; /* #1a1a1a !important; */
+    background-color: transparent !important;
     color: #faf9f9 !important;
+}
+
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+    body.dark-mode .topnav {
+        background-color: rgba(20, 22, 24, 0.7) !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
 }
 
 body.dark-mode .st-sunMoonThemeToggleBtn {
@@ -439,8 +459,16 @@ body.dark-mode .st-sunMoonThemeToggleBtn {
 }
 
 body.dark-mode .mobile-menu {
-    background: #141618; /* #1a1a1a !important; */
+    background-color: rgba(20, 22, 24, 0.85) !important;
     outline-color: none !important;
+}
+
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+    body.dark-mode .mobile-menu {
+        background-color: rgba(20, 22, 24, 0.7) !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
 }
 
 body.dark-mode .footer,
@@ -499,8 +527,26 @@ body.dark-mode .footer a {
     .topnav {
         padding: 0px 0px 0px 41px;
         transition: opacity 0.45s ease, transform 0.45s ease-in-out;
-        background-color: #e8e5f0;  /* #faf9f9; */
+        background-color: rgba(232, 229, 240, 0.85);
         text-align: center;
+    }
+
+    body.dark-mode .topnav {
+        background-color: rgba(20, 22, 24, 0.85) !important;
+    }
+
+    @supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+        .topnav {
+            background-color: rgba(232, 229, 240, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        body.dark-mode .topnav {
+            background-color: rgba(20, 22, 24, 0.7) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
     }
 
     .icon-button {
