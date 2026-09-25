@@ -68,7 +68,7 @@ body.page-loaded .hero-inner {
   color: #faf9f9;
   margin: 0.2rem 0;
   z-index: 2;
-  font-family: 'Times New Roman', Times, serif !important;
+  font-family: Georgia, Palatino, "Times New Roman", Times, serif !important;
 }
 
 .hero .position,
@@ -77,7 +77,7 @@ body.page-loaded .hero-inner {
   color: #faf9f9;
   margin: 0.1rem 0;
   z-index: 2;
-  font-family:'Times New Roman', Times, serif !important;
+  font-family: Georgia, Palatino, "Times New Roman", Times, serif !important;
 }
 
 .social-icons {
