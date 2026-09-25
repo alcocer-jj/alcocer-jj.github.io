@@ -8,7 +8,6 @@ body.dark-mode .section-title {
 body.dark-mode .intro-section,
 body.dark-mode .intro-quote,
 body.dark-mode .intro-paragraph p {
-
   color: #faf9f9 !important;
 }
 
@@ -128,6 +127,7 @@ body.page-loaded .hero-inner {
   font-size: 50px;
   color: #1E4571; /* #966E6D; */
   text-align: center;
+  font-family: Georgia, Palatino, "Times New Roman", Times, serif;
 }
 
 .intro-section {
@@ -143,15 +143,16 @@ body.page-loaded .hero-inner {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  font-family: Georgia, Palatino, "Times New Roman", Times, serif;
 }
 
 .intro-paragraph {
-  font-size: 20px;
+  font-size: 17px;
   text-align: justify;
   padding: 16px 0px;
   color: #1a1a1a;
   margin-bottom: 60px;
-  max-width: 900px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
