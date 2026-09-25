@@ -131,7 +131,6 @@ body.page-loaded .hero-inner {
 
 .intro-section {
   padding: 16px 100px;
-  /* background-color: #faf9f9; */
 }
 
 .intro-quote {
@@ -139,13 +138,13 @@ body.page-loaded .hero-inner {
   font-size: 26px;
   font-style: italic;
   color: #1a1a1a;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .intro-paragraph{
   font-size: 20px;
   text-align: left;
-  padding: 16px 0px;
+  padding: 36px 0px;
   color: #1a1a1a;
   margin-bottom: 60px;
 }
