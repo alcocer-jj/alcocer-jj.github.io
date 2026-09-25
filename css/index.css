@@ -139,7 +139,7 @@ body.page-loaded .hero-inner {
   font-size: 30px;
   font-style: italic;
   color: #1a1a1a;
-  padding: 16px 20px;
+  padding: 16px 0px;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
@@ -148,7 +148,7 @@ body.page-loaded .hero-inner {
 .intro-paragraph {
   font-size: 20px;
   text-align: justify;
-  padding: 16px 20px;
+  padding: 16px 0px;
   color: #1a1a1a;
   margin-bottom: 60px;
   max-width: 900px;
