@@ -5,21 +5,10 @@ body.dark-mode .section-title {
   color: #faf9f9;
 }
 
-body.dark-mode .carousel-container {
-  background: #1a1a1a;
-}
-
-body.dark-mode .carousel-item h1,
-body.dark-mode .carousel-item h2,
-body.dark-mode .carousel-item h3,
-body.dark-mode .carousel-item p {
-  color: #faf9f9;
-}
-
 body.dark-mode .intro-section,
 body.dark-mode .intro-quote,
 body.dark-mode .intro-paragraph p {
-  background-color: #1a1a1a !important;
+
   color: #faf9f9 !important;
 }
 
