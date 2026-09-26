@@ -3,6 +3,7 @@
 :root {
   --content-max-width: 1600px;
   --content-gutter: 25px;
+  --right-nav-offset: 18px;
 }
 
 /* ================= GLOBAL STYLES ================ */
@@ -92,7 +93,7 @@ body.page-loaded .topnav {
     display: flex;
     gap: 10px;
     align-items: center;
-    margin-left: 54px;
+    margin-left: max(var(--content-gutter), (100vw - var(--content-max-width)) / 2);
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
@@ -100,7 +101,7 @@ body.page-loaded .topnav {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 72px;
+    margin-right: calc(max(var(--content-gutter), (100vw - var(--content-max-width)) / 2) + var(--right-nav-offset));
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
