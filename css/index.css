@@ -172,7 +172,7 @@ body.page-loaded .hero-inner {
 @media (max-width: 999px) {
 
   .hero .name {
-    font-size: 65px;
+    font-size: 60px;
   }
 
   .hero .position,
