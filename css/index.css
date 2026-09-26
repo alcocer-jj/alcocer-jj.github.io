@@ -70,14 +70,13 @@ body.page-loaded .hero-inner {
   color: #faf9f9;
   z-index: 2;
   font-family: Georgia, Palatino, "Times New Roman", Times, serif !important;
-  word-spacing: -1px;
+  word-spacing: -2px;
 }
 
 .hero .position,
 .hero .institution {
   font-size: 60px;
   color: #faf9f9;
-  margin: 0.1rem 0;
   z-index: 2;
   font-family: Georgia, Palatino, "Times New Roman", Times, serif !important;
 }
