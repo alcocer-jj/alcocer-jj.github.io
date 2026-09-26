@@ -43,6 +43,7 @@ body.page-loaded .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
+  line-height: 1.1;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s;
@@ -61,7 +62,6 @@ body.page-loaded .hero-inner {
   border-radius: 50%;
   border: none;
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
-  margin-bottom: 1rem;
 }
 
 .hero .name {
