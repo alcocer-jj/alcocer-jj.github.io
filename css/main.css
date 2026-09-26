@@ -490,11 +490,11 @@ body.dark-mode .nav-btn {
 }
 
 body.dark-mode .nav-btn:hover {
-    color: #faf9f9;
+    color: #faf9f9 !important;
 }
 
 body.dark-mode .nav-btn.active {
-    color: #faf9f9;
+    color: #8f8f8f;
 }
 
 body.dark-mode .footer {
