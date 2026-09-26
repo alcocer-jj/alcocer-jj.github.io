@@ -92,7 +92,7 @@ body.page-loaded .topnav {
     display: flex;
     gap: 10px;
     align-items: center;
-    margin-left: max(var(--content-gutter), (100vw - var(--content-max-width)) / 2);
+    margin-left: 10px;
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
