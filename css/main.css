@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
 
+:root {
+  --content-max-width: 1562px;
+  --content-gutter: 25px;
+}
+
 /* ================= GLOBAL STYLES ================ */
 html {
     scroll-behavior: smooth;
@@ -87,7 +92,7 @@ body.page-loaded .topnav {
     display: flex;
     gap: 10px;
     align-items: center;
-    margin-left: 55px;
+    margin-left: max(var(--content-gutter), (100vw - var(--content-max-width)) / 2);
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
@@ -95,7 +100,7 @@ body.page-loaded .topnav {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 70px;
+    margin-right: max(var(--content-gutter), (100vw - var(--content-max-width)) / 2);
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
@@ -516,12 +521,6 @@ body.dark-mode .footer a {
         display: none;
     }
 
-    .right-nav {
-        display: flex;
-        align-items: center;
-        margin-right: 37px;
-    }
-
     .topnav-name {
         position: relative;
         left: auto;
@@ -595,12 +594,6 @@ body.dark-mode .footer a {
 
     .topnav {
         padding: 0px 0px 0px 30px;
-    }
-
-    .right-nav {
-        display: flex;
-        align-items: center;
-        margin-right: 17px;
     }
 
     .topnav-name {
