@@ -100,7 +100,7 @@ body.page-loaded .topnav {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 70px;
+    margin-right: 72px;
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
