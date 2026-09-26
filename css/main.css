@@ -386,9 +386,10 @@ body.page-loaded .topnav {
 }
 
 /* ================= SOCIAL BAR ================ */
-/* Frosted vertical bar of profile links on the left edge. It starts parked off
-   screen and slides in once main.js adds .is-visible after a little scrolling. */
 .social-bar {
+    /* One knob for the size of the bar and everything in it. 1.1 makes it ten percent larger.*/
+    --social-bar-scale: 1.05;
+    /* Distance from the left edge of the window */
     --social-bar-inset: 12px;
     --social-bar-glyph: #1E4571;
     --social-bar-brand: #1E4571;
@@ -399,8 +400,8 @@ body.page-loaded .topnav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    padding: 8px;
+    gap: calc(6px * var(--social-bar-scale));
+    padding: calc(8px * var(--social-bar-scale));
     border: 1px solid rgba(255, 255, 255, 0.55);
     border-radius: 999px;
     background-color: rgba(232, 229, 240, 0.85);
@@ -408,7 +409,9 @@ body.page-loaded .topnav {
         0 1px 2px rgba(30, 69, 113, 0.10),
         0 8px 16px -6px rgba(30, 69, 113, 0.20),
         0 22px 40px -14px rgba(30, 69, 113, 0.35);
+    /* Parked past the left edge, far enough that the shadow is hidden too */
     transform: translate(calc(-100% - var(--social-bar-inset) - 32px), -50%);
+    /* The exit is a quick ease-in slide */
     transition:
         transform 0.35s cubic-bezier(0.4, 0, 1, 1),
         background-color 0.4s ease,
@@ -424,6 +427,7 @@ body.page-loaded .topnav {
     }
 }
 
+/* The entrance settles with a small spring */
 .social-bar.is-visible {
     transform: translate(0, -50%);
     transition:
@@ -433,6 +437,8 @@ body.page-loaded .topnav {
         box-shadow 0.4s ease;
 }
 
+/* Tabbing to a link with the keyboard also brings the bar in.
+   It is kept as a separate rule so a browser without the has() selector still reads the rule above. */
 .social-bar:has(:focus-visible) {
     transform: translate(0, -50%);
     transition:
@@ -446,15 +452,18 @@ body.page-loaded .topnav {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: calc(40px * var(--social-bar-scale));
+    height: calc(40px * var(--social-bar-scale));
     border-radius: 50%;
     color: var(--social-bar-glyph);
     transition: background-color 0.25s ease, color 0.25s ease, transform 0.15s ease;
 }
 
+/* Icon sizes come from here. The width and height attributes in the HTML are only a fallback. */
 .social-bar .social-bar-link svg {
     display: block;
+    width: calc(var(--social-bar-icon-w, 20px) * var(--social-bar-scale));
+    height: calc(var(--social-bar-icon-h, 20px) * var(--social-bar-scale));
     pointer-events: none;
 }
 
@@ -473,11 +482,19 @@ body.page-loaded .topnav {
     transform: scale(0.94);
 }
 
+/* Brand color each button fills with on hover */
 .social-bar-email      { --social-bar-brand: #1E4571; }
 .social-bar-scholar    { --social-bar-brand: #4285F4; }
 .social-bar-linkedin   { --social-bar-brand: #0A66C2; }
 .social-bar-orcid      { --social-bar-brand: #A6CE39; }
 .social-bar-openreview { --social-bar-brand: #7B1811; }
+
+/* Icon sizes at scale 1, tuned so the five glyphs carry the same visual weight */
+.social-bar-email      { --social-bar-icon-w: 19px;    --social-bar-icon-h: 14.25px; }
+.social-bar-scholar    { --social-bar-icon-w: 22px;    --social-bar-icon-h: 22px; }
+.social-bar-linkedin   { --social-bar-icon-w: 16px;    --social-bar-icon-h: 16px; }
+.social-bar-orcid      { --social-bar-icon-w: 17.65px; --social-bar-icon-h: 18px; }
+.social-bar-openreview { --social-bar-icon-w: 21px;    --social-bar-icon-h: 11.89px; }
 
 /* With reduced motion the slide becomes a short fade */
 @media (prefers-reduced-motion: reduce) {
