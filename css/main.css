@@ -486,7 +486,7 @@ body.dark-mode .mobile-menu {
 
 body.dark-mode .nav-btn {
     background-color: transparent !important;
-    color: #e1e1e1,
+    color: #e1e1e1 !important;
 }
 
 body.dark-mode .nav-btn:hover {
