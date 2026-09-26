@@ -532,7 +532,7 @@ body.dark-mode .footer a {
     }
 
     .topnav {
-        padding: 0px 0px 0px 41px;
+        padding: 0px 0px 0px 30px;
         transition: opacity 0.45s ease, transform 0.45s ease-in-out;
         background-color: rgba(232, 229, 240, 0.85);
         text-align: center;
@@ -587,22 +587,5 @@ body.dark-mode .footer a {
     .st-sunMoonThemeToggleBtn {
         font-size: 14px;
         margin-top: 7px;
-    }
-}
-
-/* MOBILE DEVICES */
-@media (max-width: 680px) {
-
-    .topnav {
-        padding: 0px 0px 0px 30px;
-    }
-
-    .topnav-name {
-        position: relative;
-        left: auto;
-        transform: none;
-        margin-top: 7px;
-        margin-left: 0px;
-        text-align: left;
     }
 }
