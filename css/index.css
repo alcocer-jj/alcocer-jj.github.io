@@ -11,7 +11,7 @@ body.dark-mode .intro-paragraph p {
   color: #faf9f9 !important;
 }
 
-/* ================= HERO SECTION STYLES ================ */
+/* ================= HERO SECTION STYLES ================= */
 .hero {
   opacity: 0;
   transform: translateY(40px) scaleY(0.95);
@@ -125,16 +125,19 @@ body.page-loaded .hero-inner {
   background: conic-gradient(from 0deg, rgba(100, 200, 255, 0.2), transparent 80%);
 }
 
+/* ================= INTRO SECTION STYLES ================= */
 .section-title {
   margin: 16px 60px 0;
   font-size: 50px;
   color: #1E4571; /* #966E6D; */
   text-align: center;
   font-family: Georgia, Palatino, "Times New Roman", Times, serif;
+  transition: color 0.4s ease;
 }
 
 .intro-section {
   padding: 16px 25px;
+  transition: color 0.4s ease;
 }
 
 .intro-quote {
@@ -146,6 +149,7 @@ body.page-loaded .hero-inner {
   margin-left: auto;
   margin-right: auto;
   font-family: Georgia, Palatino, "Times New Roman", Times, serif;
+  transition: color 0.4s ease;
 }
 
 .intro-paragraph {
@@ -156,13 +160,9 @@ body.page-loaded .hero-inner {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  transition: color 0.4s ease;
 }
 
-.section-title { transition: color 0.4s ease; }
-.intro-section { transition: color 0.4s ease; }
-.intro-quote { transition: color 0.4s ease; }
-
-.intro-paragraph,
 .intro-paragraph p {
   transition: color 0.4s ease;
 }

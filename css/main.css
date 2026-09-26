@@ -3,6 +3,7 @@
 /* ================= GLOBAL STYLES ================ */
 html {
     scroll-behavior: smooth;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 body {
@@ -27,9 +28,9 @@ body.page-loaded {
 }
 
 a {
-    color: #1E4571
-; /* previous color #966e6d; #8aab8e; */
+    color: #1E4571; /* previous color #966e6d; #8aab8e; */
     text-decoration: none;
+    transition: color 0.4s ease;
 }
 
 a:hover {
@@ -87,6 +88,7 @@ body.page-loaded .topnav {
     gap: 10px;
     align-items: center;
     margin-left: 55px;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .right-nav {
@@ -94,6 +96,7 @@ body.page-loaded .topnav {
     align-items: center;
     gap: 10px;
     margin-right: 70px;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .right-nav > .desktop-only {
@@ -114,6 +117,7 @@ body.page-loaded .topnav {
     text-decoration: none !important;
     white-space: nowrap;
     z-index: 1;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .topnav-name:hover {
@@ -142,6 +146,7 @@ body.page-loaded .topnav {
     outline: none !important;
     background-color: none !important;
     white-space: nowrap;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .nav-btn:hover {
@@ -179,6 +184,7 @@ body.page-loaded .topnav {
     height: 1.7em;
     color: black;
     font-size: 14px;
+    transition: color 0.4s ease;
 }
 
 .st-sunMoonThemeToggleBtn:hover {
@@ -335,6 +341,7 @@ body.page-loaded .topnav {
     font-family: 'Inter', sans-serif;
     color: #1E4571;
     border-top: none;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .footer-center {
@@ -346,6 +353,7 @@ body.page-loaded .topnav {
     flex-direction: column;
     gap: 8px;
     padding-bottom: 10px;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* ================= SCROLL‐TO‐TOP BUTTON ================ */
@@ -604,13 +612,3 @@ body.dark-mode .footer a {
         text-align: left;
     }
 }
-
-html { transition: background-color 0.4s ease, color 0.4s ease; }
-a { transition: color 0.4s ease; }
-.left-nav { transition: background-color 0.4s ease, color 0.4s ease; }
-.right-nav { transition: background-color 0.4s ease, color 0.4s ease; }
-.nav-btn { transition: background-color 0.4s ease, color 0.4s ease; }
-.topnav-name { transition: background-color 0.4s ease, color 0.4s ease; }
-.st-sunMoonThemeToggleBtn { transition: color 0.4s ease; }
-.footer { transition: background-color 0.4s ease, color 0.4s ease; }
-.footer-center { transition: background-color 0.4s ease, color 0.4s ease; }
