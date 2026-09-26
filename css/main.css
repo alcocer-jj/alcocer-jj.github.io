@@ -471,8 +471,7 @@ body.dark-mode .mobile-menu {
     }
 }
 
-body.dark-mode .footer,
-body.dark-mode .footer-center {
+body.dark-mode .footer {
     background-color: #141618 !important; /* #1a1a1a !important; */
     color: #faf9f9 !important;
     position: relative;
