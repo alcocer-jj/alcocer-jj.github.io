@@ -440,7 +440,7 @@ body.page-loaded .topnav {
 body.dark-mode,
 body.dark-mode html {
     background-color: #141618 !important; /* #1a1a1a !important; */
-    color: #c8c8c8 !important;
+    color: #faf9f9 !important;
 }
 
 body.dark-mode a {
@@ -468,7 +468,7 @@ body.dark-mode .topnav-name {
 }
 
 body.dark-mode .st-sunMoonThemeToggleBtn {
-    color: white;
+    color: #faf9f9;
 }
 
 body.dark-mode .mobile-menu {
@@ -486,7 +486,7 @@ body.dark-mode .mobile-menu {
 
 body.dark-mode .nav-btn {
     background-color: transparent !important;
-    color: #e1e1e1 !important;
+    color: #8f8f8f !important;
 }
 
 body.dark-mode .nav-btn:hover {
@@ -494,7 +494,7 @@ body.dark-mode .nav-btn:hover {
 }
 
 body.dark-mode .nav-btn.active {
-    color: #e1e1e1;
+    color: #faf9f9;
 }
 
 body.dark-mode .footer {
