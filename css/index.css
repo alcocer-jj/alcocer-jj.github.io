@@ -25,7 +25,7 @@ body.dark-mode .intro-paragraph p {
   padding: 2rem 2rem 6rem;
   position: relative;
   min-height: 805px;
-  max-width: min(1562px, 100% - 50px);
+  max-width: min(var(--content-max-width), 100% - var(--content-gutter) * 2);
   box-sizing: border-box;
   display: flex;
   align-items: center;
