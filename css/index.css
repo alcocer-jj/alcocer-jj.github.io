@@ -70,7 +70,7 @@ body.page-loaded .hero-inner {
   color: #faf9f9;
   z-index: 2;
   font-family: Georgia, Palatino, "Times New Roman", Times, serif !important;
-  word-spacing: -3px;
+  letter-spacing: -0.03em;
   margin-top: -0.1rem;
 }
 
