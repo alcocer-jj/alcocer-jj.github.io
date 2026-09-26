@@ -454,7 +454,6 @@ body.dark-mode .topnav {
 
 body.dark-mode .left-nav,
 body.dark-mode .right-nav,
-body.dark-mode .nav-btn,
 body.dark-mode .topnav-name {
     background-color: transparent !important;
     color: #faf9f9 !important;
@@ -483,6 +482,19 @@ body.dark-mode .mobile-menu {
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
     }
+}
+
+body.dark-mode .nav-btn {
+    background-color: transparent !important;
+    color: #e1e1e1,
+}
+
+body.dark-mode .nav-btn:hover {
+    color: #faf9f9;
+}
+
+body.dark-mode .nav-btn.active {
+    color: #e1e1e1;
 }
 
 body.dark-mode .footer {
