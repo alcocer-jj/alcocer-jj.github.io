@@ -43,7 +43,7 @@ body.page-loaded .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
-  line-height: 1.1;
+  line-height: 1;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s;
@@ -71,6 +71,7 @@ body.page-loaded .hero-inner {
   z-index: 2;
   font-family: Georgia, Palatino, "Times New Roman", Times, serif !important;
   word-spacing: -2px;
+  margin-top: -0.5rem;
 }
 
 .hero .position,
