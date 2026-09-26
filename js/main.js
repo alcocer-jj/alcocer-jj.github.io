@@ -94,14 +94,20 @@ export function initApp() {
   // HIDE navbar on scroll down, SHOW on scroll up
   // ALSO: close mobile menu when navbar hides
   // ALSO: show/hide scroll-to-top button
+  // ALSO slide the social bar in once the page is scrolled and out again at the top
   // Single consolidated scroll handler — no competing style.transform
   // ──────────────────────────────────────
   const toTopButton = document.getElementById("to-top");
+  const socialBar = document.getElementById("socialBar");
+  const socialBarRevealY = 100; // Pixels of scroll before the social bar slides in
   let lastScrollY = window.scrollY;
 
   window.addEventListener("scroll", function () {
     const navbar = document.querySelector(".topnav");
     const currentScrollY = window.scrollY;
+
+    // Social bar stays tucked away near the top and slides in past the reveal point
+    if (socialBar) socialBar.classList.toggle("is-visible", currentScrollY > socialBarRevealY);
 
     // Always show navbar when fully scrolled to the top
     if (currentScrollY <= 0) {
