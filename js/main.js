@@ -200,8 +200,9 @@ export function initApp() {
   // ──────────────────────────────────────
   // SCROLL-TO-TOP BUTTON
   // ──────────────────────────────────────
-  window.topFunction = function() {
-    const duration = 1000; // milliseconds, raise this to slow it down further
+  window.topFunction = function () {
+    // Milliseconds; higher = faster; lower = slower
+    const duration = 1000;
     const startY = window.scrollY;
     const startTime = performance.now();
 
@@ -214,7 +215,7 @@ export function initApp() {
     function step(currentTime) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = easeInOutCubic(progress);
+      const eased = progress; // Was `easeInOutCubic(progress)` before
       window.scrollTo(0, startY * (1 - eased));
 
       if (progress < 1) {
