@@ -4,7 +4,7 @@
 export function initApp() {
   // Force scroll to top in case transforms affect scroll
    window.scrollTo(0, 0);
-    
+
   // ──────────────────────────────────────
   // LINK ATTRIBUTION A HREF SETTER
   // ──────────────────────────────────────
@@ -20,7 +20,7 @@ export function initApp() {
     const key = el.getAttribute('data-link');
     if (links[key]) el.setAttribute('href', links[key]);
   });
-  
+
   // ──────────────────────────────────────
   // MOBILE MENU TOGGLE (bars ⇆ X + slide menu)
   // ──────────────────────────────────────
@@ -201,7 +201,28 @@ export function initApp() {
   // SCROLL-TO-TOP BUTTON
   // ──────────────────────────────────────
   window.topFunction = function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const duration = 1000; // milliseconds, raise this to slow it down further
+    const startY = window.scrollY;
+    const startTime = performance.now();
+
+    function easeInOutCubic(t) {
+      return t < 0.5
+        ? 4 * t * t * t
+        : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function step(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeInOutCubic(progress);
+      window.scrollTo(0, startY * (1 - eased));
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
   };
 
   // ──────────────────────────────────────
@@ -262,4 +283,3 @@ export function initApp() {
   window.addEventListener("DOMContentLoaded", maybeHideSectionTitle);
 
 }
-
