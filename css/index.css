@@ -158,6 +158,15 @@ body.page-loaded .hero-inner {
   margin-right: auto;
 }
 
+.section-title { transition: color 0.4s ease; }
+.intro-section { transition: color 0.4s ease; }
+.intro-quote { transition: color 0.4s ease; }
+
+.intro-paragraph,
+.intro-paragraph p {
+  transition: color 0.4s ease;
+}
+
 /* ================= RESPONSIVE STYLES ================ */
 @media (max-width: 999px) {
 
