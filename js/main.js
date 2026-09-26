@@ -215,8 +215,8 @@ export function initApp() {
     function step(currentTime) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = progress; // Was `easeInOutCubic(progress)` before
-      window.scrollTo(0, startY * (1 - eased));
+      const eased = progress;
+      window.scrollTo({ top: startY * (1 - eased), left: 0, behavior: 'instant' });
 
       if (progress < 1) {
         requestAnimationFrame(step);
