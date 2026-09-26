@@ -141,7 +141,6 @@ body.page-loaded .hero-inner {
   text-align: center;
   font-size: 26px;
   font-style: italic;
-  color: #1a1a1a;
   padding: 16px 0px;
   max-width: 900px;
   margin-left: auto;
@@ -153,7 +152,6 @@ body.page-loaded .hero-inner {
   font-size: 18px;
   text-align: justify;
   padding: 16px 0px;
-  color: #1a1a1a;
   margin-bottom: 60px;
   max-width: 800px;
   margin-left: auto;
