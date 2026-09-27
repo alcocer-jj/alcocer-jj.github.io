@@ -4,18 +4,29 @@
 
 /* ================ PUBLICATION COLORS ================ */
 /* Change any of these to restyle every entry at once.
-   The title, author, and outlet colors are shared by both themes.
-   The button colors switch with the theme in the dark mode block below. */
+   The light values are the defaults, and the dark values replace them in dark mode.
+   Each color fades between the two when the theme changes. */
+
+/* Light mode */
 :root {
   --pub-title: #B45441;
-  --pub-authors: #989598;
-  --pub-outlet: #C39F81;
+  --pub-authors: #797779;
+  --pub-outlet: #90755E;
   --pill-color: #1E4571;
   --pill-fill: #1E4571;
 }
 
+/* Dark mode. The button fill is a slightly deeper shade so its white label stays readable. */
+body.dark-mode {
+  --pub-title: #B45441;
+  --pub-authors: #989598;
+  --pub-outlet: #C39F81;
+  --pill-color: #6d8196;
+  --pill-fill: #65788c;
+}
+
 /* ================ DARK MODE STYLES ================ */
-/* Every rule that differs between light and dark mode lives in this block.
+/* Apart from the publication colors above, every rule that differs between light and dark mode lives in this block.
    Each property changed here has a 0.4s transition on its base rule below,
    matching the body in main.css, so the page fades as one piece. */
 body.dark-mode .text,
@@ -31,12 +42,6 @@ body.dark-mode .text_hide {
 
 body.dark-mode .text_cursor {
   background-color: #faf9f9;
-}
-
-/* White labels on the hover fill need the slightly deeper shade to stay readable */
-body.dark-mode {
-  --pill-color: #6d8196;
-  --pill-fill: #65788c;
 }
 
 body.dark-mode .pub-tabs {
@@ -192,6 +197,7 @@ body.page-loaded .hero-inner {
 .pub-list > li::marker {
   color: var(--pub-title);
   font-weight: 700;
+  transition: color 0.4s ease;
 }
 
 .pub-entry + .pub-entry {
@@ -206,6 +212,7 @@ body.page-loaded .hero-inner {
 .pub-title {
   font-weight: 700;
   color: var(--pub-title);
+  transition: color 0.4s ease;
 }
 
 /* Wrapped author lines sit a little further in, so they read as one line */
@@ -214,6 +221,7 @@ body.page-loaded .hero-inner {
   padding-left: 2ch;
   text-indent: -2ch;
   color: var(--pub-authors);
+  transition: color 0.4s ease;
 }
 
 .pub-name {
@@ -223,11 +231,13 @@ body.page-loaded .hero-inner {
 .pub-meta {
   margin-top: 0.2rem;
   color: var(--pub-outlet);
+  transition: color 0.4s ease;
 }
 
 .pub-outlet {
   font-style: italic;
   color: var(--pub-outlet);
+  transition: color 0.4s ease;
 }
 
 /* Buttons are outlined in the link color and fill solid on hover */
@@ -329,6 +339,7 @@ body.page-loaded .hero-inner {
 .pub-notice {
   text-align: center;
   color: var(--pub-authors);
+  transition: color 0.4s ease;
 }
 
 /* ================= PUBLICATION TABS ================ */
