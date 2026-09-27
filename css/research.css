@@ -2,6 +2,18 @@
   box-sizing: border-box;
 }
 
+/* ================ PUBLICATION COLORS ================ */
+/* Change any of these to restyle every entry at once.
+   The title, author, and outlet colors are shared by both themes.
+   The button colors switch with the theme in the dark mode block below. */
+:root {
+  --pub-title: #214356;
+  --pub-authors: #989598;
+  --pub-outlet: #C39F81;
+  --pill-color: #1E4571;
+  --pill-fill: #1E4571;
+}
+
 /* ================ DARK MODE STYLES ================ */
 /* Every rule that differs between light and dark mode lives in this block.
    Each property changed here has a 0.4s transition on its base rule below,
@@ -21,8 +33,10 @@ body.dark-mode .text_cursor {
   background-color: #faf9f9;
 }
 
-body.dark-mode .fancy-abstract-button svg {
-  stroke: #6d8196;
+/* White labels on the hover fill need the slightly deeper shade to stay readable */
+body.dark-mode {
+  --pill-color: #6d8196;
+  --pill-fill: #65788c;
 }
 
 body.dark-mode .pub-tabs {
@@ -45,30 +59,6 @@ body.dark-mode input[name="pub-tabs"]:checked + .pub-tab {
 /* A slightly deeper take on the dark mode link color so the white label keeps AA contrast */
 body.dark-mode .pub-glider {
   background-color: #65788c;
-}
-
-body.dark-mode .badge-representation {
-  background-color: rgba(240, 190, 80, 0.12);
-  color: #f0be50;
-  border-color: #f0be50;
-}
-
-body.dark-mode .badge-electoral {
-  background-color: rgba(142, 207, 150, 0.12);
-  color: #8ecf96;
-  border-color: #8ecf96;
-}
-
-body.dark-mode .badge-methods {
-  background-color: rgba(122, 184, 216, 0.12);
-  color: #7ab8d8;
-  border-color: #7ab8d8;
-}
-
-body.dark-mode .badge-ai-policy {
-  background-color: rgba(242, 140, 138, 0.12);
-  color: #f28c8a;
-  border-color: #f28c8a;
 }
 
 /* ================= HERO SECTION STYLES ================ */
@@ -186,46 +176,166 @@ body.page-loaded .hero-inner {
   transition: color 0.4s ease;
 }
 
-/* Citation lines stay ragged right. The Overview and the abstracts are justified like the index page. */
-.publication-entry > p {
+/* ================= PUBLICATION LISTS ================ */
+/* research.js builds these from publications.js. Each entry is a title, a With line,
+   a venue or status line, a row of buttons, and for peer-reviewed papers an abstract. */
+.pub-list {
+  margin: 0;
+  padding-left: 2em;
   text-align: left;
 }
 
-/* ================= ABSTRACT TEXT ================ */
-.fancy-abstract-button {
-  margin-top: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
+.pub-list-plain {
+  list-style: none;
+}
+
+.pub-list > li::marker {
+  color: var(--pub-title);
+  font-weight: 700;
+}
+
+.pub-entry + .pub-entry {
+  margin-top: 1.9rem;
+}
+
+.pub-entry p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.pub-title {
+  font-weight: 700;
+  color: var(--pub-title);
+}
+
+/* Wrapped author lines sit a little further in, so they read as one line */
+.pub-authors {
+  margin-top: 0.2rem;
+  padding-left: 2ch;
+  text-indent: -2ch;
+  color: var(--pub-authors);
+}
+
+.pub-name {
+  white-space: nowrap;
+}
+
+.pub-meta {
+  margin-top: 0.2rem;
+}
+
+.pub-outlet {
+  font-style: italic;
+  color: var(--pub-outlet);
+}
+
+.pub-status {
+  color: var(--pub-outlet);
+}
+
+.pub-status cite {
+  font-style: italic;
+}
+
+/* Buttons are outlined in the link color and fill solid on hover */
+.pub-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 0.7rem;
+}
+
+.pub-pills .pub-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 0.6rem;
+  border: 1px solid var(--pill-color);
+  border-radius: 0.375rem;
+  background-color: transparent;
+  color: var(--pill-color);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+@media (hover: hover) {
+  .pub-pills .pub-pill:hover {
+    background-color: var(--pill-fill);
+    border-color: var(--pill-fill);
+    color: #fff;
+    transition-duration: 0.15s;
+  }
+}
+
+.pub-pills .pub-pill:focus-visible {
+  background-color: var(--pill-fill);
+  border-color: var(--pill-fill);
+  color: #fff;
+  outline: 2px solid var(--pill-fill);
+  outline-offset: 2px;
+}
+
+.abstract-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0.6rem;
   padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--pill-color);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.4s ease;
+}
+
+.abstract-toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
   transition: transform 0.3s ease;
 }
 
-.fancy-abstract-button svg {
-  width: 25px;
-  height: 25px;
-  stroke: #1E4571;
-  fill: none;
-  transition: fill 0.3s ease, stroke 0.4s ease, transform 0.3s ease;
-}
-
-.fancy-abstract-button:active svg {
-  fill: none;
-  transition-duration: 0s;
-}
-
-.fancy-abstract-button.active svg {
+.abstract-toggle[aria-expanded="true"] svg {
   transform: rotate(45deg);
 }
 
-.dropdown-menu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
+.abstract-toggle:focus-visible {
+  outline: 2px solid var(--pill-fill);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
-.dropdown-menu.open {
+/* Closed abstracts are also hidden from screen readers until they open */
+.abstract-panel {
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  text-align: justify;
+  transition: max-height 0.5s ease, visibility 0s linear 0.5s;
+}
+
+.abstract-panel.open {
   max-height: 2000px;
+  visibility: visible;
+  transition: max-height 0.5s ease, visibility 0s linear 0s;
+}
+
+.abstract-panel p {
+  margin: 0.6rem 0 0;
+  line-height: 1.7;
+}
+
+.pub-notice {
+  text-align: center;
+  color: var(--pub-authors);
 }
 
 /* ================= PUBLICATION TABS ================ */
@@ -338,85 +448,6 @@ input#tab-wp:checked    ~ .pub-glider { transform: translateX(200%); }
   }
 }
 
-
-/* ================= ENTRY BADGES ================ */
-
-.entry-badges {
-  display: inline-flex;
-  gap: 4px;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-left: 6px;
-  vertical-align: middle;
-}
-
-.badge {
-  font-size: 0.72rem;
-  line-height: 1.25rem;
-  padding: 1px 0.5rem;
-  border-radius: 0.375rem;
-  white-space: nowrap;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  cursor: default;
-  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
-}
-
-/* Representation, yellow */
-.badge-representation {
-  background-color: rgba(174, 144, 82, 0.10);
-  color: #ae9052;
-  border: 1px solid #ae9052;
-}
-
-/* Electoral Systems, green */
-.badge-electoral {
-  background-color: rgba(100, 136, 100, 0.10);
-  color: #648864;
-  border: 1px solid #648864;
-}
-
-/* Methods, blue */
-.badge-methods {
-  background-color: rgba(88, 116, 150, 0.10);
-  color: #587492;
-  border: 1px solid #587492;
-}
-
-/* AI and Policy, red */
-.badge-ai-policy {
-  background-color: rgba(150, 110, 109, 0.10);
-  color: #966e6d;
-  border: 1px solid #966e6d;
-}
-
-/* ================= INTERACTIVE MAP COMPONENT ================ */
-
-/* "Interactive Maps" toggle button with a neon gradient */
-.map-toggle-btn {
-  display: inline-block;
-  padding: 4px 22px;
-  font-size: 15px;
-  font-family: 'Inter', sans-serif;
-  color: white;
-  border: none;
-  border-radius: 5em;
-  background-size: 200% 100%;
-  background-image: linear-gradient(145deg, #ff53eb, #4b4bff, #5de7ff);
-  box-shadow: 2px 2px 8px 1px #4b4bff, -2px -2px 8px 1px #ff53eb;
-  transition: 0.5s;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.map-toggle-btn:hover {
-  background-position: 99%;
-  box-shadow: 2px 2px 8px 1px #5de7ff, -2px -2px 8px 1px #4b4bff;
-}
-.map-toggle-btn:active,
-.map-toggle-btn.active {
-  transform: scale(0.92);
-  box-shadow: 2px 2px 10px 2px #5de7ff, -2px -2px 10px 2px #4b4bff;
-}
 
 /* ================= RESPONSIVE STYLES ================ */
 @media (max-width: 999px) {
