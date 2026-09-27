@@ -94,20 +94,34 @@ export function initApp() {
   // HIDE navbar on scroll down, SHOW on scroll up
   // ALSO: close mobile menu when navbar hides
   // ALSO: show/hide scroll-to-top button
-  // ALSO slide the social bar in once the page is scrolled and out again at the top
+  // ALSO slide the social bar in once the page is scrolled and out again at the top,
+  // and on small screens out again near the bottom so the footer stays clear
   // Single consolidated scroll handler — no competing style.transform
   // ──────────────────────────────────────
   const toTopButton = document.getElementById("to-top");
   const socialBar = document.getElementById("socialBar");
   const socialBarRevealY = 100; // Pixels of scroll before the social bar slides in
+  const socialBarBottomBuffer = 150; // Small screens only. Pixels from the page bottom where the bar drops away
+  const smallScreen = window.matchMedia("(max-width: 999px)"); // Same breakpoint as main.css
   let lastScrollY = window.scrollY;
+
+  // Shows the social bar once the page is past the reveal point. On small screens the bar
+  // sits at the bottom, so it also leaves as the footer comes up rather than covering it.
+  function updateSocialBar() {
+    if (!socialBar) return;
+    const scrollY = window.scrollY;
+    const distanceToBottom = document.documentElement.scrollHeight - window.innerHeight - scrollY;
+    const nearBottom = smallScreen.matches && distanceToBottom <= socialBarBottomBuffer;
+    socialBar.classList.toggle("is-visible", scrollY > socialBarRevealY && !nearBottom);
+  }
+  window.addEventListener("resize", updateSocialBar);
 
   window.addEventListener("scroll", function () {
     const navbar = document.querySelector(".topnav");
     const currentScrollY = window.scrollY;
 
-    // Social bar stays tucked away near the top and slides in past the reveal point
-    if (socialBar) socialBar.classList.toggle("is-visible", currentScrollY > socialBarRevealY);
+    // Social bar slides in past the reveal point and, on small screens, out near the bottom
+    updateSocialBar();
 
     // Always show navbar when fully scrolled to the top
     if (currentScrollY <= 0) {

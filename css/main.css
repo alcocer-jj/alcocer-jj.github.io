@@ -4,6 +4,13 @@
   --content-max-width: 1600px;
   --content-gutter: 25px;
   --right-nav-offset: 18px;
+  /* Social bar size. This sizes the bar and everything in it, so 1.1 is ten percent larger.
+     On desktop, past about 1.15 the bar reaches the body text that starts 80px in on the
+     inner pages, so lower the inset below if you go bigger. */
+  --social-bar-scale: 1.1;
+  /* Social bar distance from the window edge. This is the left edge on desktop.
+     Below 1000px it becomes the bottom edge, set in the 999px block further down. */
+  --social-bar-inset: 12px;
 }
 
 /* ================= GLOBAL STYLES ================ */
@@ -386,11 +393,13 @@ body.page-loaded .topnav {
 }
 
 /* ================= SOCIAL BAR ================ */
+/* Frosted bar of profile links. On desktop it is a column on the left edge, and below
+   1000px it becomes a row at the bottom center. It starts parked off screen and slides
+   in once main.js adds .is-visible. Its size and edge distance are set in the root block at the top of this file. */
 .social-bar {
-    /* One knob for the size of the bar and everything in it. 1.1 makes it ten percent larger.*/
-    --social-bar-scale: 1.05;
-    /* Distance from the left edge of the window */
-    --social-bar-inset: 12px;
+    /* Where the bar waits off screen, far enough that the shadow is hidden too, and where it rests */
+    --social-bar-parked: translate(calc(-100% - var(--social-bar-inset) - 32px), -50%);
+    --social-bar-shown: translate(0, -50%);
     --social-bar-glyph: #1E4571;
     --social-bar-brand: #1E4571;
     position: fixed;
@@ -409,8 +418,7 @@ body.page-loaded .topnav {
         0 1px 2px rgba(30, 69, 113, 0.10),
         0 8px 16px -6px rgba(30, 69, 113, 0.20),
         0 22px 40px -14px rgba(30, 69, 113, 0.35);
-    /* Parked past the left edge, far enough that the shadow is hidden too */
-    transform: translate(calc(-100% - var(--social-bar-inset) - 32px), -50%);
+    transform: var(--social-bar-parked);
     /* The exit is a quick ease-in slide */
     transition:
         transform 0.35s cubic-bezier(0.4, 0, 1, 1),
@@ -429,7 +437,7 @@ body.page-loaded .topnav {
 
 /* The entrance settles with a small spring */
 .social-bar.is-visible {
-    transform: translate(0, -50%);
+    transform: var(--social-bar-shown);
     transition:
         transform 0.6s cubic-bezier(0.34, 1.4, 0.64, 1),
         background-color 0.4s ease,
@@ -440,7 +448,7 @@ body.page-loaded .topnav {
 /* Tabbing to a link with the keyboard also brings the bar in.
    It is kept as a separate rule so a browser without the has() selector still reads the rule above. */
 .social-bar:has(:focus-visible) {
-    transform: translate(0, -50%);
+    transform: var(--social-bar-shown);
     transition:
         transform 0.6s cubic-bezier(0.34, 1.4, 0.64, 1),
         background-color 0.4s ease,
@@ -467,10 +475,17 @@ body.page-loaded .topnav {
     pointer-events: none;
 }
 
-.social-bar .social-bar-link:hover,
 .social-bar .social-bar-link:focus-visible {
     background-color: var(--social-bar-brand);
     color: #ffffff;
+}
+
+/* Hover fill only on devices with a real pointer, so it does not stick after a tap */
+@media (hover: hover) {
+    .social-bar .social-bar-link:hover {
+        background-color: var(--social-bar-brand);
+        color: #ffffff;
+    }
 }
 
 .social-bar .social-bar-link:focus-visible {
@@ -756,7 +771,24 @@ body.dark-mode .social-bar-email {
         margin-top: 7px;
     }
 
+    /* The social bar becomes a row at the bottom center. main.js shows it once the page
+       is scrolled and hides it again near the bottom so it never covers the footer. */
+    :root {
+        --social-bar-inset: 16px;
+    }
+
     .social-bar {
-        display: none;
+        --social-bar-parked: translate(-50%, calc(100% + var(--social-bar-inset) + env(safe-area-inset-bottom, 0px) + 32px));
+        --social-bar-shown: translate(-50%, 0);
+        top: auto;
+        left: 50%;
+        bottom: calc(var(--social-bar-inset) + env(safe-area-inset-bottom, 0px));
+        flex-direction: row;
+    }
+
+    /* The back-to-top arrow shares the bottom edge, so it rises above the bar while the bar
+       is showing. The bar is 40px buttons plus 8px padding per side, scaled, plus its border. */
+    .social-bar.is-visible ~ #to-top {
+        bottom: calc(var(--social-bar-inset) + env(safe-area-inset-bottom, 0px) + 56px * var(--social-bar-scale) + 2px + 6px);
     }
 }
