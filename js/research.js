@@ -3,7 +3,6 @@
 // ----------------------------
 function typing_animation() {
   const textElement = document.querySelector(".text");
-  const textHide = document.querySelector(".text_hide");
   const cursor = document.querySelector(".text_cursor");
 
   const text = textElement.textContent.trim();
@@ -19,10 +18,10 @@ function typing_animation() {
     fill: 'forwards'
   };
 
-  // Animate the text reveal mask
-  textHide.animate([
-    { left: '0%' },
-    { left: `${stepWidth * textLength}%` }
+  // Reveal the word one letter at a time by clipping it, so no solid block covers the photo
+  textElement.animate([
+    { clipPath: 'inset(-0.2em 100% -0.2em 0)' },
+    { clipPath: 'inset(-0.2em 0 -0.2em 0)' }
   ], timings);
 
   // Animate cursor moving with the text

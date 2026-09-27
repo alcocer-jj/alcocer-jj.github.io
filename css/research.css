@@ -29,19 +29,9 @@ body.dark-mode {
 /* Apart from the publication colors above, every rule that differs between light and dark mode lives in this block.
    Each property changed here has a 0.4s transition on its base rule below,
    matching the body in main.css, so the page fades as one piece. */
-body.dark-mode .text,
-body.dark-mode .subtitle,
 body.dark-mode .section-title,
 body.dark-mode .intro-paragraph {
   color: #faf9f9;
-}
-
-body.dark-mode .text_hide {
-  background-color: #141618;
-}
-
-body.dark-mode .text_cursor {
-  background-color: #faf9f9;
 }
 
 body.dark-mode .pub-tabs {
@@ -74,7 +64,7 @@ body.dark-mode .pub-glider {
   margin: 65px auto; /* 70px auto; */
   border-radius: 28px;
   corner-shape: squircle;
-  background-image: none;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/imgs/research.jpg");
   background-size: cover;
   background-position: center;
   padding: 2rem 2rem 6rem;
@@ -121,20 +111,9 @@ body.page-loaded .hero-inner {
   font-family: Georgia, Palatino, "Times New Roman", Times, serif;
   position: relative;
   z-index: 1;
-  color: #1E4571;
-  transition: color 0.4s ease;
-}
-
-/* The typing mask is a solid block of page color, so it fades with the page when the theme changes */
-.text_hide {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #e8e5f0;
-  z-index: 2;
-  transition: background-color 0.4s ease;
+  color: #faf9f9;
+  /* Hidden until research.js types it in. The negative top and bottom keep tall letters from being cut off. */
+  clip-path: inset(-0.2em 100% -0.2em 0);
 }
 
 .text_cursor {
@@ -142,16 +121,14 @@ body.page-loaded .hero-inner {
   top: 0;
   bottom: 0;
   width: 2px;
-  background-color: #1a1a1a;
+  background-color: #faf9f9;
   z-index: 3;
-  transition: background-color 0.4s ease;
 }
 
 .subtitle {
-  color: #1E4571;
+  color: #faf9f9;
   font-size: 40px;
   font-family: Georgia, Palatino, "Times New Roman", Times, serif;
-  transition: color 0.4s ease;
 }
 
 .section-title {
