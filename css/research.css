@@ -2,30 +2,73 @@
   box-sizing: border-box;
 }
 
-body.dark-mode .hero,
+/* ================ DARK MODE STYLES ================ */
+/* Every rule that differs between light and dark mode lives in this block.
+   Each property changed here has a 0.4s transition on its base rule below,
+   matching the body in main.css, so the page fades as one piece. */
+body.dark-mode .text,
+body.dark-mode .subtitle,
 body.dark-mode .section-title,
-body.dark-mode .intro-section {
-  background-color: #141618;
+body.dark-mode .intro-paragraph {
+  color: #faf9f9;
 }
 
 body.dark-mode .text_hide {
   background-color: #141618;
 }
 
-body.dark-mode .text {
-  color: #966E6D !important;
-}
-
 body.dark-mode .text_cursor {
-  background-color: #faf9f9 !important;
+  background-color: #faf9f9;
 }
 
-body.dark-mode .subtitle {
-  color: #faf9f9 !important;
+body.dark-mode .fancy-abstract-button svg {
+  stroke: #6d8196;
 }
 
-body.dark-mode .intro-paragraph {
-  color: #faf9f9 !important;
+body.dark-mode .pub-tabs {
+  border-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(20, 22, 24, 0.9);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.35),
+    0 8px 16px -6px rgba(0, 0, 0, 0.5),
+    0 22px 40px -14px rgba(0, 0, 0, 0.75);
+}
+
+body.dark-mode .pub-tab {
+  color: #dfdfdf;
+}
+
+body.dark-mode input[name="pub-tabs"]:checked + .pub-tab {
+  color: #fff;
+}
+
+/* A slightly deeper take on the dark mode link color so the white label keeps AA contrast */
+body.dark-mode .pub-glider {
+  background-color: #65788c;
+}
+
+body.dark-mode .badge-representation {
+  background-color: rgba(240, 190, 80, 0.12);
+  color: #f0be50;
+  border-color: #f0be50;
+}
+
+body.dark-mode .badge-electoral {
+  background-color: rgba(142, 207, 150, 0.12);
+  color: #8ecf96;
+  border-color: #8ecf96;
+}
+
+body.dark-mode .badge-methods {
+  background-color: rgba(122, 184, 216, 0.12);
+  color: #7ab8d8;
+  border-color: #7ab8d8;
+}
+
+body.dark-mode .badge-ai-policy {
+  background-color: rgba(242, 140, 138, 0.12);
+  color: #f28c8a;
+  border-color: #f28c8a;
 }
 
 /* ================= HERO SECTION STYLES ================ */
@@ -72,26 +115,6 @@ body.page-loaded .hero-inner {
   transform: translateY(0);
 }
 
-.hero .name {
-  font-size: 70px;
-  font-weight: 250;
-  color: #faf9f9;
-  z-index: 2;
-  font-family: Georgia, Palatino, "Times New Roman", Times, serif !important;
-  letter-spacing: -0.05em;
-  margin-top: 0.1rem;
-}
-
-.hero .position,
-.hero .institution {
-  font-size: 40px;
-  color: #faf9f9;
-  z-index: 2;
-  font-family: Georgia, Palatino, "Times New Roman", Times, serif !important;
-  word-spacing: -2px;
-  margin-top: -0.7rem;
-}
-
 /* ================= HEADER TEXT ================ */
 .text_wrapper {
   position: relative;
@@ -100,11 +123,14 @@ body.page-loaded .hero-inner {
 
 .text {
   font-size: 90px;
+  font-family: Georgia, Palatino, "Times New Roman", Times, serif;
   position: relative;
   z-index: 1;
   color: #1E4571;
+  transition: color 0.4s ease;
 }
 
+/* The typing mask is a solid block of page color, so it fades with the page when the theme changes */
 .text_hide {
   position: absolute;
   top: 0;
@@ -113,6 +139,7 @@ body.page-loaded .hero-inner {
   width: 100%;
   background-color: #e8e5f0;
   z-index: 2;
+  transition: background-color 0.4s ease;
 }
 
 .text_cursor {
@@ -122,41 +149,46 @@ body.page-loaded .hero-inner {
   width: 2px;
   background-color: #1a1a1a;
   z-index: 3;
+  transition: background-color 0.4s ease;
 }
 
 .subtitle {
-  color: #1a1a1a;
+  color: #1E4571;
   font-size: 40px;
+  font-family: Georgia, Palatino, "Times New Roman", Times, serif;
+  transition: color 0.4s ease;
 }
 
 .section-title {
-  margin: 18px 60px 0;
+  margin: 16px 60px 0;
   font-size: 50px;
   color: #1E4571;
   text-align: center;
-  text-decoration: none;
+  font-family: Georgia, Palatino, "Times New Roman", Times, serif;
+  transition: color 0.4s ease;
 }
 
 /* ================= BODY OF TEXT ================ */
-
-.subtitle-header {
-  text-align: left;
-  font-size: 20px;
-  padding: 16px 0px;
-  margin-left: 0px;
-}
-
+/* Sections have no fill of their own. The body color shows through, the same as on the index page. */
 .intro-section {
-  padding: 16px 80px;
-  background-color: #faf9f9;
+  padding: 16px 25px;
 }
 
-.intro-paragraph{
-  font-size: 20px;
-  text-align: left;
+.intro-paragraph {
+  font-size: 18px;
+  text-align: justify;
   padding: 16px 0px;
-  color: #1a1a1a;
   margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #1a1a1a;
+  transition: color 0.4s ease;
+}
+
+/* Citation lines stay ragged right. The Overview and the abstracts are justified like the index page. */
+.publication-entry > p {
+  text-align: left;
 }
 
 /* ================= ABSTRACT TEXT ================ */
@@ -172,18 +204,12 @@ body.page-loaded .hero-inner {
 .fancy-abstract-button svg {
   width: 25px;
   height: 25px;
-  stroke: #966E6D;
+  stroke: #1E4571;
   fill: none;
-  transition: fill 0.3s ease, stroke 0.3s ease, transform 0.3s ease;
-}
-
-.fancy-abstract-button:hover svg {
-  fill: none
-;
+  transition: fill 0.3s ease, stroke 0.4s ease, transform 0.3s ease;
 }
 
 .fancy-abstract-button:active svg {
-  stroke: #966E6D;
   fill: none;
   transition-duration: 0s;
 }
@@ -202,181 +228,6 @@ body.page-loaded .hero-inner {
   max-height: 2000px;
 }
 
-.pub-info {
-  font-size: 20px;
-  color: #966E6D;
-}
-
-
-/* ================= VENN DIAGRAM ================ */
-
-.venn-section {
-  padding: 8px 0 40px;
-}
-
-.venn-eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #aaa;
-  text-align: center;
-  margin: 0 0 1.25rem;
-}
-
-.venn-scale-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.venn-area {
-  position: relative;
-  width: 590px;
-  height: 590px;
-  flex-shrink: 0;
-  transform-origin: top center;
-}
-
-.vc {
-  position: absolute;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  mix-blend-mode: multiply;
-}
-
-.vl {
-  position: absolute;
-  z-index: 10;
-  font-family: 'Lora', serif;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.55;
-  width: 140px;
-  transition: color 0.3s;
-}
-
-.vc1 { top: 0;     left: 0;     background: rgba(150,110,109,0.42); }
-.vc2 { top: 0;     left: 230px; background: rgba(88,116,150,0.42);  }
-.vc3 { top: 230px; left: 0;     background: rgba(100,136,100,0.42); }
-.vc4 { top: 230px; left: 230px; background: rgba(174,144,82,0.42);  }
-
-.vl1 { top: 150px; left: 110px; color: #6b3837; }
-.vl2 { top: 150px; left: 355px; text-align: right; color: #1b3a56; }
-.vl3 { top: 380px; left: 110px; color: #274e2e; }
-.vl4 { top: 380px; left: 355px; text-align: right; color: #614109; }
-
-.vcenter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 20;
-  width: 130px;
-  text-align: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: #111;
-  line-height: 1.65;
-  transition: color 0.3s;
-}
-
-.venn-footer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px 20px;
-  margin-top: 1.25rem;
-}
-
-.venn-key {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  color: #888;
-  transition: color 0.3s;
-}
-
-.venn-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-/* ---- Venn dark mode ---- */
-body.dark-mode .vc {
-  mix-blend-mode: screen;
-}
-
-body.dark-mode .vc1 { background: rgba(210,145,143,0.55); }
-body.dark-mode .vc2 { background: rgba(110,155,205,0.55); }
-body.dark-mode .vc3 { background: rgba(130,180,130,0.55); }
-body.dark-mode .vc4 { background: rgba(220,185,100,0.55); }
-
-body.dark-mode .vl1  { color: #f28c8a; }
-body.dark-mode .vl2  { color: #7ab8d8; }
-body.dark-mode .vl3  { color: #8ecf96; }
-body.dark-mode .vl4  { color: #f0be50; }
-body.dark-mode .vcenter { color: #1a1a1a; }
-body.dark-mode .venn-eyebrow { color: #666; }
-body.dark-mode .venn-key   { color: #bbb; }
-
-/* ---- Venn responsive scaling ---- */
-@media (max-width: 780px) {
-  .venn-scale-wrapper { height: 375px; }
-  .venn-area  { width: 375px; height: 375px; }
-  .vc         { width: 229px; height: 229px; }
-  .vc2        { top: 0;      left: 146px; }
-  .vc3        { top: 146px;  left: 0;     }
-  .vc4        { top: 146px;  left: 146px; }
-  .vl         { font-size: 10px; width: 90px; }
-  .vl1        { top: 95px;  left: 70px;  }
-  .vl2        { top: 95px;  left: 226px; }
-  .vl3        { top: 242px; left: 70px;  }
-  .vl4        { top: 242px; left: 226px; }
-  .vcenter    { font-size: 7px; width: 89px; }
-}
-
-@media (max-width: 440px) {
-  .venn-scale-wrapper { height: 300px; }
-  .venn-area  { width: 300px; height: 300px; }
-  .vc         { width: 183px; height: 183px; }
-  .vc2        { top: 0;      left: 117px; }
-  .vc3        { top: 117px;  left: 0;     }
-  .vc4        { top: 117px;  left: 117px; }
-  .vl         { font-size: 8px; width: 71px; }
-  .vl1        { top: 76px;  left: 56px;  }
-  .vl2        { top: 76px;  left: 180px; }
-  .vl3        { top: 193px; left: 56px;  }
-  .vl4        { top: 193px; left: 180px; }
-  .vcenter    { font-size: 6px; width: 71px; }
-}
-
-@media (max-width: 360px) {
-  .venn-scale-wrapper { height: 265px; }
-  .venn-area  { width: 265px; height: 265px; }
-  .vc         { width: 162px; height: 162px; }
-  .vc2        { top: 0;      left: 103px; }
-  .vc3        { top: 103px;  left: 0;     }
-  .vc4        { top: 103px;  left: 103px; }
-  .vl         { font-size: 7px; width: 63px; }
-  .vl1        { top: 67px;  left: 49px;  }
-  .vl2        { top: 67px;  left: 159px; }
-  .vl3        { top: 171px; left: 49px;  }
-  .vl4        { top: 171px; left: 159px; }
-  .vcenter    { font-size: 5px; width: 63px; }
-}
-
-
 /* ================= PUBLICATION TABS ================ */
 
 .pub-tabs-section {
@@ -389,13 +240,19 @@ body.dark-mode .venn-key   { color: #bbb; }
   padding: 2rem 0 0.5rem;
 }
 
+/* The pill uses the same surface as the social bar in main.css */
 .pub-tabs {
   display: flex;
   position: relative;
-  background-color: #fff;
-  box-shadow: 0 0 1px 0 rgba(150,110,109,0.20), 0 6px 12px 0 rgba(150,110,109,0.20);
   padding: 0.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 99px;
+  background-color: rgba(232, 229, 240, 0.85);
+  box-shadow:
+    0 1px 2px rgba(30, 69, 113, 0.10),
+    0 8px 16px -6px rgba(30, 69, 113, 0.20),
+    0 22px 40px -14px rgba(30, 69, 113, 0.35);
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .pub-tabs * {
@@ -413,17 +270,20 @@ input[name="pub-tabs"] {
   height: 36px;
   width: 155px;
   font-size: 0.85rem;
-  font-family: 'Lora', serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   border-radius: 99px;
   cursor: pointer;
-  transition: color 0.15s ease-in;
+  transition: color 0.4s ease;
   color: #1a1a1a;
   white-space: nowrap;
 }
 
+/* The selected label turns white quickly as the glider arrives, while theme changes keep the 0.4s fade */
 input[name="pub-tabs"]:checked + .pub-tab {
   color: #fff;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in;
 }
 
 .pub-glider {
@@ -431,10 +291,10 @@ input[name="pub-tabs"]:checked + .pub-tab {
   display: flex;
   height: 36px;
   width: 155px;
-  background-color: #966e6d;
+  background-color: #1E4571;
   z-index: 1;
   border-radius: 99px;
-  transition: transform 0.25s ease-out;
+  transition: transform 0.25s ease-out, background-color 0.4s ease;
 }
 
 input#tab-peer:checked  ~ .pub-glider { transform: translateX(0); }
@@ -448,24 +308,6 @@ input#tab-wp:checked    ~ .pub-glider { transform: translateX(200%); }
 
 .tab-panel.active {
   display: block;
-}
-
-/* Dark mode */
-body.dark-mode .pub-tabs {
-  background-color: #2a2a2a;
-  box-shadow: 0 0 1px 0 rgba(150,110,109,0.20), 0 6px 12px 0 rgba(0,0,0,0.35);
-}
-
-body.dark-mode .pub-tab {
-  color: #c8c8c8;
-}
-
-body.dark-mode input[name="pub-tabs"]:checked + .pub-tab {
-  color: #fff;
-}
-
-body.dark-mode .pub-glider {
-  background-color: #7a5857;
 }
 
 /* Responsive */
@@ -517,85 +359,63 @@ body.dark-mode .pub-glider {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   cursor: default;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
-/* Race, Identity & Legislative Power — rose */
-.badge-race {
-  background-color: rgba(150,110,109,0.10);
-  color: #966e6d;
-  border: 1px solid #966e6d;
-}
-
-/* Electoral Institutions & Partisan Governance — slate blue */
-.badge-electoral {
-  background-color: rgba(88,116,150,0.10);
-  color: #587492;
-  border: 1px solid #587492;
-}
-
-/* Street-Level Governance & Accountability — sage green */
-.badge-street {
-  background-color: rgba(100,136,100,0.10);
-  color: #648864;
-  border: 1px solid #648864;
-}
-
-/* Racialized Representation in Latin America — amber */
-.badge-latin {
-  background-color: rgba(174,144,82,0.10);
+/* Representation, yellow */
+.badge-representation {
+  background-color: rgba(174, 144, 82, 0.10);
   color: #ae9052;
   border: 1px solid #ae9052;
 }
 
-/* Methods — neutral */
+/* Electoral Systems, green */
+.badge-electoral {
+  background-color: rgba(100, 136, 100, 0.10);
+  color: #648864;
+  border: 1px solid #648864;
+}
+
+/* Methods, blue */
 .badge-methods {
-  background-color: rgba(102,102,102,0.10);
-  color: #666;
-  border: 1px solid #666;
+  background-color: rgba(88, 116, 150, 0.10);
+  color: #587492;
+  border: 1px solid #587492;
 }
 
-/* TBD placeholder */
-.badge-tbd {
-  background-color: rgba(180,180,180,0.10);
-  color: #aaa;
-  border: 1px solid #aaa;
+/* AI and Policy, red */
+.badge-ai-policy {
+  background-color: rgba(150, 110, 109, 0.10);
+  color: #966e6d;
+  border: 1px solid #966e6d;
 }
 
-/* Dark mode */
-body.dark-mode .badge-race {
-  background-color: rgba(242,140,138,0.12);
-  color: #f28c8a;
-  border-color: #f28c8a;
-}
+/* ================= INTERACTIVE MAP COMPONENT ================ */
 
-body.dark-mode .badge-electoral {
-  background-color: rgba(122,184,216,0.12);
-  color: #7ab8d8;
-  border-color: #7ab8d8;
+/* "Interactive Maps" toggle button with a neon gradient */
+.map-toggle-btn {
+  display: inline-block;
+  padding: 4px 22px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  border: none;
+  border-radius: 5em;
+  background-size: 200% 100%;
+  background-image: linear-gradient(145deg, #ff53eb, #4b4bff, #5de7ff);
+  box-shadow: 2px 2px 8px 1px #4b4bff, -2px -2px 8px 1px #ff53eb;
+  transition: 0.5s;
+  cursor: pointer;
+  white-space: nowrap;
 }
-
-body.dark-mode .badge-street {
-  background-color: rgba(142,207,150,0.12);
-  color: #8ecf96;
-  border-color: #8ecf96;
+.map-toggle-btn:hover {
+  background-position: 99%;
+  box-shadow: 2px 2px 8px 1px #5de7ff, -2px -2px 8px 1px #4b4bff;
 }
-
-body.dark-mode .badge-latin {
-  background-color: rgba(240,190,80,0.12);
-  color: #f0be50;
-  border-color: #f0be50;
-}
-
-body.dark-mode .badge-methods {
-  background-color: rgba(180,180,180,0.12);
-  color: #bbb;
-  border-color: #bbb;
-}
-
-body.dark-mode .badge-tbd {
-  background-color: rgba(120,120,120,0.12);
-  color: #777;
-  border-color: #777;
+.map-toggle-btn:active,
+.map-toggle-btn.active {
+  transform: scale(0.92);
+  box-shadow: 2px 2px 10px 2px #5de7ff, -2px -2px 10px 2px #4b4bff;
 }
 
 /* ================= RESPONSIVE STYLES ================ */
@@ -613,15 +433,6 @@ body.dark-mode .badge-tbd {
 
   .hero .subtitle {
     font-size: 30px;
-  }
-
-  .intro-section {
-    padding: 16px 80px;
-  }
-
-  .intro-paragraph{
-    font-size: 20px;
-    padding: 16px 0px;
   }
 }
 
@@ -641,51 +452,4 @@ body.dark-mode .badge-tbd {
   .hero .subtitle {
     font-size: 30px;
   }
-
-  .section-title {
-    font-size: 35px;
-    text-align: center;
-  }
-
-  .intro-section {
-    padding: 16px 40px;
-  }
-
-  .intro-paragraph{
-    font-size: 20px;
-    padding: 16px 0px;
-  }
-    .filters-wrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-
-/* ================= INTERACTIVE MAP COMPONENT ================ */
-
-/* ── "Interactive Maps" toggle button — neon gradient ─────── */
-.map-toggle-btn {
-  display: inline-block;
-  padding: 4px 22px;
-  font-size: 15px;
-  font-family: sans-serif;
-  color: white;
-  border: none;
-  border-radius: 5em;
-  background-size: 200% 100%;
-  background-image: linear-gradient(145deg, #ff53eb, #4b4bff, #5de7ff);
-  box-shadow: 2px 2px 8px 1px #4b4bff, -2px -2px 8px 1px #ff53eb;
-  transition: 0.5s;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.map-toggle-btn:hover {
-  background-position: 99%;
-  box-shadow: 2px 2px 8px 1px #5de7ff, -2px -2px 8px 1px #4b4bff;
-}
-.map-toggle-btn:active,
-.map-toggle-btn.active {
-  transform: scale(0.92);
-  box-shadow: 2px 2px 10px 2px #5de7ff, -2px -2px 10px 2px #4b4bff;
 }
