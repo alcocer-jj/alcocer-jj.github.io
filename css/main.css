@@ -704,6 +704,10 @@ body.dark-mode .social-bar-email {
         display: none;
     }
 
+    .right-nav {
+         margin-right: 16px;
+     }
+
     .topnav-name {
         position: relative;
         left: auto;
