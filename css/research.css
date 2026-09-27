@@ -7,7 +7,7 @@
    The title, author, and outlet colors are shared by both themes.
    The button colors switch with the theme in the dark mode block below. */
 :root {
-  --pub-title: #445F88;
+  --pub-title: #B45441;
   --pub-authors: #989598;
   --pub-outlet: #C39F81;
   --pill-color: #1E4571;
