@@ -149,7 +149,6 @@ body.page-loaded .hero-inner {
   margin-left: auto;
   margin-right: auto;
   font-family: Georgia, Palatino, "Times New Roman", Times, serif;
-  color: #1a1a1a;
   transition: color 0.4s ease;
 }
 
@@ -164,7 +163,6 @@ body.page-loaded .hero-inner {
 }
 
 .intro-paragraph p {
-  color: #1a1a1a;
   transition: color 0.4s ease;
 }
 
