@@ -69,7 +69,7 @@ body.page-loaded .hero-inner {
   font-weight: 250;
   color: #faf9f9;
   z-index: 2;
-  font-family: "Noto Serif Condensed", Georgia, Palatino, "Times New Roman", Times, serif !important;
+  font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
   letter-spacing: -0.05em;
   margin-top: 0.1rem;
 }
