@@ -222,19 +222,12 @@ body.page-loaded .hero-inner {
 
 .pub-meta {
   margin-top: 0.2rem;
+  color: var(--pub-outlet);
 }
 
 .pub-outlet {
   font-style: italic;
   color: var(--pub-outlet);
-}
-
-.pub-status {
-  color: var(--pub-outlet);
-}
-
-.pub-status cite {
-  font-style: italic;
 }
 
 /* Buttons are outlined in the link color and fill solid on hover */
