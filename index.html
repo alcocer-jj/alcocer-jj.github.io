@@ -1,14 +1,12 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="utf-8" />
     <title>Alcocerjj | Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-    rel="stylesheet"
-    href="https://www.alcocerjj.com/css/academicons.min.css"
-    />
-    <link rel="stylesheet" href="https://www.alcocerjj.com/css/main.css" />
-    <link rel="stylesheet" href="https://www.alcocerjj.com/css/index.css" />
+    <link rel="preload" href="/fonts/inter/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
     <!-- ========= NAVBAR ========= -->
@@ -46,9 +44,10 @@
           </svg>
         </label>
         <!-- Hamburger menu icon: mobile only -->
-        <button id="menuIcon" class="nav-btn toggle-btn mobile-only icon-button">
-          <i class="fa fa-bars"></i>
-          <i class="fa fa-xmark"></i>
+        <!-- Icons from Font Awesome Free 6.7.2 (fontawesome.com), licensed CC BY 4.0 -->
+        <button id="menuIcon" class="nav-btn toggle-btn mobile-only icon-button" aria-label="Menu">
+          <svg class="icon-bars" viewBox="0 0 448 512" width="21.875" height="25" aria-hidden="true"><path fill="currentColor" d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
+          <svg class="icon-xmark" viewBox="0 0 384 512" width="18.75" height="25" aria-hidden="true"><path fill="currentColor" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
         </button>
       </div>
     </div>
@@ -138,7 +137,7 @@
     </nav>
 
     <a onclick="topFunction()" id="to-top">
-      <i class="fa-solid fa-angle-up"></i>
+      <svg viewBox="0 0 448 512" width="28" height="32" aria-hidden="true"><path fill="currentColor" d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"/></svg>
     </a>
 
     <footer class="footer">
@@ -156,10 +155,6 @@
       import { initApp } from "/js/main.js";
       document.addEventListener("DOMContentLoaded", initApp);
     </script>
-    <script
-      src="https://kit.fontawesome.com/74504d8101.js"
-      crossorigin="anonymous"
-    ></script>
     <script
       src="https://cdn.usefathom.com/script.js"
       data-site="KLVIAPIB"

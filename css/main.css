@@ -1,4 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+/* ================= FONTS ================ */
+/* Inter is served from /fonts/inter instead of Google Fonts. It's a variable font,
+   so each file covers every weight. The first file holds basic Latin and the second
+   holds extended Latin letters such as the š in Spišské, which a browser only
+   downloads when a page actually uses one. The serif headings use fonts already on
+   the visitor's device, so they need nothing here. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/inter/inter-latin-wght-normal.woff2") format("woff2-variations"),
+       url("/fonts/inter/inter-latin-wght-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+                 U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+                 U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/inter/inter-latin-ext-wght-normal.woff2") format("woff2-variations"),
+       url("/fonts/inter/inter-latin-ext-wght-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+                 U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+                 U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
 
 :root {
   --content-max-width: 1600px;
@@ -391,6 +419,15 @@ body.page-loaded .topnav {
     cursor: pointer;
 }
 
+/* The arrow takes its size from the font size above and sits slightly below the
+   baseline, which matches where the old icon font drew it */
+#to-top svg {
+    height: 1em;
+    width: auto;
+    overflow: visible;
+    vertical-align: -0.125em;
+}
+
 /* ================= SOCIAL BAR ================ */
 /* Frosted bar of profile links. On desktop it is a column on the left edge, and below
    1000px it becomes a row at the bottom center. It starts parked off screen and slides
@@ -749,23 +786,26 @@ body.dark-mode .social-bar-email {
         padding: 0;
     }
 
-    .icon-button i {
+    /* The menu and close icons are inline SVGs stacked in the same spot, and the
+       open class on the button swaps which one shows */
+    .icon-button svg {
         position: absolute;
         top: 50%; left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 25px;
+        height: 25px;
+        width: auto;
         transition: opacity 0.3s ease;
     }
 
-    .icon-button i.fa-xmark {
+    .icon-button .icon-xmark {
         opacity: 0;
     }
 
-    .icon-button.open i.fa-bars {
+    .icon-button.open .icon-bars {
         opacity: 0;
     }
 
-    .icon-button.open i.fa-xmark {
+    .icon-button.open .icon-xmark {
         opacity: 1;
     }
 
