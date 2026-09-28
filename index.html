@@ -60,7 +60,7 @@
       <a href="photography.html" class="nav-btn">Photography</a>
     </div>
     <!-- ========= HERO ========= -->
-    <section class="hero">
+    <section class="hero" data-hero-note="index">
       <div class="hero-wrapper">
         <div class="hero-inner">
           <div class="profile-pic"></div>
@@ -146,15 +146,15 @@
 
     <footer class="footer">
       <div class="footer-section footer-center">
-        <div>&copy; 2022-2026 Jose J. Alcocer.<br>
-            Maintenance of this website is assisted by
-            <a href="https://claude.com/product/claude-code">Claude Code</a>,
-            an AI coding assistant by Anthropic.
+        <div>
+            <button type="button" class="footer-note-link" data-note="aiUsage">AI Usage</button><span class="footer-note-sep" aria-hidden="true">&middot;</span><button type="button" class="footer-note-link" data-note="privacy">Privacy Policy</button><br>
+                &copy; 2022-2026 Jose J. Alcocer.
             </div>
       </div>
     </footer>
     <div id="noise-bg"></div>
 
+    <script src="/js/notes.js"></script>
     <script type="module">
       import { initApp } from "/js/main.js";
       document.addEventListener("DOMContentLoaded", initApp);

@@ -70,7 +70,7 @@
         <a class="nav-btn" href="photography.html">Photography</a>
       </div>
       <!-- ========= HERO ========= -->
-      <section class="hero">
+      <section class="hero" data-hero-note="photography">
         <div class="hero-wrapper">
           <div class="hero-inner">
             <div class="container">
@@ -145,10 +145,9 @@
       <a id="to-top" onclick="topFunction()"><svg viewBox="0 0 448 512" width="28" height="32" aria-hidden="true"><path fill="currentColor" d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"/></svg></a>
       <footer class="footer">
         <div class="footer-section footer-center">
-          <div>&copy; 2022-2026 Jose J. Alcocer.<br>
-            Maintenance of this website is assisted by
-            <a href="https://claude.com/product/claude-code">Claude Code</a>,
-            an AI coding assistant by Anthropic.
+          <div>
+              <button type="button" class="footer-note-link" data-note="aiUsage">AI Usage</button><span class="footer-note-sep" aria-hidden="true">&middot;</span><button type="button" class="footer-note-link" data-note="privacy">Privacy Policy</button><br>
+              &copy; 2022-2026 Jose J. Alcocer.
           </div>
         </div>
       </footer>
@@ -157,6 +156,8 @@
       <script src="/js/photos.js">
       </script>
       <script src="/js/photography.js">
+      </script>
+      <script src="/js/notes.js">
       </script>
       <script type="module">
         import { initApp } from '/js/main.js'; document.addEventListener('DOMContentLoaded', () => {initApp(); });

@@ -391,8 +391,202 @@ body.page-loaded .topnav {
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+/* ================= FOOTER AND HERO NOTES ================ */
+.footer-note-link {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    cursor: pointer;
+}
+
+.footer-note-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+
+.footer-note-sep {
+    margin: 0 0.5em;
+}
+
+.hero-note-button {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+    background-color: rgba(232, 229, 240, 0.85);
+    color: #1E4571;
+    cursor: pointer;
+    box-shadow:
+        0 1px 2px rgba(30, 69, 113, 0.10),
+        0 6px 12px -6px rgba(30, 69, 113, 0.30);
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.4s ease, transform 0.15s ease;
+}
+
+.hero-note-button svg {
+    width: auto;
+    height: 15px;
+}
+
+.hero-note-button[aria-expanded="true"],
+.hero-note-button:focus-visible {
+    background-color: #1E4571;
+    color: #ffffff;
+}
+
+.hero-note-button:focus-visible {
+    outline: 2px solid #1E4571;
+    outline-offset: 2px;
+}
+
+.hero-note-button:active {
+    transform: scale(0.94);
+}
+
+.site-note {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1002;
+    width: min(420px, 100vw - var(--content-gutter) * 2);
+    max-height: min(60vh, 520px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 12px 20px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 16px;
+    background-color: rgba(232, 229, 240, 0.85);
+    box-shadow:
+        0 1px 2px rgba(30, 69, 113, 0.10),
+        0 8px 16px -6px rgba(30, 69, 113, 0.20),
+        0 22px 40px -14px rgba(30, 69, 113, 0.35);
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        background-color 0.4s ease,
+        border-color 0.4s ease,
+        color 0.4s ease;
+}
+
+.site-note[hidden] {
+    display: none;
+}
+
+.site-note.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.site-note:focus {
+    outline: none;
+}
+
+.site-note-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.site-note-title {
+    margin: 0;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: inherit;
+}
+
+.site-note-close {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 28px;
+    height: 28px;
+    margin-right: -8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.site-note-close svg {
+    width: auto;
+    height: 14px;
+}
+
+.site-note-close:focus-visible {
+    outline: 2px solid #1E4571;
+    outline-offset: 1px;
+}
+
+.site-note p {
+    margin: 0 0 0.6em;
+}
+
+.site-note p:last-child {
+    margin-bottom: 0;
+}
+
+.site-note .note-center {
+    text-align: center;
+}
+
+.site-note .note-justify {
+    text-align: justify;
+}
+
+@media (hover: hover) {
+    .hero-note-button:hover,
+    .site-note-close:hover {
+        background-color: #1E4571;
+        color: #ffffff;
+    }
+}
+
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+    .hero-note-button,
+    .site-note {
+        background-color: rgba(232, 229, 240, 0.70);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-note {
+        transform: none;
+        transition-duration: 0.01ms;
+    }
+}
+
 /* ================= SCROLL‐TO‐TOP BUTTON ================ */
 #to-top {
+    display: none;
     background: transparent;
     position: fixed;
     bottom: 16px;
@@ -422,6 +616,9 @@ body.page-loaded .topnav {
 }
 
 /* ================= SOCIAL BAR ================ */
+/* Frosted bar of profile links. On desktop it is a column on the left edge, and below
+   1000px it becomes a row at the bottom center. It starts parked off screen and slides
+   in once main.js adds .is-visible. Its size and edge distance are set in the root block at the top of this file. */
 .social-bar {
     /* Where the bar waits off screen, far enough that the shadow is hidden too, and where it rests */
     --social-bar-parked: translate(calc(-100% - var(--social-bar-inset) - 32px), -50%);
@@ -518,7 +715,6 @@ body.page-loaded .topnav {
     transform: scale(0.94);
 }
 
-/* Brand color each button fills with on hover */
 .social-bar-email      { --social-bar-brand: #1E4571; }
 .social-bar-scholar    { --social-bar-brand: #4285F4; }
 .social-bar-linkedin   { --social-bar-brand: #0A66C2; }
@@ -696,6 +892,50 @@ body.dark-mode .social-bar {
 
 body.dark-mode .social-bar-email {
     --social-bar-brand: #6d8196;
+}
+
+body.dark-mode .site-note,
+body.dark-mode .hero-note-button {
+    border-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(20, 22, 24, 0.9);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.35),
+        0 8px 16px -6px rgba(0, 0, 0, 0.5),
+        0 22px 40px -14px rgba(0, 0, 0, 0.75);
+}
+
+body.dark-mode .site-note {
+    color: #faf9f9;
+}
+
+body.dark-mode .hero-note-button {
+    color: #dfdfdf;
+}
+
+body.dark-mode .hero-note-button[aria-expanded="true"],
+body.dark-mode .hero-note-button:focus-visible {
+    background-color: #6d8196;
+    color: #ffffff;
+}
+
+body.dark-mode .hero-note-button:focus-visible,
+body.dark-mode .site-note-close:focus-visible {
+    outline-color: #6d8196;
+}
+
+@media (hover: hover) {
+    body.dark-mode .hero-note-button:hover,
+    body.dark-mode .site-note-close:hover {
+        background-color: #6d8196;
+        color: #ffffff;
+    }
+}
+
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+    body.dark-mode .site-note,
+    body.dark-mode .hero-note-button {
+        background-color: rgba(20, 22, 24, 0.7);
+    }
 }
 
 /* ================= RESPONSIVE STYLES ================ */
