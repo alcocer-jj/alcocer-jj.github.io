@@ -444,6 +444,9 @@ input#tab-wp:checked    ~ .pub-glider { transform: translateX(200%); }
     width: 90px;
     height: 29px;
   }
+  .abstract-panel p {
+    font-size: 12px;
+  }
 }
 
 
