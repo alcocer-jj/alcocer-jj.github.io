@@ -433,7 +433,7 @@ input#tab-wp:checked    ~ .pub-glider { transform: translateX(200%); }
     padding: 0.25rem;
   }
   .abstract-panel p {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
