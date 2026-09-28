@@ -3,7 +3,6 @@
 }
 
 /* ================ FILTER COLORS ================ */
-/* The same navy pair the research page uses for its pills, so the dropdown matches */
 :root {
   --pill-color: #1E4571;
   --pill-fill: #1E4571;
@@ -136,8 +135,6 @@ body.page-loaded .hero-inner {
   z-index: 3;
 }
 
-/* Empty for now, and an empty block takes no height, so the title sits alone.
-   Balanced wrapping keeps a sentence's lines even once one is added. */
 .subtitle {
   color: #faf9f9;
   font-size: 50px;
@@ -174,10 +171,6 @@ body.page-loaded .hero-inner {
 }
 
 /* ================= GALLERY SECTION ================ */
-/* On desktop the social dock floats over the left edge of the window, so the
-   gallery keeps clear of it. The inset comes from the dock's size settings in
-   main.css, so it follows if the dock is resized. Below 1000px the dock moves to
-   the bottom and the gallery uses the normal page gutter. */
 .gallery-section {
   --gallery-gutter: var(--content-gutter);
   padding-bottom: 60px;
@@ -189,7 +182,6 @@ body.page-loaded .hero-inner {
   }
 }
 
-/* Same spacing as the tabs on the research page */
 .filters-wrapper {
   display: flex;
   justify-content: center;
@@ -197,8 +189,6 @@ body.page-loaded .hero-inner {
 }
 
 /* ================= COUNTRY DROPDOWN ================ */
-/* photography.js builds this from the photo list. The box shows the chosen
-   countries as tags, and the list under it holds the rest. */
 .selectMultiple {
   position: relative;
   width: 240px;
@@ -222,7 +212,6 @@ body.page-loaded .hero-inner {
   transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Placeholder text */
 .selectMultiple > div > span {
   position: absolute;
   top: 7px;
@@ -239,7 +228,6 @@ body.page-loaded .hero-inner {
   transform: translate(-4px, 0);
 }
 
-/* Arrow button that opens and closes the list */
 .selectMultiple .arrow {
   position: absolute;
   top: 0;
@@ -290,7 +278,6 @@ body.page-loaded .hero-inner {
   outline-offset: -6px;
 }
 
-/* Chosen countries. The pill is drawn by the before layer so it can shrink on removal. */
 .selectMultiple .tag {
   position: relative;
   display: inline-block;
@@ -325,7 +312,6 @@ body.page-loaded .hero-inner {
   white-space: nowrap;
 }
 
-/* The small x, drawn as two crossed bars */
 .selectMultiple .tag i {
   position: absolute;
   top: 0;
@@ -365,7 +351,6 @@ body.page-loaded .hero-inner {
   outline-offset: 2px;
 }
 
-/* Removal plays in steps. The pill shrinks and the text fades, then the tag fades out. */
 .selectMultiple .tag.remove::before {
   width: 28px;
   transition: width 0.4s cubic-bezier(0.87, -0.41, 0.19, 1.44) 0s;
@@ -387,7 +372,6 @@ body.page-loaded .hero-inner {
   transition: opacity 0.5s ease 0s;
 }
 
-/* List of countries still available */
 .selectMultiple > ul {
   position: absolute;
   top: 100%;
@@ -481,12 +465,10 @@ body.page-loaded .hero-inner {
   color: #fff;
 }
 
-/* An option on its way out of the list can't be clicked twice */
 .selectMultiple > ul li.leaving {
   pointer-events: none;
 }
 
-/* A country returning to the list grows back in */
 .selectMultiple > ul li.notShown {
   transform: scale(0);
   opacity: 0;
@@ -516,8 +498,6 @@ body.page-loaded .hero-inner {
   margin: 0;
 }
 
-/* The inline background color is each photo's average color, which fills its
-   space until the photo arrives */
 .gallery img {
   width: 100%;
   height: auto;
@@ -550,7 +530,6 @@ body.page-loaded .hero-inner {
   color: #797779;
 }
 
-/* Hidden on screen but read aloud, used to announce how many photos are showing */
 .visually-hidden {
   position: absolute;
   width: 1px;

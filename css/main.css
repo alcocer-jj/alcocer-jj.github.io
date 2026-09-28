@@ -1,9 +1,4 @@
 /* ================= FONTS ================ */
-/* Inter is served from /fonts/inter instead of Google Fonts. It's a variable font,
-   so each file covers every weight. The first file holds basic Latin and the second
-   holds extended Latin letters such as the š in Spišské, which a browser only
-   downloads when a page actually uses one. The serif headings use fonts already on
-   the visitor's device, so they need nothing here. */
 @font-face {
   font-family: "Inter";
   font-style: normal;
@@ -419,8 +414,6 @@ body.page-loaded .topnav {
     cursor: pointer;
 }
 
-/* The arrow takes its size from the font size above and sits slightly below the
-   baseline, which matches where the old icon font drew it */
 #to-top svg {
     height: 1em;
     width: auto;
@@ -429,9 +422,6 @@ body.page-loaded .topnav {
 }
 
 /* ================= SOCIAL BAR ================ */
-/* Frosted bar of profile links. On desktop it is a column on the left edge, and below
-   1000px it becomes a row at the bottom center. It starts parked off screen and slides
-   in once main.js adds .is-visible. Its size and edge distance are set in the root block at the top of this file. */
 .social-bar {
     /* Where the bar waits off screen, far enough that the shadow is hidden too, and where it rests */
     --social-bar-parked: translate(calc(-100% - var(--social-bar-inset) - 32px), -50%);
@@ -471,7 +461,6 @@ body.page-loaded .topnav {
     }
 }
 
-/* The entrance settles with a small spring */
 .social-bar.is-visible {
     transform: var(--social-bar-shown);
     transition:
@@ -481,8 +470,6 @@ body.page-loaded .topnav {
         box-shadow 0.4s ease;
 }
 
-/* Tabbing to a link with the keyboard also brings the bar in.
-   It is kept as a separate rule so a browser without the has() selector still reads the rule above. */
 .social-bar:has(:focus-visible) {
     transform: var(--social-bar-shown);
     transition:
@@ -503,7 +490,6 @@ body.page-loaded .topnav {
     transition: background-color 0.25s ease, color 0.25s ease, transform 0.15s ease;
 }
 
-/* Icon sizes come from here. The width and height attributes in the HTML are only a fallback. */
 .social-bar .social-bar-link svg {
     display: block;
     width: calc(var(--social-bar-icon-w, 20px) * var(--social-bar-scale));
@@ -516,7 +502,6 @@ body.page-loaded .topnav {
     color: #ffffff;
 }
 
-/* Hover fill only on devices with a real pointer, so it does not stick after a tap */
 @media (hover: hover) {
     .social-bar .social-bar-link:hover {
         background-color: var(--social-bar-brand);
@@ -537,17 +522,17 @@ body.page-loaded .topnav {
 .social-bar-email      { --social-bar-brand: #1E4571; }
 .social-bar-scholar    { --social-bar-brand: #4285F4; }
 .social-bar-linkedin   { --social-bar-brand: #0A66C2; }
+.social-bar-github     { --social-bar-brand: #8250df; }
 .social-bar-orcid      { --social-bar-brand: #A6CE39; }
 .social-bar-openreview { --social-bar-brand: #7B1811; }
 
-/* Icon sizes at scale 1, tuned so the five glyphs carry the same visual weight */
 .social-bar-email      { --social-bar-icon-w: 19px;    --social-bar-icon-h: 14.25px; }
 .social-bar-scholar    { --social-bar-icon-w: 22px;    --social-bar-icon-h: 22px; }
 .social-bar-linkedin   { --social-bar-icon-w: 16px;    --social-bar-icon-h: 16px; }
+.social-bar-github     { --social-bar-icon-w: 17.42px; --social-bar-icon-h: 17px; }
 .social-bar-orcid      { --social-bar-icon-w: 17.65px; --social-bar-icon-h: 18px; }
 .social-bar-openreview { --social-bar-icon-w: 21px;    --social-bar-icon-h: 11.89px; }
 
-/* With reduced motion the slide becomes a short fade */
 @media (prefers-reduced-motion: reduce) {
     .social-bar {
         opacity: 0;
@@ -786,8 +771,6 @@ body.dark-mode .social-bar-email {
         padding: 0;
     }
 
-    /* The menu and close icons are inline SVGs stacked in the same spot, and the
-       open class on the button swaps which one shows */
     .icon-button svg {
         position: absolute;
         top: 50%; left: 50%;
@@ -814,8 +797,6 @@ body.dark-mode .social-bar-email {
         margin-top: 7px;
     }
 
-    /* The social bar becomes a row at the bottom center. main.js shows it once the page
-       is scrolled and hides it again near the bottom so it never covers the footer. */
     :root {
         --social-bar-inset: 16px;
     }
@@ -829,8 +810,6 @@ body.dark-mode .social-bar-email {
         flex-direction: row;
     }
 
-    /* The back-to-top arrow shares the bottom edge, so it rises above the bar while the bar
-       is showing. The bar is 40px buttons plus 8px padding per side, scaled, plus its border. */
     .social-bar.is-visible ~ #to-top {
         bottom: calc(var(--social-bar-inset) + env(safe-area-inset-bottom, 0px) + 56px * var(--social-bar-scale) + 2px + 6px);
     }

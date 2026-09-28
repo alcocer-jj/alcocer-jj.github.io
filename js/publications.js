@@ -1,30 +1,6 @@
 // ============================================================
 // PUBLICATION DATA FOR research.html
 // ============================================================
-// Each list below builds one tab on the research page. Entries appear in the
-// order they are written here, so keep the newest at the top of each list.
-//
-// Peer-reviewed papers and other writings are numbered automatically,
-// counting down, so the top entry always has the highest number.
-//
-// Authors go in coauthors, one name per string, in byline order and without
-// your own name. The "With" line, its commas, and the final "and" are added
-// for you, and solo papers simply leave the list empty.
-//
-// Titles need no closing period. One is added unless the title already ends
-// in a question mark or other punctuation.
-//
-// BUTTONS
-// link and replication take a web address, and an empty string hides the button.
-// pdf, supplement, and bibtex take true or false. Their files live in the
-// paper's folder, which follows its number, so number 1 uses pdfs/pr-one,
-// number 2 uses pdfs/pr-two, and so on. False hides the button.
-//
-// For working papers, status and venue form the third line, and the venue is
-// set in italics. Either one can be left out.
-//
-// Abstracts go between backticks, so quotes and line breaks can be pasted as is.
-
 window.PUBLICATIONS = {
 
   peerReviewed: [

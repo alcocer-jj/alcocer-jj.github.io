@@ -54,15 +54,10 @@ window.onload = () => {
 // ----------------------------
 // PUBLICATION LISTS
 // ----------------------------
-// Builds the three tabs from window.PUBLICATIONS, which /js/publications.js defines.
-// It runs as the page is read, before main.js fades the page in, so the lists are
-// already in place when the page appears.
-
 const NUMBER_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
   'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
 const TENS_WORDS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
 
-// Buttons in the order they appear. A file button looks inside the paper's pdfs folder.
 const PILLS = [
   { key: 'link', label: 'Link' },
   { key: 'pdf', label: 'PDF', file: 'main.pdf' },
@@ -76,7 +71,6 @@ const ABSTRACT_ICON =
   '<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"/>' +
   '<path d="M8 12H16"/><path d="M12 16V8"/></svg>';
 
-// Spells out a paper's number for its folder name, so 5 becomes five and 21 becomes twenty-one
 function numberWord(n) {
   if (n < 20) return NUMBER_WORDS[n];
   const tens = TENS_WORDS[Math.floor(n / 10)];
@@ -91,14 +85,11 @@ function escapeHTML(text) {
     .replace(/"/g, '&quot;');
 }
 
-// Adds a closing period unless the text already ends in punctuation
 function withPeriod(text) {
   const clean = String(text || '').trim();
   return clean === '' || /[.?!]$/.test(clean) ? clean : `${clean}.`;
 }
 
-// Turns a list of names into "With A.", "With A and B.", or "With A, B, and C."
-// Each name is kept whole, so a wrapped line never splits one in two.
 function withLine(names) {
   const list = Array.isArray(names) ? names.map(n => String(n).replace(/\s+/g, ' ').trim()).filter(Boolean) : [];
   if (list.length === 0) return '';
@@ -109,7 +100,6 @@ function withLine(names) {
   return `With ${joined}${/[.?!]$/.test(list[list.length - 1]) ? '' : '.'}`;
 }
 
-// Gives the downloaded BibTeX file a readable name, like alcocer-2026-police-as-policymakers.bib
 function bibFileName(entry) {
   const words = String(entry.title || 'citation')
     .replace(/^(the|a|an)\s+/i, '')
@@ -171,7 +161,6 @@ function entryHTML(entry, kind, folder) {
   return parts.join('');
 }
 
-// Flags entries that are missing something the layout expects, without stopping the page
 function checkEntry(entry, kind, position) {
   const e = entry || {};
   const missing = [];

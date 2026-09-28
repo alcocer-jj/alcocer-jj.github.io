@@ -54,18 +54,11 @@ window.onload = () => {
 // ----------------------------
 // GALLERY
 // ----------------------------
-// Builds the gallery and the country dropdown from window.PHOTOS, which /js/photos.js
-// defines. That file is written by _gallery/build_gallery.R, so to change the photos,
-// edit _gallery/photos.csv and run the script rather than editing photos.js by hand.
-// Like the publication lists on the research page, this runs as the page is read,
-// so the photos are in place before main.js fades the page in.
-
 const GALLERY_DIR = '/imgs/gallery/';
 
 // How wide a photo is drawn at each window width, so the browser can fetch the
 // smallest copy that still looks sharp. The numbers follow the grid in
-// photography.css, so update them together. Browsers that understand the leading
-// auto measure each photo themselves and skip the rest.
+// photography.css, so update them together
 const PHOTO_SIZES = [
   'auto',
   '(max-width: 559px) calc(100vw - 50px)',
@@ -87,7 +80,6 @@ function escapeHTML(text) {
     .replace(/"/g, '&quot;');
 }
 
-// Leaves out any entry that's missing something the markup needs, without stopping the page
 function isUsable(photo, position) {
   const ok = Boolean(photo)
     && /^[a-z0-9-]+$/.test(photo.name)
@@ -136,10 +128,6 @@ function renderGallery() {
 // ----------------------------
 // COUNTRY DROPDOWN
 // ----------------------------
-// The box shows the chosen countries as tags and the list under it holds the rest.
-// Choosing a country turns it into a tag, and clicking a tag puts it back in the
-// list. With nothing chosen, every photo shows.
-
 const reduceMotion = window.matchMedia
   ? window.matchMedia('(prefers-reduced-motion: reduce)')
   : { matches: false };
@@ -159,14 +147,11 @@ function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, reduceMotion.matches ? 0 : ms));
 }
 
-// Plays an animation and resolves when it ends. With reduced motion, or in a
-// browser without the Web Animations API, it resolves right away.
 function play(element, keyframes, options) {
   if (reduceMotion.matches || typeof element.animate !== 'function') return Promise.resolve();
   return element.animate(keyframes, options).finished.catch(() => {});
 }
 
-// The same height slide jQuery's slideDown and slideUp gave the old dropdown
 function slideFrames(element) {
   const style = getComputedStyle(element);
   return {
@@ -198,7 +183,6 @@ function isOpen() {
   return filter.root.classList.contains('open');
 }
 
-// Options that can still be chosen, leaving out any on their way out of the list
 function liveOptions() {
   return Array.from(filter.list.querySelectorAll('li:not(.leaving) > button'));
 }
@@ -226,7 +210,6 @@ function tagElement(country) {
   return tag;
 }
 
-// Puts a returning country back in its alphabetical spot
 function insertOption(item) {
   const rank = filter.countries.indexOf(item.dataset.country);
   const after = Array.from(filter.list.children)
@@ -252,7 +235,6 @@ function choose(item, fromKeyboard) {
   const country = item.dataset.country;
   if (filter.selected.has(country)) return;
 
-  // Pick where keyboard focus goes before this option leaves the list
   const options = liveOptions();
   const index = options.indexOf(item.querySelector('button'));
   const next = options[index + 1] || options[index - 1] || null;
@@ -281,7 +263,6 @@ async function unchoose(tag, fromKeyboard) {
   applyFilter();
   if (fromKeyboard) filter.toggle.focus();
 
-  // The tag shrinks, fades, and collapses, then the country slides back into the list
   tag.classList.add('remove');
   await wait(400);
   tag.classList.add('disappear');
@@ -332,7 +313,6 @@ function buildFilter(photos) {
 
   filter.root.replaceChildren(filter.box, filter.list);
 
-  // A click from the keyboard has a detail of 0, which is how focus knows to follow along
   filter.toggle.addEventListener('click', () => setOpen(!isOpen()));
   filter.placeholder.addEventListener('click', () => setOpen(!isOpen()));
   filter.list.addEventListener('click', event => {
@@ -344,7 +324,6 @@ function buildFilter(photos) {
     if (tag) unchoose(tag, event.detail === 0);
   });
 
-  // Arrow keys move through the list, Home and End jump to its ends, and Escape closes it
   filter.root.addEventListener('keydown', event => {
     const options = liveOptions();
     if (event.key === 'Escape' && isOpen()) {
@@ -373,7 +352,6 @@ function buildFilter(photos) {
     }
   });
 
-  // Clicking or tabbing anywhere else closes the list
   document.addEventListener('click', event => {
     if (isOpen() && !filter.root.contains(event.target)) setOpen(false);
   });

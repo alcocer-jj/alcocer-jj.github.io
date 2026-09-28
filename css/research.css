@@ -44,7 +44,6 @@ body.dark-mode input[name="pub-tabs"]:checked + .pub-tab {
   color: #fff;
 }
 
-/* Slightly deeper take on the dark mode link color so the white label keeps AA contrast */
 body.dark-mode .pub-glider {
   background-color: #65788c;
 }
