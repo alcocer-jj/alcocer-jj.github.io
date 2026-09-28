@@ -432,6 +432,9 @@ input#tab-wp:checked    ~ .pub-glider { transform: translateX(200%); }
   .pub-tabs {
     padding: 0.25rem;
   }
+  .abstract-panel p {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -443,9 +446,6 @@ input#tab-wp:checked    ~ .pub-glider { transform: translateX(200%); }
   .pub-glider {
     width: 90px;
     height: 29px;
-  }
-  .abstract-panel p {
-    font-size: 12px;
   }
 }
 
