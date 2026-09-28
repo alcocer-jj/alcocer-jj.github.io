@@ -17,7 +17,7 @@ window.SITE_NOTES = {
 
   aiUsage: `
     <p class="note-justify">
-      Maintenance of this website is assisted by
+      Maintenance of my website is assisted by
       <a href="https://claude.com/product/claude-code">Claude Code</a>,
       an AI coding assistant by Anthropic.
     </p>
