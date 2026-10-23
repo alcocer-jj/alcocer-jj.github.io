@@ -137,8 +137,21 @@ window.PUBLICATIONS = {
         need for more nuanced evaluations of drug policy reform.`,
     },
   ],
-
   otherWritings: [
+    {
+      title: "The California Elections and Policy Poll (CEPP) of the CA-11 U.S. House, Poll Conducted October 16-19,",
+      coauthors: ["Christian R. Grose", "Alexander Wong", "Mateo Schehtman", "Christina You"],
+      venue: "USC Democracy and Fair Elections Lab",
+      year: 2026,
+      link: "https://www.thedemocracylab.com/ca11",
+    },
+    {
+      title: "The California Elections and Policy Poll (CEPP) of the California Primary, Poll Conducted May 23-26",
+      coauthors: ["Matthew Mendez Garcia", "Christian R. Grose", "Raquel Centeno", "Jarred Cuellar", "Alexander Wong"],
+      venue: "CSU Long Beach Center for Urban Politics and Policy and USC Democracy and Fair Elections Lab",
+      year: 2026,
+      link: "https://www.politico.com/f/?id=0000019e-804f-d4e8-afde-e04f9b1e0000",
+    },
     {
       title: "What Does the USC Formula from the Cancelled Governor's Debate Teach Us? Candidate Viability Scores Predict Primary Vote Shares in California",
       coauthors: ["Christian R. Grose"],
@@ -173,6 +186,20 @@ window.PUBLICATIONS = {
       venue: "The Center for Election Science",
       year: 2024,
       link: "https://storage.googleapis.com/ces-media/Special%20Reports/Transforming%20the%20Vote.pdf",
+    },
+    {
+      title: "The California Elections and Policy Poll (CEPP) of the California Electorate Poll Conducted September 12-25,",
+      coauthors: ["Christian R. Grose", "Matthew Mendez Garcia", "Raquel Centeno", "Jarred Cuellar", "Matt Lesenyie", "Aloe Villagrana", "Alexander Wong"],
+      venue: "USC Democracy and Fair Elections Lab and CSU Long Beach Center for Urban Politics and Policy",
+      year: 2024,
+      link: "https://today.usc.edu/wp-content/uploads/2024/09/California-Elections-and-Policy-Poll-Statewide-Poll-Toplines-and-Crosstabs-FINAL.pdf?ref=torched.la",
+    },
+    {
+      title: "The California Elections and Policy Polls (CEPP) of California’s Competitive U.S. House Districts, Polls Conducted September 14-21",
+      coauthors: ["Christian R. Grose", "Matthew Mendez Garcia", "Raquel Centeno", "Jarred Cuellar", "Matt Lesenyie"],
+      venue: "USC Democracy and Fair Elections Lab and CSU Long Beach Center for Urban Politics and Policy",
+      year: 2024,
+      link: "https://today.usc.edu/wp-content/uploads/2024/09/USC-CSU-California-Elections-and-Policy-Polls-8-US-House-Districts-Sept-14-21-2024-FINAL-09242024-release.pdf?ref=torched.la",
     },
     {
       title: "America [Mis]Represented: 2022 Vote-Split Elections Report",
