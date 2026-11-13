@@ -235,11 +235,6 @@ window.PUBLICATIONS = {
       link: "",
     },
     {
-      title: "Contact-to-Consequences: Police Encounter Intensity and the Distribution of Everyday Policing",
-      coauthors: ["Benjamin A.T. Graham", "Harry G. Muttram", "Michael Sierra-Arévalo", "Nicholas Weller"],
-      link: "",
-    },
-    {
       title: "Heritage Without History: Indigenous Identity and Colonial Silence in Mexican Municipal Discourse",
       coauthors: ["Blanca E. Alonso", "José E. Múzquiz", "Iskar J. Waluyo"],
       link: "",
